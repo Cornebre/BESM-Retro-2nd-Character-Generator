@@ -2,7 +2,7 @@
 
 ![BESM Logo](BESM2_Retro_logo_dtrpg_250px.png)
 
-A standalone desktop character creation tool for **Big Eyes, Small Mouth 2nd Edition**, built with Python and Tkinter. No installation required — just download and run.
+A standalone desktop character creation tool for **Big Eyes, Small Mouth Retro 2nd Edition**, built with Python and Tkinter. No installation required — just download and run.
 
 ---
 
