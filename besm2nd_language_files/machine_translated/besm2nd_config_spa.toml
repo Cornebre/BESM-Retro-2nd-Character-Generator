@@ -1,0 +1,2401 @@
+# =============================================================================
+# BESM 2ª Edición — Configuración de datos del juego (ESPAÑOL) (MT)
+# Edita este archivo para personalizar el reglamento. La app lo lee al inicio.
+#
+# REGLAS DE TRADUCCIÓN:
+#   - "key"  = identificador interno usado en archivos de guardado. NUNCA cambiar.
+#              La clave es siempre la versión inglesa del nombre.
+#   - "name" = texto mostrado en la interfaz para este idioma.
+#   - Si falta un campo "name", el programa usa "key" como valor de reserva.
+# =============================================================================
+
+[lang]
+code    = "spa"
+label   = "Español (MT)"
+
+# ── Cadenas de la interfaz ────────────────────────────────────────────────────
+[ui]
+# Botones de la barra de herramientas
+btn_save        = "💾 Guardar"
+btn_load        = "📂 Cargar"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Guardar Mecha"
+btn_load_mecha  = "🛠 Cargar Mecha"
+btn_new_tab     = "+ Nuevo Personaje"
+btn_settings    = "⚙ Configuración"
+btn_close_tab   = "✕"
+
+# Ventana del Arsenal
+arsenal_title              = "⚔  El Arsenal"
+arsenal_btn_save           = "💾 Guardar Arsenal"
+arsenal_btn_load           = "📂 Cargar Arsenal"
+arsenal_btn_add            = "+ Añadir al Arsenal"
+arsenal_btn_copy           = "➤ Copiar"
+arsenal_new_weapon         = "Nueva Arma"
+arsenal_section_title      = "Arsenal"
+arsenal_copy_hint          = "— pulsar ➤ para copiar al personaje activo"
+arsenal_empty              = "Aún no hay armas."
+arsenal_weapon_default_name = "Arma"
+arsenal_save_title         = "Guardar Arsenal"
+arsenal_load_title         = "Cargar Arsenal"
+arsenal_invalid_file       = "Archivo de arsenal no válido."
+arsenal_delete_title       = "Eliminar Arma"
+arsenal_delete_body        = "¿Eliminar \"{name}\" del Arsenal?"
+arsenal_no_char_title      = "Sin Personaje"
+arsenal_no_char_body       = "No hay ninguna pestaña de personaje abierta.\nAbre o crea un personaje primero."
+arsenal_status_added       = "\"{name}\" añadida."
+arsenal_status_removed     = "\"{name}\" eliminada."
+arsenal_status_copied      = "\"{name}\" copiada a {char}."
+arsenal_status_saved       = "{n} arma(s) guardada(s)."
+arsenal_status_loaded      = "{n} arma(s) cargada(s)."
+
+# Pestañas de navegación
+page_core       = "① Base"
+page_attrs      = "② Attr. y Armas"
+page_defects    = "③ Defectos"
+page_skills     = "④ Habilidades"
+page_mecha      = "⑤ Mecha"
+page_summary    = "⑥ Resumen"
+
+# Etiquetas de la página base
+label_name          = "Nombre del Personaje"
+label_cp_total      = "PC Total"
+label_cp_spent      = "PC Gastados"
+label_cp_remaining  = "PC Restantes"
+label_stat_formula  = "Fórmula de Stats"
+label_attr_formula  = "Fórmula de Attr."
+label_body          = "Cuerpo"
+label_mind          = "Mente"
+label_soul          = "Alma"
+label_hp            = "PV"
+label_ep            = "PE"
+label_acv           = "VCA"
+label_dcv           = "VCD"
+label_sv            = "Valor de Impacto"
+label_details       = "Detalles del Personaje"
+label_equipment     = "Notas de Equipo"
+
+# Página de Atributos y Armas
+label_attributes    = "Atributos"
+label_weapons       = "Armas"
+btn_add_attr        = "+ Añadir Atributo"
+btn_add_weapon      = "+ Añadir Arma"
+label_level         = "Nv"
+label_cost          = "Coste"
+label_description   = "Descripción"
+label_gear          = "Equipo"
+label_advantages    = "Ventajas"
+label_weapon_defects = "Defectos"
+label_damage        = "Daño"
+
+# Página de Defectos
+label_defects       = "Defectos"
+btn_add_defect      = "+ Añadir Defecto"
+
+# Página de Habilidades
+label_skills        = "Habilidades"
+label_combat_skills = "Habilidades de Combate"
+label_sp_total      = "PH Total"
+label_sp_spent      = "PH Gastados"
+label_sp_remaining  = "PH Restantes"
+label_setting       = "Opción"
+
+# Página de Mecha
+label_mecha         = "Mecha"
+label_mp_total      = "PM Total"
+label_mp_spent      = "PM Gastados"
+btn_add_mecha       = "+ Añadir Mecha"
+
+# Página de Resumen
+label_summary       = "Resumen"
+label_sp_bonus      = "PH bonus"
+label_base_sp       = "PH base"
+label_total_sp      = "PH totales disponibles"
+
+# Barra de estado
+status_ok           = "OK"
+status_over         = "EXCEDIDO"
+status_cp           = "PC"
+
+# Diálogos
+dialog_save_title    = "Guardar Personaje"
+dialog_load_title    = "Cargar Personaje"
+dialog_pdf_title     = "Exportar Hoja de Personaje"
+dialog_mecha_save    = "Guardar Mecha"
+dialog_mecha_load    = "Cargar Mecha"
+msg_exported         = "Exportado"
+msg_sheet_saved      = "Hoja guardada:"
+msg_saved            = "Guardado"
+msg_loaded           = "Cargado"
+msg_mecha_saved      = "Mecha guardado:"
+msg_mecha_imported   = "Mecha importado:"
+msg_error            = "Error"
+msg_export_failed    = "Error al exportar"
+msg_template_missing = "Plantilla no encontrada"
+msg_unsaved_changes  = "Cambios sin guardar"
+msg_close_confirm    = "¿Cerrar este personaje sin guardar?"
+msg_new_character    = "Nuevo Personaje"
+
+# Separador exclusivo de Mecha (mostrado en el desplegable de atributos)
+separator_mecha_only = "── Solo Mecha ──"
+
+# ── Etiquetas de widgets adicionales ─────────────────────────────────────────
+label_name_colon             = "Nombre del Personaje:"
+label_cp_section             = "Puntos de Personaje"
+label_cp_total_colon         = "PC total:"
+label_stats                  = "Stats"
+label_stat_col               = "Stat"
+label_value_col              = "Valor"
+label_cp_cost_col            = "Coste PC"
+label_total_colon            = "Total:"
+label_derived_mods           = "Modificadores de Valores Derivados"
+label_hp_mod                 = "Modificador de PV"
+label_ep_mod                 = "Modificador de PE"
+label_acv_mod                = "Modificador de VCA"
+label_dcv_mod                = "Modificador de VCD"
+label_sv_mod                 = "Modificador de Valor de Impacto"
+label_derived                = "Valores Derivados"
+label_name_add               = "Nombre:"
+label_cost_lv                = "Coste/Nv:"
+label_level_add              = "Nivel:"
+label_modifier_add           = "Modificador:"
+label_desc                   = "Desc.:"
+label_added                  = "Añadido"
+label_lv_short               = "Nv.:"
+label_mod_short              = "Mod.:"
+label_gear_colon             = "Equipo.:"
+label_advantages_colon       = "Ventajas:"
+label_weapon_defects_colon   = "Defectos:"
+label_added_weapons          = "Armas Añadidas"
+label_dmg_short              = "Daño:"
+label_base_sp_colon          = "PH base:"
+label_skill_col              = "Habilidad"
+label_lv_col                 = "Nv"
+label_sp_lv_col              = "PH/Nv"
+label_mod_col                = "Mod."
+label_total_col              = "Total"
+label_mecha_name             = "Nombre del Mecha:"
+label_mp_total_colon         = "   PM total:"
+label_mecha_details          = "Detalles del Mecha:"
+label_mecha_section          = "⚙  Mecha"
+
+# ── Etiquetas dinámicas ──────────────────────────────────────────────────────
+label_cp                     = "PC"
+label_cp_refund              = "Reembolso PC"
+label_mp                     = "PM"
+label_mp_used                = "PM usados:"
+label_hp_display             = "PV:"
+label_sp_display             = "PH:"
+label_adv_def                = "Ven./Def."
+label_mp_refund              = "Reembolso PM"
+
+# ── Etiquetas de resumen / estado ─────────────────────────────────────────────
+label_cp_status              = "PC:"
+section_core_values          = "Valores Base"
+section_char_points          = "Puntos de Personaje"
+section_attributes           = "Atributos"
+section_defects              = "Defectos"
+section_weapons              = "Armas"
+section_skill_points         = "Puntos de Habilidad"
+section_skills               = "Habilidades"
+section_combat_skills        = "Habilidades de Combate"
+label_stat_formula_row       = "Fórmula de Stats"
+label_health_points          = "Puntos de Vida"
+label_energy_points          = "Puntos de Energía"
+label_acv_long               = "Valor de Combate de Ataque"
+label_dcv_long               = "Valor de Combate de Defensa"
+label_shock_value            = "Valor de Impacto"
+label_cp_total_row           = "PC total"
+label_setting_short          = "Campaña:"
+label_mp_total_row           = "PM total"
+label_adv_short              = "Ven.:"
+label_def_short              = "Def.:"
+label_char_summary           = "Resumen del Personaje"
+btn_copy                     = "📋 Copiar"
+msg_copied_title             = "Copiado"
+msg_copied_body              = "Resumen copiado al portapapeles."
+label_dmg_abbr               = "Daño"
+label_with                   = "con"
+label_mecha_prefix           = "Mecha:"
+
+# ── Etiquetas de exportación PDF ─────────────────────────────────────────────
+pdf_char_name                = "Nombre del Personaje"
+pdf_char_points              = "Puntos de Personaje"
+pdf_skill_points             = "Puntos de Habilidad"
+pdf_page                     = "Página"
+pdf_of                       = "/"
+pdf_char_details             = "Detalles del Personaje"
+pdf_body                     = "CUERPO"
+pdf_mind                     = "MENTE"
+pdf_soul                     = "ALMA"
+pdf_hp                       = "PV"
+pdf_ep                       = "PE"
+pdf_sv                       = "Impacto"
+pdf_acv                      = "VCA"
+pdf_dcv                      = "VCD"
+pdf_col_name                 = "Nombre"
+pdf_col_cp                   = "PC"
+pdf_col_mp                   = "PM"
+pdf_col_refund               = "Reembolso"
+pdf_col_notes                = "Notas"
+pdf_col_gm                   = "Equipo"
+pdf_col_desc                 = "Desc."
+pdf_adv                      = "Ven.:"
+pdf_def                      = "Def.:"
+pdf_sp                       = "PH"
+pdf_attributes               = "Atributos"
+pdf_defects                  = "Defectos"
+pdf_weapons                  = "Armas"
+pdf_skills                   = "Habilidades"
+pdf_equip_notes              = "Equipo y Notas de Aventura"
+pdf_attrs_cont               = "Atributos (continuación)"
+pdf_defs_cont                = "Defectos (continuación)"
+pdf_mecha_attrs              = "Atributos de Mecha"
+pdf_mecha_defects            = "Defectos de Mecha"
+pdf_mecha_weapons            = "Armas de Mecha"
+pdf_mp                       = "PM:"
+pdf_hp_bar                   = "PV:"
+
+# Fórmulas de coste de stats. Cada entrada necesita un "name" de visualización
+# y una "expression" en Python en términos de v (el valor del stat).
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Estándar"
+# Lineal: cada punto cuesta 1 PC independientemente del nivel.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Gratis, luego Tres"
+# Los primeros 4 puntos son gratuitos; cada punto por encima de 4 cuesta 3 PC.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "Escalonado"
+# v 1-4: 1 PC cada uno; v 5-8: 2 PC cada uno; v 9+: 4 PC cada uno (acumulativo).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Fórmulas de coste de atributos/armas.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Estándar"
+# Lineal: coste total = base_cost × nivel.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Triangular"
+# Triangular: cada nivel sucesivo cuesta base_cost más que el anterior.
+expression = "base_cost * level * (level + 1) // 2"
+
+# Atributos del personaje.
+# costs = lista de valores CP/nivel seleccionables.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Amistad con Animales'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Apariencia'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Arte de la Distracción'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Proyección Astral'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Aura de Mando'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Maestría en Combate'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Maestría en Combate de Ataque'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Maestría en Combate de Defensa'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Contaminación'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = '¡Increíblemente Sano!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Portal Dimensional'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Relación Divina'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Hechicería Dinámica'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Elasticidad'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Contramedidas Electrónicas'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Bonificación de Energía'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Control Ambiental'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Exorcismo'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Brazos Extra'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Ataques Extra'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Rasgos o Accesorios'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Vuelo'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Secuaces'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Daño Concentrado'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Campo de Fuerza'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Velocidad Terrestre'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'As de las Armas'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Curación'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Armadura Pesada'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Percepción Aumentada'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Sentidos Aumentados'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Muy Hábil'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Ilusión'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Inmaterial'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Invisibilidad'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Objeto de Poder'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Salto'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Kensei'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Soporte Vital'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Armadura Ligera'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Magia'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Daño Masivo'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Genio Mecánico'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Fusión'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Metamorfosis'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Mímica'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Control Mental'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Escudo Mental'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Armas Naturales'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Anular'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Vínculos Organizacionales'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Poseer un Gran Mecha'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Equipo Personal'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Lugar de Poder'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Precognición'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Regeneración'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Reencarnación'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Sensores'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Sirviente'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Cambio de Forma'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Escudo'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Resistente al Impacto'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Sexto Sentido'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Cambio de Tamaño'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Vuelo Espacial'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Defensa Especial'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Movimiento Especial'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Velocidad'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Sello Espiritual'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Vuelo Estelar'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Sigilo'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Superfuerza'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Enjambre'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Telequinesis'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Telepatía'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Teletransporte'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Transferencia'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Transmutación'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Excavación'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Atributo Único'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Velocidad Acuática'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Riqueza'
+costs = [3]
+
+# Qué stat derivado modifica cada atributo (más allá del coste en PC).
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Defectos del personaje.
+# costs = lista de valores de reembolso CP/nivel seleccionables.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Edadismo'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Restricción de Ataque'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Torpe'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Tamaño Incómodo'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Perdición'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Furia Ciega'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'No Puede Hablar'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Propiedad Condicional'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Maldito'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Diminuto'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Se Distrae Fácilmente'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Imán de Admiradores'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Reina del Hangar'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Combatiente Inepto'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Cambio Físico Involuntario'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Restricciones Mágicas'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Marcado'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Némesis'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'No Tan Rápido'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'No Tan Fuerte'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'No Tan Resistente'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'Un Brazo / Sin Brazos'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Transformación en un Sentido'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Propiedad de una Megacorp'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Fobia'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Físicamente Poco Atractivo'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Pesadillas Recurrentes'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Burocracia'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Movimiento Terrestre Restringido'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Camino Restringido'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Manipulación Rudimentaria'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Deterioro Sensorial'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Pareja Sentimental (PS)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Secreto Oscuro'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Defecto Social'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Requisito Especial'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Defecto Único'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Sin Entrenamiento'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Volátil'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Vulnerabilidad'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Buscado'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Punto Débil'
+costs = [1]
+
+[defect_modifies]
+# stat      = qué valor derivado se penaliza
+# per_level = cuánto cambia por nivel de defecto (aplicado como penalización)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Ventajas de armas (el término correcto sería "habilidades").
+# weight   = ranuras consumidas por selección.
+# levelled = true → nivel numérico (1+); false → activado/desactivado simple.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Preciso'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Afecta Incorpóreos'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Efecto de Área'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Aura'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Fuego Automático'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Ardiente'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Ocultable'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Contagioso (Leve)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Contagioso (Alto)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Desmoralizador'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Drenar Cuerpo'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Drenar Energía'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Drenar Mente'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Drenar Alma'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Bengala'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Flexible'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Teledirigido'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Teledirigido (Raro)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Incapacitante'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Incurable'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Indirecto'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Irritante'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Letargo'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Vinculado (Ataque)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Vinculado (Atributo)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Largo Alcance'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'Propulsado por Músculo'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Sin Regeneración'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Penetrante (Armadura)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Penetrante (Armadura Completa)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Penetrante (Campo de Fuerza)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Penetrante (CF Completo)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Terremoto'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Selectivo'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Ataque al Alma'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Ataque al Alma (sin daño)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Dispersión'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Aturdimiento'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Enredo'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Trampa'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Vampírico'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Vampírico (Sobrecarga)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Devastador'
+# Especial: NO reduce el daño mediante el mecanismo normal de peso.
+# En cambio, cada nivel añade +4 de daño fijo y +1 al coste final del arma.
+# weight = 0 lo mantiene invisible para el cálculo normal de peso.
+weight   = 0
+levelled = true
+
+# Defectos de armas (el término correcto sería "limitaciones").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Retroceso Explosivo'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Retroceso Explosivo (Área)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Baja Escudos'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Expuesto (Solo Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Energía Extra'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Fijo (Solo Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Impreciso'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Interno'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Disparos Limitados (6 disparos)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Disparos Limitados (3 disparos)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Disparos Limitados (Único)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Baja Penetración'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Cuerpo a Cuerpo'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Sin Daño'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Solo en (Entorno)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Solo en (Entorno Raro)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Autodestrucción'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Alcance Corto'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Lento (1 turno)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Lento (1 minuto)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Lento (Horas)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Lento (Días)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Lento (Meses)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Estático'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Detenible (FdT)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Detenible (5 turnos)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Detenible (1 minuto)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Detenible (Horas)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Tóxico'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Dos Manos'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Poco Fiable'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Usa Energía (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Usa Energía (5×Nv)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Ineficaz'
+# Especial: NO aumenta el daño mediante el mecanismo normal de peso.
+# En cambio, cada nivel elimina -4 de daño fijo y -1 del coste final del arma.
+# weight = 0 lo mantiene invisible para el cálculo normal de peso.
+weight   = 0
+levelled = true
+
+# Atributos específicos de Mecha (mostrados tras los atributos normales en el editor de Mecha).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Inteligencia Artificial (IA)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Capacidad Extra'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Resistencia Extra'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Bonificación de Maniobra'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Regeneración de Mecha'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Transformación Mecánica'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Fusión'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Ataques Múltiples de Mecha'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Equipo Especial'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Mecha Subordinado'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Invocable'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Supertransformación'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Dureza'
+costs = [4]
+
+# Defectos específicos de Mecha.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Requisito de Tripulación'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Ocupantes Expuestos'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Resistencia Limitada'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Daño Mutuo'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Ruidoso'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Poca Maniobrabilidad'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Capacidad Reducida'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Tiempo de Arranque'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Objeto de Invocación'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'Propulsado por Viento'
+costs = [1]
+
+# Atributos de la lista principal que NO están disponibles en el editor de Mecha.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Ambientaciones de campaña que determinan los costes de puntos de habilidad.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Nombres mostrados para las ambientaciones de campaña.
+[settings_names]
+'Action Adventure' = 'Action Adventure'
+'Cyberpunk'        = 'Cyberpunk'
+'High Fantasy'     = 'High Fantasy'
+'Mecha Drama'      = 'Mecha Drama'
+'Occult Horror'    = 'Occult Horror'
+'Romantic Comedy'  = 'Romantic Comedy'
+'Space Opera'      = 'Space Opera'
+'Urban Fantasy'    = 'Urban Fantasy'
+
+# Habilidades: coste en PH por ambientación de campaña.
+# Un coste de 0 significa que la habilidad no está disponible en esa ambientación.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Acrobacias'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Adiestramiento Animal'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Arquitectura'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Artesanía'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Ciencias Biológicas'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Navegación'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Robo'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Gestión Empresarial'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Civilización'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Escalada'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Informática'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Respiración Controlada'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Cocina'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Artes Culturales'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Demoliciones'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Disfraz'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Artes Domésticas'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Conducción'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Electrónica'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Empatía'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Ingeniería'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Ciencias Ambientales'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Etiqueta'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Falsificación'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Juegos'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'interrogatorio'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Intimidación'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Derecho'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Lingüística'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Liderazgo'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Escucha Activa'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Mecánica'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Medicina'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Ciencias Militares'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Naturopatía'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Navegación'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Ocultismo'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Oficio'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Artes Escénicas'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Persuasión'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Ciencias Físicas'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Pilotaje'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Venenos'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Ciencias Policiales'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Levantamiento de Pesas'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Religión'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Equitación'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Búsqueda'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Seducción'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Prestidigitación'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Sigilo'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Ciencias Sociales'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Deportes'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Instinto Callejero'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Natación'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Rastreo Urbano'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Artes Visuales'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Supervivencia en la Naturaleza'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Rastreo en la Naturaleza'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Escritura'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Habilidades de combate. is_attack = true para ofensivas, false para defensivas.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Tiro con Arco'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Combate con Armas de Fuego'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Armas Pesadas'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Ataque Cuerpo a Cuerpo'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Defensa Cuerpo a Cuerpo'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Defensa a Distancia'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Armas Arrojadizas'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Ataque Desarmado'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Defensa Desarmada'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4

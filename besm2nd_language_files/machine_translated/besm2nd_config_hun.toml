@@ -1,0 +1,2408 @@
+# =============================================================================
+# BESM 2. kiadás — Játékadatok konfigurációja (MAGYAR) (MT)
+# A szabálykészlet testreszabásához szerkeszd ezt a fájlt. Az alkalmazás indításkor beolvassa.
+#
+# FORDÍTÁSI SZABÁLYOK:
+#   - "key"  = a mentési fájlokban használt belső azonosító. Ezeket SOHA ne módosítsd!
+#              Angol nyelv esetén a "key" megegyezik a "name"-mel (fordításra nincs szükség).
+#   - "name" = a felhasználói felületen megjelenő szöveg az adott nyelven.
+#   - Ha a "name" mező hiányzik, a program a "key" értéket használja.
+# =============================================================================
+
+[lang]
+code    = "hun"
+label   = "Magyar (MT)"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 Mentés"
+btn_load        = "📂 Betöltés"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Mecha mentése"
+btn_load_mecha  = "🛠 Mecha betöltése"
+btn_new_tab     = "+ Új Karakter"
+btn_settings    = "⚙ Beállítások"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  Fegyvertár"
+arsenal_btn_save           = "💾 Fegyvertár mentése"
+arsenal_btn_load           = "📂 Fegyvertár betöltése"
+arsenal_btn_add            = "+ Hozzáadás a Fegyvertárhoz"
+arsenal_btn_copy           = "➤ Másolás"
+arsenal_new_weapon         = "Új Fegyver"
+arsenal_section_title      = "Fegyvertár"
+arsenal_copy_hint          = "— kattints ➤ az aktív karakterre másoláshoz"
+arsenal_empty              = "Még nincs fegyver."
+arsenal_weapon_default_name = "Fegyver"
+arsenal_save_title         = "Fegyvertár mentése"
+arsenal_load_title         = "Fegyvertár betöltése"
+arsenal_invalid_file       = "Érvénytelen fegyvertár fájl."
+arsenal_delete_title       = "Fegyver törlése"
+arsenal_delete_body        = "\"{name}\" eltávolítása a Fegyvertárból?"
+arsenal_no_char_title      = "Nincs Karakter"
+arsenal_no_char_body       = "Nincs nyitott karakterlap.\nElőbb nyiss meg vagy hozz létre egy karaktert."
+arsenal_status_added       = "\"{name}\" hozzáadva."
+arsenal_status_removed     = "\"{name}\" eltávolítva."
+arsenal_status_copied      = "\"{name}\" másolva ide: {char}."
+arsenal_status_saved       = "{n} fegyver mentve."
+arsenal_status_loaded      = "{n} fegyver betöltve."
+
+# Page navigation tabs
+page_core       = "① Alap"
+page_attrs      = "② Attr. és Fegyverek"
+page_defects    = "③ Hátrányok"
+page_skills     = "④ Képességek"
+page_mecha      = "⑤ Mecha"
+page_summary    = "⑥ Összefoglaló"
+
+# Core page labels
+label_name          = "Karakter neve"
+label_cp_total      = "KP összesen"
+label_cp_spent      = "KP elköltve"
+label_cp_remaining  = "KP maradék"
+label_stat_formula  = "Tulajdonság képlet"
+label_attr_formula  = "Attr. képlet"
+label_body          = "Test"
+label_mind          = "Elme"
+label_soul          = "Lélek"
+label_hp            = "ÉP"
+label_ep            = "EP"
+label_acv           = "TH"
+label_dcv           = "VH"
+label_sv            = "Sokk Érték"
+label_details       = "Karakter részletek"
+label_equipment     = "Felszerelés megjegyzések"
+
+# Attributes & Weapons page
+label_attributes    = "Attribútumok"
+label_weapons       = "Fegyverek"
+btn_add_attr        = "+ Attribútum hozzáadása"
+btn_add_weapon      = "+ Fegyver hozzáadása"
+label_level         = "Szint"
+label_cost          = "Költség"
+label_description   = "Leírás"
+label_gear          = "Felszerelés"
+label_advantages    = "Előnyök"
+label_weapon_defects = "Hátrányok"
+label_damage        = "Sebzés"
+
+# Defects page
+label_defects       = "Hátrányok"
+btn_add_defect      = "+ Hátrány hozzáadása"
+
+# Skills page
+label_skills        = "Képességek"
+label_combat_skills = "Harc Képességek"
+label_sp_total      = "KKP összesen"
+label_sp_spent      = "KKP elköltve"
+label_sp_remaining  = "KKP maradék"
+label_setting       = "Opció"
+
+# Mecha page
+label_mecha         = "Mecha"
+label_mp_total      = "MP összesen"
+label_mp_spent      = "MP elköltve"
+btn_add_mecha       = "+ Mecha hozzáadása"
+
+# Summary page
+label_summary       = "Összefoglaló"
+label_sp_bonus      = "KKP bónusz"
+label_base_sp       = "Alap KKP"
+label_total_sp      = "Összes elérhető KKP"
+
+# Status bar
+status_ok           = "OK"
+status_over         = "TÚLLÉPVE"
+status_cp           = "KP"
+
+# Dialogs
+dialog_save_title    = "Karakter mentése"
+dialog_load_title    = "Karakter betöltése"
+dialog_pdf_title     = "Karakterlap exportálása"
+dialog_mecha_save    = "Mecha mentése"
+dialog_mecha_load    = "Mecha betöltése"
+msg_exported         = "Exportálva"
+msg_sheet_saved      = "Lap mentve:"
+msg_saved            = "Mentve"
+msg_loaded           = "Betöltve"
+msg_mecha_saved      = "Mecha mentve:"
+msg_mecha_imported   = "Mecha importálva:"
+msg_error            = "Hiba"
+msg_export_failed    = "Exportálás sikertelen"
+msg_template_missing = "Sablon hiányzik"
+msg_unsaved_changes  = "Nem mentett változtatások"
+msg_close_confirm    = "Bezárja ezt a karaktert mentés nélkül?"
+msg_new_character    = "Új Karakter"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── Csak Mecha ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "Karakter neve:"
+label_cp_section             = "Karakter Pontok"
+label_cp_total_colon         = "KP összesen:"
+label_stats                  = "Tulajdonságok"
+label_stat_col               = "Tulaj."
+label_value_col              = "Érték"
+label_cp_cost_col            = "KP Költség"
+label_total_colon            = "Összesen:"
+label_derived_mods           = "Származtatott Érték Módosítók"
+label_hp_mod                 = "ÉP módosító"
+label_ep_mod                 = "EP módosító"
+label_acv_mod                = "TH módosító"
+label_dcv_mod                = "VH módosító"
+label_sv_mod                 = "Sokk Érték módosító"
+label_derived                = "Származtatott Értékek"
+label_name_add               = "Név:"
+label_cost_lv                = "Költ./Szint:"
+label_level_add              = "Szint:"
+label_modifier_add           = "Módosító:"
+label_desc                   = "Leír.:"
+label_added                  = "Hozzáadva"
+label_lv_short               = "Szint.:"
+label_mod_short              = "Mód.:"
+label_gear_colon             = "Felsz.:"
+label_advantages_colon       = "Előnyök:"
+label_weapon_defects_colon   = "Hátrányok:"
+label_added_weapons          = "Hozzáadott Fegyverek"
+label_dmg_short              = "Sebzés.:"
+label_base_sp_colon          = "Alap KKP:"
+label_skill_col              = "Képesség"
+label_lv_col                 = "Szint"
+label_sp_lv_col              = "KKP/Szint"
+label_mod_col                = "Mód."
+label_total_col              = "Összesen"
+label_mecha_name             = "Mecha neve:"
+label_mp_total_colon         = "   MP összesen:"
+label_mecha_details          = "Mecha részletek:"
+label_mecha_section          = "⚙  Mecha"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "KP"
+label_cp_refund              = "KP visszatérítés"
+label_mp                     = "MP"
+label_mp_used                = "MP felhasználva:"
+label_hp_display             = "ÉP:"
+label_sp_display             = "KKP:"
+label_adv_def                = "Előny/Hát."
+label_mp_refund              = "MP visszatérítés"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "KP:"
+section_core_values          = "Alap Értékek"
+section_char_points          = "Karakter Pontok"
+section_attributes           = "Attribútumok"
+section_defects              = "Hátrányok"
+section_weapons              = "Fegyverek"
+section_skill_points         = "Képesség Pontok"
+section_skills               = "Képességek"
+section_combat_skills        = "Harc Képességek"
+label_stat_formula_row       = "Tulajdonság képlet"
+label_health_points          = "Életerő Pontok"
+label_energy_points          = "Energia Pontok"
+label_acv_long               = "Támadó Harc Érték"
+label_dcv_long               = "Védekező Harc Érték"
+label_shock_value            = "Sokk Érték"
+label_cp_total_row           = "KP összesen"
+label_setting_short          = "Világ:"
+label_mp_total_row           = "MP összesen"
+label_adv_short              = "Előny.:"
+label_def_short              = "Hát.:"
+label_char_summary           = "Karakter Összefoglaló"
+btn_copy                     = "📋 Másolás"
+msg_copied_title             = "Másolva"
+msg_copied_body              = "Összefoglaló vágólapra másolva."
+label_dmg_abbr               = "Sebzés"
+label_with                   = "és"
+label_mecha_prefix           = "Mecha:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "Karakter neve"
+pdf_char_points              = "Karakter Pontok"
+pdf_skill_points             = "Képesség Pontok"
+pdf_page                     = "Oldal"
+pdf_of                       = "/"
+pdf_char_details             = "Karakter részletek"
+pdf_body                     = "TEST"
+pdf_mind                     = "ELME"
+pdf_soul                     = "LÉLEK"
+pdf_hp                       = "ÉP"
+pdf_ep                       = "EP"
+pdf_sv                       = "Sokk"
+pdf_acv                      = "TH"
+pdf_dcv                      = "VH"
+pdf_col_name                 = "Név"
+pdf_col_cp                   = "KP"
+pdf_col_mp                   = "MP"
+pdf_col_refund               = "Visszat."
+pdf_col_notes                = "Megjegyzések"
+pdf_col_gm                   = "Felsz."
+pdf_col_desc                 = "Leír."
+pdf_adv                      = "Előny.:"
+pdf_def                      = "Hát.:"
+pdf_sp                       = "KKP"
+pdf_attributes               = "Attribútumok"
+pdf_defects                  = "Hátrányok"
+pdf_weapons                  = "Fegyverek"
+pdf_skills                   = "Képességek"
+pdf_equip_notes              = "Felszerelés és Kaland Megjegyzések"
+pdf_attrs_cont               = "Attribútumok (folytatás)"
+pdf_defs_cont                = "Hátrányok (folytatás)"
+pdf_mecha_attrs              = "Mecha Attribútumok"
+pdf_mecha_defects            = "Mecha Hátrányok"
+pdf_mecha_weapons            = "Mecha Fegyverek"
+pdf_mp                       = "MP:"
+pdf_hp_bar                   = "ÉP:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Alapértelmezett"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Ingyenes, majd Három"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "Lépcsőzetes"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Alapértelmezett"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Háromszögű"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Állatbarátság'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Megjelenés'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Figyelemelvonás Művészete'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Asztrális Projekció'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Parancsnoki Aura'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Harci Mesterség'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Szennyezés'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = 'Átkozottul Egészséges!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Dimenziós Kapu'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Isteni Kapcsolat'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Dinamikus Varázslat'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Rugalmasság'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Elektronikus Ellenintézkedések'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Energia Bónusz'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Környezeti Irányítás'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Ördögűzés'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Extra Karok'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Extra Támadások'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Jellemzők vagy Kiegészítők'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Repülés'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Beosztottak'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Összpontosított Sebzés'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Erőmező'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Földi Sebesség'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'Fegyverszakértő'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Gyógyítás'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Nehéz Páncél'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Fokozott Tudatosság'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Fokozott Érzékek'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Rendkívül Képzett'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Illúzió'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Anyagtalan'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Láthatatlanság'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Erő Tárgya'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Ugrás'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Kensei'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Életfenntartás'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Könnyű Páncél'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Mágia'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Hatalmas Sebzés'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Mechanikai Zseni'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Összeolvadás'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Metamorfózis'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Utánzás'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Elme Irányítás'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Elme Pajzs'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Természetes Fegyverek'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Érvénytelenítés'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Szervezeti Kapcsolatok'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Nagy Mecha Tulajdonosa'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Személyes Felszerelés'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Erő Helye'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Előérzet'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Regeneráció'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Reinkarnáció'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Érzékelők'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Szolga'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Alakváltás'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Pajzs'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Hatodik Érzék'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Méretváltozás'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Űrrepülés'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Speciális Védekezés'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Speciális Mozgás'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Sebesség'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Szellem Védelem'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Csillagközi Repülés'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Lopakodás'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Szuper Erő'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Raj'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Telekinézis'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Telepátia'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Teleportálás'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Átvitel'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Transzmutáció'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Alagútásás'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Egyedi Attribútum'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Vízi Sebesség'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Gazdagság'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Korrizmus'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Támadás Korlátozás'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Esetlen'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Kínos Méret'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Átok'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Vak Düh'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'Nem Tud Beszélni'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Feltételes Tulajdon'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Megátkozott'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Apró'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Könnyen Elterelhető'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Romantikus Mágnes'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Hangár Királynő'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Ügyetlen Harcos'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Akaratlan Fizikai Változás'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Mágikus Korlátozások'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Megjelölt'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Nemezis'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'Nem Olyan Gyors'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'Nem Olyan Erős'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'Nem Olyan Kemény'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'Egy Kar / Nincs Kar'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Egyirányú Átalakulás'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Megavállalat Tulajdona'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Fóbia'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Fizikailag Nem Vonzó'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Visszatérő Rémálmok'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Bürokratizmus'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Korlátozott Földi Mozgás'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Korlátozott Útvonal'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Kezdetleges Manipuláció'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Érzékszervi Zavar'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Élettárs (ÉT)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Csontváz a Szekrényben'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Társadalmi Hiba'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Különleges Követelmény'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Egyedi Hátrány'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Képzetlen'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Instabil'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Sebezhető'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Körözött'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Gyenge Pont'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Pontos'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Anyagtalant Érint'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Terület Hatás'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Aura'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Automata Tűz'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Égő'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Elrejthető'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Fertőző (Enyhe)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Fertőző (Erős)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Demoralizáló'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Test Merítése'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Energia Merítése'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Elme Merítése'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Lélek Merítése'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Jelzőrakéta'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Rugalmas'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Önvezérlő'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Önvezérlő (Ritka)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Cselekvőképtelenítő'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Gyógyíthatatlan'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Közvetett'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Irritáló'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Letargia'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Kapcsolt (Támadás)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Kapcsolt (Attribútum)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Hosszú Hatótáv'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'Izomerővel Hajtott'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Nincs Regeneráció'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Áthatoló (Páncél)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Áthatoló (Teljes Páncél)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Áthatoló (Erőmező)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Áthatoló (Teljes EM)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Földrengés'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Szelektív'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Lélek Támadás'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Lélek Támadás (sebzés nélkül)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Terjedő'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Elkábítás'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Befonás'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Csapda'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Vámpírikus'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Vámpírikus (Túltöltés)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Pusztító'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Visszalövés'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Visszalövés (Terület)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Pajzs Elejtése'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Kitett (Csak Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Extra Energia'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Rögzített (Csak Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Pontatlan'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Belső'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Korlátolt Lövések (6 lövés)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Korlátolt Lövések (3 lövés)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Korlátolt Lövések (Egy)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Alacsony Átütés'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Közelharc'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Nincs Sebzés'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Csak (Környezetben)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Csak (Ritka Környezetben)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Önmegsemmisítés'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Rövid Hatótáv'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Lassú (1 kör)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Lassú (1 perc)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Lassú (Óra)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Lassú (Nap)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Lassú (Hónap)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Statikus'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Megállítható (KV)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Megállítható (5 kör)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Megállítható (1 perc)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Megállítható (Óra)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Mérgező'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Kétkezes'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Megbízhatatlan'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Energiát Használ (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Energiát Használ (5×Szint)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Hatástalan'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Mesterséges Intelligencia (MI)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Extra Kapacitás'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Extra Állóképesség'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Manőver Bónusz'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Mecha Regeneráció'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Mechanikus Átalakulás'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Összeolvadás'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Többszörös Mecha Támadások'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Speciális Felszerelés'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Alárendelt Mecha'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Megidézhető'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Szuper Átalakulás'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Szívósság'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Személyzeti Követelmény'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Kitett Utasok'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Korlátolt Állóképesség'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Kölcsönös Sebzés'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Zajos'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Gyenge Manőverezhetőség'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Csökkentett Kapacitás'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Indítási Idő'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Megidéző Tárgy'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'Szél Hajtotta'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'Akció Kaland'
+'Cyberpunk'        = 'Cyberpunk'
+'High Fantasy'     = 'High Fantasy'
+'Mecha Drama'      = 'Mecha Dráma'
+'Occult Horror'    = 'Okkult Horror'
+'Romantic Comedy'  = 'Romantikus Vígjáték'
+'Space Opera'      = 'Űropera'
+'Urban Fantasy'    = 'Városfantasy'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Akrobatika'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Állatidomítás'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Építészet'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Kézművesség'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Biológiai Tudományok'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Hajózás'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Betörés'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Üzletvezetés'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Civilizáció'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Mászás'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Számítógépek'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Kontrollált Légzés'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Főzés'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Kulturális Művészetek'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Robbantóanyagok'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Álca'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Háztartási Tevékenységek'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Vezetés'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Elektronika'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Empátia'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Mérnökség'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Környezettudományok'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Etikett'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Hamisítás'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Játék'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'Kihallgatás'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Megfélemlítés'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Jog'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Nyelvészet'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Vezetői Képesség'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Hallgatás'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Mechanika'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Orvostudomány'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Katonai Tudományok'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Természetgyógyászat'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Navigáció'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Okkultizmus'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Foglalkozás'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Előadóművészetek'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Meggyőzés'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Fizikai Tudományok'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Pilótálás'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Mérgek'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Rendőrségi Tudományok'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Súlyemelés'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Vallás'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Lovaglás'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Keresés'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Csábítás'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Kézügyesség'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Lopakodás'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Társadalomtudományok'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Sport'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Utcai Ösztön'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Úszás'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Városi Nyomkövetés'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Képzőművészetek'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Vadon Túlélés'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Vadon Nyomkövetés'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Írás'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Íjászat'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Lőfegyveres Harc'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Nehéz Fegyverek'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Közelharcas Támadás'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Közelharcas Védelem'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Távolsági Védelem'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Dobófegyverek'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Fegyver Nélküli Támadás'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Fegyver Nélküli Védelem'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4

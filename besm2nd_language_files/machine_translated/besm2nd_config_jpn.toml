@@ -1,0 +1,2409 @@
+# =============================================================================
+# BESM 第2版 — ゲームデータ設定ファイル（日本語）（MT）
+# ルールセットをカスタマイズするには、このファイルを編集してください。アプリは起動時にこのファイルを読み込みます。
+#
+# 翻訳ルール:
+#   - "key"  = セーブファイルで使用される内部識別子です。絶対に変更しないでください。
+#              英語の場合、key == name となります（翻訳は不要です）。
+#   - "name" = この言語のUIに表示される文字列。
+#   - "name"フィールドがない場合、プログラムは"key"を使用します。
+# 
+# =============================================================================
+
+[lang]
+code    = "jpn"
+label   = "日本語（MT）"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 保存"
+btn_load        = "📂 読込"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 メカ保存"
+btn_load_mecha  = "🛠 メカ読込"
+btn_new_tab     = "＋ 新規キャラ"
+btn_settings    = "⚙ 設定"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  武器庫"
+arsenal_btn_save           = "💾 武器庫保存"
+arsenal_btn_load           = "📂 武器庫読込"
+arsenal_btn_add            = "＋ 武器庫に追加"
+arsenal_btn_copy           = "➤ コピー"
+arsenal_new_weapon         = "新規武器"
+arsenal_section_title      = "武器庫"
+arsenal_copy_hint          = "— ➤ をクリックしてアクティブキャラにコピー"
+arsenal_empty              = "武器がありません。"
+arsenal_weapon_default_name = "武器"
+arsenal_save_title         = "武器庫保存"
+arsenal_load_title         = "武器庫読込"
+arsenal_invalid_file       = "無効な武器庫ファイルです。"
+arsenal_delete_title       = "武器削除"
+arsenal_delete_body        = "\"{name}\"を武器庫から削除しますか？"
+arsenal_no_char_title      = "キャラなし"
+arsenal_no_char_body       = "キャラクターのタブが開かれていません。\nまずキャラクターを開くか作成してください。"
+arsenal_status_added       = "\"{name}\"を追加しました。"
+arsenal_status_removed     = "\"{name}\"を削除しました。"
+arsenal_status_copied      = "\"{name}\"を{char}にコピーしました。"
+arsenal_status_saved       = "{n}件の武器を保存しました。"
+arsenal_status_loaded      = "{n}件の武器を読み込みました。"
+
+# Page navigation tabs
+page_core       = "① 基本"
+page_attrs      = "② 特性と武器"
+page_defects    = "③ 欠点"
+page_skills     = "④ 技能"
+page_mecha      = "⑤ メカ"
+page_summary    = "⑥ サマリー"
+
+# Core page labels
+label_name          = "キャラクター名"
+label_cp_total      = "CP合計"
+label_cp_spent      = "CP消費"
+label_cp_remaining  = "CP残"
+label_stat_formula  = "能力値算式"
+label_attr_formula  = "特性算式"
+label_body          = "肉体"
+label_mind          = "精神"
+label_soul          = "魂"
+label_hp            = "HP"
+label_ep            = "EP"
+label_acv           = "ACV"
+label_dcv           = "DCV"
+label_sv            = "ショック値"
+label_details       = "キャラクター詳細"
+label_equipment     = "装備メモ"
+
+# Attributes & Weapons page
+label_attributes    = "特性"
+label_weapons       = "武器"
+btn_add_attr        = "＋ 特性追加"
+btn_add_weapon      = "＋ 武器追加"
+label_level         = "Lv"
+label_cost          = "コスト"
+label_description   = "説明"
+label_gear          = "装備"
+label_advantages    = "利点"
+label_weapon_defects = "欠点"
+label_damage        = "ダメージ"
+
+# Defects page
+label_defects       = "欠点"
+btn_add_defect      = "＋ 欠点追加"
+
+# Skills page
+label_skills        = "技能"
+label_combat_skills = "戦闘技能"
+label_sp_total      = "SP合計"
+label_sp_spent      = "SP消費"
+label_sp_remaining  = "SP残"
+label_setting       = "オプション"
+
+# Mecha page
+label_mecha         = "メカ"
+label_mp_total      = "MP合計"
+label_mp_spent      = "MP消費"
+btn_add_mecha       = "＋ メカ追加"
+
+# Summary page
+label_summary       = "サマリー"
+label_sp_bonus      = "SPボーナス"
+label_base_sp       = "基本SP"
+label_total_sp      = "利用可能SP合計"
+
+# Status bar
+status_ok           = "OK"
+status_over         = "超過"
+status_cp           = "CP"
+
+# Dialogs
+dialog_save_title    = "キャラクター保存"
+dialog_load_title    = "キャラクター読込"
+dialog_pdf_title     = "キャラクターシート出力"
+dialog_mecha_save    = "メカ保存"
+dialog_mecha_load    = "メカ読込"
+msg_exported         = "出力完了"
+msg_sheet_saved      = "シート保存完了:"
+msg_saved            = "保存完了"
+msg_loaded           = "読込完了"
+msg_mecha_saved      = "メカ保存完了:"
+msg_mecha_imported   = "メカインポート完了:"
+msg_error            = "エラー"
+msg_export_failed    = "出力失敗"
+msg_template_missing = "テンプレートが見つかりません"
+msg_unsaved_changes  = "未保存の変更があります"
+msg_close_confirm    = "保存せずにこのキャラクターを閉じますか？"
+msg_new_character    = "新規キャラクター"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── メカ専用 ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "キャラクター名:"
+label_cp_section             = "キャラクタープール"
+label_cp_total_colon         = "CP合計:"
+label_stats                  = "能力値"
+label_stat_col               = "能力"
+label_value_col              = "値"
+label_cp_cost_col            = "CPコスト"
+label_total_colon            = "合計:"
+label_derived_mods           = "派生値修正"
+label_hp_mod                 = "HP修正"
+label_ep_mod                 = "EP修正"
+label_acv_mod                = "ACV修正"
+label_dcv_mod                = "DCV修正"
+label_sv_mod                 = "ショック値修正"
+label_derived                = "派生値"
+label_name_add               = "名前:"
+label_cost_lv                = "コスト/Lv:"
+label_level_add              = "レベル:"
+label_modifier_add           = "修正:"
+label_desc                   = "説明.:"
+label_added                  = "追加済"
+label_lv_short               = "Lv.:"
+label_mod_short              = "修.:"
+label_gear_colon             = "装備.:"
+label_advantages_colon       = "利点:"
+label_weapon_defects_colon   = "欠点:"
+label_added_weapons          = "追加済武器"
+label_dmg_short              = "ダメ.:"
+label_base_sp_colon          = "基本SP:"
+label_skill_col              = "技能"
+label_lv_col                 = "Lv"
+label_sp_lv_col              = "SP/Lv"
+label_mod_col                = "修."
+label_total_col              = "合計"
+label_mecha_name             = "メカ名:"
+label_mp_total_colon         = "   MP合計:"
+label_mecha_details          = "メカ詳細:"
+label_mecha_section          = "⚙  メカ"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "CP"
+label_cp_refund              = "CP払戻"
+label_mp                     = "MP"
+label_mp_used                = "MP使用:"
+label_hp_display             = "HP:"
+label_sp_display             = "SP:"
+label_adv_def                = "利/欠"
+label_mp_refund              = "MP払戻"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "CP:"
+section_core_values          = "基本値"
+section_char_points          = "キャラクタープール"
+section_attributes           = "特性"
+section_defects              = "欠点"
+section_weapons              = "武器"
+section_skill_points         = "技能ポイント"
+section_skills               = "技能"
+section_combat_skills        = "戦闘技能"
+label_stat_formula_row       = "能力値算式"
+label_health_points          = "ヒットポイント"
+label_energy_points          = "エネルギーポイント"
+label_acv_long               = "攻撃戦闘値"
+label_dcv_long               = "防御戦闘値"
+label_shock_value            = "ショック値"
+label_cp_total_row           = "CP合計"
+label_setting_short          = "設定:"
+label_mp_total_row           = "MP合計"
+label_adv_short              = "利.:"
+label_def_short              = "欠.:"
+label_char_summary           = "キャラクターサマリー"
+btn_copy                     = "📋 コピー"
+msg_copied_title             = "コピー完了"
+msg_copied_body              = "サマリーをクリップボードにコピーしました。"
+label_dmg_abbr               = "ダメージ"
+label_with                   = "＋"
+label_mecha_prefix           = "メカ:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "キャラクター名"
+pdf_char_points              = "キャラクタープール"
+pdf_skill_points             = "技能ポイント"
+pdf_page                     = "ページ"
+pdf_of                       = "/"
+pdf_char_details             = "キャラクター詳細"
+pdf_body                     = "肉体"
+pdf_mind                     = "精神"
+pdf_soul                     = "魂"
+pdf_hp                       = "HP"
+pdf_ep                       = "EP"
+pdf_sv                       = "ショック"
+pdf_acv                      = "ACV"
+pdf_dcv                      = "DCV"
+pdf_col_name                 = "名前"
+pdf_col_cp                   = "CP"
+pdf_col_mp                   = "MP"
+pdf_col_refund               = "払戻"
+pdf_col_notes                = "メモ"
+pdf_col_gm                   = "装備"
+pdf_col_desc                 = "説明"
+pdf_adv                      = "利.:"
+pdf_def                      = "欠.:"
+pdf_sp                       = "SP"
+pdf_attributes               = "特性"
+pdf_defects                  = "欠点"
+pdf_weapons                  = "武器"
+pdf_skills                   = "技能"
+pdf_equip_notes              = "装備＆冒険メモ"
+pdf_attrs_cont               = "特性（続き）"
+pdf_defs_cont                = "欠点（続き）"
+pdf_mecha_attrs              = "メカ特性"
+pdf_mecha_defects            = "メカ欠点"
+pdf_mecha_weapons            = "メカ武器"
+pdf_mp                       = "MP:"
+pdf_hp_bar                   = "HP:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "標準"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "無料、その後３"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "段階式"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "標準"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "三角形"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = '動物との友情'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = '外見'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = '注意散漫の術'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = '幽体離脱'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = '命令のオーラ'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = '戦闘の達人'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = '汚染'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = '超健康！'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = '次元の門'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = '神聖な関係'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = '動的魔法'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = '弾力性'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = '電子対抗手段'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'エネルギーボーナス'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = '環境制御'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = '悪魔祓い'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = '追加の腕'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = '追加攻撃'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = '特徴またはアクセサリー'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = '飛行'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = '手下'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = '集中ダメージ'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'フォースフィールド'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = '地上移動速度'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = '武器の達人'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = '回復'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = '重装甲'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = '高度な認識'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = '鋭敏な感覚'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = '高度に熟練'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = '幻覚'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = '非物質'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = '透明化'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = '力の品'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = '跳躍'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = '剣聖'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = '生命維持'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = '軽装甲'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = '魔法'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = '大ダメージ'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = '機械の天才'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = '融合'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = '変容'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = '模倣'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = '精神支配'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = '精神の盾'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = '天然武器'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = '無効化'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = '組織的なつながり'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = '大型メカ所持'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = '個人装備'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = '力の場所'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = '予知'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = '再生'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = '輪廻転生'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'センサー'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = '使用人'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = '変身'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'シールド'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = '第六感'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = '大きさ変化'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = '宇宙飛行'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = '特殊防御'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = '特殊移動'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = '速度'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = '霊的加護'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = '星間飛行'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = '隠密'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = '超怪力'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = '群れ'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = '念動力'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'テレパシー'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = '瞬間移動'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = '転送'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = '変成'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = '穴掘り'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'ユニーク特性'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = '水中移動速度'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = '富'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = '年齢差別'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = '攻撃制限'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = '不器用'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = '扱いにくいサイズ'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = '天敵'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = '盲目の怒り'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = '話せない'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = '条件付き所有'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = '呪われている'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = '小柄'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = '気が散りやすい'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'モテすぎる'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'ハンガーの女王'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = '戦闘不得手'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = '意図しない身体変化'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = '魔法的制約'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = '刻印あり'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = '宿敵'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'そんなに速くない'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'そんなに強くない'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'そんなに頑丈でない'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = '片腕・腕なし'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = '一方向変身'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'メガコーポに所有'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = '恐怖症'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = '外見が悪い'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = '繰り返す悪夢'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = '官僚主義'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = '地上移動制限'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = '制限された経路'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = '初歩的操作'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = '感覚障害'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = '重要な他者（SO）'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = '隠された秘密'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = '社会的欠点'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = '特別な要件'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'ユニーク欠点'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = '未訓練'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = '不安定'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = '脆弱性'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = '指名手配'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = '弱点'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = '精確'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = '非物質体に作用'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = '範囲効果'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'オーラ'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = '連射'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = '燃焼'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = '隠せる'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = '感染性（弱）'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = '感染性（強）'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = '士気低下'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = '肉体消耗'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'エネルギー消耗'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = '精神消耗'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = '魂消耗'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = '閃光弾'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = '柔軟'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'ホーミング'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'ホーミング（稀）'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = '行動不能'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = '治癒不能'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = '間接'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = '刺激性'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = '嗜眠'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = '連動（攻撃）'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = '連動（特性）'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = '長射程'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = '筋力駆動'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = '再生なし'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = '貫通（装甲）'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = '貫通（完全装甲）'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = '貫通（フォースフィールド）'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = '貫通（完全FF）'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = '地震'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = '選択的'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = '魂攻撃'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = '魂攻撃（ノーダメージ）'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = '拡散'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'スタン'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = '絡め取り'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = '罠'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = '吸血'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = '吸血（過充電）'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = '壊滅的'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = '背面爆発'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = '背面爆発（範囲）'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'シールド解除'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = '無防備（メカのみ）'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = '追加エネルギー'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = '固定（メカのみ）'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = '不正確'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = '内蔵'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = '射数制限（6発）'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = '射数制限（3発）'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = '射数制限（1発）'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = '低貫通力'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = '近接'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'ノーダメージ'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = '特定環境のみ'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = '稀な環境のみ'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = '自爆'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = '短射程'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = '遅い（1ターン）'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = '遅い（1分）'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = '遅い（時間）'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = '遅い（日）'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = '遅い（月）'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = '静的'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = '停止可能（ターン終了）'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = '停止可能（5ターン）'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = '停止可能（1分）'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = '停止可能（時間）'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = '毒性'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = '両手'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = '不安定'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'エネルギー消費（5）'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'エネルギー消費（5×Lv）'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = '非効果的'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = '人工知能（AI）'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = '追加容量'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = '追加耐久'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = '機動ボーナス'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'メカ再生'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = '機械的変形'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = '合体'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = '複数メカ攻撃'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = '特殊装備'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = '従属メカ'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = '召喚可能'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = '超変形'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = '頑丈'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = '乗員要件'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = '無防備な乗員'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = '限定耐久'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = '相互ダメージ'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = '騒音'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = '操縦性が悪い'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = '容量減少'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = '起動時間'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = '召喚オブジェクト'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = '風力駆動'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'アクションアドベンチャー'
+'Cyberpunk'        = 'サイバーパンク'
+'High Fantasy'     = 'ハイファンタジー'
+'Mecha Drama'      = 'メカドラマ'
+'Occult Horror'    = 'オカルトホラー'
+'Romantic Comedy'  = 'ラブコメ'
+'Space Opera'      = 'スペースオペラ'
+'Urban Fantasy'    = 'アーバンファンタジー'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'アクロバット'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = '動物調教'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = '建築'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = '工芸'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = '生物学'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = '航海'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = '侵入'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'ビジネス管理'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = '文明'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = '登攀'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'コンピューター'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = '呼吸制御'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = '料理'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = '文化芸術'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = '爆発物'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = '変装'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = '家事'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = '運転'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = '電子工学'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = '共感'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = '工学'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = '環境科学'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = '礼儀'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = '偽造'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'ゲーム'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = '尋問'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = '威圧'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = '法律'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = '言語学'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'リーダーシップ'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = '聞き耳'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = '機械'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = '医学'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = '軍事学'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = '自然療法'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = '航法'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'オカルト'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = '職業'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = '舞台芸術'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = '説得'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = '物理科学'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = '操縦'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = '毒'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = '警察学'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = '重量挙げ'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = '宗教'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = '乗馬'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = '捜索'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = '誘惑'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = '手品'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = '忍び足'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = '社会科学'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'スポーツ'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = '路地裏の感覚'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = '水泳'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = '都市追跡'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = '視覚芸術'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = '野外生存'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = '野外追跡'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = '執筆'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = '弓術'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = '銃器戦闘'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = '重火器'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = '近接攻撃'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = '近接防御'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = '射撃防御'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = '投擲武器'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = '徒手攻撃'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = '徒手防御'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4

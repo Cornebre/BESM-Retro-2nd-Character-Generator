@@ -1,0 +1,2409 @@
+# =============================================================================
+# BESM Ediția 2 — Configurarea datelor de joc (ROMÂNĂ) (MT)
+# Editați acest fișier pentru a personaliza setul de reguli. Aplicația îl citește la pornire.
+#
+# REGULI DE TRADUCERE:
+#   - "key"  = identificator intern utilizat în fișierele de salvare. NU modificați NICIODATĂ aceste valori.
+#              Pentru limba engleză, key == name (nu este necesară traducerea).
+#   - "name" = șirul afișat în interfața utilizatorului pentru această limbă.
+#   - Dacă câmpul "name" lipsește, programul revine la "key".
+# 
+# =============================================================================
+
+[lang]
+code    = "ron"
+label   = "Română (MT)"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 Salvare"
+btn_load        = "📂 Încărcare"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Salvare Mecha"
+btn_load_mecha  = "🛠 Încărcare Mecha"
+btn_new_tab     = "+ Personaj Nou"
+btn_settings    = "⚙ Setări"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  Arsenalul"
+arsenal_btn_save           = "💾 Salvare Arsenal"
+arsenal_btn_load           = "📂 Încărcare Arsenal"
+arsenal_btn_add            = "+ Adăugare în Arsenal"
+arsenal_btn_copy           = "➤ Copiere"
+arsenal_new_weapon         = "Armă Nouă"
+arsenal_section_title      = "Arsenal"
+arsenal_copy_hint          = "— faceți clic pe ➤ pentru a copia la personajul activ"
+arsenal_empty              = "Nicio armă deocamdată."
+arsenal_weapon_default_name = "Armă"
+arsenal_save_title         = "Salvare Arsenal"
+arsenal_load_title         = "Încărcare Arsenal"
+arsenal_invalid_file       = "Fișier arsenal invalid."
+arsenal_delete_title       = "Ștergere Armă"
+arsenal_delete_body        = "Eliminați \"{name}\" din Arsenal?"
+arsenal_no_char_title      = "Fără Personaj"
+arsenal_no_char_body       = "Nicio filă de personaj deschisă.\nDeschideți sau creați mai întâi un personaj."
+arsenal_status_added       = "\"{name}\" adăugat."
+arsenal_status_removed     = "\"{name}\" eliminat."
+arsenal_status_copied      = "\"{name}\" copiat în {char}."
+arsenal_status_saved       = "{n} armă/arme salvată/salvate."
+arsenal_status_loaded      = "{n} armă/arme încărcată/încărcate."
+
+# Page navigation tabs
+page_core       = "① Bază"
+page_attrs      = "② Attr. și Arme"
+page_defects    = "③ Defecte"
+page_skills     = "④ Abilități"
+page_mecha      = "⑤ Mecha"
+page_summary    = "⑥ Rezumat"
+
+# Core page labels
+label_name          = "Numele Personajului"
+label_cp_total      = "PC Total"
+label_cp_spent      = "PC Cheltuit"
+label_cp_remaining  = "PC Rămas"
+label_stat_formula  = "Formula Stat"
+label_attr_formula  = "Formula Attr."
+label_body          = "Corp"
+label_mind          = "Minte"
+label_soul          = "Suflet"
+label_hp            = "PV"
+label_ep            = "PE"
+label_acv           = "VCA"
+label_dcv           = "VCD"
+label_sv            = "Valoare de Șoc"
+label_details       = "Detalii Personaj"
+label_equipment     = "Note Echipament"
+
+# Attributes & Weapons page
+label_attributes    = "Atribute"
+label_weapons       = "Arme"
+btn_add_attr        = "+ Adaugă Atribut"
+btn_add_weapon      = "+ Adaugă Armă"
+label_level         = "Niv"
+label_cost          = "Cost"
+label_description   = "Descriere"
+label_gear          = "Echipament"
+label_advantages    = "Avantaje"
+label_weapon_defects = "Defecte"
+label_damage        = "Daune"
+
+# Defects page
+label_defects       = "Defecte"
+btn_add_defect      = "+ Adaugă Defect"
+
+# Skills page
+label_skills        = "Abilități"
+label_combat_skills = "Abilități de Luptă"
+label_sp_total      = "PA Total"
+label_sp_spent      = "PA Cheltuit"
+label_sp_remaining  = "PA Rămas"
+label_setting       = "Opțiune"
+
+# Mecha page
+label_mecha         = "Mecha"
+label_mp_total      = "PM Total"
+label_mp_spent      = "PM Cheltuit"
+btn_add_mecha       = "+ Adaugă Mecha"
+
+# Summary page
+label_summary       = "Rezumat"
+label_sp_bonus      = "Bonus PA"
+label_base_sp       = "PA de bază"
+label_total_sp      = "Total PA disponibil"
+
+# Status bar
+status_ok           = "OK"
+status_over         = "DEPĂȘIT"
+status_cp           = "PC"
+
+# Dialogs
+dialog_save_title    = "Salvare Personaj"
+dialog_load_title    = "Încărcare Personaj"
+dialog_pdf_title     = "Exportare Fișă Personaj"
+dialog_mecha_save    = "Salvare Mecha"
+dialog_mecha_load    = "Încărcare Mecha"
+msg_exported         = "Exportat"
+msg_sheet_saved      = "Fișă salvată:"
+msg_saved            = "Salvat"
+msg_loaded           = "Încărcat"
+msg_mecha_saved      = "Mecha salvat:"
+msg_mecha_imported   = "Mecha importat:"
+msg_error            = "Eroare"
+msg_export_failed    = "Export eșuat"
+msg_template_missing = "Șablon lipsă"
+msg_unsaved_changes  = "Modificări nesalvate"
+msg_close_confirm    = "Închideți acest personaj fără salvare?"
+msg_new_character    = "Personaj Nou"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── Doar Mecha ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "Numele Personajului:"
+label_cp_section             = "Puncte Personaj"
+label_cp_total_colon         = "PC total:"
+label_stats                  = "Statistici"
+label_stat_col               = "Stat"
+label_value_col              = "Valoare"
+label_cp_cost_col            = "Cost PC"
+label_total_colon            = "Total:"
+label_derived_mods           = "Modificatori Valori Derivate"
+label_hp_mod                 = "Modificator PV"
+label_ep_mod                 = "Modificator PE"
+label_acv_mod                = "Modificator VCA"
+label_dcv_mod                = "Modificator VCD"
+label_sv_mod                 = "Modificator Valoare Șoc"
+label_derived                = "Valori Derivate"
+label_name_add               = "Nume:"
+label_cost_lv                = "Cost/Niv:"
+label_level_add              = "Nivel:"
+label_modifier_add           = "Modificator:"
+label_desc                   = "Desc.:"
+label_added                  = "Adăugat"
+label_lv_short               = "Niv.:"
+label_mod_short              = "Mod.:"
+label_gear_colon             = "Echip.:"
+label_advantages_colon       = "Avantaje:"
+label_weapon_defects_colon   = "Defecte:"
+label_added_weapons          = "Arme Adăugate"
+label_dmg_short              = "Daune.:"
+label_base_sp_colon          = "PA de bază:"
+label_skill_col              = "Abilitate"
+label_lv_col                 = "Niv"
+label_sp_lv_col              = "PA/Niv"
+label_mod_col                = "Mod."
+label_total_col              = "Total"
+label_mecha_name             = "Nume Mecha:"
+label_mp_total_colon         = "   PM total:"
+label_mecha_details          = "Detalii Mecha:"
+label_mecha_section          = "⚙  Mecha"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "PC"
+label_cp_refund              = "Ramburs PC"
+label_mp                     = "PM"
+label_mp_used                = "PM utilizat:"
+label_hp_display             = "PV:"
+label_sp_display             = "PA:"
+label_adv_def                = "Av./Def."
+label_mp_refund              = "Ramburs PM"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "PC:"
+section_core_values          = "Valori de Bază"
+section_char_points          = "Puncte Personaj"
+section_attributes           = "Atribute"
+section_defects              = "Defecte"
+section_weapons              = "Arme"
+section_skill_points         = "Puncte Abilitate"
+section_skills               = "Abilități"
+section_combat_skills        = "Abilități de Luptă"
+label_stat_formula_row       = "Formula Stat"
+label_health_points          = "Puncte de Viață"
+label_energy_points          = "Puncte de Energie"
+label_acv_long               = "Valoarea Atacului în Luptă"
+label_dcv_long               = "Valoarea Apărării în Luptă"
+label_shock_value            = "Valoare de Șoc"
+label_cp_total_row           = "PC total"
+label_setting_short          = "Cadru:"
+label_mp_total_row           = "PM total"
+label_adv_short              = "Av.:"
+label_def_short              = "Def.:"
+label_char_summary           = "Rezumat Personaj"
+btn_copy                     = "📋 Copiere"
+msg_copied_title             = "Copiat"
+msg_copied_body              = "Rezumatul a fost copiat în clipboard."
+label_dmg_abbr               = "Daune"
+label_with                   = "cu"
+label_mecha_prefix           = "Mecha:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "Numele Personajului"
+pdf_char_points              = "Puncte Personaj"
+pdf_skill_points             = "Puncte Abilitate"
+pdf_page                     = "Pagina"
+pdf_of                       = "/"
+pdf_char_details             = "Detalii Personaj"
+pdf_body                     = "CORP"
+pdf_mind                     = "MINTE"
+pdf_soul                     = "SUFLET"
+pdf_hp                       = "PV"
+pdf_ep                       = "PE"
+pdf_sv                       = "Șoc"
+pdf_acv                      = "VCA"
+pdf_dcv                      = "VCD"
+pdf_col_name                 = "Nume"
+pdf_col_cp                   = "PC"
+pdf_col_mp                   = "PM"
+pdf_col_refund               = "Ramburs"
+pdf_col_notes                = "Note"
+pdf_col_gm                   = "Echip."
+pdf_col_desc                 = "Desc."
+pdf_adv                      = "Av.:"
+pdf_def                      = "Def.:"
+pdf_sp                       = "PA"
+pdf_attributes               = "Atribute"
+pdf_defects                  = "Defecte"
+pdf_weapons                  = "Arme"
+pdf_skills                   = "Abilități"
+pdf_equip_notes              = "Echipament și Note de Aventură"
+pdf_attrs_cont               = "Atribute (continuare)"
+pdf_defs_cont                = "Defecte (continuare)"
+pdf_mecha_attrs              = "Atribute Mecha"
+pdf_mecha_defects            = "Defecte Mecha"
+pdf_mecha_weapons            = "Arme Mecha"
+pdf_mp                       = "PM:"
+pdf_hp_bar                   = "PV:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Implicit"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Gratuit, apoi Trei"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "În Trepte"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Implicit"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Triunghiular"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Prietenie cu Animalele'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Aspect'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Arta Distragerii'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Proiecție Astrală'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Aura Comenzii'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Măiestrie în Luptă'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Contaminare'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = 'Extrem de Sănătos!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Portal Dimensional'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Relație Divină'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Vrăjitorie Dinamică'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Elasticitate'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Contramăsuri Electronice'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Bonus de Energie'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Control de Mediu'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Exorcism'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Brațe Suplimentare'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Atacuri Suplimentare'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Trăsături sau Accesorii'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Zbor'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Acoliți'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Daune Concentrate'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Câmp de Forță'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Viteză Terestră'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'Expert în Arme'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Vindecare'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Armură Grea'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Conștientizare Sporită'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Simțuri Sporite'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Foarte Calificat'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Iluzie'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Incorporal'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Invizibilitate'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Obiect de Putere'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Săritură'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Kensei'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Suport Vital'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Armură Ușoară'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Magie'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Daune Masive'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Geniu Mecanic'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Contopire'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Metamorfoză'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Mimetism'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Control Mental'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Scut Mental'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Arme Naturale'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Anulare'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Legături Organizaționale'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Deține un Mecha Mare'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Echipament Personal'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Loc de Putere'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Precogniție'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Regenerare'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Reîncarnare'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Senzori'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Slujitor'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Schimbare de Formă'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Scut'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Al Șaselea Simț'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Schimbare de Mărime'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Zbor Spațial'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Apărare Specială'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Mișcare Specială'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Viteză'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Protecție Spirituală'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Zbor Stelar'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Furtivitate'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Super Putere'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Roi'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Telekinezie'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Telepatie'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Teleportare'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Transfer'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Transmutație'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Săpare de Tuneluri'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Atribut Unic'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Viteză Acvatică'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Bogăție'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Discriminare pe Vârstă'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Restricție de Atac'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Stângaci'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Mărime Incomodă'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Blestem'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Furie Oarbă'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'Nu Poate Vorbi'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Proprietate Condiționată'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Blestemat'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Diminutiv'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Ușor de Distras'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Magnet Romantic'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Regina Hangarului'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Luptător Inept'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Schimbare Fizică Involuntară'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Restricții Magice'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Marcat'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Nemesis'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'Nu Chiar Atât de Rapid'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'Nu Chiar Atât de Puternic'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'Nu Chiar Atât de Dur'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'Un Braț / Fără Brațe'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Transformare Unidirecțională'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Proprietatea unui Megacorp'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Fobie'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Neatractiv Fizic'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Coșmaruri Recurente'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Birocrație'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Mișcare Terestră Restricționată'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Cale Restricționată'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Manipulare Rudimentară'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Afectare Senzorială'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Partener de Viață (PV)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Schelet în Dulap'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Defect Social'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Cerință Specială'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Defect Unic'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Necalificat'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Volatil'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Vulnerabilitate'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Urmărit'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Punct Slab'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Precis'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Afectează Incorporalul'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Efect de Zonă'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Aură'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Foc Automat'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Ardere'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Ascundabil'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Contagios (Ușor)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Contagios (Puternic)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Demoralizant'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Epuizează Corpul'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Epuizează Energia'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Epuizează Mintea'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Epuizează Sufletul'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Rachetă de Semnalizare'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Flexibil'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Teleghidat'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Teleghidat (Rar)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Incapacitant'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Incurabil'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Indirect'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Iritant'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Letargie'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Legat (Atac)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Legat (Atribut)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Rază Lungă'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'Acționat de Mușchi'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Fără Regenerare'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Penetrant (Armură)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Penetrant (Armură Completă)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Penetrant (Câmp de Forță)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Penetrant (CF Complet)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Cutremur'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Selectiv'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Atac asupra Sufletului'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Atac Suflet (fără daune)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Răspândire'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Amorțire'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Împletire'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Capcană'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Vampiric'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Vampiric (Supraîncărcare)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Devastator'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Explozie Posterioară'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Explozie Posterioară (Zonă)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Lasă Scuturile'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Expus (Doar Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Energie Suplimentară'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Fix (Doar Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Imprecis'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Intern'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Focuri Limitate (6 focuri)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Focuri Limitate (3 focuri)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Focuri Limitate (Unul)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Penetrare Scăzută'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Luptă Corp la Corp'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Fără Daune'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Doar în (Mediu)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Doar în (Mediu Rar)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Autodistrugere'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Rază Scurtă'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Lent (1 tură)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Lent (1 minut)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Lent (Ore)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Lent (Zile)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Lent (Luni)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Static'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Oprabil (ST)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Oprabil (5 ture)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Oprabil (1 minut)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Oprabil (Ore)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Toxic'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Două Mâini'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Nesigur'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Folosește Energie (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Folosește Energie (5×Niv)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Ineficace'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Inteligență Artificială (IA)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Capacitate Suplimentară'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Rezistență Suplimentară'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Bonus de Manevră'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Regenerare Mecha'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Transformare Mecanică'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Fuziune'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Atacuri Multiple Mecha'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Echipament Special'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Mecha Subordonat'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Invocabil'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Super Transformare'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Robustețe'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Cerință de Echipaj'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Ocupanți Expuși'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Rezistență Limitată'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Daune Reciproce'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Zgomotos'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Manevrabilitate Scăzută'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Capacitate Redusă'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Timp de Pornire'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Obiect de Invocare'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'Acționat de Vânt'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'Acțiune și Aventură'
+'Cyberpunk'        = 'Cyberpunk'
+'High Fantasy'     = 'High Fantasy'
+'Mecha Drama'      = 'Dramă Mecha'
+'Occult Horror'    = 'Horror Ocult'
+'Romantic Comedy'  = 'Comedie Romantică'
+'Space Opera'      = 'Operă Spațială'
+'Urban Fantasy'    = 'Fantezie Urbană'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Acrobație'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Dresaj Animal'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Arhitectură'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Meșteșug'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Științe Biologice'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Navigație'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Spargere'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Management de Afaceri'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Civilizație'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Escaladă'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Calculatoare'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Respirație Controlată'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Gătit'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Arte Culturale'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Demoliții'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Deghizare'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Arte Casnice'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Condus'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Electronică'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Empatie'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Inginerie'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Științe de Mediu'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Etichetă'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Fals'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Jocuri'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'Interogare'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Intimidare'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Drept'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Lingvistică'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Leadership'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Ascultare'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Mecanică'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Medicină'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Științe Militare'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Naturopatie'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Navigație'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Ocultism'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Ocupație'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Arte Spectacol'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Persuasiune'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Științe Fizice'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Pilotaj'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Otrăvuri'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Științe Polițienești'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Haltere'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Religie'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Călărie'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Căutare'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Seducție'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Dexteritate Manuală'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Strecurare'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Științe Sociale'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Sport'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Instinct de Stradă'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Înot'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Urmărire Urbană'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Arte Vizuale'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Supraviețuire în Sălbăticie'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Urmărire în Sălbăticie'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Scriere'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Tir cu Arcul'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Luptă cu Arme de Foc'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Arme Grele'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Atac Corp la Corp'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Apărare Corp la Corp'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Apărare la Distanță'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Arme Aruncate'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Atac Neînarmat'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Apărare Neînarmată'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4

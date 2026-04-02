@@ -1,0 +1,2409 @@
+# =============================================================================
+# BESM 2e Editie — Spelgegevensconfiguratie (NEDERLANDS) (MT)
+# Bewerk dit bestand om de regelset aan te passen. De app leest het bij het opstarten.
+#
+# VERTAALREGELS:
+#   - "key"  = interne identificatiecode die in opslagbestanden wordt gebruikt. Wijzig deze NOOIT.
+#              Voor het Engels geldt: key == naam (vertaling niet nodig).
+#   - "name" = weergavetekst die in de gebruikersinterface voor deze taal wordt getoond.
+#   - Als het veld "name" ontbreekt, valt het programma terug op "key".
+# 
+# =============================================================================
+
+[lang]
+code    = "nld"
+label   = "Nederlands (MT)"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 Opslaan"
+btn_load        = "📂 Laden"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Mecha opslaan"
+btn_load_mecha  = "🛠 Mecha laden"
+btn_new_tab     = "+ Nieuw Personage"
+btn_settings    = "⚙ Instellingen"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  Het Arsenaal"
+arsenal_btn_save           = "💾 Arsenaal opslaan"
+arsenal_btn_load           = "📂 Arsenaal laden"
+arsenal_btn_add            = "+ Toevoegen aan Arsenaal"
+arsenal_btn_copy           = "➤ Kopiëren"
+arsenal_new_weapon         = "Nieuw Wapen"
+arsenal_section_title      = "Arsenaal"
+arsenal_copy_hint          = "— klik op ➤ om te kopiëren naar het actieve personage"
+arsenal_empty              = "Nog geen wapens."
+arsenal_weapon_default_name = "Wapen"
+arsenal_save_title         = "Arsenaal opslaan"
+arsenal_load_title         = "Arsenaal laden"
+arsenal_invalid_file       = "Ongeldig arsenaalbestand."
+arsenal_delete_title       = "Wapen verwijderen"
+arsenal_delete_body        = "\"{name}\" uit het Arsenaal verwijderen?"
+arsenal_no_char_title      = "Geen Personage"
+arsenal_no_char_body       = "Geen personagetabblad geopend.\nOpen of maak eerst een personage."
+arsenal_status_added       = "\"{name}\" toegevoegd."
+arsenal_status_removed     = "\"{name}\" verwijderd."
+arsenal_status_copied      = "\"{name}\" gekopieerd naar {char}."
+arsenal_status_saved       = "{n} wapen(s) opgeslagen."
+arsenal_status_loaded      = "{n} wapen(s) geladen."
+
+# Page navigation tabs
+page_core       = "① Basis"
+page_attrs      = "② Attr. & Wapens"
+page_defects    = "③ Gebreken"
+page_skills     = "④ Vaardigheden"
+page_mecha      = "⑤ Mecha"
+page_summary    = "⑥ Overzicht"
+
+# Core page labels
+label_name          = "Personagenaam"
+label_cp_total      = "CP Totaal"
+label_cp_spent      = "CP Besteed"
+label_cp_remaining  = "CP Resterend"
+label_stat_formula  = "Stat-formule"
+label_attr_formula  = "Attr.-formule"
+label_body          = "Lichaam"
+label_mind          = "Geest"
+label_soul          = "Ziel"
+label_hp            = "TP"
+label_ep            = "EP"
+label_acv           = "AKW"
+label_dcv           = "VKW"
+label_sv            = "Schokwaarde"
+label_details       = "Personagedetails"
+label_equipment     = "Uitrustingsnotities"
+
+# Attributes & Weapons page
+label_attributes    = "Attributen"
+label_weapons       = "Wapens"
+btn_add_attr        = "+ Attribuut toevoegen"
+btn_add_weapon      = "+ Wapen toevoegen"
+label_level         = "Niv"
+label_cost          = "Kosten"
+label_description   = "Beschrijving"
+label_gear          = "Uitrusting"
+label_advantages    = "Voordelen"
+label_weapon_defects = "Gebreken"
+label_damage        = "Schade"
+
+# Defects page
+label_defects       = "Gebreken"
+btn_add_defect      = "+ Gebrek toevoegen"
+
+# Skills page
+label_skills        = "Vaardigheden"
+label_combat_skills = "Gevechtsvaardigheden"
+label_sp_total      = "VP Totaal"
+label_sp_spent      = "VP Besteed"
+label_sp_remaining  = "VP Resterend"
+label_setting       = "Optie"
+
+# Mecha page
+label_mecha         = "Mecha"
+label_mp_total      = "MP Totaal"
+label_mp_spent      = "MP Besteed"
+btn_add_mecha       = "+ Mecha toevoegen"
+
+# Summary page
+label_summary       = "Overzicht"
+label_sp_bonus      = "VP bonus"
+label_base_sp       = "Basis VP"
+label_total_sp      = "Totaal beschikbare VP"
+
+# Status bar
+status_ok           = "OK"
+status_over         = "OVERSCHREDEN"
+status_cp           = "CP"
+
+# Dialogs
+dialog_save_title    = "Personage opslaan"
+dialog_load_title    = "Personage laden"
+dialog_pdf_title     = "Personageblad exporteren"
+dialog_mecha_save    = "Mecha opslaan"
+dialog_mecha_load    = "Mecha laden"
+msg_exported         = "Geëxporteerd"
+msg_sheet_saved      = "Blad opgeslagen:"
+msg_saved            = "Opgeslagen"
+msg_loaded           = "Geladen"
+msg_mecha_saved      = "Mecha opgeslagen:"
+msg_mecha_imported   = "Mecha geïmporteerd:"
+msg_error            = "Fout"
+msg_export_failed    = "Export mislukt"
+msg_template_missing = "Sjabloon ontbreekt"
+msg_unsaved_changes  = "Niet-opgeslagen wijzigingen"
+msg_close_confirm    = "Dit personage sluiten zonder op te slaan?"
+msg_new_character    = "Nieuw Personage"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── Alleen Mecha ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "Personagenaam:"
+label_cp_section             = "Personagepunten"
+label_cp_total_colon         = "CP totaal:"
+label_stats                  = "Stats"
+label_stat_col               = "Stat"
+label_value_col              = "Waarde"
+label_cp_cost_col            = "CP-kosten"
+label_total_colon            = "Totaal:"
+label_derived_mods           = "Modifiers Afgeleide Waarden"
+label_hp_mod                 = "TP-modifier"
+label_ep_mod                 = "EP-modifier"
+label_acv_mod                = "AKW-modifier"
+label_dcv_mod                = "VKW-modifier"
+label_sv_mod                 = "Schokwaarde-modifier"
+label_derived                = "Afgeleide Waarden"
+label_name_add               = "Naam:"
+label_cost_lv                = "Kosten/Niv:"
+label_level_add              = "Niveau:"
+label_modifier_add           = "Modifier:"
+label_desc                   = "Beschr.:"
+label_added                  = "Toegevoegd"
+label_lv_short               = "Niv.:"
+label_mod_short              = "Mod.:"
+label_gear_colon             = "Uitrust.:"
+label_advantages_colon       = "Voordelen:"
+label_weapon_defects_colon   = "Gebreken:"
+label_added_weapons          = "Toegevoegde Wapens"
+label_dmg_short              = "Schade:"
+label_base_sp_colon          = "Basis VP:"
+label_skill_col              = "Vaardigheid"
+label_lv_col                 = "Niv"
+label_sp_lv_col              = "VP/Niv"
+label_mod_col                = "Mod."
+label_total_col              = "Totaal"
+label_mecha_name             = "Mechanaam:"
+label_mp_total_colon         = "   MP totaal:"
+label_mecha_details          = "Mecha-details:"
+label_mecha_section          = "⚙  Mecha"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "CP"
+label_cp_refund              = "CP-terugbetaling"
+label_mp                     = "MP"
+label_mp_used                = "MP gebruikt:"
+label_hp_display             = "TP:"
+label_sp_display             = "VP:"
+label_adv_def                = "Voor./Geb."
+label_mp_refund              = "MP-terugbetaling"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "CP:"
+section_core_values          = "Kernwaarden"
+section_char_points          = "Personagepunten"
+section_attributes           = "Attributen"
+section_defects              = "Gebreken"
+section_weapons              = "Wapens"
+section_skill_points         = "Vaardigheidspunten"
+section_skills               = "Vaardigheden"
+section_combat_skills        = "Gevechtsvaardigheden"
+label_stat_formula_row       = "Stat-formule"
+label_health_points          = "Trefferpunten"
+label_energy_points          = "Energiepunten"
+label_acv_long               = "Aanvalskampwaarde"
+label_dcv_long               = "Verdedigingskampwaarde"
+label_shock_value            = "Schokwaarde"
+label_cp_total_row           = "CP totaal"
+label_setting_short          = "Setting:"
+label_mp_total_row           = "MP totaal"
+label_adv_short              = "Voor.:"
+label_def_short              = "Geb.:"
+label_char_summary           = "Personageoverzicht"
+btn_copy                     = "📋 Kopiëren"
+msg_copied_title             = "Gekopieerd"
+msg_copied_body              = "Overzicht naar klembord gekopieerd."
+label_dmg_abbr               = "Schade"
+label_with                   = "met"
+label_mecha_prefix           = "Mecha:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "Personagenaam"
+pdf_char_points              = "Personagepunten"
+pdf_skill_points             = "Vaardigheidspunten"
+pdf_page                     = "Pagina"
+pdf_of                       = "/"
+pdf_char_details             = "Personagedetails"
+pdf_body                     = "LICHAAM"
+pdf_mind                     = "GEEST"
+pdf_soul                     = "ZIEL"
+pdf_hp                       = "TP"
+pdf_ep                       = "EP"
+pdf_sv                       = "Schok"
+pdf_acv                      = "AKW"
+pdf_dcv                      = "VKW"
+pdf_col_name                 = "Naam"
+pdf_col_cp                   = "CP"
+pdf_col_mp                   = "MP"
+pdf_col_refund               = "Terugbet."
+pdf_col_notes                = "Notities"
+pdf_col_gm                   = "Uitrust."
+pdf_col_desc                 = "Beschr."
+pdf_adv                      = "Voor.:"
+pdf_def                      = "Geb.:"
+pdf_sp                       = "VP"
+pdf_attributes               = "Attributen"
+pdf_defects                  = "Gebreken"
+pdf_weapons                  = "Wapens"
+pdf_skills                   = "Vaardigheden"
+pdf_equip_notes              = "Uitrusting & Avonturennotities"
+pdf_attrs_cont               = "Attributen (vervolg)"
+pdf_defs_cont                = "Gebreken (vervolg)"
+pdf_mecha_attrs              = "Mecha-attributen"
+pdf_mecha_defects            = "Mecha-gebreken"
+pdf_mecha_weapons            = "Mecha-wapens"
+pdf_mp                       = "MP:"
+pdf_hp_bar                   = "TP:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Standaard"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Gratis, dan Drie"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "Getrapt"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Standaard"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Driehoekig"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Dierenvriendschap'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Uiterlijk'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Kunst van Afleiding'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Astrale Projectie'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Aura van Bevel'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Gevechtsmeesterschap'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Besmetting'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = 'Verdomd Gezond!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Dimensieportaal'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Goddelijke Relatie'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Dynamische Toverij'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Elasticiteit'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Elektronische Tegenmaatregelen'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Energiebonus'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Omgevingscontrole'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Exorcisme'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Extra Armen'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Extra Aanvallen'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Kenmerken of Accessoires'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Vlucht'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Handlangers'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Gefocuste Schade'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Krachtsveld'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Grondsnelheid'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'Wapenexpert'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Genezing'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Zwaar Pantser'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Verhoogde Bewustwording'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Verhoogde Zintuigen'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Zeer Vaardig'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Illusie'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Onstoffelijk'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Onzichtbaarheid'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Krachtsvoorwerp'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Springen'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Kensei'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Levensondersteuning'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Licht Pantser'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Magie'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Massieve Schade'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Mechanisch Genie'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Samensmelting'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Metamorfose'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Nabootsing'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Gedachtenbeheersing'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Geestesschild'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Natuurlijke Wapens'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Tenietdoen'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Organisatiebanden'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Bezit een Grote Mecha'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Persoonlijke Uitrusting'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Krachtsplaats'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Voorkennisgeving'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Regeneratie'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Reïncarnatie'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Sensoren'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Dienaar'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Gedaanteverandering'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Schild'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Zesde Zintuig'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Groottewijziging'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Ruimtevlucht'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Speciale Verdediging'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Speciale Beweging'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Snelheid'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Geestesbarrière'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Sterrenvlucht'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Stealth'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Superkracht'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Zwerm'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Telekinese'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Telepathie'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Teleportatie'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Overdracht'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Transmutatie'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Tunnelen'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Uniek Attribuut'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Watersnelheid'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Rijkdom'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Leeftijdsdiscriminatie'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Aanvalsbeperking'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Lomp'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Onhandige Grootte'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Vloek'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Blinde Woede'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'Kan Niet Praten'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Voorwaardelijk Eigendom'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Vervloekt'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Nietig'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Snel Afgeleid'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Romantische Magneet'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Hangarkoningin'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Onbekwame Vechter'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Onvrijwillige Fysieke Verandering'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Magische Beperkingen'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Gemerkt'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Nemesis'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'Niet Zo Snel'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'Niet Zo Sterk'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'Niet Zo Taai'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'Één Arm / Geen Armen'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Eenrichtingstransformatie'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Eigendom van een Megacorp'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Fobie'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Fysiek Onaantrekkelijk'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Terugkerende Nachtmerries'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Bureaucratie'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Beperkte Grondbeweging'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Beperkt Pad'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Rudimentaire Manipulatie'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Zintuiglijke Beperking'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Levenspartner (LP)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Lijk in de Kast'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Sociaal Gebrek'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Speciale Vereiste'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Uniek Gebrek'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Ongeschoold'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Instabiel'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Kwetsbaarheid'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Gezocht'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Zwak Punt'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Nauwkeurig'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Treft Onstoffelijken'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Gebiedseffect'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Aura'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Automatisch Vuur'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Brandend'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Verbergbaar'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Besmettelijk (Licht)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Besmettelijk (Zwaar)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Demoraliserend'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Lichaam Draineren'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Energie Draineren'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Geest Draineren'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Ziel Draineren'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Lichtkogel'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Flexibel'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Doelzoekend'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Doelzoekend (Zeldzaam)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Uitschakelend'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Ongeneeslijk'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Indirect'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Irriterend'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Lethargie'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Gekoppeld (Aanval)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Gekoppeld (Attribuut)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Lang Bereik'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'Spierkrachtbediend'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Geen Regeneratie'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Doordringend (Pantser)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Doordringend (Volledig Pantser)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Doordringend (Krachtsveld)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Doordringend (Volledig KV)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Aardbeving'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Selectief'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Zielaanval'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Zielaanval (geen schade)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Spreidend'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Verdoving'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Verstrikkend'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Val'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Vampirisch'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Vampirisch (Overladen)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Verwoestend'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Terugstootexplosie'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Terugstootexplosie (Gebied)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Schild Laten Vallen'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Blootgesteld (Alleen Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Extra Energie'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Vast (Alleen Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Onnauwkeurig'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Intern'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Beperkte Schoten (6 schoten)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Beperkte Schoten (3 schoten)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Beperkte Schoten (Enkel)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Lage Penetratie'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Gevecht van Nabij'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Geen Schade'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Alleen in (Omgeving)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Alleen in (Zeldzame Omgeving)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Zelfvernietiging'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Kort Bereik'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Langzaam (1 beurt)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Langzaam (1 minuut)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Langzaam (Uren)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Langzaam (Dagen)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Langzaam (Maanden)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Statisch'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Stopbaar (EdB)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Stopbaar (5 beurten)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Stopbaar (1 minuut)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Stopbaar (Uren)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Giftig'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Twee Handen'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Onbetrouwbaar'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Gebruikt Energie (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Gebruikt Energie (5×Niv)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Ineffectief'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Kunstmatige Intelligentie (KI)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Extra Capaciteit'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Extra Uithoudingsvermogen'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Manoevreerbonus'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Mecha-regeneratie'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Mechanische Transformatie'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Samensmelting'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Meervoudige Mecha-aanvallen'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Speciaal Uitrusting'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Ondergeschikte Mecha'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Oproepbaar'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Supertransformatie'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Taaiheid'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Bemanningsvereiste'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Blootgestelde Inzittenden'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Beperkt Uithoudingsvermogen'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Wederzijdse Schade'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Luidruchtig'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Slechte Manoeuvreerbaarheid'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Verminderde Capaciteit'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Opstarttijd'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Oproepvoorwerp'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'Windaangedreven'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'Action Adventure'
+'Cyberpunk'        = 'Cyberpunk'
+'High Fantasy'     = 'High Fantasy'
+'Mecha Drama'      = 'Mecha Drama'
+'Occult Horror'    = 'Occult Horror'
+'Romantic Comedy'  = 'Romantic Comedy'
+'Space Opera'      = 'Space Opera'
+'Urban Fantasy'    = 'Urban Fantasy'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Acrobatiek'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Dierentraining'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Architectuur'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Ambacht'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Biologische Wetenschappen'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Varen'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Inbraak'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Bedrijfsmanagement'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Beschaving'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Klimmen'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Computers'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Gecontroleerd Ademen'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Koken'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Culturele Kunsten'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Springstoffen'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Vermomming'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Huishoudkunde'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Rijden'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Elektronica'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Empathie'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Techniek'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Milieuwetenschappen'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Etiquette'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Vervalsing'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Spelen'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'Verhoor'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Intimidatie'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Recht'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Taalkunde'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Leiderschap'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Luisteren'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Mechanica'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Geneeskunde'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Militaire Wetenschappen'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Natuurgeneeskunde'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Navigatie'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Occultisme'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Beroep'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Podiumkunsten'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Overtuigingskracht'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Natuurkunde'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Piloten'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Vergiften'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Politiewetenschappen'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Gewichtheffen'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Religie'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Paardrijden'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Zoeken'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Verleiding'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Vlugge Vingers'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Sluipen'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Sociale Wetenschappen'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Sport'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Straatinstinct'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Zwemmen'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Stedelijk Spoorzoeken'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Beeldende Kunsten'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Overleven in de Wildernis'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Spoorzoeken in de Wildernis'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Schrijven'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Boogschieten'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Vuurwapengevecht'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Zware Wapens'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Aanval van Nabij'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Verdediging van Nabij'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Verdediging op Afstand'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Gooidwapens'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Ongewapende Aanval'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Ongewapende Verdediging'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4

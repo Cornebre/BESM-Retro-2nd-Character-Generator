@@ -1,0 +1,2408 @@
+# =============================================================================
+# BESM 2η Έκδοση — Διαμόρφωση δεδομένων παιχνιδιού (ΕΛΛΗΝΙΚΑ) (MT)
+# Επεξεργαστείτε αυτό το αρχείο για να προσαρμόσετε το σύνολο κανόνων. Η εφαρμογή το διαβάζει κατά την εκκίνηση.
+#
+# ΚΑΝΟΝΕΣ ΜΕΤΑΦΡΑΣΗΣ:
+#   - "key"  = εσωτερικός αναγνωριστικός κωδικός που χρησιμοποιείται στα αρχεία αποθήκευσης. ΜΗΝ τα αλλάζετε ΠΟΤΕ.
+#              Για τα αγγλικά, key == name (δεν απαιτείται μετάφραση).
+#   - "name" = συμβολοσειρά που εμφανίζεται στο περιβάλλον χρήστη για αυτή τη γλώσσα.
+#   - Εάν το πεδίο "name" απουσιάζει, το πρόγραμμα χρησιμοποιεί το "key".
+# =============================================================================
+
+[lang]
+code    = "ell"
+label   = "Ελληνικά (MT)"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 Αποθήκευση"
+btn_load        = "📂 Φόρτωση"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Αποθήκευση Mecha"
+btn_load_mecha  = "🛠 Φόρτωση Mecha"
+btn_new_tab     = "+ Νέος Χαρακτήρας"
+btn_settings    = "⚙ Ρυθμίσεις"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  Οπλοστάσιο"
+arsenal_btn_save           = "💾 Αποθήκευση Οπλοστασίου"
+arsenal_btn_load           = "📂 Φόρτωση Οπλοστασίου"
+arsenal_btn_add            = "+ Προσθήκη στο Οπλοστάσιο"
+arsenal_btn_copy           = "➤ Αντιγραφή"
+arsenal_new_weapon         = "Νέο Όπλο"
+arsenal_section_title      = "Οπλοστάσιο"
+arsenal_copy_hint          = "— κάντε κλικ στο ➤ για αντιγραφή στον ενεργό χαρακτήρα"
+arsenal_empty              = "Δεν υπάρχουν όπλα ακόμα."
+arsenal_weapon_default_name = "Όπλο"
+arsenal_save_title         = "Αποθήκευση Οπλοστασίου"
+arsenal_load_title         = "Φόρτωση Οπλοστασίου"
+arsenal_invalid_file       = "Μη έγκυρο αρχείο οπλοστασίου."
+arsenal_delete_title       = "Διαγραφή Όπλου"
+arsenal_delete_body        = "Αφαίρεση \"{name}\" από το Οπλοστάσιο;"
+arsenal_no_char_title      = "Χωρίς Χαρακτήρα"
+arsenal_no_char_body       = "Δεν υπάρχει ανοιχτή καρτέλα χαρακτήρα.\nΑνοίξτε ή δημιουργήστε πρώτα έναν χαρακτήρα."
+arsenal_status_added       = "\"{name}\" προστέθηκε."
+arsenal_status_removed     = "\"{name}\" αφαιρέθηκε."
+arsenal_status_copied      = "\"{name}\" αντιγράφηκε στο {char}."
+arsenal_status_saved       = "{n} όπλο/α αποθηκεύτηκε/αν."
+arsenal_status_loaded      = "{n} όπλο/α φορτώθηκε/αν."
+
+# Page navigation tabs
+page_core       = "① Βάση"
+page_attrs      = "② Χαρ. και Όπλα"
+page_defects    = "③ Ελαττώματα"
+page_skills     = "④ Δεξιότητες"
+page_mecha      = "⑤ Mecha"
+page_summary    = "⑥ Περίληψη"
+
+# Core page labels
+label_name          = "Όνομα Χαρακτήρα"
+label_cp_total      = "ΧΠ Σύνολο"
+label_cp_spent      = "ΧΠ Δαπανήθηκαν"
+label_cp_remaining  = "ΧΠ Υπόλοιπο"
+label_stat_formula  = "Τύπος Ιδιοτήτων"
+label_attr_formula  = "Τύπος Χαρ."
+label_body          = "Σώμα"
+label_mind          = "Νους"
+label_soul          = "Ψυχή"
+label_hp            = "ΥΣ"
+label_ep            = "ΕΠ"
+label_acv           = "ΤΑΜ"
+label_dcv           = "ΑΑΜ"
+label_sv            = "Τιμή Σοκ"
+label_details       = "Λεπτομέρειες Χαρακτήρα"
+label_equipment     = "Σημειώσεις Εξοπλισμού"
+
+# Attributes & Weapons page
+label_attributes    = "Χαρακτηριστικά"
+label_weapons       = "Όπλα"
+btn_add_attr        = "+ Προσθήκη Χαρακτηριστικού"
+btn_add_weapon      = "+ Προσθήκη Όπλου"
+label_level         = "Επ"
+label_cost          = "Κόστος"
+label_description   = "Περιγραφή"
+label_gear          = "Εξοπλισμός"
+label_advantages    = "Πλεονεκτήματα"
+label_weapon_defects = "Ελαττώματα"
+label_damage        = "Βλάβη"
+
+# Defects page
+label_defects       = "Ελαττώματα"
+btn_add_defect      = "+ Προσθήκη Ελαττώματος"
+
+# Skills page
+label_skills        = "Δεξιότητες"
+label_combat_skills = "Μαχητικές Δεξιότητες"
+label_sp_total      = "ΔΠ Σύνολο"
+label_sp_spent      = "ΔΠ Δαπανήθηκαν"
+label_sp_remaining  = "ΔΠ Υπόλοιπο"
+label_setting       = "Επιλογή"
+
+# Mecha page
+label_mecha         = "Mecha"
+label_mp_total      = "ΜΠ Σύνολο"
+label_mp_spent      = "ΜΠ Δαπανήθηκαν"
+btn_add_mecha       = "+ Προσθήκη Mecha"
+
+# Summary page
+label_summary       = "Περίληψη"
+label_sp_bonus      = "Μπόνους ΔΠ"
+label_base_sp       = "Βασικά ΔΠ"
+label_total_sp      = "Συνολικά διαθέσιμα ΔΠ"
+
+# Status bar
+status_ok           = "ΟΚ"
+status_over         = "ΥΠΕΡΒΑΣΗ"
+status_cp           = "ΧΠ"
+
+# Dialogs
+dialog_save_title    = "Αποθήκευση Χαρακτήρα"
+dialog_load_title    = "Φόρτωση Χαρακτήρα"
+dialog_pdf_title     = "Εξαγωγή Φύλλου Χαρακτήρα"
+dialog_mecha_save    = "Αποθήκευση Mecha"
+dialog_mecha_load    = "Φόρτωση Mecha"
+msg_exported         = "Εξήχθη"
+msg_sheet_saved      = "Φύλλο αποθηκεύτηκε:"
+msg_saved            = "Αποθηκεύτηκε"
+msg_loaded           = "Φορτώθηκε"
+msg_mecha_saved      = "Mecha αποθηκεύτηκε:"
+msg_mecha_imported   = "Mecha εισήχθη:"
+msg_error            = "Σφάλμα"
+msg_export_failed    = "Αποτυχία εξαγωγής"
+msg_template_missing = "Το πρότυπο λείπει"
+msg_unsaved_changes  = "Μη αποθηκευμένες αλλαγές"
+msg_close_confirm    = "Κλείσιμο αυτού του χαρακτήρα χωρίς αποθήκευση;"
+msg_new_character    = "Νέος Χαρακτήρας"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── Μόνο Mecha ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "Όνομα Χαρακτήρα:"
+label_cp_section             = "Πόντοι Χαρακτήρα"
+label_cp_total_colon         = "ΧΠ σύνολο:"
+label_stats                  = "Ιδιότητες"
+label_stat_col               = "Ιδιότ."
+label_value_col              = "Τιμή"
+label_cp_cost_col            = "Κόστος ΧΠ"
+label_total_colon            = "Σύνολο:"
+label_derived_mods           = "Τροποποιητές Παράγωγων Τιμών"
+label_hp_mod                 = "Τροποποιητής ΥΣ"
+label_ep_mod                 = "Τροποποιητής ΕΠ"
+label_acv_mod                = "Τροποποιητής ΤΑΜ"
+label_dcv_mod                = "Τροποποιητής ΑΑΜ"
+label_sv_mod                 = "Τροποποιητής Τιμής Σοκ"
+label_derived                = "Παράγωγες Τιμές"
+label_name_add               = "Όνομα:"
+label_cost_lv                = "Κόστ./Επ:"
+label_level_add              = "Επίπεδο:"
+label_modifier_add           = "Τροποποιητής:"
+label_desc                   = "Περιγ.:"
+label_added                  = "Προστέθηκε"
+label_lv_short               = "Επ.:"
+label_mod_short              = "Τρ.:"
+label_gear_colon             = "Εξοπλ.:"
+label_advantages_colon       = "Πλεονεκτήματα:"
+label_weapon_defects_colon   = "Ελαττώματα:"
+label_added_weapons          = "Προστεθέντα Όπλα"
+label_dmg_short              = "Βλάβη.:"
+label_base_sp_colon          = "Βασικά ΔΠ:"
+label_skill_col              = "Δεξιότητα"
+label_lv_col                 = "Επ"
+label_sp_lv_col              = "ΔΠ/Επ"
+label_mod_col                = "Τρ."
+label_total_col              = "Σύνολο"
+label_mecha_name             = "Όνομα Mecha:"
+label_mp_total_colon         = "   ΜΠ σύνολο:"
+label_mecha_details          = "Λεπτομέρειες Mecha:"
+label_mecha_section          = "⚙  Mecha"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "ΧΠ"
+label_cp_refund              = "Επιστροφή ΧΠ"
+label_mp                     = "ΜΠ"
+label_mp_used                = "ΜΠ χρησιμοποιήθηκαν:"
+label_hp_display             = "ΥΣ:"
+label_sp_display             = "ΔΠ:"
+label_adv_def                = "Πλεον./Ελατ."
+label_mp_refund              = "Επιστροφή ΜΠ"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "ΧΠ:"
+section_core_values          = "Βασικές Τιμές"
+section_char_points          = "Πόντοι Χαρακτήρα"
+section_attributes           = "Χαρακτηριστικά"
+section_defects              = "Ελαττώματα"
+section_weapons              = "Όπλα"
+section_skill_points         = "Πόντοι Δεξιοτήτων"
+section_skills               = "Δεξιότητες"
+section_combat_skills        = "Μαχητικές Δεξιότητες"
+label_stat_formula_row       = "Τύπος Ιδιοτήτων"
+label_health_points          = "Πόντοι Υγείας"
+label_energy_points          = "Πόντοι Ενέργειας"
+label_acv_long               = "Τιμή Μάχης Επίθεσης"
+label_dcv_long               = "Τιμή Μάχης Άμυνας"
+label_shock_value            = "Τιμή Σοκ"
+label_cp_total_row           = "ΧΠ σύνολο"
+label_setting_short          = "Σκηνικό:"
+label_mp_total_row           = "ΜΠ σύνολο"
+label_adv_short              = "Πλεον.:"
+label_def_short              = "Ελατ.:"
+label_char_summary           = "Περίληψη Χαρακτήρα"
+btn_copy                     = "📋 Αντιγραφή"
+msg_copied_title             = "Αντιγράφηκε"
+msg_copied_body              = "Η περίληψη αντιγράφηκε στο πρόχειρο."
+label_dmg_abbr               = "Βλάβη"
+label_with                   = "με"
+label_mecha_prefix           = "Mecha:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "Όνομα Χαρακτήρα"
+pdf_char_points              = "Πόντοι Χαρακτήρα"
+pdf_skill_points             = "Πόντοι Δεξιοτήτων"
+pdf_page                     = "Σελίδα"
+pdf_of                       = "/"
+pdf_char_details             = "Λεπτομέρειες Χαρακτήρα"
+pdf_body                     = "ΣΩΜΑ"
+pdf_mind                     = "ΝΟΥΣ"
+pdf_soul                     = "ΨΥΧΗ"
+pdf_hp                       = "ΥΣ"
+pdf_ep                       = "ΕΠ"
+pdf_sv                       = "Σοκ"
+pdf_acv                      = "ΤΑΜ"
+pdf_dcv                      = "ΑΑΜ"
+pdf_col_name                 = "Όνομα"
+pdf_col_cp                   = "ΧΠ"
+pdf_col_mp                   = "ΜΠ"
+pdf_col_refund               = "Επιστρ."
+pdf_col_notes                = "Σημειώσεις"
+pdf_col_gm                   = "Εξοπλ."
+pdf_col_desc                 = "Περιγ."
+pdf_adv                      = "Πλεον.:"
+pdf_def                      = "Ελατ.:"
+pdf_sp                       = "ΔΠ"
+pdf_attributes               = "Χαρακτηριστικά"
+pdf_defects                  = "Ελαττώματα"
+pdf_weapons                  = "Όπλα"
+pdf_skills                   = "Δεξιότητες"
+pdf_equip_notes              = "Εξοπλισμός και Σημειώσεις Περιπέτειας"
+pdf_attrs_cont               = "Χαρακτηριστικά (συνέχεια)"
+pdf_defs_cont                = "Ελαττώματα (συνέχεια)"
+pdf_mecha_attrs              = "Χαρακτηριστικά Mecha"
+pdf_mecha_defects            = "Ελαττώματα Mecha"
+pdf_mecha_weapons            = "Όπλα Mecha"
+pdf_mp                       = "ΜΠ:"
+pdf_hp_bar                   = "ΥΣ:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Προεπιλογή"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Δωρεάν, μετά Τρία"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "Σκαλωτό"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Προεπιλογή"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Τριγωνικό"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Φιλία με Ζώα'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Εμφάνιση'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Τέχνη της Αποσπάσεως'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Αστρική Προβολή'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Αύρα Εντολής'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Κατάκτηση Μάχης'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Μόλυνση'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = 'Καταραμένα Υγιής!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Διαστατική Πύλη'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Θεϊκή Σχέση'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Δυναμική Μαγεία'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Ελαστικότητα'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Ηλεκτρονικά Αντίμετρα'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Μπόνους Ενέργειας'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Έλεγχος Περιβάλλοντος'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Εξορκισμός'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Επιπλέον Χέρια'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Επιπλέον Επιθέσεις'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Χαρακτηριστικά ή Αξεσουάρ'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Πτήση'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Υπηρέτες'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Εστιασμένη Βλάβη'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Πεδίο Δύναμης'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Χερσαία Ταχύτητα'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'Ειδικός Οπλισμού'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Θεραπεία'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Βαριά Πανοπλία'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Ενισχυμένη Επίγνωση'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Ενισχυμένες Αισθήσεις'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Εξαιρετικά Ειδικευμένος'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Ψευδαίσθηση'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Άυλος'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Αόρατος'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Αντικείμενο Δύναμης'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Άλμα'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Κενσέι'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Υποστήριξη Ζωής'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Ελαφριά Πανοπλία'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Μαγεία'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Μαζική Βλάβη'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Μηχανική Ιδιοφυΐα'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Συγχώνευση'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Μεταμόρφωση'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Μίμηση'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Έλεγχος Νου'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Ασπίδα Νου'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Φυσικά Όπλα'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Ακύρωση'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Οργανωτικοί Δεσμοί'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Κατέχει Μεγάλο Mecha'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Προσωπικός Εξοπλισμός'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Τόπος Δύναμης'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Προγνωστική'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Αναγέννηση'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Μετενσάρκωση'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Αισθητήρες'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Υπηρέτης'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Αλλαγή Μορφής'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Ασπίδα'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Έκτη Αίσθηση'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Αλλαγή Μεγέθους'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Διαστημική Πτήση'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Ειδική Άμυνα'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Ειδική Κίνηση'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Ταχύτητα'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Πνευματική Προστασία'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Αστρική Πτήση'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Αθόρυβη Κίνηση'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Υπερδύναμη'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Σμήνος'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Τηλεκίνηση'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Τηλεπάθεια'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Τηλεμεταφορά'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Μεταφορά'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Μεταστοίχειωση'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Σκαψιά Τούνελ'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Μοναδικό Χαρακτηριστικό'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Υδάτινη Ταχύτητα'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Πλούτος'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Ηλικισμός'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Περιορισμός Επίθεσης'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Αδέξιος'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Άβολο Μέγεθος'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Κατάρα'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Τυφλή Οργή'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'Δεν Μπορεί να Μιλήσει'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Υπό Όρους Ιδιοκτησία'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Καταραμένος'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Μικρόσωμος'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Αποσπάται Εύκολα'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Ρομαντικός Μαγνήτης'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Βασίλισσα Ανγκάρ'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Αδέξιος Μαχητής'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Ακούσια Σωματική Αλλαγή'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Μαγικοί Περιορισμοί'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Σημαδεμένος'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Νέμεσις'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'Όχι Τόσο Γρήγορος'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'Όχι Τόσο Δυνατός'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'Όχι Τόσο Σκληρός'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'Ένα Χέρι / Χωρίς Χέρια'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Μονόδρομη Μεταμόρφωση'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Ιδιοκτησία Μεγακορπορασίας'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Φοβία'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Σωματικά Μη Ελκυστικός'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Επαναλαμβανόμενοι Εφιάλτες'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Γραφειοκρατία'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Περιορισμένη Χερσαία Κίνηση'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Περιορισμένη Διαδρομή'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Στοιχειώδης Χειρισμός'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Αισθητηριακή Βλάβη'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Σύντροφος Ζωής (ΣΖ)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Σκελετός στην Ντουλάπα'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Κοινωνικό Ελάττωμα'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Ειδική Απαίτηση'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Μοναδικό Ελάττωμα'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Ανειδίκευτος'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Ευμετάβλητος'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Τρωτότητα'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Καταζητούμενος'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Αδύναμο Σημείο'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Ακριβής'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Επηρεάζει Άυλα'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Επίδραση Περιοχής'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Αύρα'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Αυτόματα Πυρά'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Καίγωντας'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Αποκρύψιμος'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Μολυσματικό (Ήπιο)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Μολυσματικό (Ισχυρό)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Αποθαρρυντικό'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Εξαντλεί Σώμα'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Εξαντλεί Ενέργεια'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Εξαντλεί Νου'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Εξαντλεί Ψυχή'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Φωτοβολίδα'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Ευέλικτο'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Κατευθυνόμενο'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Κατευθυνόμενο (Σπάνιο)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Ανικανοποιητικό'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Αθεράπευτο'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Έμμεσο'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Ερεθιστικό'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Λήθαργος'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Συνδεδεμένο (Επίθεση)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Συνδεδεμένο (Χαρακτηριστικό)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Μεγάλη Εμβέλεια'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'Κινείται με Μυϊκή Δύναμη'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Χωρίς Αναγέννηση'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Διεισδυτικό (Πανοπλία)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Διεισδυτικό (Πλήρης Πανοπλία)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Διεισδυτικό (Πεδίο Δύναμης)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Διεισδυτικό (Πλήρες ΠΔ)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Σεισμός'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Επιλεκτικό'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Επίθεση Ψυχής'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Επίθεση Ψυχής (χωρίς βλάβη)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Εξαπλώνεται'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Ζάλη'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Εμπλοκή'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Παγίδα'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Βαμπιρικό'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Βαμπιρικό (Υπερφόρτωση)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Καταστρεπτικό'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Οπίσθια Έκρηξη'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Οπίσθια Έκρηξη (Περιοχή)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Κατεβάζει Ασπίδες'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Εκτεθειμένο (Μόνο Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Επιπλέον Ενέργεια'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Σταθερό (Μόνο Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Ανακριβές'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Εσωτερικό'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Περιορισμένοι Πυροβολισμοί (6)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Περιορισμένοι Πυροβολισμοί (3)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Περιορισμένοι Πυροβολισμοί (Ένας)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Χαμηλή Διείσδυση'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Εκ του Σύνεγγυς Μάχη'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Χωρίς Βλάβη'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Μόνο σε (Περιβάλλον)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Μόνο σε (Σπάνιο Περιβάλλον)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Αυτοκαταστροφή'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Μικρή Εμβέλεια'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Αργό (1 γύρος)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Αργό (1 λεπτό)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Αργό (Ώρες)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Αργό (Μέρες)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Αργό (Μήνες)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Στατικό'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Σταματήσιμο (ΤΓ)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Σταματήσιμο (5 γύροι)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Σταματήσιμο (1 λεπτό)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Σταματήσιμο (Ώρες)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Τοξικό'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Δύο Χέρια'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Αναξιόπιστο'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Χρησιμοποιεί Ενέργεια (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Χρησιμοποιεί Ενέργεια (5×Επ)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Αναποτελεσματικό'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Τεχνητή Νοημοσύνη (ΤΝ)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Επιπλέον Χωρητικότητα'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Επιπλέον Αντοχή'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Μπόνους Ελιγμού'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Αναγέννηση Mecha'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Μηχανική Μεταμόρφωση'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Συγχώνευση'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Πολλαπλές Επιθέσεις Mecha'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Ειδικός Εξοπλισμός'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Υποτελές Mecha'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Καλεσμένο'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Υπερμεταμόρφωση'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Σκληραγωγία'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Απαίτηση Πληρώματος'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Εκτεθειμένοι Επιβάτες'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Περιορισμένη Αντοχή'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Αμοιβαία Βλάβη'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Θορυβώδες'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Κακή Ευελιξία'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Μειωμένη Χωρητικότητα'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Χρόνος Εκκίνησης'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Αντικείμενο Κλήσης'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'Κινείται με Άνεμο'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'Δράση και Περιπέτεια'
+'Cyberpunk'        = 'Κυβερνοπανκ'
+'High Fantasy'     = 'Υψηλή Φαντασία'
+'Mecha Drama'      = 'Δράμα Mecha'
+'Occult Horror'    = 'Αποκρυφιστικός Τρόμος'
+'Romantic Comedy'  = 'Ρομαντική Κωμωδία'
+'Space Opera'      = 'Διαστημική Όπερα'
+'Urban Fantasy'    = 'Αστική Φαντασία'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Ακροβατική'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Εκπαίδευση Ζώων'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Αρχιτεκτονική'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Χειροτεχνία'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Βιολογικές Επιστήμες'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Ναυτιλία'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Διάρρηξη'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Διαχείριση Επιχειρήσεων'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Πολιτισμός'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Αναρρίχηση'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Υπολογιστές'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Ελεγχόμενη Αναπνοή'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Μαγειρική'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Πολιτιστικές Τέχνες'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Εκρηκτικά'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Μεταμφίεση'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Οικιακές Τέχνες'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Οδήγηση'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Ηλεκτρονική'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Ενσυναίσθηση'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Μηχανική'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Περιβαλλοντικές Επιστήμες'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Εθιμοτυπία'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Παραχάραξη'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Παιχνίδια'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'Ανάκριση'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Εκφοβισμός'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Νόμος'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Γλωσσολογία'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Ηγεσία'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Ακρόαση'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Μηχανολογία'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Ιατρική'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Στρατιωτικές Επιστήμες'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Φυσικοπαθητική'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Πλοήγηση'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Αποκρυφισμός'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Επάγγελμα'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Παραστατικές Τέχνες'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Πειθώ'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Φυσικές Επιστήμες'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Πιλοτάρισμα'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Δηλητήρια'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Αστυνομικές Επιστήμες'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Άρση Βαρών'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Θρησκεία'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Ιππασία'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Αναζήτηση'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Αποπλάνηση'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Ταχυδακτυλουργία'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Κρυφή Κίνηση'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Κοινωνικές Επιστήμες'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Αθλητισμός'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Αίσθηση Δρόμου'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Κολύμβηση'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Αστική Ανίχνευση'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Εικαστικές Τέχνες'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Επιβίωση στη Φύση'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Ανίχνευση στη Φύση'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Συγγραφή'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Τοξοβολία'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Μάχη με Πυροβόλα Όπλα'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Βαριά Όπλα'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Επίθεση Εκ του Σύνεγγυς'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Άμυνα Εκ του Σύνεγγυς'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Άμυνα Εξ Αποστάσεως'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Εκτοξευόμενα Όπλα'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Άοπλη Επίθεση'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Άοπλη Άμυνα'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4

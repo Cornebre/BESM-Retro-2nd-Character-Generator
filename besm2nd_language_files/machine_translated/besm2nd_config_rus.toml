@@ -1,0 +1,2409 @@
+# =============================================================================
+# BESM 2-е издание — Конфигурация данных (РУССКИЙ) (МП)
+# Отредактируйте этот файл, чтобы настроить набор правил. Приложение считывает его при запуске.
+#
+# ПРАВИЛА ПЕРЕВОДА:
+#   - «key»  = внутренний идентификатор, используемый в файлах сохранений. НИКОГДА не изменяйте эти значения.
+#              Для английского языка key == name (перевод не требуется).
+#   - «name» = строка, отображаемая в интерфейсе для данного языка.
+#   - Если поле «name» отсутствует, программа использует значение «key».
+# 
+# =============================================================================
+
+[lang]
+code    = "rus"
+label   = "Русский (МП)"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 Сохранить"
+btn_load        = "📂 Загрузить"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Сохранить Мех"
+btn_load_mecha  = "🛠 Загрузить Мех"
+btn_new_tab     = "+ Новый Персонаж"
+btn_settings    = "⚙ Настройки"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  Арсенал"
+arsenal_btn_save           = "💾 Сохранить Арсенал"
+arsenal_btn_load           = "📂 Загрузить Арсенал"
+arsenal_btn_add            = "+ Добавить в Арсенал"
+arsenal_btn_copy           = "➤ Копировать"
+arsenal_new_weapon         = "Новое Оружие"
+arsenal_section_title      = "Арсенал"
+arsenal_copy_hint          = "— нажмите ➤ чтобы скопировать активному персонажу"
+arsenal_empty              = "Пока нет оружия."
+arsenal_weapon_default_name = "Оружие"
+arsenal_save_title         = "Сохранить Арсенал"
+arsenal_load_title         = "Загрузить Арсенал"
+arsenal_invalid_file       = "Неверный файл арсенала."
+arsenal_delete_title       = "Удалить Оружие"
+arsenal_delete_body        = "Удалить \"{name}\" из Арсенала?"
+arsenal_no_char_title      = "Нет Персонажа"
+arsenal_no_char_body       = "Нет открытых вкладок персонажа.\nОткройте или создайте персонажа."
+arsenal_status_added       = "\"{name}\" добавлено."
+arsenal_status_removed     = "\"{name}\" удалено."
+arsenal_status_copied      = "\"{name}\" скопировано в {char}."
+arsenal_status_saved       = "Сохранено {n} оружие/оружий."
+arsenal_status_loaded      = "Загружено {n} оружие/оружий."
+
+# Page navigation tabs
+page_core       = "① Основы"
+page_attrs      = "② Атрибуты и Оружие"
+page_defects    = "③ Недостатки"
+page_skills     = "④ Навыки"
+page_mecha      = "⑤ Мех"
+page_summary    = "⑥ Сводка"
+
+# Core page labels
+label_name          = "Имя Персонажа"
+label_cp_total      = "ОП Всего"
+label_cp_spent      = "ОП Потрачено"
+label_cp_remaining  = "ОП Осталось"
+label_stat_formula  = "Формула Характеристик"
+label_attr_formula  = "Формула Атрибутов"
+label_body          = "Тело"
+label_mind          = "Разум"
+label_soul          = "Душа"
+label_hp            = "ОЗ"
+label_ep            = "ОЭ"
+label_acv           = "БАК"
+label_dcv           = "БОК"
+label_sv            = "Значение Шока"
+label_details       = "Детали Персонажа"
+label_equipment     = "Заметки об Оснащении"
+
+# Attributes & Weapons page
+label_attributes    = "Атрибуты"
+label_weapons       = "Оружие"
+btn_add_attr        = "+ Добавить Атрибут"
+btn_add_weapon      = "+ Добавить Оружие"
+label_level         = "Ур"
+label_cost          = "Стоимость"
+label_description   = "Описание"
+label_gear          = "Снаряжение"
+label_advantages    = "Преимущества"
+label_weapon_defects = "Недостатки"
+label_damage        = "Урон"
+
+# Defects page
+label_defects       = "Недостатки"
+btn_add_defect      = "+ Добавить Недостаток"
+
+# Skills page
+label_skills        = "Навыки"
+label_combat_skills = "Боевые Навыки"
+label_sp_total      = "НО Всего"
+label_sp_spent      = "НО Потрачено"
+label_sp_remaining  = "НО Осталось"
+label_setting       = "Вариант"
+
+# Mecha page
+label_mecha         = "Мех"
+label_mp_total      = "МО Всего"
+label_mp_spent      = "МО Потрачено"
+btn_add_mecha       = "+ Добавить Мех"
+
+# Summary page
+label_summary       = "Сводка"
+label_sp_bonus      = "Бонус НО"
+label_base_sp       = "Базовые НО"
+label_total_sp      = "Всего доступных НО"
+
+# Status bar
+status_ok           = "ОК"
+status_over         = "ПРЕВЫШЕНО"
+status_cp           = "ОП"
+
+# Dialogs
+dialog_save_title    = "Сохранить Персонажа"
+dialog_load_title    = "Загрузить Персонажа"
+dialog_pdf_title     = "Экспортировать Лист Персонажа"
+dialog_mecha_save    = "Сохранить Мех"
+dialog_mecha_load    = "Загрузить Мех"
+msg_exported         = "Экспортировано"
+msg_sheet_saved      = "Лист сохранён:"
+msg_saved            = "Сохранено"
+msg_loaded           = "Загружено"
+msg_mecha_saved      = "Мех сохранён:"
+msg_mecha_imported   = "Мех импортирован:"
+msg_error            = "Ошибка"
+msg_export_failed    = "Ошибка экспорта"
+msg_template_missing = "Шаблон отсутствует"
+msg_unsaved_changes  = "Несохранённые изменения"
+msg_close_confirm    = "Закрыть персонажа без сохранения?"
+msg_new_character    = "Новый Персонаж"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── Только Мех ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "Имя Персонажа:"
+label_cp_section             = "Очки Персонажа"
+label_cp_total_colon         = "ОП всего:"
+label_stats                  = "Характеристики"
+label_stat_col               = "Хар-ка"
+label_value_col              = "Значение"
+label_cp_cost_col            = "Стоимость ОП"
+label_total_colon            = "Итого:"
+label_derived_mods           = "Модификаторы Производных Значений"
+label_hp_mod                 = "Модификатор ОЗ"
+label_ep_mod                 = "Модификатор ОЭ"
+label_acv_mod                = "Модификатор БАК"
+label_dcv_mod                = "Модификатор БОК"
+label_sv_mod                 = "Модификатор Значения Шока"
+label_derived                = "Производные Значения"
+label_name_add               = "Имя:"
+label_cost_lv                = "Стоимость/Ур:"
+label_level_add              = "Уровень:"
+label_modifier_add           = "Модификатор:"
+label_desc                   = "Описание.:"
+label_added                  = "Добавлено"
+label_lv_short               = "Ур.:"
+label_mod_short              = "Мод.:"
+label_gear_colon             = "Снар.:"
+label_advantages_colon       = "Преимущества:"
+label_weapon_defects_colon   = "Недостатки:"
+label_added_weapons          = "Добавленное Оружие"
+label_dmg_short              = "Урон:"
+label_base_sp_colon          = "Базовые НО:"
+label_skill_col              = "Навык"
+label_lv_col                 = "Ур"
+label_sp_lv_col              = "НО/Ур"
+label_mod_col                = "Мод."
+label_total_col              = "Итого"
+label_mecha_name             = "Название Меха:"
+label_mp_total_colon         = "   МО всего:"
+label_mecha_details          = "Детали Меха:"
+label_mecha_section          = "⚙  Мех"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "ОП"
+label_cp_refund              = "Возврат ОП"
+label_mp                     = "МО"
+label_mp_used                = "МО использовано:"
+label_hp_display             = "ОЗ:"
+label_sp_display             = "НО:"
+label_adv_def                = "Прем./Нед."
+label_mp_refund              = "Возврат МО"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "ОП:"
+section_core_values          = "Базовые Значения"
+section_char_points          = "Очки Персонажа"
+section_attributes           = "Атрибуты"
+section_defects              = "Недостатки"
+section_weapons              = "Оружие"
+section_skill_points         = "Очки Навыков"
+section_skills               = "Навыки"
+section_combat_skills        = "Боевые Навыки"
+label_stat_formula_row       = "Формула Характеристик"
+label_health_points          = "Очки Здоровья"
+label_energy_points          = "Очки Энергии"
+label_acv_long               = "Боевой Коэффициент Атаки"
+label_dcv_long               = "Боевой Коэффициент Обороны"
+label_shock_value            = "Значение Шока"
+label_cp_total_row           = "ОП всего"
+label_setting_short          = "Сеттинг:"
+label_mp_total_row           = "МО всего"
+label_adv_short              = "Прем.:"
+label_def_short              = "Нед.:"
+label_char_summary           = "Сводка Персонажа"
+btn_copy                     = "📋 Копировать"
+msg_copied_title             = "Скопировано"
+msg_copied_body              = "Сводка скопирована в буфер обмена."
+label_dmg_abbr               = "Урон"
+label_with                   = "с"
+label_mecha_prefix           = "Мех:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "Имя Персонажа"
+pdf_char_points              = "Очки Персонажа"
+pdf_skill_points             = "Очки Навыков"
+pdf_page                     = "Стр."
+pdf_of                       = "/"
+pdf_char_details             = "Детали Персонажа"
+pdf_body                     = "ТЕЛО"
+pdf_mind                     = "РАЗУМ"
+pdf_soul                     = "ДУША"
+pdf_hp                       = "ОЗ"
+pdf_ep                       = "ОЭ"
+pdf_sv                       = "Шок"
+pdf_acv                      = "БАК"
+pdf_dcv                      = "БОК"
+pdf_col_name                 = "Название"
+pdf_col_cp                   = "ОП"
+pdf_col_mp                   = "МО"
+pdf_col_refund               = "Возврат"
+pdf_col_notes                = "Заметки"
+pdf_col_gm                   = "Снар."
+pdf_col_desc                 = "Описание"
+pdf_adv                      = "Прем.:"
+pdf_def                      = "Нед.:"
+pdf_sp                       = "НО"
+pdf_attributes               = "Атрибуты"
+pdf_defects                  = "Недостатки"
+pdf_weapons                  = "Оружие"
+pdf_skills                   = "Навыки"
+pdf_equip_notes              = "Снаряжение и Заметки Авантюриста"
+pdf_attrs_cont               = "Атрибуты (продолжение)"
+pdf_defs_cont                = "Недостатки (продолжение)"
+pdf_mecha_attrs              = "Атрибуты Меха"
+pdf_mecha_defects            = "Недостатки Меха"
+pdf_mecha_weapons            = "Оружие Меха"
+pdf_mp                       = "МО:"
+pdf_hp_bar                   = "ОЗ:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Стандартный"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Бесплатно, затем Три"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "Ступенчатый"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Стандартный"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Треугольный"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Дружба с Животными'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Внешность'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Искусство Отвлечения'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Астральная Проекция'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Аура Командования'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Мастерство Боя'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Заражение'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = 'Чертовски Здоровый!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Портал Измерений'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Божественная Связь'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Динамическое Колдовство'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Эластичность'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Электронные Контрмеры'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Бонус Энергии'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Управление Средой'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Экзорцизм'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Дополнительные Руки'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Дополнительные Атаки'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Особенности или Аксессуары'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Полёт'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Прислужники'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Сфокусированный Урон'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Силовое Поле'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Наземная Скорость'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'Эксперт по Оружию'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Исцеление'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Тяжёлая Броня'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Повышенная Осознанность'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Обострённые Чувства'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Высококвалифицированный'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Иллюзия'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Бестелесный'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Невидимость'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Предмет Силы'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Прыжок'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Кэнсей'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Жизнеобеспечение'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Лёгкая Броня'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Магия'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Массивный Урон'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Механический Гений'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Слияние'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Метаморфоз'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Мимикрия'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Управление Разумом'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Щит Разума'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Природное Оружие'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Нейтрализация'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Организационные Связи'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Владеет Большим Мехом'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Личное Снаряжение'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Место Силы'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Прекогниция'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Регенерация'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Реинкарнация'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Сенсоры'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Слуга'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Изменение Формы'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Щит'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Шестое Чувство'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Изменение Размера'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Космический Полёт'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Специальная Защита'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Особое Движение'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Скорость'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Духовная Защита'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Звёздный Полёт'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Скрытность'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Суперсила'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Рой'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Телекинез'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Телепатия'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Телепорт'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Передача'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Трансмутация'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Прокладка Туннелей'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Уникальный Атрибут'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Скорость в Воде'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Богатство'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Эйджизм'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Ограничение Атаки'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Неуклюжий'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Неудобный Размер'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Проклятие'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Слепая Ярость'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'Не Может Говорить'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Условная Собственность'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Проклятый'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Крошечный'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Легко Отвлекается'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Романтический Магнит'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Королева Ангара'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Неумелый Боец'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Невольное Физическое Изменение'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Магические Ограничения'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Отмеченный'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Немезида'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'Не Так Быстр'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'Не Так Силён'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'Не Так Крепок'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'Одна Рука / Без Рук'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Одностороннее Превращение'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Собственность Мегакорпорации'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Фобия'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Физически Непривлекательный'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Повторяющиеся Кошмары'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Бюрократия'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Ограниченное Наземное Движение'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Ограниченный Путь'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Рудиментарные Манипуляции'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Сенсорное Нарушение'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Значимый Другой (ЗД)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Скелет в Шкафу'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Социальный Недостаток'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Особое Требование'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Уникальный Недостаток'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Неквалифицированный'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Нестабильный'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Уязвимость'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Разыскиваемый'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Слабое Место'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Точный'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Воздействует на Бестелесных'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Эффект Области'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Аура'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Автоматический Огонь'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Горящий'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Скрываемый'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Заразный (Слабый)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Заразный (Сильный)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Деморализующий'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Истощает Тело'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Истощает Энергию'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Истощает Разум'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Истощает Душу'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Вспышка'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Гибкий'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Самонаводящийся'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Самонаводящийся (Редкий)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Обездвиживающий'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Неизлечимый'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Косвенный'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Раздражающий'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Летаргия'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Связанный (Атака)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Связанный (Атрибут)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Большая Дальность'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'На Мышечной Тяге'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Без Регенерации'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Пробивающий (Броня)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Пробивающий (Полная Броня)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Пробивающий (Силовое Поле)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Пробивающий (Полное СП)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Землетрясение'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Избирательный'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Атака Души'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Атака Души (без урона)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Рассеивающийся'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Оглушающий'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Опутывающий'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Ловушка'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Вампирический'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Вампирический (Перегрузка)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Сокрушительный'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Обратный Взрыв'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Обратный Взрыв (Область)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Снимает Щиты'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Уязвимый (Только Мех)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Дополнительная Энергия'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Фиксированный (Только Мех)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Неточный'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Внутренний'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Ограниченные Выстрелы (6 выстрелов)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Ограниченные Выстрелы (3 выстрела)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Ограниченные Выстрелы (Один)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Низкое Пробитие'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Ближний Бой'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Без Урона'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Только в (Среде)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Только в (Редкой Среде)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Самоуничтожение'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Малая Дальность'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Медленный (1 ход)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Медленный (1 минута)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Медленный (Часы)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Медленный (Дни)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Медленный (Месяцы)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Статичный'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Останавливаемый (КХ)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Останавливаемый (5 ходов)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Останавливаемый (1 минута)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Останавливаемый (Часы)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Токсичный'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Двуручный'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Ненадёжный'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Использует Энергию (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Использует Энергию (5×Ур)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Неэффективный'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Искусственный Интеллект (ИИ)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Дополнительная Ёмкость'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Дополнительная Выносливость'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Бонус Манёвра'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Регенерация Меха'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Механическая Трансформация'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Слияние'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Множественные Атаки Меха'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Специальное Снаряжение'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Подчинённый Мех'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Вызываемый'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Суперпреобразование'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Крепость'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Требование Экипажа'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Незащищённые Пассажиры'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Ограниченная Выносливость'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Взаимный Урон'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Шумный'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Плохая Манёвренность'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Уменьшенная Ёмкость'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Время Запуска'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Предмет Вызова'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'На Ветровой Тяге'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'Action Adventure'
+'Cyberpunk'        = 'Cyberpunk'
+'High Fantasy'     = 'High Fantasy'
+'Mecha Drama'      = 'Mecha Drama'
+'Occult Horror'    = 'Occult Horror'
+'Romantic Comedy'  = 'Romantic Comedy'
+'Space Opera'      = 'Space Opera'
+'Urban Fantasy'    = 'Urban Fantasy'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Акробатика'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Дрессировка Животных'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Архитектура'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Ремесло'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Биологические Науки'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Мореплавание'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Взлом'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Управление Бизнесом'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Цивилизация'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Скалолазание'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Компьютеры'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Контролируемое Дыхание'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Кулинария'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Культурные Искусства'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Взрывчатые Вещества'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Маскировка'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Домоводство'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Вождение'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Электроника'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Эмпатия'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Инженерия'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Науки об Окружающей Среде'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Этикет'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Подделка'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Игры'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'Допрос'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Запугивание'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Право'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Лингвистика'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Лидерство'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Слушание'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Механика'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Медицина'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Военные Науки'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Натуропатия'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Навигация'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Оккультизм'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Профессия'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Исполнительские Искусства'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Убеждение'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Физические Науки'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Пилотирование'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Яды'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Полицейские Науки'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Тяжёлая Атлетика'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Религия'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Верховая Езда'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Поиск'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Соблазнение'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Ловкость Рук'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Скрытность'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Социальные Науки'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Спорт'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Уличное Чутьё'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Плавание'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Городское Выслеживание'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Визуальные Искусства'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Выживание в Дикой Природе'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Выслеживание в Дикой Природе'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Письмо'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Стрельба из Лука'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Огнестрельный Бой'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Тяжёлое Оружие'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Атака в Ближнем Бою'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Защита в Ближнем Бою'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Защита на Расстоянии'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Метательное Оружие'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Безоружная Атака'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Безоружная Защита'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
