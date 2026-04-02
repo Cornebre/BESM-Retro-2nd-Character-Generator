@@ -1,260 +1,261 @@
 # =============================================================================
-# BESM 2e Édition — Configuration des données de jeu (FRANÇAIS)
-# Modifiez ce fichier pour personnaliser les règles. L'application le lit au démarrage.
+# BESM 2판 — 게임 데이터 구성 파일 (한국어) (MT)
+# 규칙 세트를 사용자 정의하려면 이 파일을 편집하십시오. 앱은 시작 시 이 파일을 읽습니다.
 #
-# RÈGLES DE TRADUCTION :
-#   - "key"  = identifiant interne utilisé dans les sauvegardes. NE JAMAIS modifier.
-#              La clé est toujours la version anglaise du nom.
-#   - "name" = texte affiché dans l'interface pour cette langue.
-#   - Si "name" est absent, le programme utilise "key" comme valeur de repli.
+# 번역 규칙:
+#   - "key"  = 저장 파일에 사용되는 내부 식별자입니다. 절대로 변경하지 마십시오.
+#              영어의 경우, key == name (번역 필요 없음).
+#   - "name" = 해당 언어의 UI에 표시되는 문자열입니다.
+#   - "name" 필드가 없는 경우, 프로그램은 "key"를 대신 사용합니다.
+# 
 # =============================================================================
 
 [lang]
-code    = "fra"
-label   = "Français"
-default = false       # Mettre à true sur un seul fichier TOML pour en faire la langue de démarrage.
+code    = "kor"
+label   = "한국어 (MT)"
 
-# ── Chaînes de l'interface ────────────────────────────────────────────────────
+# ── UI strings ────────────────────────────────────────────────────────────────
 [ui]
-# Boutons de la barre d'outils
-btn_save        = "💾 Sauvegarder"
-btn_load        = "📂 Charger"
+# Toolbar buttons
+btn_save        = "💾 저장"
+btn_load        = "📂 불러오기"
 btn_pdf         = "📄 PDF"
-btn_save_mecha  = "🛡 Sauver Mecha"
-btn_load_mecha  = "🛠 Charger Mecha"
-btn_new_tab     = "+ Nouveau Personnage"
+btn_save_mecha  = "🛡 메카 저장"
+btn_load_mecha  = "🛠 메카 불러오기"
+btn_new_tab     = "＋ 새 캐릭터"
+btn_settings    = "⚙ 설정"
 btn_close_tab   = "✕"
 
-# Fenêtre Arsenal
-arsenal_title              = "⚔  L'Arsenal"
-arsenal_btn_save           = "💾 Sauver l'Arsenal"
-arsenal_btn_load           = "📂 Charger l'Arsenal"
-arsenal_btn_add            = "+ Ajouter à l'Arsenal"
-arsenal_btn_copy           = "➤ Copier"
-arsenal_new_weapon         = "Nouvelle Arme"
-arsenal_section_title      = "Arsenal"
-arsenal_copy_hint          = "— cliquer  ➤  pour copier vers le personnage actif"
-arsenal_empty              = "Aucune arme pour l'instant."
-arsenal_weapon_default_name = "Arme"
-arsenal_save_title         = "Sauver l'Arsenal"
-arsenal_load_title         = "Charger l'Arsenal"
-arsenal_invalid_file       = "Fichier arsenal invalide."
-arsenal_delete_title       = "Supprimer l'Arme"
-arsenal_delete_body        = "Retirer \"{name}\" de l'Arsenal ?"
-arsenal_no_char_title      = "Aucun Personnage"
-arsenal_no_char_body       = "Aucun onglet de personnage ouvert.\nOuvrez ou créez un personnage d'abord."
-arsenal_status_added       = "\"{name}\" ajoutée."
-arsenal_status_removed     = "\"{name}\" supprimée."
-arsenal_status_copied      = "\"{name}\" copiée vers {char}."
-arsenal_status_saved       = "{n} arme(s) sauvegardée(s)."
-arsenal_status_loaded      = "{n} arme(s) chargée(s)."
+# Arsenal window
+arsenal_title              = "⚔  무기고"
+arsenal_btn_save           = "💾 무기고 저장"
+arsenal_btn_load           = "📂 무기고 불러오기"
+arsenal_btn_add            = "＋ 무기고에 추가"
+arsenal_btn_copy           = "➤ 복사"
+arsenal_new_weapon         = "새 무기"
+arsenal_section_title      = "무기고"
+arsenal_copy_hint          = "— ➤ 를 클릭하여 현재 캐릭터에 복사"
+arsenal_empty              = "무기가 없습니다."
+arsenal_weapon_default_name = "무기"
+arsenal_save_title         = "무기고 저장"
+arsenal_load_title         = "무기고 불러오기"
+arsenal_invalid_file       = "유효하지 않은 무기고 파일입니다."
+arsenal_delete_title       = "무기 삭제"
+arsenal_delete_body        = "무기고에서 \"{name}\"을 삭제하시겠습니까?"
+arsenal_no_char_title      = "캐릭터 없음"
+arsenal_no_char_body       = "열려 있는 캐릭터 탭이 없습니다.\n먼저 캐릭터를 열거나 만드세요."
+arsenal_status_added       = "\"{name}\"이 추가되었습니다."
+arsenal_status_removed     = "\"{name}\"이 삭제되었습니다."
+arsenal_status_copied      = "\"{name}\"이 {char}에 복사되었습니다."
+arsenal_status_saved       = "{n}개의 무기가 저장되었습니다."
+arsenal_status_loaded      = "{n}개의 무기가 불러와졌습니다."
 
-# Onglets de navigation
-page_core       = "① Base"
-page_attrs      = "② Attr. & Armes"
-page_defects    = "③ Défauts"
-page_skills     = "④ Comp."
-page_mecha      = "⑤ Mecha"
-page_summary    = "⑥ Résumé"
+# Page navigation tabs
+page_core       = "① 기본"
+page_attrs      = "② 특성 및 무기"
+page_defects    = "③ 결점"
+page_skills     = "④ 기술"
+page_mecha      = "⑤ 메카"
+page_summary    = "⑥ 요약"
 
-# Étiquettes de la page de base
-label_name          = "Nom du Personnage"
-label_cp_total      = "PP Total"
-label_cp_spent      = "PP Dépensés"
-label_cp_remaining  = "PP Restants"
-label_stat_formula  = "Formule de Stats"
-label_attr_formula  = "Formule d'Attr."
-label_body          = "Corps"
-label_mind          = "Esprit"
-label_soul          = "Âme"
-label_hp            = "PV"
-label_ep            = "PE"
-label_acv           = "VAC"
-label_dcv           = "VDC"
-label_sv            = "Choc"
-label_details       = "Détails du Personnage"
-label_equipment     = "Équipement & Notes d'aventure"
+# Core page labels
+label_name          = "캐릭터 이름"
+label_cp_total      = "CP 합계"
+label_cp_spent      = "CP 소비"
+label_cp_remaining  = "CP 남은"
+label_stat_formula  = "능력치 공식"
+label_attr_formula  = "특성 공식"
+label_body          = "육체"
+label_mind          = "정신"
+label_soul          = "영혼"
+label_hp            = "HP"
+label_ep            = "EP"
+label_acv           = "ACV"
+label_dcv           = "DCV"
+label_sv            = "충격값"
+label_details       = "캐릭터 세부사항"
+label_equipment     = "장비 메모"
 
-# Page Attributs & Armes
-label_attributes    = "Attributs"
-label_weapons       = "Armes"
-btn_add_attr        = "+ Ajouter Attribut"
-btn_add_weapon      = "+ Ajouter Arme"
-label_level         = "Nv"
-label_cost          = "Coût"
-label_description   = "Description"
-label_gear          = "Équ."
-label_advantages    = "Avantages"
-label_weapon_defects = "Défauts"
-label_damage        = "Dégâts"
+# Attributes & Weapons page
+label_attributes    = "특성"
+label_weapons       = "무기"
+btn_add_attr        = "＋ 특성 추가"
+btn_add_weapon      = "＋ 무기 추가"
+label_level         = "레벨"
+label_cost          = "비용"
+label_description   = "설명"
+label_gear          = "장비"
+label_advantages    = "장점"
+label_weapon_defects = "단점"
+label_damage        = "데미지"
 
-# Page Défauts
-label_defects       = "Défauts"
-btn_add_defect      = "+ Ajouter Défaut"
+# Defects page
+label_defects       = "결점"
+btn_add_defect      = "＋ 결점 추가"
 
-# Page Compétences
-label_skills        = "Compétences"
-label_combat_skills = "Compétences de Combat"
-label_sp_total      = "PC Total"
-label_sp_spent      = "PC Dépensés"
-label_sp_remaining  = "PC Restants"
-label_setting       = "Option"
+# Skills page
+label_skills        = "기술"
+label_combat_skills = "전투 기술"
+label_sp_total      = "SP 합계"
+label_sp_spent      = "SP 소비"
+label_sp_remaining  = "SP 남은"
+label_setting       = "옵션"
 
-# Page Mecha
-label_mecha         = "Mecha"
-label_mp_total      = "PM Total"
-label_mp_spent      = "PM Dépensés"
-btn_add_mecha       = "+ Ajouter Mecha"
+# Mecha page
+label_mecha         = "메카"
+label_mp_total      = "MP 합계"
+label_mp_spent      = "MP 소비"
+btn_add_mecha       = "＋ 메카 추가"
 
-# Page Résumé
-label_summary       = "Résumé"
-label_sp_bonus      = "PC bonus"
-label_base_sp       = "PC de base"
-label_total_sp      = "PC disponibles"
+# Summary page
+label_summary       = "요약"
+label_sp_bonus      = "SP 보너스"
+label_base_sp       = "기본 SP"
+label_total_sp      = "사용 가능한 SP 합계"
 
-# Barre de statut
-status_ok           = "OK"
-status_over         = "DÉPASSÉ"
-status_cp           = "PP"
+# Status bar
+status_ok           = "정상"
+status_over         = "초과"
+status_cp           = "CP"
 
-# Dialogues
-dialog_save_title    = "Sauvegarder le Personnage"
-dialog_load_title    = "Charger le Personnage"
-dialog_pdf_title     = "Exporter la Fiche de Personnage"
-dialog_mecha_save    = "Sauvegarder le Mecha"
-dialog_mecha_load    = "Charger un Mecha"
-msg_exported         = "Exporté"
-msg_sheet_saved      = "Fiche sauvegardée :"
-msg_saved            = "Sauvegardé"
-msg_loaded           = "Chargé"
-msg_mecha_saved      = "Mecha sauvegardé :"
-msg_mecha_imported   = "Mecha importé :"
-msg_error            = "Erreur"
-msg_export_failed    = "Échec de l'export"
-msg_template_missing = "Modèle manquant"
-msg_unsaved_changes  = "Modifications non sauvegardées"
-msg_close_confirm    = "Fermer ce personnage sans sauvegarder ?"
-msg_new_character    = "Nouveau Personnage"
+# Dialogs
+dialog_save_title    = "캐릭터 저장"
+dialog_load_title    = "캐릭터 불러오기"
+dialog_pdf_title     = "캐릭터 시트 내보내기"
+dialog_mecha_save    = "메카 저장"
+dialog_mecha_load    = "메카 불러오기"
+msg_exported         = "내보냈습니다"
+msg_sheet_saved      = "시트가 저장되었습니다:"
+msg_saved            = "저장되었습니다"
+msg_loaded           = "불러왔습니다"
+msg_mecha_saved      = "메카가 저장되었습니다:"
+msg_mecha_imported   = "메카를 가져왔습니다:"
+msg_error            = "오류"
+msg_export_failed    = "내보내기 실패"
+msg_template_missing = "템플릿 없음"
+msg_unsaved_changes  = "저장되지 않은 변경사항"
+msg_close_confirm    = "저장하지 않고 이 캐릭터를 닫으시겠습니까?"
+msg_new_character    = "새 캐릭터"
 
-# Séparateur Mecha uniquement (dans les menus déroulants)
-separator_mecha_only = "── Mecha Seulement ──"
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── 메카 전용 ──"
 
 # ── Additional widget labels ─────────────────────────────────────────────────
-label_name_colon             = "Nom du Personnage :"
-label_cp_section             = "Points de Personnage"
-label_cp_total_colon         = "PP Total :"
-label_stats                  = "Stats"
-label_stat_col               = "Stat"
-label_value_col              = "Valeur"
-label_cp_cost_col            = "Coût PP"
-label_total_colon            = "Total :"
-label_derived_mods           = "Modificateurs de Valeurs Dérivées"
-label_hp_mod                 = "Modif. PV"
-label_ep_mod                 = "Modif. PÉ"
-label_acv_mod                = "Modif. VAC"
-label_dcv_mod                = "Modif. VDC"
-label_sv_mod                 = "Modif. Choc"
-label_derived                = "Valeurs Dérivées"
-label_name_add               = "Nom :"
-label_cost_lv                = "Coût/Nv :"
-label_level_add              = "Niveau :"
-label_modifier_add           = "Modificateur :"
-label_desc                   = "Desc :"
-label_added                  = "Ajoutés"
-label_lv_short               = "Nv :"
-label_mod_short              = "Mod :"
-label_gear_colon             = "Équ. :"
-label_advantages_colon       = "Avantages :"
-label_weapon_defects_colon   = "Défauts :"
-label_added_weapons          = "Armes Ajoutées"
-label_dmg_short              = "Dég. :"
-label_base_sp_colon          = "PC de Base :"
-label_skill_col              = "Compétence"
-label_lv_col                 = "Nv"
-label_sp_lv_col              = "PC/Nv"
-label_mod_col                = "Mod"
-label_total_col              = "Total"
-label_mecha_name             = "Nom du Mecha :"
-label_mp_total_colon         = "   PM Total :"
-label_mecha_details          = "Détails du Mecha :"
-label_mecha_section          = "⚙  Mecha"
+label_name_colon             = "캐릭터 이름:"
+label_cp_section             = "캐릭터 포인트"
+label_cp_total_colon         = "CP 합계:"
+label_stats                  = "능력치"
+label_stat_col               = "능력"
+label_value_col              = "값"
+label_cp_cost_col            = "CP 비용"
+label_total_colon            = "합계:"
+label_derived_mods           = "파생값 수정자"
+label_hp_mod                 = "HP 수정자"
+label_ep_mod                 = "EP 수정자"
+label_acv_mod                = "ACV 수정자"
+label_dcv_mod                = "DCV 수정자"
+label_sv_mod                 = "충격값 수정자"
+label_derived                = "파생값"
+label_name_add               = "이름:"
+label_cost_lv                = "비용/레벨:"
+label_level_add              = "레벨:"
+label_modifier_add           = "수정자:"
+label_desc                   = "설명.:"
+label_added                  = "추가됨"
+label_lv_short               = "레벨.:"
+label_mod_short              = "수정.:"
+label_gear_colon             = "장비.:"
+label_advantages_colon       = "장점:"
+label_weapon_defects_colon   = "단점:"
+label_added_weapons          = "추가된 무기"
+label_dmg_short              = "데미지.:"
+label_base_sp_colon          = "기본 SP:"
+label_skill_col              = "기술"
+label_lv_col                 = "레벨"
+label_sp_lv_col              = "SP/레벨"
+label_mod_col                = "수정."
+label_total_col              = "합계"
+label_mecha_name             = "메카 이름:"
+label_mp_total_colon         = "   MP 합계:"
+label_mecha_details          = "메카 세부사항:"
+label_mecha_section          = "⚙  메카"
 
 # ── Dynamic labels ──────────────────────────────────────────────────────────
-label_cp                     = "PP"
-label_cp_refund              = "Remb. PP"
-label_mp                     = "PM"
-label_mp_used                = "PM utilisés :"
-label_hp_display             = "PV :"
-label_sp_display             = "PC :"
-label_adv_def                = "Av/Déf"
-label_mp_refund              = "Remb. PM"
+label_cp                     = "CP"
+label_cp_refund              = "CP 환불"
+label_mp                     = "MP"
+label_mp_used                = "MP 사용:"
+label_hp_display             = "HP:"
+label_sp_display             = "SP:"
+label_adv_def                = "장점/결점"
+label_mp_refund              = "MP 환불"
 
 # ── Summary / status labels ─────────────────────────────────────────────────
-label_cp_status              = "PP :"
-section_core_values          = "Valeurs Fondamentales"
-section_char_points          = "Points de Personnage"
-section_attributes           = "Attributs"
-section_defects              = "Défauts"
-section_weapons              = "Armes"
-section_skill_points         = "Points de Compétence"
-section_skills               = "Compétences"
-section_combat_skills        = "Compétences de Combat"
-label_stat_formula_row       = "Formule de Stats"
-label_health_points          = "Points de Vie"
-label_energy_points          = "Points d'Énergie"
-label_acv_long               = "Valeur d'Attaque au Combat"
-label_dcv_long               = "Valeur de Défense au Combat"
-label_shock_value            = "Valeur de Choc"
-label_cp_total_row           = "PP Total"
-label_setting_short          = "Option :"
-label_mp_total_row           = "PM Total"
-label_adv_short              = "Av. :"
-label_def_short              = "Déf. :"
-label_char_summary           = "Résumé du Personnage"
-btn_copy                     = "📋 Copier"
-msg_copied_title             = "Copié"
-msg_copied_body              = "Résumé copié dans le presse-papier."
-label_dmg_abbr               = "Dég"
-label_with                   = "avec"
-label_mecha_prefix           = "Mecha :"
+label_cp_status              = "CP:"
+section_core_values          = "기본값"
+section_char_points          = "캐릭터 포인트"
+section_attributes           = "특성"
+section_defects              = "결점"
+section_weapons              = "무기"
+section_skill_points         = "기술 포인트"
+section_skills               = "기술"
+section_combat_skills        = "전투 기술"
+label_stat_formula_row       = "능력치 공식"
+label_health_points          = "체력"
+label_energy_points          = "에너지"
+label_acv_long               = "공격 전투 값"
+label_dcv_long               = "방어 전투 값"
+label_shock_value            = "충격값"
+label_cp_total_row           = "CP 합계"
+label_setting_short          = "배경:"
+label_mp_total_row           = "MP 합계"
+label_adv_short              = "장점.:"
+label_def_short              = "결점.:"
+label_char_summary           = "캐릭터 요약"
+btn_copy                     = "📋 복사"
+msg_copied_title             = "복사됨"
+msg_copied_body              = "요약이 클립보드에 복사되었습니다."
+label_dmg_abbr               = "데미지"
+label_with                   = "와"
+label_mecha_prefix           = "메카:"
 
 # ── PDF export labels ────────────────────────────────────────────────────────
-pdf_char_name                = "Nom du Personnage"
-pdf_char_points              = "Points de Personnage"
-pdf_skill_points             = "Points de Compétence"
-pdf_page                     = "Page"
+pdf_char_name                = "캐릭터 이름"
+pdf_char_points              = "캐릭터 포인트"
+pdf_skill_points             = "기술 포인트"
+pdf_page                     = "페이지"
 pdf_of                       = "/"
-pdf_char_details             = "Détails du Personnage"
-pdf_body                     = "CORPS"
-pdf_mind                     = "ESPRIT"
-pdf_soul                     = "ÂME"
-pdf_hp                       = "PV"
-pdf_ep                       = "PÉ"
-pdf_sv                       = "Choc"
-pdf_acv                      = "VAC"
-pdf_dcv                      = "VDC"
-pdf_col_name                 = "Nom"
-pdf_col_cp                   = "PP"
-pdf_col_mp                   = "PM"
-pdf_col_refund               = "Remb."
-pdf_col_notes                = "Notes"
-pdf_col_gm                   = "Équ."
-pdf_col_desc                 = "Desc."
-pdf_adv                      = "Av. :"
-pdf_def                      = "Déf. :"
-pdf_sp                       = "PC"
-pdf_attributes               = "Attributs"
-pdf_defects                  = "Défauts"
-pdf_weapons                  = "Armes"
-pdf_skills                   = "Compétences"
-pdf_equip_notes              = "Équipement & Notes d'aventure"
-pdf_attrs_cont               = "Attributs (suite)"
-pdf_defs_cont                = "Défauts (suite)"
-pdf_mecha_attrs              = "Attributs Mecha"
-pdf_mecha_defects            = "Défauts Mecha"
-pdf_mecha_weapons            = "Armes Mecha"
-pdf_mp                       = "PM :"
-pdf_hp_bar                   = "PV :"
+pdf_char_details             = "캐릭터 세부사항"
+pdf_body                     = "육체"
+pdf_mind                     = "정신"
+pdf_soul                     = "영혼"
+pdf_hp                       = "HP"
+pdf_ep                       = "EP"
+pdf_sv                       = "충격"
+pdf_acv                      = "ACV"
+pdf_dcv                      = "DCV"
+pdf_col_name                 = "이름"
+pdf_col_cp                   = "CP"
+pdf_col_mp                   = "MP"
+pdf_col_refund               = "환불"
+pdf_col_notes                = "메모"
+pdf_col_gm                   = "장비"
+pdf_col_desc                 = "설명"
+pdf_adv                      = "장점.:"
+pdf_def                      = "결점.:"
+pdf_sp                       = "SP"
+pdf_attributes               = "특성"
+pdf_defects                  = "결점"
+pdf_weapons                  = "무기"
+pdf_skills                   = "기술"
+pdf_equip_notes              = "장비 및 모험 메모"
+pdf_attrs_cont               = "특성 (계속)"
+pdf_defs_cont                = "결점 (계속)"
+pdf_mecha_attrs              = "메카 특성"
+pdf_mecha_defects            = "메카 결점"
+pdf_mecha_weapons            = "메카 무기"
+pdf_mp                       = "MP:"
+pdf_hp_bar                   = "HP:"
 
 # Stat cost formulas. Each entry needs a display "name" and a Python
 # "expression" in terms of v (the stat value). The app compiles these at
@@ -263,19 +264,19 @@ pdf_hp_bar                   = "PV :"
 
 [[stat_formulas.entries]]
 key   = "Default"
-name  = "Défaut"
+name  = "기본"
 # Linear: each point costs 1 CP regardless of level.
 expression = "v"
 
 [[stat_formulas.entries]]
 key   = "Free, then Three"
-name  = "Gratuit, puis Trois"
+name  = "무료, 그 다음 셋"
 # First 4 points are free; each point above 4 costs 3 CP.
 expression = "0 if v <= 4 else (v - 4) * 3"
 
 [[stat_formulas.entries]]
 key   = "Bracket"
-name  = "Paliers"
+name  = "단계식"
 # v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
 expression = """
 if v <= 4: return v
@@ -290,13 +291,13 @@ return 4 + 8 + (v - 8) * 4
 
 [[attr_formulas.entries]]
 key   = "Default"
-name  = "Défaut"
+name  = "기본"
 # Linear: total cost = base_cost × level.
 expression = "base_cost * level"
 
 [[attr_formulas.entries]]
 key   = "Triangular"
-name  = "Triangulaire"
+name  = "삼각형"
 # Triangular: each successive level costs base_cost more than the previous.
 # lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
 expression = "base_cost * level * (level + 1) // 2"
@@ -305,413 +306,413 @@ expression = "base_cost * level * (level + 1) // 2"
 # costs = list of selectable CP/level values. Single entry = fixed cost.
 
 [[attributes]]
-key   = "Animal Friendship"
-name  = "Amitié Animale"
+key   = 'Animal Friendship'
+name  = '동물 친화'
 costs = [1]
 
 [[attributes]]
-key   = "Appearance"
-name  = "Apparence"
+key   = 'Appearance'
+name  = '외모'
 costs = [1]
 
 [[attributes]]
-key   = "Art of Distraction"
-name  = "Art de la Distraction"
+key   = 'Art of Distraction'
+name  = '주의 분산술'
 costs = [1]
 
 [[attributes]]
-key   = "Astral Projection"
-name  = "Projection Astrale"
+key   = 'Astral Projection'
+name  = '유체이탈'
 costs = [1]
 
 [[attributes]]
-key   = "Aura of Command"
-name  = "Aura d'Autorité"
+key   = 'Aura of Command'
+name  = '명령의 오라'
 costs = [1]
 
 [[attributes]]
-key   = "Combat Mastery"
-name  = "Maîtrise du Combat"
+key   = 'Combat Mastery'
+name  = '전투 달인'
 costs = [2]
 
 #[[attributes]]
-#key   = "Attack Combat Mastery"
-#name  = "Maîtrise du Combat Defensif"
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
 #costs = [1]
 
 #[[attributes]]
-#key   = "Defence Combat Mastery"
-#name  = "Maîtrise du Combat Offencif"
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
 #costs = [1]
 
 [[attributes]]
-key   = "Contamination"
-name  = "Contamination"
+key   = 'Contamination'
+name  = '오염'
 costs = [1, 2]
 
 [[attributes]]
-key   = "Damn Healthy!"
-name  = "Sacrément Robuste !"
+key   = 'Damn Healthy!'
+name  = '엄청나게 건강!'
 costs = [1]
 
 [[attributes]]
-key   = "Dimensional Portal"
-name  = "Portail Dimensionnel"
+key   = 'Dimensional Portal'
+name  = '차원의 문'
 costs = [2, 3, 4]
 
 [[attributes]]
-key   = "Divine Relationship"
-name  = "Relation Divine"
+key   = 'Divine Relationship'
+name  = '신성한 관계'
 costs = [1]
 
 [[attributes]]
-key   = "Dynamic Sorcery"
-name  = "Sorcellerie Dynamique"
+key   = 'Dynamic Sorcery'
+name  = '동적 마법'
 costs = [1, 2, 4]
 
 [[attributes]]
-key   = "Elasticity"
-name  = "Élasticité"
+key   = 'Elasticity'
+name  = '탄성'
 costs = [1]
 
 [[attributes]]
-key   = "Electronic Counter-Measures"
-name  = "Contre-Mesures Électroniques"
+key   = 'Electronic Counter-Measures'
+name  = '전자 대응 수단'
 costs = [1]
 
 [[attributes]]
-key   = "Energy Bonus"
-name  = "Bonus d'Énergie"
+key   = 'Energy Bonus'
+name  = '에너지 보너스'
 costs = [1]
 
 [[attributes]]
-key   = "Environmental Control"
-name  = "Contrôle de l'Environnement"
+key   = 'Environmental Control'
+name  = '환경 제어'
 costs = [1, 2]
 
 [[attributes]]
-key   = "Exorcism"
-name  = "Exorcisme"
+key   = 'Exorcism'
+name  = '퇴마'
 costs = [1]
 
 [[attributes]]
-key   = "Extra Arms"
-name  = "Bras Supplémentaires"
+key   = 'Extra Arms'
+name  = '추가 팔'
 costs = [1]
 
 [[attributes]]
-key   = "Extra Attacks"
-name  = "Attaques Supplémentaires"
+key   = 'Extra Attacks'
+name  = '추가 공격'
 costs = [4]
 
 [[attributes]]
-key   = "Features or Accessories"
-name  = "Caractéristiques ou Accessoires"
+key   = 'Features or Accessories'
+name  = '특징 또는 액세서리'
 costs = [1]
 
 [[attributes]]
-key   = "Flight"
-name  = "Vol"
+key   = 'Flight'
+name  = '비행'
 costs = [3, 4]
 
 [[attributes]]
-key   = "Flunkies"
-name  = "Sbires"
+key   = 'Flunkies'
+name  = '부하'
 costs = [1]
 
 [[attributes]]
-key   = "Focussed Damage"
-name  = "Dégâts Concentrés"
+key   = 'Focussed Damage'
+name  = '집중 피해'
 costs = [1]
 
 [[attributes]]
-key   = "Force Field"
-name  = "Champ de Force"
+key   = 'Force Field'
+name  = '포스 필드'
 costs = [2, 3, 4]
 
 [[attributes]]
-key   = "Ground Speed"
-name  = "Vitesse Terrestre"
+key   = 'Ground Speed'
+name  = '지상 이동 속도'
 costs = [2]
 
 [[attributes]]
-key   = "Gun Bunny"
-name  = "As du Pistolet"
+key   = 'Gun Bunny'
+name  = '무기 전문가'
 costs = [1]
 
 [[attributes]]
-key   = "Healing"
-name  = "Guérison"
+key   = 'Healing'
+name  = '치유'
 costs = [4]
 
 [[attributes]]
-key   = "Heavy Armour"
-name  = "Armure Lourde"
+key   = 'Heavy Armour'
+name  = '중갑'
 costs = [4]
 
 [[attributes]]
-key   = "Heightened Awareness"
-name  = "Vigilance Accrue"
+key   = 'Heightened Awareness'
+name  = '강화된 인식'
 costs = [1]
 
 [[attributes]]
-key   = "Heightened Senses"
-name  = "Sens Aiguisés"
+key   = 'Heightened Senses'
+name  = '강화된 감각'
 costs = [1]
 
 [[attributes]]
-key   = "Highly Skilled"
-name  = "Très Compétent"
+key   = 'Highly Skilled'
+name  = '고도로 숙련'
 costs = [1]
 
 [[attributes]]
-key   = "Illusion"
-name  = "Illusion"
+key   = 'Illusion'
+name  = '환상'
 costs = [2, 3, 4, 5, 6]
 
 [[attributes]]
-key   = "Insubstantial"
-name  = "Insubstantiel"
+key   = 'Insubstantial'
+name  = '비물질'
 costs = [4]
 
 [[attributes]]
-key   = "Invisibility"
-name  = "Invisibilité"
+key   = 'Invisibility'
+name  = '투명화'
 costs = [3, 5, 7]
 
 [[attributes]]
-key   = "Item of Power"
-name  = "Objet de Pouvoir"
+key   = 'Item of Power'
+name  = '힘의 아이템'
 costs = [2]
 
 [[attributes]]
-key   = "Jumping"
-name  = "Saut"
+key   = 'Jumping'
+name  = '도약'
 costs = [1]
 
 [[attributes]]
-key   = "Kensei"
-name  = "Kensei"
+key   = 'Kensei'
+name  = '검성'
 costs = [1]
 
 [[attributes]]
-key   = "Life Support"
-name  = "Survie Autonome"
+key   = 'Life Support'
+name  = '생명 유지'
 costs = [1]
 
 [[attributes]]
-key   = "Light Armour"
-name  = "Armure Légère"
+key   = 'Light Armour'
+name  = '경갑'
 costs = [1]
 
 [[attributes]]
-key   = "Magic"
-name  = "Magie"
+key   = 'Magic'
+name  = '마법'
 costs = [4]
 
 [[attributes]]
-key   = "Massive Damage"
-name  = "Dégâts Massifs"
+key   = 'Massive Damage'
+name  = '대규모 피해'
 costs = [2]
 
 [[attributes]]
-key   = "Mechanical Genius"
-name  = "Génie Mécanique"
+key   = 'Mechanical Genius'
+name  = '기계 천재'
 costs = [2]
 
 [[attributes]]
-key   = "Meld"
-name  = "Fusion"
+key   = 'Meld'
+name  = '융합'
 costs = [2, 4, 8]
 
 [[attributes]]
-key   = "Metamorphosis"
-name  = "Métamorphose"
+key   = 'Metamorphosis'
+name  = '변형'
 costs = [5]
 
 [[attributes]]
-key   = "Mimic"
-name  = "Mimétisme"
+key   = 'Mimic'
+name  = '모방'
 costs = [3]
 
 [[attributes]]
-key   = "Mind Control"
-name  = "Contrôle Mental"
+key   = 'Mind Control'
+name  = '정신 지배'
 costs = [1, 2, 3, 4]
 
 [[attributes]]
-key   = "Mind Shield"
-name  = "Bouclier Mental"
+key   = 'Mind Shield'
+name  = '정신 방패'
 costs = [1]
 
 [[attributes]]
-key   = "Natural Weapons"
-name  = "Armes Naturelles"
+key   = 'Natural Weapons'
+name  = '천연 무기'
 costs = [1]
 
 [[attributes]]
-key   = "Nullify"
-name  = "Annulation"
+key   = 'Nullify'
+name  = '무효화'
 costs = [3]
 
 [[attributes]]
-key   = "Organisational Ties"
-name  = "Contacts Organisationnels"
+key   = 'Organisational Ties'
+name  = '조직적 유대'
 costs = [1, 2, 3]
 
 [[attributes]]
-key   = "Own a Big Mecha"
-name  = "Possède un Grand Mecha"
+key   = 'Own a Big Mecha'
+name  = '대형 메카 소유'
 costs = [4]
 
 [[attributes]]
-key   = "Personal Gear"
-name  = "Équipement Personnel"
+key   = 'Personal Gear'
+name  = '개인 장비'
 costs = [1]
 
 [[attributes]]
-key   = "Place of Power"
-name  = "Lieu de Pouvoir"
+key   = 'Place of Power'
+name  = '힘의 장소'
 costs = [1]
 
 [[attributes]]
-key   = "Precognition"
-name  = "Précognition"
+key   = 'Precognition'
+name  = '예지'
 costs = [1, 2]
 
 [[attributes]]
-key   = "Regeneration"
-name  = "Régénération"
+key   = 'Regeneration'
+name  = '재생'
 costs = [4]
 
 [[attributes]]
-key   = "Reincarnation"
-name  = "Réincarnation"
+key   = 'Reincarnation'
+name  = '환생'
 costs = [3]
 
 [[attributes]]
-key   = "Sensors"
-name  = "Capteurs"
+key   = 'Sensors'
+name  = '센서'
 costs = [1]
 
 [[attributes]]
-key   = "Servant"
-name  = "Serviteur"
+key   = 'Servant'
+name  = '하인'
 costs = [1, 2]
 
 [[attributes]]
-key   = "Shape Change"
-name  = "Changement de Forme"
+key   = 'Shape Change'
+name  = '형태 변환'
 costs = [2, 3]
 
 [[attributes]]
-key   = "Shield"
-name  = "Bouclier"
+key   = 'Shield'
+name  = '방패'
 costs = [1]
 
 #[[attributes]]
-#key   = "Shock resistant"
-#name  = "Résistant aux chocs"
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
 #costs = [1]
 
 [[attributes]]
-key   = "Sixth Sense"
-name  = "Sixième Sens"
+key   = 'Sixth Sense'
+name  = '육감'
 costs = [1]
 
 [[attributes]]
-key   = "Size Change"
-name  = "Changement de Taille"
+key   = 'Size Change'
+name  = '크기 변환'
 costs = [1, 2]
 
 [[attributes]]
-key   = "Space Flight"
-name  = "Vol Spatial"
+key   = 'Space Flight'
+name  = '우주 비행'
 costs = [2]
 
 [[attributes]]
-key   = "Special Defence"
-name  = "Défense Spéciale"
+key   = 'Special Defence'
+name  = '특수 방어'
 costs = [1]
 
 [[attributes]]
-key   = "Special Movement"
-name  = "Mouvement Spécial"
+key   = 'Special Movement'
+name  = '특수 이동'
 costs = [1]
 
 [[attributes]]
-key   = "Speed"
-name  = "Vitesse"
+key   = 'Speed'
+name  = '속도'
 costs = [1]
 
 [[attributes]]
-key   = "Spirit Ward"
-name  = "Protection Spirituelle"
+key   = 'Spirit Ward'
+name  = '정신 가호'
 costs = [1]
 
 [[attributes]]
-key   = "Star Flight"
-name  = "Vol Stellaire"
+key   = 'Star Flight'
+name  = '성간 비행'
 costs = [2]
 
 [[attributes]]
-key   = "Stealth"
-name  = "Discrétion"
+key   = 'Stealth'
+name  = '은신'
 costs = [1]
 
 [[attributes]]
-key   = "Super Strength"
-name  = "Super Force"
+key   = 'Super Strength'
+name  = '초력'
 costs = [2, 3]
 
 [[attributes]]
-key   = "Swarm"
-name  = "Essaim"
+key   = 'Swarm'
+name  = '군집'
 costs = [2]
 
 [[attributes]]
-key   = "Telekinesis"
-name  = "Télékinésie"
+key   = 'Telekinesis'
+name  = '염동력'
 costs = [1, 2]
 
 [[attributes]]
-key   = "Telepathy"
-name  = "Télépathie"
+key   = 'Telepathy'
+name  = '텔레파시'
 costs = [1, 2, 3]
 
 [[attributes]]
-key   = "Teleport"
-name  = "Téléportation"
+key   = 'Teleport'
+name  = '순간이동'
 costs = [5, 10]
 
 [[attributes]]
-key   = "Transfer"
-name  = "Transfert"
+key   = 'Transfer'
+name  = '전이'
 costs = [3]
 
 [[attributes]]
-key   = "Transmutation"
-name  = "Transmutation"
+key   = 'Transmutation'
+name  = '변성'
 costs = [1, 2, 3, 4]
 
 [[attributes]]
-key   = "Tunnelling"
-name  = "Forage"
+key   = 'Tunnelling'
+name  = '굴착'
 costs = [2]
 
 [[attributes]]
-key   = "Unique Attribute"
-name  = "Attribut Unique"
-costs = [1, 2, 3, 4]
+key   = 'Unique Attribute'
+name  = '고유 특성'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 [[attributes]]
-key   = "Water Speed"
-name  = "Vitesse Aquatique"
+key   = 'Water Speed'
+name  = '수중 이동 속도'
 costs = [2, 3]
 
 [[attributes]]
-key   = "Wealth"
-name  = "Richesse"
+key   = 'Wealth'
+name  = '부'
 costs = [3]
 
 # Which derived stat each attribute modifies (beyond its CP cost).
@@ -731,213 +732,213 @@ costs = [3]
 # costs = list of selectable CP/level refund values.
 
 [[defects]]
-key   = "Ageism"
-name  = "Discrimination par l'Âge"
+key   = 'Ageism'
+name  = '나이 차별'
 costs = [1]
 
 [[defects]]
-key   = "Attack Restriction"
-name  = "Restriction d'Attaque"
+key   = 'Attack Restriction'
+name  = '공격 제한'
 costs = [1]
 
 [[defects]]
-key   = "Awkward"
-name  = "Maladroit"
+key   = 'Awkward'
+name  = '어색함'
 costs = [1]
 
 [[defects]]
-key   = "Awkward Size"
-name  = "Taille Gênante"
+key   = 'Awkward Size'
+name  = '불편한 크기'
 costs = [1]
 
 [[defects]]
-key   = "Bane"
-name  = "Fléau"
+key   = 'Bane'
+name  = '천적'
 costs = [1]
 
 [[defects]]
-key   = "Blind Fury"
-name  = "Fureur Aveugle"
+key   = 'Blind Fury'
+name  = '맹목적 분노'
 costs = [1]
 
 [[defects]]
-key   = "Cannot Talk"
-name  = "Muet"
+key   = 'Cannot Talk'
+name  = '말 못함'
 costs = [1]
 
 [[defects]]
-key   = "Conditional Ownership"
-name  = "Propriété Conditionnelle"
+key   = 'Conditional Ownership'
+name  = '조건부 소유'
 costs = [1]
 
 [[defects]]
-key   = "Cursed"
-name  = "Maudit"
+key   = 'Cursed'
+name  = '저주받음'
 costs = [1]
 
 [[defects]]
-key   = "Diminutive"
-name  = "Minuscule"
+key   = 'Diminutive'
+name  = '왜소'
 costs = [3]
 
 [[defects]]
-key   = "Easily Distracted"
-name  = "Facilement Distrait"
+key   = 'Easily Distracted'
+name  = '쉽게 산만해짐'
 costs = [1]
 
 [[defects]]
-key   = "Girl/Guy Magnet"
-name  = "Aimant à Filles/Gars"
+key   = 'Girl/Guy Magnet'
+name  = '인기쟁이'
 costs = [1]
 
 [[defects]]
-key   = "Hangar Queen"
-name  = "Reine du Hangar"
+key   = 'Hangar Queen'
+name  = '격납고의 여왕'
 costs = [1]
 
 [[defects]]
-key   = "Inept Combat"
-name  = "Inepte au Combat"
+key   = 'Inept Combat'
+name  = '전투 부적합'
 costs = [2]
 
 [[defects]]
-key   = "Involuntary Physical Change"
-name  = "Transformation Physique Involontaire"
+key   = 'Involuntary Physical Change'
+name  = '비자발적 신체 변화'
 costs = [1]
 
 [[defects]]
-key   = "Magical Restrictions"
-name  = "Restrictions Magiques"
+key   = 'Magical Restrictions'
+name  = '마법적 제한'
 costs = [1]
 
 [[defects]]
-key   = "Marked"
-name  = "Marqué"
+key   = 'Marked'
+name  = '표식 있음'
 costs = [1]
 
 [[defects]]
-key   = "Nemesis"
-name  = "Némésis"
+key   = 'Nemesis'
+name  = '숙적'
 costs = [1]
 
 [[defects]]
-key   = "Not So Fast"
-name  = "Pas si Rapide"
+key   = 'Not So Fast'
+name  = '그다지 빠르지 않음'
 costs = [1]
 
 [[defects]]
-key   = "Not So Strong"
-name  = "Pas si Fort"
+key   = 'Not So Strong'
+name  = '그다지 강하지 않음'
 costs = [1]
 
 [[defects]]
-key   = "Not So Tough"
-name  = "Pas si Solide"
+key   = 'Not So Tough'
+name  = '그다지 강인하지 않음'
 costs = [1]
 
 [[defects]]
-key   = "One Arm/No Arms"
-name  = "Un Bras/Sans Bras"
+key   = 'One Arm/No Arms'
+name  = '한 팔 / 팔 없음'
 costs = [1]
 
 [[defects]]
-key   = "One-Way Transformation"
-name  = "Transformation à Sens Unique"
+key   = 'One-Way Transformation'
+name  = '일방향 변환'
 costs = [1]
 
 [[defects]]
-key   = "Owned by a Megacorp"
-name  = "Propriété d'une Méga-Corp"
+key   = 'Owned by a Megacorp'
+name  = '메가기업 소유'
 costs = [1]
 
 [[defects]]
-key   = "Phobia"
-name  = "Phobie"
+key   = 'Phobia'
+name  = '공포증'
 costs = [1]
 
 [[defects]]
-key   = "Physically Unappealing"
-name  = "Physiquement Repoussant"
+key   = 'Physically Unappealing'
+name  = '외모 불량'
 costs = [1]
 
 [[defects]]
-key   = "Recurring Nightmares"
-name  = "Cauchemars Récurrents"
+key   = 'Recurring Nightmares'
+name  = '반복되는 악몽'
 costs = [1]
 
 [[defects]]
-key   = "Red Tape"
-name  = "Bureaucratie"
+key   = 'Red Tape'
+name  = '관료주의'
 costs = [1]
 
 [[defects]]
-key   = "Restricted Ground Movement"
-name  = "Déplacement Terrestre Restreint"
+key   = 'Restricted Ground Movement'
+name  = '지상 이동 제한'
 costs = [1]
 
 [[defects]]
-key   = "Restricted Path"
-name  = "Voie Restreinte"
+key   = 'Restricted Path'
+name  = '제한된 경로'
 costs = [1]
 
 [[defects]]
-key   = "Rudimentary Manipulation"
-name  = "Manipulation Rudimentaire"
+key   = 'Rudimentary Manipulation'
+name  = '기초적 조작'
 costs = [1]
 
 [[defects]]
-key   = "Sensory Impairment"
-name  = "Déficience Sensorielle"
+key   = 'Sensory Impairment'
+name  = '감각 장애'
 costs = [1]
 
 [[defects]]
-key   = "Significant Other (S.O.)"
-name  = "Proche Important (P.I.)"
+key   = 'Significant Other (S.O.)'
+name  = '소중한 사람 (SO)'
 costs = [1]
 
 [[defects]]
-key   = "Skeleton in the Closet"
-name  = "Squelette dans le Placard"
+key   = 'Skeleton in the Closet'
+name  = '숨겨진 비밀'
 costs = [1]
 
 [[defects]]
-key   = "Social Fault"
-name  = "Défaut Social"
+key   = 'Social Fault'
+name  = '사회적 결함'
 costs = [1]
 
 [[defects]]
-key   = "Special Requirement"
-name  = "Condition Spéciale"
+key   = 'Special Requirement'
+name  = '특별 요건'
 costs = [1]
 
 [[defects]]
-key   = "Unique Defect"
-name  = "Défaut Unique"
+key   = 'Unique Defect'
+name  = '고유 결점'
 costs = [1]
 
 [[defects]]
-key   = "Unskilled"
-name  = "Peu Compétent"
+key   = 'Unskilled'
+name  = '비숙련'
 costs = [1]
 
 [[defects]]
-key   = "Volatile"
-name  = "Instable"
+key   = 'Volatile'
+name  = '불안정'
 costs = [1]
 
 [[defects]]
-key   = "Vulnerability"
-name  = "Vulnérabilité"
+key   = 'Vulnerability'
+name  = '취약성'
 costs = [1]
 
 [[defects]]
-key   = "Wanted"
-name  = "Recherché"
+key   = 'Wanted'
+name  = '수배'
 costs = [1]
 
 [[defects]]
-key   = "Weak Point"
-name  = "Point Faible"
+key   = 'Weak Point'
+name  = '약점'
 costs = [1]
 
 [defect_modifies]
@@ -952,260 +953,260 @@ costs = [1]
 # levelled = true → numeric level (1+); false → simple on/off.
 
 [[weapon_advantages]]
-key   = "Accurate"
-name  = "Précis"
+key   = 'Accurate'
+name     = '정확'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
-key   = "Affects Incorporeal"
-name  = "Affecte l'Incorporel"
+key   = 'Affects Incorporeal'
+name     = '비물질체에 작용'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Area Effect"
-name  = "Effet de Zone"
+key   = 'Area Effect'
+name     = '범위 효과'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
-key   = "Aura"
-name  = "Aura"
+key   = 'Aura'
+name     = '오라'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Autofire"
-name  = "Tir Automatique"
+key   = 'Autofire'
+name     = '자동 사격'
 weight   = 3
 levelled = false
 
 [[weapon_advantages]]
-key   = "Burning"
-name  = "Brûlant"
+key   = 'Burning'
+name     = '연소'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Concealable"
-name  = "Dissimulable"
+key   = 'Concealable'
+name     = '은닉 가능'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Contagious (Mild)"
-name  = "Contagieux (Faible)"
+key   = 'Contagious (Mild)'
+name     = '전염성 (약)'
 weight   = 3
 levelled = false
 
 [[weapon_advantages]]
-key   = "Contagious (High)"
-name  = "Contagieux (Fort)"
+key   = 'Contagious (High)'
+name     = '전염성 (강)'
 weight   = 6
 levelled = false
 
 [[weapon_advantages]]
-key   = "Demoralise"
-name  = "Démoralisant"
+key   = 'Demoralise'
+name     = '사기 저하'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Drain Body"
-name  = "Drain de Corps"
+key   = 'Drain Body'
+name     = '체력 소모'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Drain Energy"
-name  = "Drain d'Énergie"
+key   = 'Drain Energy'
+name     = '에너지 소모'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Drain Mind"
-name  = "Drain d'Esprit"
+key   = 'Drain Mind'
+name     = '정신 소모'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Drain Soul"
-name  = "Drain d'Âme"
+key   = 'Drain Soul'
+name     = '영혼 소모'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Flare"
-name  = "Éclat"
+key   = 'Flare'
+name     = '섬광탄'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Flexible"
-name  = "Flexible"
+key   = 'Flexible'
+name     = '유연'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Homing"
-name  = "Guidé"
+key   = 'Homing'
+name     = '유도'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Homing (Rare)"
-name  = "Guidé (Rare)"
+key   = 'Homing (Rare)'
+name     = '유도 (희귀)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Incapacitating"
-name  = "Incapacitant"
+key   = 'Incapacitating'
+name     = '행동 불능'
 weight   = 3
 levelled = false
 
 [[weapon_advantages]]
-key   = "Incurable"
-name  = "Incurable"
+key   = 'Incurable'
+name     = '불치'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Indirect"
-name  = "Indirect"
+key   = 'Indirect'
+name     = '간접'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Irritant"
-name  = "Irritant"
+key   = 'Irritant'
+name     = '자극성'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Lethargy"
-name  = "Léthargie"
+key   = 'Lethargy'
+name     = '무기력'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Linked (Attack)"
-name  = "Lié (Attaque)"
+key   = 'Linked (Attack)'
+name     = '연동 (공격)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Linked (Attribute)"
-name  = "Lié (Attribut)"
+key   = 'Linked (Attribute)'
+name     = '연동 (특성)'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Long Range"
-name  = "Longue Portée"
+key   = 'Long Range'
+name     = '장거리'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
-key   = "Muscle-Powered"
-name  = "Propulsé par les Muscles"
+key   = 'Muscle-Powered'
+name     = '근력 구동'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "No Regeneration"
-name  = "Pas de Régénération"
+key   = 'No Regeneration'
+name     = '재생 없음'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Penetrating (Armour)"
-name  = "Pénétrant (Armure)"
+key   = 'Penetrating (Armour)'
+name     = '관통 (갑옷)'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Penetrating (Full Armour)"
-name  = "Pénétrant (Armure Totale)"
+key   = 'Penetrating (Full Armour)'
+name     = '관통 (완전 갑옷)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Penetrating (Force Field)"
-name  = "Pénétrant (Champ de Force)"
+key   = 'Penetrating (Force Field)'
+name     = '관통 (포스 필드)'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Penetrating (Full FF)"
-name  = "Pénétrant (CF Total)"
+key   = 'Penetrating (Full FF)'
+name     = '관통 (완전 FF)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Quake"
-name  = "Séisme"
+key   = 'Quake'
+name     = '지진'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Selective"
-name  = "Sélectif"
+key   = 'Selective'
+name     = '선택적'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Soul Attack"
-name  = "Attaque d'Âme"
+key   = 'Soul Attack'
+name     = '영혼 공격'
 weight   = 5
 levelled = false
 
 [[weapon_advantages]]
-key   = "Soul Attack (ND)"
-name  = "Attaque d'Âme (SD)"
+key   = 'Soul Attack (ND)'
+name     = '영혼 공격 (피해 없음)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Spreading"
-name  = "Propagation"
+key   = 'Spreading'
+name     = '확산'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
-key   = "Stun"
-name  = "Étourdissement"
+key   = 'Stun'
+name     = '기절'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Tangle"
-name  = "Enchevêtrement"
+key   = 'Tangle'
+name     = '속박'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Trap"
-name  = "Piège"
+key   = 'Trap'
+name     = '함정'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Vampiric"
-name  = "Vampirique"
+key   = 'Vampiric'
+name     = '흡혈'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
-key   = "Vampiric (Overcharge)"
-name  = "Vampirique (Surcharge)"
+key   = 'Vampiric (Overcharge)'
+name     = '흡혈 (과충전)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
-key   = "Devastating"
-name  = "Dévastateur"
+key   = 'Devastating'
+name     = '파멸적'
 # Special: does NOT reduce damage via the normal abi/dis weight mechanism.
 # Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
 # weight = 0 keeps it invisible to the normal weight calculation.
@@ -1215,206 +1216,206 @@ levelled = true
 # Weapon defects (Yes, I know, it should be "disabilities").
 
 [[weapon_defects]]
-key   = "Backblast"
-name  = "Souffle en Retour"
+key   = 'Backblast'
+name     = '후폭풍'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Backblast (AoE)"
-name  = "Souffle en Retour (ZE)"
+key   = 'Backblast (AoE)'
+name     = '후폭풍 (범위)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "Drop Shields"
-name  = "Bouclier Désactivé"
+key   = 'Drop Shields'
+name     = '방패 해제'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Exposed (Mecha-Only)"
-name  = "Exposé (Mecha Seul.)"
+key   = 'Exposed (Mecha-Only)'
+name     = '노출 (메카 전용)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Extra Energy"
-name  = "Énergie Supplémentaire"
+key   = 'Extra Energy'
+name     = '추가 에너지'
 weight   = 1
 levelled = true
 
 [[weapon_defects]]
-key   = "Fixed (Mecha-Only)"
-name  = "Fixe (Mecha Seul.)"
+key   = 'Fixed (Mecha-Only)'
+name     = '고정 (메카 전용)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Inaccurate"
-name  = "Imprécis"
+key   = 'Inaccurate'
+name     = '부정확'
 weight   = 1
 levelled = true
 
 [[weapon_defects]]
-key   = "Internal"
-name  = "Interne"
+key   = 'Internal'
+name     = '내장'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Limited Shots (6 shots)"
-name  = "Tirs Limités (6 tirs)"
+key   = 'Limited Shots (6 shots)'
+name     = '제한 발수 (6발)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Limited Shots (3 shots)"
-name  = "Tirs Limités (3 tirs)"
+key   = 'Limited Shots (3 shots)'
+name     = '제한 발수 (3발)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "Limited Shots (Single)"
-name  = "Tirs Limités (Unique)"
+key   = 'Limited Shots (Single)'
+name     = '제한 발수 (1발)'
 weight   = 3
 levelled = false
 
 [[weapon_defects]]
-key   = "Low Penetration"
-name  = "Faible Pénétration"
+key   = 'Low Penetration'
+name     = '낮은 관통력'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Melee"
-name  = "Mêlée"
+key   = 'Melee'
+name     = '근접'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "No Damage"
-name  = "Sans Dégâts"
+key   = 'No Damage'
+name     = '피해 없음'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Only in (Environment)"
-name  = "Seulement dans (Environnement)"
+key   = 'Only in (Environment)'
+name     = '(환경)에서만'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Only in (Rare Environment)"
-name  = "Seulement dans (Environnement Rare)"
+key   = 'Only in (Rare Environment)'
+name     = '(희귀 환경)에서만'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "Self-Destruct"
-name  = "Auto-Destruction"
+key   = 'Self-Destruct'
+name     = '자폭'
 weight   = 4
 levelled = false
 
 [[weapon_defects]]
-key   = "Short Range"
-name  = "Courte Portée"
+key   = 'Short Range'
+name     = '근거리'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Slow (1 turn)"
-name  = "Lent (1 tour)"
+key   = 'Slow (1 turn)'
+name     = '느림 (1턴)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Slow (1 minute)"
-name  = "Lent (1 minute)"
+key   = 'Slow (1 minute)'
+name     = '느림 (1분)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "Slow (Hours)"
-name  = "Lent (Heures)"
+key   = 'Slow (Hours)'
+name     = '느림 (시간)'
 weight   = 3
 levelled = false
 
 [[weapon_defects]]
-key   = "Slow (Days)"
-name  = "Lent (Jours)"
+key   = 'Slow (Days)'
+name     = '느림 (일)'
 weight   = 4
 levelled = false
 
 [[weapon_defects]]
-key   = "Slow (Months)"
-name  = "Lent (Mois)"
+key   = 'Slow (Months)'
+name     = '느림 (월)'
 weight   = 5
 levelled = false
 
 [[weapon_defects]]
-key   = "Static"
-name  = "Statique"
+key   = 'Static'
+name     = '정적'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Stoppable (EoT)"
-name  = "Stoppable (FdT)"
+key   = 'Stoppable (EoT)'
+name     = '정지 가능 (턴 종료)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Stoppable (5 turns)"
-name  = "Stoppable (5 tours)"
+key   = 'Stoppable (5 turns)'
+name     = '정지 가능 (5턴)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "Stoppable (1 minute)"
-name  = "Stoppable (1 minute)"
+key   = 'Stoppable (1 minute)'
+name     = '정지 가능 (1분)'
 weight   = 3
 levelled = false
 
 [[weapon_defects]]
-key   = "Stoppable (Hours)"
-name  = "Stoppable (Heures)"
+key   = 'Stoppable (Hours)'
+name     = '정지 가능 (시간)'
 weight   = 4
 levelled = false
 
 [[weapon_defects]]
-key   = "Toxic"
-name  = "Toxique"
+key   = 'Toxic'
+name     = '독성'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Two Hands"
-name  = "Deux Mains"
+key   = 'Two Hands'
+name     = '양손'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Unreliable"
-name  = "Peu Fiable"
+key   = 'Unreliable'
+name     = '불안정'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Uses Energy (5)"
-name  = "Consomme Énergie (5)"
+key   = 'Uses Energy (5)'
+name     = '에너지 소비 (5)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
-key   = "Uses Energy (5xLvl)"
-name  = "Consomme Énergie (5×Nv)"
+key   = 'Uses Energy (5xLvl)'
+name     = '에너지 소비 (5×레벨)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
-key   = "Ineffective"
-name  = "Inefficace"
+key   = 'Ineffective'
+name     = '비효율'
 # Special: does NOT increase damage via the normal abi/dis weight mechanism.
 # Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
 # weight = 0 keeps it invisible to the normal weight calculation.
@@ -1424,120 +1425,120 @@ levelled = true
 # Mecha-specific attributes (shown after normal attributes in the mecha editor).
 
 [[mecha_attributes]]
-key   = "Artificial Intelligence (A.I.)"
-name  = "Intelligence Artificielle (I.A.)"
+key   = 'Artificial Intelligence (A.I.)'
+name  = '인공지능 (AI)'
 costs = [2]
 
 [[mecha_attributes]]
-key   = "Extra Capacity"
-name  = "Capacité Supplémentaire"
+key   = 'Extra Capacity'
+name  = '추가 용량'
 costs = [1]
 
 [[mecha_attributes]]
-key   = "Extra Endurance"
-name  = "Endurance Supplémentaire"
+key   = 'Extra Endurance'
+name  = '추가 내구'
 costs = [1]
 
 [[mecha_attributes]]
-key   = "Manoeuvre Bonus"
-name  = "Bonus de Manœuvre"
+key   = 'Manoeuvre Bonus'
+name  = '기동 보너스'
 costs = [1]
 
 [[mecha_attributes]]
-key   = "Mecha Regeneration"
-name  = "Régénération du Mecha"
+key   = 'Mecha Regeneration'
+name  = '메카 재생'
 costs = [4]
 
 [[mecha_attributes]]
-key   = "Mechanical Transformation"
-name  = "Transformation Mécanique"
+key   = 'Mechanical Transformation'
+name  = '기계적 변형'
 costs = [2, 4]
 
 [[mecha_attributes]]
-key   = "Merging"
-name  = "Fusion"
+key   = 'Merging'
+name  = '합체'
 costs = [2]
 
 [[mecha_attributes]]
-key   = "Multiple Mecha Attacks"
-name  = "Attaques Multiples du Mecha"
+key   = 'Multiple Mecha Attacks'
+name  = '다중 메카 공격'
 costs = [10]
 
 [[mecha_attributes]]
-key   = "Special Equipment"
-name  = "Équipement Spécial"
+key   = 'Special Equipment'
+name  = '특수 장비'
 costs = [2]
 
 [[mecha_attributes]]
-key   = "Subordinate Mecha"
-name  = "Mecha Subordonné"
+key   = 'Subordinate Mecha'
+name  = '부속 메카'
 costs = [1]
 
 [[mecha_attributes]]
-key   = "Summonable"
-name  = "Invocable"
+key   = 'Summonable'
+name  = '소환 가능'
 costs = [4]
 
 [[mecha_attributes]]
-key   = "Super Transformation"
-name  = "Super Transformation"
+key   = 'Super Transformation'
+name  = '초 변형'
 costs = [3, 5]
 
 [[mecha_attributes]]
-key   = "Toughness"
-name  = "Robustesse"
+key   = 'Toughness'
+name  = '강인함'
 costs = [4]
 
 # Mecha-specific defects.
 
 [[mecha_defects]]
-key   = "Crew Requirement"
-name  = "Équipage Requis"
+key   = 'Crew Requirement'
+name  = '승무원 요건'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Exposed Occupants"
-name  = "Occupants Exposés"
+key   = 'Exposed Occupants'
+name  = '노출된 승객'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Limited Endurance"
-name  = "Endurance Limitée"
+key   = 'Limited Endurance'
+name  = '제한된 내구'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Mutual Damage"
-name  = "Dégâts Mutuels"
+key   = 'Mutual Damage'
+name  = '상호 피해'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Noisy"
-name  = "Bruyant"
+key   = 'Noisy'
+name  = '소음'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Poor Manoeuvrability"
-name  = "Mauvaise Manœuvrabilité"
+key   = 'Poor Manoeuvrability'
+name  = '낮은 기동성'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Reduced Capacity"
-name  = "Capacité Réduite"
+key   = 'Reduced Capacity'
+name  = '줄어든 용량'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Start-Up Time"
-name  = "Temps de Démarrage"
+key   = 'Start-Up Time'
+name  = '시작 시간'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Summoning Object"
-name  = "Objet d'Invocation"
+key   = 'Summoning Object'
+name  = '소환 물체'
 costs = [1]
 
 [[mecha_defects]]
-key   = "Wind Powered"
-name  = "Propulsé par le Vent"
+key   = 'Wind Powered'
+name  = '풍력 구동'
 costs = [1]
 
 # Attributes from the main list that are NOT available in the mecha editor.
@@ -1553,24 +1554,24 @@ banned_attributes = [
 [skills_config]
 settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
 
-# Noms d'affichage des cadres de campagne (la clé = nom interne dans les sauvegardes).
+# Display names for campaign settings (key = internal name used in save files).
 [settings_names]
-"Action Adventure" = "Action-Aventure"
-"Cyberpunk"        = "Cyberpunk"
-"High Fantasy"     = "Haute Fantaisie"
-"Mecha Drama"      = "Drame Mecha"
-"Occult Horror"    = "Horreur Occulte"
-"Romantic Comedy"  = "Comédie Romantique"
-"Space Opera"      = "Space Opera"
-"Urban Fantasy"    = "Fantaisie Urbaine"
+'Action Adventure' = '액션 어드벤처'
+'Cyberpunk'        = '사이버펑크'
+'High Fantasy'     = '하이 판타지'
+'Mecha Drama'      = '메카 드라마'
+'Occult Horror'    = '오컬트 공포'
+'Romantic Comedy'  = '로맨틱 코미디'
+'Space Opera'      = '스페이스 오페라'
+'Urban Fantasy'    = '어반 판타지'
 
 
 # Skills: SP cost per campaign setting.
 # A cost of 0 means the skill is unavailable in that setting.
 
 [skills.Acrobatics]
-key   = "Acrobatics"
-name  = "Acrobaties"
+key   = 'Acrobatics'
+name = '곡예'
 "Action Adventure" = 5
 "Cyberpunk" = 4
 "High Fantasy" = 3
@@ -1581,8 +1582,8 @@ name  = "Acrobaties"
 "Urban Fantasy" = 3
 
 [skills.Animal_Training]
-key   = "Animal Training"
-name  = "Dressage"
+key   = 'Animal Training'
+name = '동물 조련'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 2
@@ -1593,8 +1594,8 @@ name  = "Dressage"
 "Urban Fantasy" = 4
 
 [skills.Architecture]
-key   = "Architecture"
-name  = "Architecture"
+key   = 'Architecture'
+name = '건축학'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1605,8 +1606,8 @@ name  = "Architecture"
 "Urban Fantasy" = 1
 
 [skills.Artisan]
-key   = "Artisan"
-name  = "Artisan"
+key   = 'Artisan'
+name = '공예'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1617,8 +1618,8 @@ name  = "Artisan"
 "Urban Fantasy" = 1
 
 [skills.Biological_Sciences]
-key   = "Biological Sciences"
-name  = "Sciences Biologiques"
+key   = 'Biological Sciences'
+name = '생물 과학'
 "Action Adventure" = 2
 "Cyberpunk" = 4
 "High Fantasy" = 1
@@ -1629,8 +1630,8 @@ name  = "Sciences Biologiques"
 "Urban Fantasy" = 1
 
 [skills.Boating]
-key   = "Boating"
-name  = "Navigation en Bateau"
+key   = 'Boating'
+name = '항해'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1641,8 +1642,8 @@ name  = "Navigation en Bateau"
 "Urban Fantasy" = 2
 
 [skills.Burglary]
-key   = "Burglary"
-name  = "Cambriolage"
+key   = 'Burglary'
+name = '침입'
 "Action Adventure" = 2
 "Cyberpunk" = 3
 "High Fantasy" = 4
@@ -1653,8 +1654,8 @@ name  = "Cambriolage"
 "Urban Fantasy" = 3
 
 [skills.Business_Management]
-key   = "Business Management"
-name  = "Gestion Commerciale"
+key   = 'Business Management'
+name = '경영'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1665,8 +1666,8 @@ name  = "Gestion Commerciale"
 "Urban Fantasy" = 1
 
 [skills.Civilisation]
-key   = "Civilisation"
-name  = "Civilisation"
+key   = 'Civilisation'
+name = '문명'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 3
@@ -1677,8 +1678,8 @@ name  = "Civilisation"
 "Urban Fantasy" = 1
 
 [skills.Climbing]
-key   = "Climbing"
-name  = "Escalade"
+key   = 'Climbing'
+name = '등반'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1689,8 +1690,8 @@ name  = "Escalade"
 "Urban Fantasy" = 2
 
 [skills.Computers]
-key   = "Computers"
-name  = "Informatique"
+key   = 'Computers'
+name = '컴퓨터'
 "Action Adventure" = 4
 "Cyberpunk" = 5
 "High Fantasy" = 0
@@ -1701,8 +1702,8 @@ name  = "Informatique"
 "Urban Fantasy" = 3
 
 [skills.Controlled_Breathing]
-key   = "Controlled Breathing"
-name  = "Respiration Contrôlée"
+key   = 'Controlled Breathing'
+name = '호흡 조절'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -1713,8 +1714,8 @@ name  = "Respiration Contrôlée"
 "Urban Fantasy" = 1
 
 [skills.Cooking]
-key   = "Cooking"
-name  = "Cuisine"
+key   = 'Cooking'
+name = '요리'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -1725,8 +1726,8 @@ name  = "Cuisine"
 "Urban Fantasy" = 1
 
 [skills.Cultural_Arts]
-key   = "Cultural Arts"
-name  = "Arts Culturels"
+key   = 'Cultural Arts'
+name = '문화 예술'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1737,8 +1738,8 @@ name  = "Arts Culturels"
 "Urban Fantasy" = 4
 
 [skills.Demolitions]
-key   = "Demolitions"
-name  = "Démolitions"
+key   = 'Demolitions'
+name = '폭발물'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -1749,8 +1750,8 @@ name  = "Démolitions"
 "Urban Fantasy" = 1
 
 [skills.Disguise]
-key   = "Disguise"
-name  = "Déguisement"
+key   = 'Disguise'
+name = '변장'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -1761,8 +1762,8 @@ name  = "Déguisement"
 "Urban Fantasy" = 3
 
 [skills.Domestic_Arts]
-key   = "Domestic Arts"
-name  = "Arts Domestiques"
+key   = 'Domestic Arts'
+name = '가사'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -1773,8 +1774,8 @@ name  = "Arts Domestiques"
 "Urban Fantasy" = 1
 
 [skills.Driving]
-key   = "Driving"
-name  = "Conduite"
+key   = 'Driving'
+name = '운전'
 "Action Adventure" = 5
 "Cyberpunk" = 3
 "High Fantasy" = 0
@@ -1785,8 +1786,8 @@ name  = "Conduite"
 "Urban Fantasy" = 2
 
 [skills.Electronics]
-key   = "Electronics"
-name  = "Électronique"
+key   = 'Electronics'
+name = '전자공학'
 "Action Adventure" = 3
 "Cyberpunk" = 4
 "High Fantasy" = 0
@@ -1797,8 +1798,8 @@ name  = "Électronique"
 "Urban Fantasy" = 1
 
 [skills.Empathy]
-key   = "Empathy"
-name  = "Empathie"
+key   = 'Empathy'
+name = '공감'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1809,8 +1810,8 @@ name  = "Empathie"
 "Urban Fantasy" = 4
 
 [skills.Engineering]
-key   = "Engineering"
-name  = "Ingénierie"
+key   = 'Engineering'
+name = '공학'
 "Action Adventure" = 2
 "Cyberpunk" = 3
 "High Fantasy" = 2
@@ -1821,8 +1822,8 @@ name  = "Ingénierie"
 "Urban Fantasy" = 1
 
 [skills.Environmental_Sciences]
-key   = "Environmental Sciences"
-name  = "Sciences de l'Environnement"
+key   = 'Environmental Sciences'
+name = '환경 과학'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1833,8 +1834,8 @@ name  = "Sciences de l'Environnement"
 "Urban Fantasy" = 1
 
 [skills.Etiquette]
-key   = "Etiquette"
-name  = "Étiquette"
+key   = 'Etiquette'
+name = '예절'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 2
@@ -1845,8 +1846,8 @@ name  = "Étiquette"
 "Urban Fantasy" = 1
 
 [skills.Forgery]
-key   = "Forgery"
-name  = "Falsification"
+key   = 'Forgery'
+name = '위조'
 "Action Adventure" = 2
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -1857,8 +1858,8 @@ name  = "Falsification"
 "Urban Fantasy" = 1
 
 [skills.Gaming]
-key   = "Gaming"
-name  = "Jeux"
+key   = 'Gaming'
+name = '게임'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1869,8 +1870,8 @@ name  = "Jeux"
 "Urban Fantasy" = 1
 
 [skills.Interrogation]
-key   = "Interrogation"
-name  = "Interrogatoire"
+key   = 'Interrogation'
+name = '심문'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -1881,8 +1882,8 @@ name  = "Interrogatoire"
 "Urban Fantasy" = 3
 
 [skills.Intimidation]
-key   = "Intimidation"
-name  = "Intimidation"
+key   = 'Intimidation'
+name = '위협'
 "Action Adventure" = 4
 "Cyberpunk" = 4
 "High Fantasy" = 4
@@ -1893,8 +1894,8 @@ name  = "Intimidation"
 "Urban Fantasy" = 2
 
 [skills.Law]
-key   = "Law"
-name  = "Droit"
+key   = 'Law'
+name = '법률'
 "Action Adventure" = 1
 "Cyberpunk" = 3
 "High Fantasy" = 2
@@ -1905,8 +1906,8 @@ name  = "Droit"
 "Urban Fantasy" = 1
 
 [skills.Linguistics]
-key   = "Linguistics"
-name  = "Linguistique"
+key   = 'Linguistics'
+name = '언어학'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 3
@@ -1917,8 +1918,8 @@ name  = "Linguistique"
 "Urban Fantasy" = 1
 
 [skills.Leadership]
-key   = "Leadership"
-name  = "Commandement"
+key   = 'Leadership'
+name = '리더십'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1929,8 +1930,8 @@ name  = "Commandement"
 "Urban Fantasy" = 3
 
 [skills.Listening]
-key   = "Listening"
-name  = "Écoute"
+key   = 'Listening'
+name = '경청'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1941,8 +1942,8 @@ name  = "Écoute"
 "Urban Fantasy" = 2
 
 [skills.Mechanics]
-key   = "Mechanics"
-name  = "Mécanique"
+key   = 'Mechanics'
+name = '기계'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -1953,8 +1954,8 @@ name  = "Mécanique"
 "Urban Fantasy" = 2
 
 [skills.Medical]
-key   = "Medical"
-name  = "Médecine"
+key   = 'Medical'
+name = '의학'
 "Action Adventure" = 4
 "Cyberpunk" = 4
 "High Fantasy" = 4
@@ -1965,8 +1966,8 @@ name  = "Médecine"
 "Urban Fantasy" = 2
 
 [skills.Military_Sciences]
-key   = "Military Sciences"
-name  = "Sciences Militaires"
+key   = 'Military Sciences'
+name = '군사학'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -1977,8 +1978,8 @@ name  = "Sciences Militaires"
 "Urban Fantasy" = 1
 
 [skills.Naturopathy]
-key   = "Naturopathy"
-name  = "Naturopathie"
+key   = 'Naturopathy'
+name = '자연요법'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1989,8 +1990,8 @@ name  = "Naturopathie"
 "Urban Fantasy" = 1
 
 [skills.Navigation]
-key   = "Navigation"
-name  = "Navigation"
+key   = 'Navigation'
+name = '항법'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -2001,8 +2002,8 @@ name  = "Navigation"
 "Urban Fantasy" = 1
 
 [skills.Occult]
-key   = "Occult"
-name  = "Occulte"
+key   = 'Occult'
+name = '오컬트'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 3
@@ -2013,8 +2014,8 @@ name  = "Occulte"
 "Urban Fantasy" = 5
 
 [skills.Occupation]
-key   = "Occupation"
-name  = "Métier"
+key   = 'Occupation'
+name = '직업'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2025,8 +2026,8 @@ name  = "Métier"
 "Urban Fantasy" = 1
 
 [skills.Performing_Arts]
-key   = "Performing Arts"
-name  = "Arts du Spectacle"
+key   = 'Performing Arts'
+name = '공연 예술'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2037,8 +2038,8 @@ name  = "Arts du Spectacle"
 "Urban Fantasy" = 3
 
 [skills.Persuasion]
-key   = "Persuasion"
-name  = "Persuasion"
+key   = 'Persuasion'
+name = '설득'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 2
@@ -2049,8 +2050,8 @@ name  = "Persuasion"
 "Urban Fantasy" = 2
 
 [skills.Physical_Sciences]
-key   = "Physical Sciences"
-name  = "Sciences Physiques"
+key   = 'Physical Sciences'
+name = '물리 과학'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2061,8 +2062,8 @@ name  = "Sciences Physiques"
 "Urban Fantasy" = 1
 
 [skills.Piloting]
-key   = "Piloting"
-name  = "Pilotage"
+key   = 'Piloting'
+name = '조종'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 0
@@ -2073,8 +2074,8 @@ name  = "Pilotage"
 "Urban Fantasy" = 1
 
 [skills.Poisons]
-key   = "Poisons"
-name  = "Poisons"
+key   = 'Poisons'
+name = '독'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 3
@@ -2085,8 +2086,8 @@ name  = "Poisons"
 "Urban Fantasy" = 1
 
 [skills.Police_Sciences]
-key   = "Police Sciences"
-name  = "Sciences Policières"
+key   = 'Police Sciences'
+name = '경찰학'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -2097,8 +2098,8 @@ name  = "Sciences Policières"
 "Urban Fantasy" = 2
 
 [skills.Powerlifting]
-key   = "Powerlifting"
-name  = "Levé de Poids"
+key   = 'Powerlifting'
+name = '역도'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -2109,8 +2110,8 @@ name  = "Levé de Poids"
 "Urban Fantasy" = 2
 
 [skills.Religion]
-key   = "Religion"
-name  = "Religion"
+key   = 'Religion'
+name = '종교'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 2
@@ -2121,8 +2122,8 @@ name  = "Religion"
 "Urban Fantasy" = 2
 
 [skills.Riding]
-key   = "Riding"
-name  = "Équitation"
+key   = 'Riding'
+name = '승마'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 3
@@ -2133,8 +2134,8 @@ name  = "Équitation"
 "Urban Fantasy" = 1
 
 [skills.Search]
-key   = "Search"
-name  = "Fouille"
+key   = 'Search'
+name = '수색'
 "Action Adventure" = 2
 "Cyberpunk" = 4
 "High Fantasy" = 2
@@ -2145,8 +2146,8 @@ name  = "Fouille"
 "Urban Fantasy" = 3
 
 [skills.Seduction]
-key   = "Seduction"
-name  = "Séduction"
+key   = 'Seduction'
+name = '유혹'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -2157,8 +2158,8 @@ name  = "Séduction"
 "Urban Fantasy" = 3
 
 [skills.Sleight_of_Hand]
-key   = "Sleight of Hand"
-name  = "Tour de Passe-Passe"
+key   = 'Sleight of Hand'
+name = '손재주'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 4
@@ -2169,8 +2170,8 @@ name  = "Tour de Passe-Passe"
 "Urban Fantasy" = 2
 
 [skills.Sneak]
-key   = "Sneak"
-name  = "Furtivité"
+key   = 'Sneak'
+name = '잠입'
 "Action Adventure" = 4
 "Cyberpunk" = 4
 "High Fantasy" = 4
@@ -2181,8 +2182,8 @@ name  = "Furtivité"
 "Urban Fantasy" = 3
 
 [skills.Social_Sciences]
-key   = "Social Sciences"
-name  = "Sciences Sociales"
+key   = 'Social Sciences'
+name = '사회 과학'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2193,8 +2194,8 @@ name  = "Sciences Sociales"
 "Urban Fantasy" = 1
 
 [skills.Sports]
-key   = "Sports"
-name  = "Sports"
+key   = 'Sports'
+name = '스포츠'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -2205,8 +2206,8 @@ name  = "Sports"
 "Urban Fantasy" = 1
 
 [skills.Street_Sense]
-key   = "Street Sense"
-name  = "Sens de la Rue"
+key   = 'Street Sense'
+name = '거리 감각'
 "Action Adventure" = 4
 "Cyberpunk" = 5
 "High Fantasy" = 1
@@ -2217,8 +2218,8 @@ name  = "Sens de la Rue"
 "Urban Fantasy" = 4
 
 [skills.Swimming]
-key   = "Swimming"
-name  = "Natation"
+key   = 'Swimming'
+name = '수영'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -2229,8 +2230,8 @@ name  = "Natation"
 "Urban Fantasy" = 1
 
 [skills.Urban_Tracking]
-key   = "Urban Tracking"
-name  = "Pistage Urbain"
+key   = 'Urban Tracking'
+name = '도시 추적'
 "Action Adventure" = 3
 "Cyberpunk" = 4
 "High Fantasy" = 3
@@ -2241,8 +2242,8 @@ name  = "Pistage Urbain"
 "Urban Fantasy" = 4
 
 [skills.Visual_Arts]
-key   = "Visual Arts"
-name  = "Arts Visuels"
+key   = 'Visual Arts'
+name = '시각 예술'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -2253,8 +2254,8 @@ name  = "Arts Visuels"
 "Urban Fantasy" = 2
 
 [skills.Wilderness_Survival]
-key   = "Wilderness Survival"
-name  = "Survie en Nature"
+key   = 'Wilderness Survival'
+name = '야생 생존'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 4
@@ -2265,8 +2266,8 @@ name  = "Survie en Nature"
 "Urban Fantasy" = 1
 
 [skills.Wilderness_Tracking]
-key   = "Wilderness Tracking"
-name  = "Pistage en Nature"
+key   = 'Wilderness Tracking'
+name = '야생 추적'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 3
@@ -2277,8 +2278,8 @@ name  = "Pistage en Nature"
 "Urban Fantasy" = 1
 
 [skills.Writing]
-key   = "Writing"
-name  = "Écriture"
+key   = 'Writing'
+name = '글쓰기'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2291,8 +2292,8 @@ name  = "Écriture"
 # Combat skills. is_attack = true for offensive skills, false for defensive.
 
 [combat_skills.Archery]
-key   = "Archery"
-name  = "Tir à l'Arc"
+key   = 'Archery'
+name      = '궁술'
 is_attack = true
 "Action Adventure" = 4
 "Cyberpunk" = 4
@@ -2304,8 +2305,8 @@ is_attack = true
 "Urban Fantasy" = 3
 
 [combat_skills.Gun_Combat]
-key   = "Gun Combat"
-name  = "Combat à l'Arme à Feu"
+key   = 'Gun Combat'
+name      = '총기 전투'
 is_attack = true
 "Action Adventure" = 6
 "Cyberpunk" = 5
@@ -2317,8 +2318,8 @@ is_attack = true
 "Urban Fantasy" = 5
 
 [combat_skills.Heavy_Weapons]
-key   = "Heavy Weapons"
-name  = "Armes Lourdes"
+key   = 'Heavy Weapons'
+name      = '중화기'
 is_attack = true
 "Action Adventure" = 5
 "Cyberpunk" = 5
@@ -2330,8 +2331,8 @@ is_attack = true
 "Urban Fantasy" = 3
 
 [combat_skills.Melee_Attack]
-key   = "Melee Attack"
-name  = "Attaque au Corps-à-Corps"
+key   = 'Melee Attack'
+name      = '근접 공격'
 is_attack = true
 "Action Adventure" = 5
 "Cyberpunk" = 4
@@ -2343,8 +2344,8 @@ is_attack = true
 "Urban Fantasy" = 5
 
 [combat_skills.Melee_Defence]
-key   = "Melee Defence"
-name  = "Défense au Corps-à-Corps"
+key   = 'Melee Defence'
+name      = '근접 방어'
 is_attack = false
 "Action Adventure" = 5
 "Cyberpunk" = 4
@@ -2356,8 +2357,8 @@ is_attack = false
 "Urban Fantasy" = 5
 
 [combat_skills.Ranged_Defence]
-key   = "Ranged Defence"
-name  = "Défense à Distance"
+key   = 'Ranged Defence'
+name      = '원거리 방어'
 is_attack = false
 "Action Adventure" = 6
 "Cyberpunk" = 5
@@ -2369,8 +2370,8 @@ is_attack = false
 "Urban Fantasy" = 4
 
 [combat_skills.Thrown_Weapons]
-key   = "Thrown Weapons"
-name  = "Armes de Jet"
+key   = 'Thrown Weapons'
+name      = '투척 무기'
 is_attack = true
 "Action Adventure" = 4
 "Cyberpunk" = 4
@@ -2382,8 +2383,8 @@ is_attack = true
 "Urban Fantasy" = 5
 
 [combat_skills.Unarmed_Attack]
-key   = "Unarmed Attack"
-name  = "Attaque à Mains Nues"
+key   = 'Unarmed Attack'
+name      = '비무장 공격'
 is_attack = true
 "Action Adventure" = 4
 "Cyberpunk" = 4
@@ -2395,8 +2396,8 @@ is_attack = true
 "Urban Fantasy" = 4
 
 [combat_skills.Unarmed_Defence]
-key   = "Unarmed Defence"
-name  = "Défense à Mains Nues"
+key   = 'Unarmed Defence'
+name      = '비무장 방어'
 is_attack = false
 "Action Adventure" = 4
 "Cyberpunk" = 4

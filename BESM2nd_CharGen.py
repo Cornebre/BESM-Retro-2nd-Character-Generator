@@ -8,8 +8,9 @@ Tool used: claude.ai (Cornebre)
 """
 
 import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
+from tkinter import ttk, filedialog, messagebox, simpledialog
 import math, json, re, sys, shutil, ast, tomllib, pathlib
+from collections.abc import Callable
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  PATH RESOLUTION  — works both as a plain .py and as a PyInstaller .exe
@@ -26,11 +27,16 @@ def _bundle_dir() -> pathlib.Path:
     """Directory where PyInstaller extracted bundled data files (_MEIPASS),
     or the script directory in dev mode."""
     if getattr(sys, "frozen", False):
-        return pathlib.Path(sys._MEIPASS)
+        return pathlib.Path(sys._MEIPASS)  # type: ignore[attr-defined]
     return pathlib.Path(__file__).parent
 
 # The folder where user-editable TOML config files live.
-CONFIG_DIR     = _exe_dir() / "BESM2nd Config"
+# When frozen: a "BESM2nd Config" subfolder next to the .exe
+# When running as .py: besm2nd_language_files/ next to the script
+if getattr(sys, "frozen", False):
+    CONFIG_DIR = _exe_dir() / "BESM2nd Config"
+else:
+    CONFIG_DIR = pathlib.Path(__file__).parent / "besm2nd_language_files"
 
 # Default folders for save/load dialogs (used if they exist).
 CHARS_DIR      = _exe_dir() / "BESM2nd Characters"
@@ -46,16 +52,26 @@ def _default_dir(folder: pathlib.Path) -> str | None:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def _bundled_tomls() -> list[pathlib.Path]:
-    """Return all besm2nd_config_*.toml files bundled with the application."""
-    return sorted(_bundle_dir().glob("besm2nd_config_*.toml"))
+    """Return all besm2nd_config_*.toml files bundled with the application.
+    Searches language_files/ first, then language_files/machine_translated/."""
+    base = _bundle_dir()
+    found = sorted(base.glob("language_files/besm2nd_config_*.toml"))
+    found += sorted(base.glob("language_files/machine_translated/besm2nd_config_*.toml"))
+    # Deduplicate by stem in case both folders somehow have the same file
+    seen = set(); result = []
+    for p in found:
+        if p.stem not in seen:
+            seen.add(p.stem); result.append(p)
+    return result
 
-def _run_install_dialog() -> bool:
+def _run_install_dialog(reason: str = "") -> bool:
     """Show a Tk dialog letting the user choose which bundled TOMLs to install.
-    Creates CONFIG_DIR and copies the selected files into it.
-    Returns True if at least one file was installed, False if the user cancelled."""
+    Creates CONFIG_DIR, copies selected files, and saves the chosen default lang
+    to prefs.  Returns True if at least one file was installed, False if cancelled.
+    `reason` is an optional message shown above the file list explaining why the
+    dialog appeared (e.g. 'the previously selected language is no longer available')."""
     bundled = _bundled_tomls()
     if not bundled:
-        # Nothing to offer — just create the folder and bail out with a message
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         messagebox.showerror(
             "No config files found",
@@ -65,7 +81,6 @@ def _run_install_dialog() -> bool:
         )
         return False
 
-    # Read labels from each bundled TOML for nicer display
     def _label(p):
         try:
             with open(p, "rb") as f:
@@ -75,18 +90,23 @@ def _run_install_dialog() -> bool:
             return p.stem
 
     root = tk.Tk()
-    root.title("BESM 2nd — First-time Setup")
+    root.title("BESM 2nd — Language Setup")
     root.resizable(False, False)
     root.grab_set()
 
-    tk.Label(root, text="Welcome to BESM 2nd Edition Character Creator!",
+    tk.Label(root, text="BESM 2nd Edition — Language Setup",
              font=("Georgia", 11, "bold"), pady=8).pack(padx=20)
+
+    if reason:
+        tk.Label(root, text=reason, justify="left",
+                 fg="#aa2200", font=("Georgia", 9, "italic")
+                 ).pack(padx=20, pady=(0, 4))
+
     tk.Label(root,
-             text=f"The configuration folder does not exist yet:\n{CONFIG_DIR}\n\n"
-                  "Select the language file(s) you want to install:",
+             text=f"Config folder:  {CONFIG_DIR}\n\n"
+                  "Select the language file(s) to install and choose the default:",
              justify="left").pack(padx=20)
 
-    # Language checkboxes + default radio on same row
     frame = tk.Frame(root); frame.pack(padx=20, pady=8, fill="x")
     tk.Label(frame, text="Install", font=("Georgia", 9, "bold"), width=8,
              anchor="w").grid(row=0, column=0, sticky="w")
@@ -95,12 +115,9 @@ def _run_install_dialog() -> bool:
 
     labels   = [_label(p) for p in bundled]
     chk_vars = [tk.BooleanVar(value=True) for _ in bundled]
-    # Radio var: index of the language to mark as default (0 = first)
     default_var = tk.IntVar(value=0)
 
     def _on_chk(i):
-        # If the currently selected default gets unchecked, move default
-        # to the first still-checked language (if any)
         if not chk_vars[i].get() and default_var.get() == i:
             for j, cv in enumerate(chk_vars):
                 if j != i and cv.get():
@@ -112,9 +129,9 @@ def _run_install_dialog() -> bool:
                        font=("Georgia", 10),
                        command=lambda i=i: _on_chk(i)
                        ).grid(row=i + 1, column=0, sticky="w")
-        rb = tk.Radiobutton(frame, variable=default_var, value=i,
-                            font=("Georgia", 10))
-        rb.grid(row=i + 1, column=1, padx=(20, 0))
+        tk.Radiobutton(frame, variable=default_var, value=i,
+                       font=("Georgia", 10)
+                       ).grid(row=i + 1, column=1, padx=(20, 0))
 
     result = [False]
 
@@ -126,24 +143,13 @@ def _run_install_dialog() -> bool:
                                    parent=root)
             return
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
-        default_idx = default_var.get()
+
+        # Determine the default language code from the radio selection
+        default_idx  = default_var.get()
+        default_code = bundled[default_idx].stem.split("_")[-1]
+
         for i, p in selected:
-            dest = CONFIG_DIR / p.name
-            shutil.copy2(p, dest)
-            # Patch default flag in the installed file
-            text = dest.read_text(encoding="utf-8")
-            is_default = (i == default_idx)
-            # Replace existing default line or insert after the label line
-            import re as _re
-            if _re.search(r"^default\s*=", text, _re.MULTILINE):
-                text = _re.sub(r"^(default\s*=\s*)\S+",
-                               f"\\g<1>{'true' if is_default else 'false'}",
-                               text, flags=_re.MULTILINE)
-            else:
-                text = _re.sub(r"(label\s*=\s*\"[^\"]*\")",
-                               f"\\1\ndefault = {'true' if is_default else 'false'}",
-                               text, count=1)
-            dest.write_text(text, encoding="utf-8")
+            shutil.copy2(p, CONFIG_DIR / p.name)
 
         # Create data folders
         for folder in (CHARS_DIR, ARSENAL_DIR, MECHA_DIR):
@@ -154,6 +160,11 @@ def _run_install_dialog() -> bool:
             dst = ARSENAL_DIR / src.name
             if not dst.exists():
                 shutil.copy2(src, dst)
+
+        # Save chosen default language to prefs
+        prefs = _load_prefs()
+        prefs["lang"] = default_code
+        _save_prefs(prefs)
 
         result[0] = True
         root.destroy()
@@ -196,21 +207,53 @@ def display_name(eng_key):
     Falls back to the English key so saves from other languages stay readable."""
     return _NAMES.get(eng_key, eng_key)
 
+def item_display_name(item: dict) -> str:
+    """Return the display name for an attribute/defect item dict.
+    Uses custom_name if set (for Unique Attribute/Defect), otherwise translated name."""
+    return item.get("custom_name") or display_name(item["name"])
+
+# Attributes/Defects that prompt for a custom name when added
+_PROMPT_NAMES = {"Unique Attribute", "Unique Defect"}
+
+# ── Prefs (needed early for startup lang + scheme selection) ──────────────────
+PREFS_FILE = _exe_dir() / "besm2nd_prefs.json"
+
+def _load_prefs() -> dict:
+    try:
+        with open(PREFS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def _save_prefs(prefs: dict):
+    try:
+        with open(PREFS_FILE, "w", encoding="utf-8") as f:
+            json.dump(prefs, f, indent=2)
+    except Exception:
+        pass
+
 def _available_langs():
     """Discover all besm2nd_config_XXX.toml files in CONFIG_DIR.
-    Each entry is (code, label, path, is_default)."""
+    In dev mode also scans the machine_translated subdirectory.
+    Each entry is (code, label, path)."""
+    dirs = [CONFIG_DIR]
+    if not getattr(sys, "frozen", False):
+        dirs.append(CONFIG_DIR / "machine_translated")
     langs = []
-    for p in sorted(CONFIG_DIR.glob("besm2nd_config_*.toml")):
-        code = p.stem.split("_")[-1]   # e.g. "eng" or "fra"
-        try:
-            with open(p, "rb") as f:
-                cfg = tomllib.load(f)
-            lang_sec   = cfg.get("lang", {})
-            label      = lang_sec.get("label", code.upper())
-            is_default = bool(lang_sec.get("default", False))
-            langs.append((code, label, p, is_default))
-        except Exception:
-            pass
+    seen: set[str] = set()
+    for d in dirs:
+        for p in sorted(d.glob("besm2nd_config_*.toml")):
+            code = p.stem.split("_")[-1]
+            if code in seen:
+                continue
+            seen.add(code)
+            try:
+                with open(p, "rb") as f:
+                    cfg = tomllib.load(f)
+                label = cfg.get("lang", {}).get("label", code.upper())
+                langs.append((code, label, p))
+            except Exception:
+                pass
     return langs
 
 def _load_config(lang_code):
@@ -379,13 +422,13 @@ def _sanitise_formula(name: str, expr: str, params: tuple) -> None:
                 f"Formula '{name}': forbidden construct '{node_type.__name__}' "
                 f"— only arithmetic expressions are allowed in TOML formulas."
             )
-        if node_type is ast.Name and node.id not in allowed_names:
+        if node_type is ast.Name and node.id not in allowed_names:  # type: ignore[union-attr]
             raise ValueError(
-                f"Formula '{name}': unknown name '{node.id}' "
+                f"Formula '{name}': unknown name '{node.id}' "  # type: ignore[union-attr]
                 f"— allowed names are: {sorted(allowed_names)}."
             )
         if node_type is ast.Call:
-            func = node.func
+            func = node.func  # type: ignore[union-attr]
             if not (isinstance(func, ast.Name) and func.id in _ALLOWED_CALLS):
                 bad = ast.unparse(func) if hasattr(ast, "unparse") else repr(func)
                 raise ValueError(
@@ -423,51 +466,68 @@ _SEP_ATTR = ("── Mecha Only ──", None); _SEP_DEF = ("── Mecha Only �
 MECHA_ALL_ATTRIBUTES = []; MECHA_ALL_DEFECTS = []
 SETTINGS = []; SKILLS = {}; COMBAT_SKILLS = {}
 
-# ── First-run check: ensure CONFIG_DIR exists and has at least one TOML ───────
-_needs_install = (
-    not CONFIG_DIR.exists()
-    or not any(CONFIG_DIR.glob("besm2nd_config_*.toml"))
-)
-if _needs_install:
-    if not _run_install_dialog():
-        # User cancelled or nothing was installed — cannot continue
+# ── First-run / language startup logic ────────────────────────────────────────
+#
+# Priority:
+#   1. Lang code saved in prefs file → use it if the TOML exists in CONFIG_DIR
+#   2. Prefs exist but lang TOML is missing → show installer with explanation
+#   3. No prefs → try English (eng) if available
+#   4. No prefs and no English → show installer
+#   5. No TOMLs at all (CONFIG_DIR missing/empty) → show installer
+
+def _pick_startup_lang() -> str:
+    """Return the language code to use at startup, running the installer if needed.
+    Never returns normally if no lang can be resolved — exits via sys.exit(0)."""
+    available = _available_langs()
+    available_codes = {code for code, _, _ in available}
+
+    prefs     = _load_prefs()
+    pref_lang = prefs.get("lang")
+
+    # 1 — prefs specify a lang that is installed → use it
+    if pref_lang and pref_lang in available_codes:
+        return pref_lang
+
+    # 2 — prefs specify a lang but its TOML is gone
+    if pref_lang and pref_lang not in available_codes and available_codes:
+        reason = (
+            f"The previously selected language '{pref_lang}' is no longer available.\n"
+            "Please select a language to use."
+        )
+        if not _run_install_dialog(reason=reason):
+            sys.exit(0)
+        # Re-read prefs — installer wrote the new choice
+        new_lang = _load_prefs().get("lang")
+        if new_lang:
+            return new_lang
         sys.exit(0)
 
+    # 3 — no prefs, English installed → silent fallback
+    if not pref_lang and "eng" in available_codes:
+        return "eng"
+
+    # 4 — no prefs, or no usable lang at all → installer
+    if not _run_install_dialog():
+        sys.exit(0)
+    new_lang = _load_prefs().get("lang")
+    if new_lang:
+        return new_lang
+    sys.exit(0)
+
 _LANGS = _available_langs()
+_LANG_CONFLICT_WARNING = None   # kept for compatibility; no longer used
 
-# ── Pick the startup language ─────────────────────────────────────────────────
-_defaults = [entry for entry in _LANGS if entry[3]]  # entries with default=true
-_LANG_CONFLICT_WARNING = None   # set below if multiple defaults are found
-
-if len(_defaults) > 1:
-    # Multiple TOMLs claim default — use the first alphabetically (same order
-    # as _available_langs returns them) and queue a warning for after Tk starts.
-    _startup_lang = _defaults[0][0]
-    _conflicting  = ", ".join(f"{e[1]} ({e[0]})" for e in _defaults)
-    _LANG_CONFLICT_WARNING = (
-        f"Multiple language files are marked as default:\n\n  {_conflicting}\n\n"
-        f"'{_defaults[0][1]}' was used.\n"
-        "Please set  default = true  in only one TOML file."
-    )
-elif len(_defaults) == 1:
-    _startup_lang = _defaults[0][0]
-else:
-    # No default set — fall back to the first available file and warn.
-    _startup_lang = _LANGS[0][0] if _LANGS else "eng"
-    _available    = ", ".join(f"{e[1]} ({e[0]})" for e in _LANGS)
-    _LANG_CONFLICT_WARNING = (
-        f"No language file is marked as default.\n\n"
-        f"Available languages:  {_available}\n\n"
-        f"'{_LANGS[0][1] if _LANGS else 'English'}' was used as fallback.\n"
-        "Please set  default = true  in one of your TOML files."
-    )
+_startup_lang = _pick_startup_lang()
+# Refresh _LANGS after potential install
+_LANGS = _available_langs()
 
 try:
     _apply_lang(_startup_lang)
 except ValueError as _formula_err:
     import tkinter as _tk_err_mod
+    import tkinter.messagebox as _tk_msgbox
     _err_root = _tk_err_mod.Tk(); _err_root.withdraw()
-    _tk_err_mod.messagebox.showerror(
+    _tk_msgbox.showerror(
         "Invalid formula in config",
         f"The TOML configuration contains an unsafe formula:\n\n{_formula_err}\n\n"
         "Only arithmetic expressions are allowed.\nThe application cannot start."
@@ -549,22 +609,77 @@ def weapon_damage(weap, level):
 # (Mecha + Skills globals are populated by _apply_lang above)
 
 # ─────────────────────────────────────────────────────────────────────────────
-#  COLOURS
+#  COLOUR SCHEMES
 # ─────────────────────────────────────────────────────────────────────────────
-BG        = "#1a1a2e"
-PANEL     = "#16213e"
-CARD      = "#0f3460"
-ACCENT    = "#e94560"
-ACCENT2   = "#f5a623"
-ACCENT3   = "#7b68ee"
-TEXT      = "#eaeaea"
-TEXT_DIM  = "#8892a4"
-ENTRY_BG  = "#0d2137"
-BORDER    = "#2a3f5f"
-NAV_ACT   = "#e94560"
-NAV_INACT = "#2a3f5f"
-GREEN     = "#2ecc71"
-RED_C     = "#e74c3c"
+
+SCHEMES: dict[str, dict] = {
+    "Dark Navy": {
+        "BG":       "#1a1a2e", "PANEL":    "#16213e", "CARD":     "#0f3460",
+        "ENTRY_BG": "#0d2137", "BORDER":   "#2a3f5f",
+        "TEXT":     "#eaeaea", "TEXT_DIM": "#8892a4",
+        "ACCENT":   "#e94560", "ACCENT2":  "#f5a623", "ACCENT3":  "#7b68ee",
+        "GREEN":    "#2ecc71", "RED_C":    "#e74c3c",
+        "ROW_ALT":  "#16213e", "RADIO_SEL": "#2a3f5f",
+    },
+    "BESM Light": {
+        "BG":       "#ffffff", "PANEL":    "#f0f0f0", "CARD":     "#344060",
+        "ENTRY_BG": "#ffffff", "BORDER":   "#dddddd",
+        "TEXT":     "#1a1a2e", "TEXT_DIM": "#555555",
+        "ACCENT":   "#c0392b", "ACCENT2":  "#b07800", "ACCENT3":  "#344060",
+        "GREEN":    "#2d7a2d", "RED_C":    "#c0392b",
+        "ROW_ALT":  "#f0f0f0", "RADIO_SEL": "#ffffff",
+    },
+    "Deuteranopia Dark": {
+        "BG":       "#1a1a2e", "PANEL":    "#16213e", "CARD":     "#0f3460",
+        "ENTRY_BG": "#0d2137", "BORDER":   "#2a3f5f",
+        "TEXT":     "#eaeaea", "TEXT_DIM": "#8892a4",
+        "ACCENT":   "#d4820a", "ACCENT2":  "#f0c040", "ACCENT3":  "#5b8dd9",
+        "GREEN":    "#5b8dd9", "RED_C":    "#d4820a",
+        "ROW_ALT":  "#16213e", "RADIO_SEL": "#2a3f5f",
+    },
+    "Deuteranopia Light": {
+        "BG":       "#ffffff", "PANEL":    "#f0f0f0", "CARD":     "#2c4a7c",
+        "ENTRY_BG": "#ffffff", "BORDER":   "#dddddd",
+        "TEXT":     "#1a1a2e", "TEXT_DIM": "#555555",
+        "ACCENT":   "#c06000", "ACCENT2":  "#a08000", "ACCENT3":  "#2c4a7c",
+        "GREEN":    "#2c4a7c", "RED_C":    "#c06000",
+        "ROW_ALT":  "#f0f0f0", "RADIO_SEL": "#ffffff",
+    },
+    "High Contrast": {
+        "BG":       "#000000", "PANEL":    "#111111", "CARD":     "#1e1e1e",
+        "ENTRY_BG": "#0a0a0a", "BORDER":   "#444444",
+        "TEXT":     "#ffffff", "TEXT_DIM": "#aaaaaa",
+        "ACCENT":   "#ff40c0", "ACCENT2":  "#00d4d4", "ACCENT3":  "#8080ff",
+        "GREEN":    "#00d4d4", "RED_C":    "#ff40c0",
+        "ROW_ALT":  "#111111", "RADIO_SEL": "#444444",
+    },
+}
+
+def _scheme_colours(prefs: dict) -> dict:
+    """Return the colour dict for the current prefs (built-in or custom)."""
+    name = prefs.get("scheme", "Dark Navy")
+    if name == "Custom":
+        base = SCHEMES["Dark Navy"].copy()
+        base.update(prefs.get("custom_colours", {}))
+        return base
+    return SCHEMES.get(name, SCHEMES["Dark Navy"]).copy()
+
+# ── Apply a colour dict to module globals ─────────────────────────────────────
+def _apply_scheme_dict(c: dict):
+    global BG, PANEL, CARD, ENTRY_BG, BORDER, TEXT, TEXT_DIM
+    global ACCENT, ACCENT2, ACCENT3, GREEN, RED_C, NAV_ACT, NAV_INACT, ROW_ALT, RADIO_SEL
+    BG        = c["BG"];      PANEL    = c["PANEL"];   CARD     = c["CARD"]
+    ENTRY_BG  = c["ENTRY_BG"]; BORDER  = c["BORDER"]
+    TEXT      = c["TEXT"];    TEXT_DIM = c["TEXT_DIM"]
+    ACCENT    = c["ACCENT"];  ACCENT2  = c["ACCENT2"]; ACCENT3  = c["ACCENT3"]
+    GREEN     = c["GREEN"];   RED_C    = c["RED_C"]
+    NAV_ACT   = c["ACCENT"];  NAV_INACT = c["BORDER"]
+    ROW_ALT   = c.get("ROW_ALT",   c["PANEL"])
+    RADIO_SEL = c.get("RADIO_SEL", c["BORDER"])
+
+# Load and apply on startup
+_PREFS = _load_prefs()
+_apply_scheme_dict(_scheme_colours(_PREFS))
 
 # ─────────────────────────────────────────────────────────────────────────────
 #  HELPERS
@@ -582,6 +697,67 @@ def mk_entry(parent, var, width=6, font=("Courier", 10)):
                     relief="flat", highlightthickness=1,
                     highlightbackground=BORDER, highlightcolor=ACCENT,
                     font=font)
+
+def mk_text2(parent, var: tk.StringVar, width=30, font=("Courier", 10)):
+    """A Text widget that grows with content, staying in sync with a StringVar."""
+    t_widget = tk.Text(parent, width=width, height=1,
+                       bg=ENTRY_BG, fg=TEXT, insertbackground=TEXT,
+                       relief="flat", highlightthickness=1,
+                       highlightbackground=BORDER, highlightcolor=ACCENT,
+                       font=font, wrap="word", undo=True, maxundo=50)
+    t_widget.insert("1.0", var.get())
+
+    def _resize(*_):
+        linecount = int(t_widget.index("end-1c").split(".")[0])
+        t_widget.config(height=max(1, linecount))
+
+    def _on_text_change(*_):
+        val = t_widget.get("1.0", "end-1c")
+        if var.get() != val:
+            var.set(val)
+
+    t_widget.bind("<<Modified>>", lambda e: (_on_text_change(), t_widget.edit_modified(False)))
+    t_widget.bind("<KeyRelease>", _resize)
+    t_widget.bind("<FocusOut>", _resize)
+
+    def _on_var_change(*_):
+        val = var.get()
+        if t_widget.get("1.0", "end-1c") != val:
+            t_widget.delete("1.0", "end")
+            t_widget.insert("1.0", val)
+        _resize()
+
+    var.trace_add("write", _on_var_change)
+    _resize()
+    return t_widget
+
+def _rebind_text2(widget: "tk.Text", var: tk.StringVar) -> None:
+    """Rebind a pooled mk_text2 widget to a new StringVar."""
+    widget.delete("1.0", "end")
+    widget.insert("1.0", var.get())
+
+    def _resize(*_):
+        linecount = int(widget.index("end-1c").split(".")[0])
+        widget.config(height=max(1, linecount))
+
+    def _on_text(*_):
+        val = widget.get("1.0", "end-1c")
+        if var.get() != val:
+            var.set(val)
+        widget.edit_modified(False)
+        _resize()
+    widget.bind("<<Modified>>", _on_text)
+    widget.bind("<KeyRelease>", _resize)
+    widget.bind("<FocusOut>", _resize)
+
+    def _on_var(*_):
+        val = var.get()
+        if widget.get("1.0", "end-1c") != val:
+            widget.delete("1.0", "end")
+            widget.insert("1.0", val)
+        _resize()
+    var.trace_add("write", _on_var)
+    _resize()
 
 def mk_int_entry(parent, var, width=4, font=("Courier", 8)):
     """Like mk_entry but highlights red when the value isn't a valid integer."""
@@ -802,6 +978,7 @@ class MechaState:
             "details":  self.details.get(),
             "attributes": [
                 {"name": a["name"], "base_cost": a["base_cost"],
+                 "custom_name": a.get("custom_name", ""),
                  "level": a["level"].get(), "desc": a["desc"].get(),
                  "modifier": a["modifier"].get()}
                 for a in self.attributes
@@ -816,6 +993,7 @@ class MechaState:
             ],
             "defects": [
                 {"name": d["name"], "base_cost": d["base_cost"],
+                 "custom_name": d.get("custom_name", ""),
                  "level": d["level"].get(), "desc": d["desc"].get(),
                  "modifier": d["modifier"].get()}
                 for d in self.defects
@@ -838,10 +1016,11 @@ class MechaState:
         self.attributes.clear()
         for a in data.get("attributes", []):
             self.attributes.append({
-                "name":      a["name"], "base_cost": a["base_cost"],
-                "level":     tk.StringVar(value=str(a.get("level", "1"))),
-                "desc":      tk.StringVar(value=a.get("desc", "")),
-                "modifier":  tk.StringVar(value=str(a.get("modifier", "0"))),
+                "name":        a["name"], "base_cost": a["base_cost"],
+                "custom_name": a.get("custom_name", ""),
+                "level":       tk.StringVar(value=str(a.get("level", "1"))),
+                "desc":        tk.StringVar(value=a.get("desc", "")),
+                "modifier":    tk.StringVar(value=str(a.get("modifier", "0"))),
             })
         self.weapons.clear()
         for w in data.get("weapons", []):
@@ -857,10 +1036,11 @@ class MechaState:
         self.defects.clear()
         for d in data.get("defects", []):
             self.defects.append({
-                "name":      d["name"], "base_cost": d["base_cost"],
-                "level":     tk.StringVar(value=str(d.get("level", "1"))),
-                "desc":      tk.StringVar(value=d.get("desc", "")),
-                "modifier":  tk.StringVar(value=str(d.get("modifier", "0"))),
+                "name":        d["name"], "base_cost": d["base_cost"],
+                "custom_name": d.get("custom_name", ""),
+                "level":       tk.StringVar(value=str(d.get("level", "1"))),
+                "desc":        tk.StringVar(value=d.get("desc", "")),
+                "modifier":    tk.StringVar(value=str(d.get("modifier", "0"))),
             })
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1081,6 +1261,7 @@ class CharacterState:
             "combat_mods":   {k: v.get() for k, v in self.combat_mods.items()},
             "attributes": [
                 {"name": a["name"], "base_cost": a["base_cost"],
+                 "custom_name": a.get("custom_name", ""),
                  "level": a["level"].get(), "desc": a["desc"].get(),
                  "modifier": a["modifier"].get()}
                 for a in self.attributes
@@ -1094,6 +1275,7 @@ class CharacterState:
             ],
             "defects": [
                 {"name": d["name"], "base_cost": d["base_cost"],
+                 "custom_name": d.get("custom_name", ""),
                  "level": d["level"].get(), "desc": d["desc"].get(),
                  "modifier": d["modifier"].get()}
                 for d in self.defects
@@ -1139,11 +1321,12 @@ class CharacterState:
         self.attributes.clear()
         for a in data.get("attributes", []):
             self.attributes.append({
-                "name":      a["name"],
-                "base_cost": a["base_cost"],
-                "level":     tk.StringVar(value=str(a.get("level", "1"))),
-                "desc":      tk.StringVar(value=a.get("desc", "")),
-                "modifier":  tk.StringVar(value=str(a.get("modifier", "0"))),
+                "name":        a["name"],
+                "base_cost":   a["base_cost"],
+                "custom_name": a.get("custom_name", ""),
+                "level":       tk.StringVar(value=str(a.get("level", "1"))),
+                "desc":        tk.StringVar(value=a.get("desc", "")),
+                "modifier":    tk.StringVar(value=str(a.get("modifier", "0"))),
             })
 
         def _norm_entries(lst):
@@ -1170,17 +1353,19 @@ class CharacterState:
         self.defects.clear()
         for d in data.get("defects", []):
             self.defects.append({
-                "name":      d["name"],
-                "base_cost": d["base_cost"],
-                "level":     tk.StringVar(value=str(d.get("level", "1"))),
-                "desc":      tk.StringVar(value=d.get("desc", "")),
-                "modifier":  tk.StringVar(value=str(d.get("modifier", "0"))),
+                "name":        d["name"],
+                "base_cost":   d["base_cost"],
+                "custom_name": d.get("custom_name", ""),
+                "level":       tk.StringVar(value=str(d.get("level", "1"))),
+                "desc":        tk.StringVar(value=d.get("desc", "")),
+                "modifier":    tk.StringVar(value=str(d.get("modifier", "0"))),
             })
         self.mechas.clear()
         for md in data.get("mechas", []):
             ms = MechaState(notify_cb=self._notify, char_state=self)
             ms.from_dict(md)
             self.mechas.append(ms)
+        self.mark_clean()
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1199,10 +1384,10 @@ class CharacterTab(tk.Frame):
         self.state = CharacterState(notify_cb=self._update_all)
         self._current_page = 0
         self.tab_label_var = tk.StringVar(value="New Character")
-        # Listen to name changes to relabel the tab
         self.state.char_name.trace_add("write", self._on_name_change)
         self.state.attr_formula.trace_add("write", self._on_attr_formula_change)
         self._build()
+        self.state.mark_clean()
 
     def _build(self):
         self._build_inner_nav()
@@ -1522,7 +1707,7 @@ def export_pdf(state, out_path):
         else:
             c.rect(x, y, w, h, fill=1, stroke=0)
 
-    def _t(c, x, y, s, font="Helvetica", size=8, color=black, align="left"):
+    def _t(c, x, y, s, font="Helvetica", size: float = 8, color=black, align="left"):
         c.setFont(font, size); c.setFillColor(color)
         if   align == "center": c.drawCentredString(x, y, str(s))
         elif align == "right":  c.drawRightString(x, y, str(s))
@@ -1592,6 +1777,31 @@ def export_pdf(state, out_path):
     MECHA_DET_H = 12*mm
 
     # ── Helpers ───────────────────────────────────────────────────────────
+    def _text_h(c, x, w, text, font="Helvetica", size=7.5, min_lines=3):
+        """Calculate the height needed to render text in a box of width w."""
+        if not text:
+            return min_lines * 3.5*mm + 4*mm
+        lh = 3.5 * mm
+        paras = text.replace("\r", "").split("\n")
+        lines = []
+        for para in paras:
+            words = para.split()
+            if not words:
+                lines.append("")
+                continue
+            cur = ""
+            for word in words:
+                test = (cur + " " + word).strip()
+                if c.stringWidth(test, font, size) <= w - 4:
+                    cur = test
+                else:
+                    if cur:
+                        lines.append(cur)
+                    cur = word
+            if cur:
+                lines.append(cur)
+        return max(min_lines, len(lines)) * lh + 4*mm
+
     def _draw_boxed_text(c, x, y_top, w, h, text,
                          font="Helvetica", size=7.5, color=black):
         """Render multi-line *text* inside a box. y_top is the top edge of
@@ -1659,7 +1869,9 @@ def export_pdf(state, out_path):
     # ── Attribute / defect table ──────────────────────────────────────────
     def _draw_attr_table(c, x, y, w, rows, col3="CP"):
         rh = 5*mm
+        lh = 3.5*mm
         COL = [w*0.43, w*0.09, w*0.13, w*0.35]
+        desc_w = COL[3]
         _rr(c, x, y - rh, w, rh, C_GREY2)
         c.setStrokeColor(C_RULE); c.setLineWidth(0.3)
         c.line(x, y - rh, x + w, y - rh)
@@ -1669,25 +1881,45 @@ def export_pdf(state, out_path):
             cx += cw
         y -= rh
         for i, (name, lv, cost, desc) in enumerate(rows):
+            # Word-wrap desc to measure actual row height
+            desc_lines = []
+            if desc:
+                for para in desc.replace("\r", "").split("\n"):
+                    words = para.split()
+                    if not words:
+                        desc_lines.append("")
+                        continue
+                    cur = ""
+                    for word in words:
+                        test = (cur + " " + word).strip()
+                        if c.stringWidth(test, "Helvetica", 7.5) <= desc_w - 3:
+                            cur = test
+                        else:
+                            if cur: desc_lines.append(cur)
+                            cur = word
+                    if cur: desc_lines.append(cur)
+            row_h = max(rh, len(desc_lines) * lh + 2*mm) if desc_lines else rh
             bg = C_ROWALT if i % 2 else white
-            _rr(c, x, y - rh, w, rh, bg)
+            _rr(c, x, y - row_h, w, row_h, bg)
             cx = x
-            for val, cw in zip([name, str(lv), str(cost), desc or ""], COL):
+            for val, cw in zip([name, str(lv), str(cost)], COL[:3]):
                 s2 = str(val)
                 while s2 and c.stringWidth(s2, "Helvetica", 7.5) > cw - 3:
                     s2 = s2[:-1]
                 _t(c, cx + 1, y - 3.8*mm, s2, "Helvetica", 7.5, black)
                 cx += cw
+            for j, line in enumerate(desc_lines):
+                _t(c, cx + 1, y - 3.8*mm - j * lh, line, "Helvetica", 7.5, black)
             c.setStrokeColor(C_RULE); c.setLineWidth(0.2)
-            c.line(x, y - rh, x + w, y - rh)
-            y -= rh
+            c.line(x, y - row_h, x + w, y - row_h)
+            y -= row_h
         return y - 2*mm
 
     # ── Weapon table ──────────────────────────────────────────────────────
     def _draw_weapon_table(c, x, y, w, weap_list, unit="CP"):
         af_formula = state.attr_formula.get()
-        rh1 = 5*mm; rh2 = 4*mm
-        COL = [w*0.28, w*0.06, w*0.09, w*0.08, w*0.05]
+        rh1 = 5*mm; rh2 = 4*mm; lh = 3.5*mm
+        COL = [w*0.24, w*0.05, w*0.08, w*0.07, w*0.05]
         dx  = sum(COL); dw = w - dx - 2
         _rr(c, x, y - rh1, w, rh1, C_GREY2)
         c.setStrokeColor(C_RULE); c.setLineWidth(0.3)
@@ -1711,8 +1943,26 @@ def export_pdf(state, out_path):
                       else str(weap["desc"])
             adv_s   = _adv_str(weap.get("advantages", []))
             def_s   = _adv_str(weap.get("defects", []))
+            # Word-wrap desc
+            desc_lines = []
+            if desc:
+                for para in desc.replace("\r", "").split("\n"):
+                    words = para.split()
+                    if not words:
+                        desc_lines.append("")
+                        continue
+                    cur = ""
+                    for word in words:
+                        test = (cur + " " + word).strip()
+                        if c.stringWidth(test, "Helvetica", 7) <= dw - 2:
+                            cur = test
+                        else:
+                            if cur: desc_lines.append(cur)
+                            cur = word
+                    if cur: desc_lines.append(cur)
+            row_h = max(rh1, len(desc_lines) * lh + 2*mm) if desc_lines else rh1
             bg = C_ROWALT if i % 2 else white
-            _rr(c, x, y - rh1 - rh2, w, rh1 + rh2, bg)
+            _rr(c, x, y - row_h - rh2, w, row_h + rh2, bg)
             cx = x
             for val, cw in zip([wname, lv, cost, dmg, "✓" if is_gear else " "], COL):
                 s2 = str(val)
@@ -1720,11 +1970,9 @@ def export_pdf(state, out_path):
                     s2 = s2[:-1]
                 _t(c, cx + 1, y - 3.8*mm, s2, "Helvetica-Bold", 7.5, black)
                 cx += cw
-            desc2 = desc
-            while desc2 and c.stringWidth(desc2, "Helvetica", 7) > dw:
-                desc2 = desc2[:-1]
-            _t(c, x + dx + 1, y - 3.8*mm, desc2, "Helvetica", 7, C_DIM)
-            y -= rh1
+            for j, line in enumerate(desc_lines):
+                _t(c, x + dx + 1, y - 3.8*mm - j * lh, line, "Helvetica", 7, C_DIM)
+            y -= row_h
             line2 = f"  {t('pdf_adv','Adv:')} {adv_s}   {t('pdf_def','Def:')} {def_s}"
             while line2 and c.stringWidth(line2, "Helvetica-Oblique", 6.5) > w - 4:
                 line2 = line2[:-1]
@@ -1786,7 +2034,7 @@ def export_pdf(state, out_path):
     # ── Height estimators ─────────────────────────────────────────────────
     SECT_H = 6*mm
 
-    def _weap_h(lst):   return (len(lst) * 9 + 5) * mm + 3*mm
+    def _weap_h(lst):   return (len(lst) * 11 + 5) * mm + 3*mm
     def _skill_h():
         n  = sum(1 for v in state.skill_levels.values()  if v.get() > 0)
         n += sum(1 for v in state.combat_levels.values() if v.get() > 0)
@@ -1825,12 +2073,12 @@ def export_pdf(state, out_path):
         af_rows, def_rows = [], []
         for a in ms.attributes:
             lv = int_or(a["level"]); mod = int_or(a["modifier"])
-            af_rows.append((display_name(a["name"]), lv,
+            af_rows.append((item_display_name(a), lv,
                              attr_cost(a["base_cost"], lv, af_formula) + mod,
                              a["desc"].get()))
         for d in ms.defects:
             lv = int_or(d["level"]); mod = int_or(d["modifier"])
-            def_rows.append((display_name(d["name"]), lv,
+            def_rows.append((item_display_name(d), lv,
                               attr_cost(d["base_cost"], lv, "Default") + mod,
                               d["desc"].get()))
         yl = _section(c, lx, y, col_w, t("pdf_mecha_attrs","Mecha Attributes"))
@@ -1849,21 +2097,23 @@ def export_pdf(state, out_path):
     attr_rows = []
     for a in state.attributes:
         lv = int_or(a["level"]); mod = int_or(a["modifier"])
-        attr_rows.append((display_name(a["name"]), lv,
+        attr_rows.append((item_display_name(a), lv,
                            attr_cost(a["base_cost"], lv, af) + mod,
                            a["desc"].get()))
     def_rows = []
     for a in state.defects:
         lv = int_or(a["level"]); mod = int_or(a["modifier"])
-        def_rows.append((display_name(a["name"]), lv,
+        def_rows.append((item_display_name(a), lv,
                           attr_cost(a["base_cost"], lv, "Default") + mod,
                           a["desc"].get()))
 
+    attr_h  = (len(attr_rows) + 1) * 5*mm + 2*mm if attr_rows else 0
+    def_h   = (len(def_rows)  + 1) * 5*mm + 2*mm if def_rows  else 0
     col_w   = (PW - 2*M - GR) / 2
     skill_h = _skill_h()
     weap_h  = _weap_h(state.weapons)
 
-    # how many attr/def rows fit on page 1
+    # how many attr/def rows fit on page 1 (two columns side by side)
     avail_col = (CONTENT_TOP - DET_H - 3*mm - 16*mm - 3*mm
                  - SECT_H - SECT_H - weap_h
                  - SECT_H - skill_h
@@ -1905,7 +2155,7 @@ def export_pdf(state, out_path):
     yl = _section(c, M,          y, col_w, t("pdf_attributes","Attributes"))
     yr = _section(c, M+col_w+GR, y, col_w, t("pdf_defects","Defects"))
     yl = _draw_attr_table(c, M,          yl, col_w, attrs_p1, col3=t("pdf_col_cp","CP"))
-    yr = _draw_attr_table(c, M+col_w+GR, yr, col_w, defs_p1, col3=t("pdf_col_refund","Refund"))
+    yr = _draw_attr_table(c, M+col_w+GR, yr, col_w, defs_p1,  col3=t("pdf_col_refund","Refund"))
 
     yw = min(yl, yr) - 1*mm
     yw = _section(c, M, yw, PW - 2*M, t("pdf_weapons","Weapons"))
@@ -1915,8 +2165,9 @@ def export_pdf(state, out_path):
         yw = _draw_skills(c, M, yw, PW - 2*M)
     yw -= 1*mm
     yw = _section(c, M, yw, PW - 2*M, t("pdf_equip_notes","Equipment & Adventuring Notes"))
-    _rr(c, M, yw - EQUIP_H, PW - 2*M, EQUIP_H, C_GREEN, C_RULE, 0.4)
-    _draw_boxed_text(c, M, yw, PW - 2*M, EQUIP_H, state.equip_notes.get())
+    equip_h = _text_h(c, M, PW - 2*M, state.equip_notes.get())
+    _rr(c, M, yw - equip_h, PW - 2*M, equip_h, C_GREEN, C_RULE, 0.4)
+    _draw_boxed_text(c, M, yw, PW - 2*M, equip_h, state.equip_notes.get())
 
     # Page 2 — overflow attrs/defs
     page_num = 1
@@ -2028,6 +2279,7 @@ class ArsenalWindow(tk.Toplevel):
 
         form = tk.Frame(self._inner, bg=PANEL, pady=8)
         form.pack(fill="x", pady=(0, 8))
+        form.columnconfigure(1, weight=1)
 
         self._nw_name  = tk.StringVar()
         self._nw_level = tk.StringVar(value="1")
@@ -2046,24 +2298,25 @@ class ArsenalWindow(tk.Toplevel):
         # Row 1: level / modifier / gear
         tk.Label(form, text=t("label_level_add", "Level:"), bg=PANEL, fg=TEXT_DIM,
                  font=("Georgia", 9)).grid(row=1, column=0, padx=8, sticky="w")
-        _nw_lv_sb = mk_int_spinbox(form, self._nw_level, width=4, from_=1, to=20)
-        _nw_lv_sb.grid(row=1, column=1, padx=4, sticky="w")
-        tk.Label(form, text=t("label_modifier_add", "Modifier:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=1, column=2, padx=4)
-        mk_int_spinbox(form, self._nw_mod, width=4, from_=-99, to=99).grid(
-            row=1, column=3, padx=4, sticky="w")
-        tk.Label(form, text=t("label_gear_colon", "Gear:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=1, column=4, padx=4)
-        tk.Checkbutton(form, variable=self._nw_gear, bg=PANEL,
-                       selectcolor=CARD, activebackground=PANEL,
+        _lv_mod_frame = tk.Frame(form, bg=PANEL)
+        _lv_mod_frame.grid(row=1, column=1, columnspan=5, sticky="w", padx=4)
+        _nw_lv_sb = mk_int_spinbox(_lv_mod_frame, self._nw_level, width=4, from_=1, to=20)
+        _nw_lv_sb.pack(side="left")
+        tk.Label(_lv_mod_frame, text=t("label_modifier_add", "Modifier:"), bg=PANEL, fg=TEXT_DIM,
+                 font=("Georgia", 9)).pack(side="left", padx=(8, 4))
+        mk_int_spinbox(_lv_mod_frame, self._nw_mod, width=4, from_=-99, to=99).pack(side="left")
+        tk.Label(_lv_mod_frame, text=t("label_gear_colon", "Gear:"), bg=PANEL, fg=TEXT_DIM,
+                 font=("Georgia", 9)).pack(side="left", padx=(8, 4))
+        tk.Checkbutton(_lv_mod_frame, variable=self._nw_gear, bg=PANEL,
+                       selectcolor=RADIO_SEL, activebackground=PANEL,
                        command=lambda sb=_nw_lv_sb: sb.configure(
                            from_=0 if self._nw_gear.get() else 1)
-                       ).grid(row=1, column=5, padx=2)
+                       ).pack(side="left")
 
         # Row 2: desc
         tk.Label(form, text=t("label_desc", "Desc:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=2, column=0, padx=8, sticky="w", pady=2)
-        mk_entry(form, self._nw_desc, width=34).grid(
+                 font=("Georgia", 9)).grid(row=2, column=0, padx=8, sticky="nw", pady=2)
+        mk_text2(form, self._nw_desc, width=34).grid(
             row=2, column=1, columnspan=5, sticky="ew", padx=4, pady=2)
 
         # Row 3: Adv/Def toggle button
@@ -2158,7 +2411,7 @@ class ArsenalWindow(tk.Toplevel):
     # ── Arsenal row pool ─────────────────────────────────────────────────────
     def _make_arsenal_slot(self, idx):
         """Create one reusable weapon row with all sub-widgets."""
-        bg  = CARD if idx % 2 == 0 else PANEL
+        bg  = BG if idx % 2 == 0 else ROW_ALT
         row = tk.Frame(self._list_frame, bg=bg, pady=4)
 
         r0 = tk.Frame(row, bg=bg); r0.pack(fill="x")
@@ -2194,13 +2447,13 @@ class ArsenalWindow(tk.Toplevel):
         tk.Label(r1, text=t("label_gear_colon", "Gear:"), bg=bg, fg=TEXT_DIM,
                  font=("Georgia", 8)).pack(side="left", padx=(8, 2))
         gear_chk = tk.Checkbutton(r1, variable=tk.BooleanVar(), bg=bg,
-                                   selectcolor=CARD, activebackground=bg)
+                                   selectcolor=RADIO_SEL, activebackground=bg)
         gear_chk.pack(side="left")
 
         r2 = tk.Frame(row, bg=bg); r2.pack(fill="x")
         tk.Label(r2, text=t("label_desc", "Desc:"), bg=bg, fg=TEXT_DIM,
-                 font=("Georgia", 8)).pack(side="left", padx=(6, 2))
-        desc_entry = mk_entry(r2, tk.StringVar(), width=38, font=("Courier", 8))
+                 font=("Georgia", 8)).pack(side="left", padx=(6, 2), anchor="n")
+        desc_entry = mk_text2(r2, tk.StringVar(), width=38, font=("Courier", 8))
         desc_entry.pack(side="left", padx=2, fill="x", expand=True)
 
         adf = tk.Frame(row, bg=bg)
@@ -2223,7 +2476,7 @@ class ArsenalWindow(tk.Toplevel):
 
     def _bind_arsenal_slot(self, slot, weap, i):
         """Rebind a pool slot to weapon dict at index i."""
-        bg = CARD if i % 2 == 0 else PANEL
+        bg = BG if i % 2 == 0 else ROW_ALT
 
         # Recolour only on parity change
         if slot["bg"] != bg:
@@ -2259,7 +2512,7 @@ class ArsenalWindow(tk.Toplevel):
                                 from_=0 if weap["_tk_gear"].get() else 1)
         slot["mod_sb"].configure(textvariable=weap["_tk_mod"])
         slot["gear_chk"].configure(variable=weap["_tk_gear"])
-        slot["desc_entry"].configure(textvariable=weap["_tk_desc"])
+        _rebind_text2(slot["desc_entry"], weap["_tk_desc"])
 
         # Sync plain-dict fields from Tk vars on every write
         def _sync(w=weap):
@@ -2581,6 +2834,314 @@ class ArsenalWindow(tk.Toplevel):
 #  MAIN APPLICATION  — just the window, tab bar, and global style
 # ─────────────────────────────────────────────────────────────────────────────
 
+# ─────────────────────────────────────────────────────────────────────────────
+#  SETTINGS WINDOW
+# ─────────────────────────────────────────────────────────────────────────────
+
+class SettingsWindow(tk.Toplevel):
+    # Colour keys shown in the custom editor, in display order
+    _CUSTOM_KEYS = [
+        ("BG",       "Background"),
+        ("PANEL",    "Panel"),
+        ("CARD",     "Card / Header"),
+        ("ROW_ALT",  "Alternating row"),
+        ("ENTRY_BG", "Input background"),
+        ("BORDER",   "Border"),
+        ("TEXT",     "Text"),
+        ("TEXT_DIM", "Dim text"),
+        ("ACCENT",   "Accent 1  (headers / danger)"),
+        ("ACCENT2",  "Accent 2  (costs)"),
+        ("ACCENT3",  "Accent 3  (buttons)"),
+        ("GREEN",    "Positive value"),
+        ("RED_C",    "Delete / warning"),
+    ]
+
+    def __init__(self, app):
+        super().__init__(app)
+        self.app   = app
+        self.title(t("settings_title", "Settings"))
+        self.resizable(False, False)
+        self.grab_set()
+        self.configure(bg=BG)
+        self.transient(app)
+
+        # Working copies — don't touch prefs/globals until Save
+        self._prefs       = _load_prefs()
+        self._scheme      = tk.StringVar(value=self._prefs.get("scheme", "Dark Navy"))
+        self._custom      = self._prefs.get("custom_colours",
+                                            SCHEMES["Dark Navy"].copy())
+        # Snapshot originals for change detection
+        self._orig_scheme = self._prefs.get("scheme", "Dark Navy")
+        self._orig_custom = self._prefs.get("custom_colours",
+                                            SCHEMES["Dark Navy"].copy()).copy()
+        # Lang var
+        self._lang_var = tk.StringVar()
+        for code, label, _ in _LANGS:
+            if code == _LANG:
+                self._lang_var.set(label)
+
+        self._build()
+        self._refresh_preview()
+
+    # ── Build ──────────────────────────────────────────────────────────────
+    def _build(self):
+        pad = {"padx": 16, "pady": 6}
+
+        # ── Language ──────────────────────────────────────────────────────
+        lang_sec = tk.LabelFrame(self, text=t("settings_language", "Language"),
+                                 bg=BG, fg=TEXT, font=("Georgia", 10, "bold"),
+                                 padx=10, pady=6)
+        lang_sec.pack(fill="x", padx=16, pady=6)
+
+        lang_labels = [label for _, label, _ in _LANGS]
+        lang_combo  = ttk.Combobox(lang_sec, textvariable=self._lang_var,
+                                   values=lang_labels, state="readonly",
+                                   width=18, font=("Georgia", 10))
+        lang_combo.pack(anchor="w")
+
+        # ── Colour scheme ──────────────────────────────────────────────────
+        scheme_sec = tk.LabelFrame(self, text=t("settings_scheme", "Colour Scheme"),
+                                   bg=BG, fg=TEXT, font=("Georgia", 10, "bold"),
+                                   padx=10, pady=6)
+        scheme_sec.pack(fill="x", padx=16, pady=6)
+
+        scheme_names = list(SCHEMES.keys()) + ["Custom"]
+        for name in scheme_names:
+            tk.Radiobutton(scheme_sec, text=name, variable=self._scheme,
+                           value=name, bg=BG, fg=TEXT, selectcolor=RADIO_SEL,
+                           activebackground=BG, activeforeground=TEXT,
+                           font=("Georgia", 10),
+                           command=self._on_scheme_change
+                           ).pack(anchor="w")
+
+        # ── Custom colour editor (shown only when Custom selected) ─────────
+        self._custom_frame = tk.LabelFrame(
+            self, text=t("settings_custom_colours", "Custom Colours"),
+            bg=BG, fg=TEXT, font=("Georgia", 10, "bold"), padx=10, pady=6)
+
+        self._swatch_btns = {}   # key → Button widget (the colour swatch)
+        self._hex_vars    = {}   # key → StringVar (hex value)
+
+        for key, label in self._CUSTOM_KEYS:
+            row = tk.Frame(self._custom_frame, bg=BG)
+            row.pack(fill="x", pady=2)
+            # Swatch button
+            hex_val = self._custom.get(key, SCHEMES["Dark Navy"][key])
+            swatch  = tk.Button(row, bg=hex_val, width=3, relief="raised",
+                                cursor="hand2",
+                                command=lambda k=key: self._pick_colour(k))
+            swatch.pack(side="left", padx=(0, 6))
+            self._swatch_btns[key] = swatch
+            # Hex entry
+            hv = tk.StringVar(value=hex_val)
+            self._hex_vars[key] = hv
+            entry = tk.Entry(row, textvariable=hv, width=9,
+                             bg=ENTRY_BG, fg=TEXT, insertbackground=TEXT,
+                             font=("Courier", 9), relief="flat",
+                             highlightthickness=1, highlightbackground=BORDER)
+            entry.pack(side="left", padx=(0, 8))
+            hv.trace_add("write", lambda *_, k=key: self._on_hex_edit(k))
+            tk.Label(row, text=label, bg=BG, fg=TEXT_DIM,
+                     font=("Georgia", 9)).pack(side="left")
+
+        # ── Preview strip ──────────────────────────────────────────────────
+        prev_sec = tk.LabelFrame(self, text=t("settings_preview", "Preview"),
+                                 bg=BG, fg=TEXT, font=("Georgia", 10, "bold"),
+                                 padx=10, pady=6)
+        prev_sec.pack(fill="x", padx=16, pady=6)
+
+        self._preview_canvas = tk.Canvas(prev_sec, height=80, bg=BG,
+                                         highlightthickness=0)
+        self._preview_canvas.pack(fill="x")
+
+        # ── Warning + buttons ──────────────────────────────────────────────
+        self._restart_lbl = tk.Label(self, text=t("settings_restart_note",
+                              "⚠  A restart is required to apply changes."),
+                 bg=BG, fg=ACCENT2, font=("Georgia", 9, "italic"))
+        # shown/hidden dynamically by _on_scheme_change
+
+        btn_frame = tk.Frame(self, bg=BG)
+        btn_frame.pack(pady=(6, 14))
+        mk_btn(btn_frame, t("btn_save", "Save"), self._save,
+               bg=ACCENT3).pack(side="left", padx=8)
+        mk_btn(btn_frame, t("btn_cancel", "Cancel"), self.destroy,
+               bg=RED_C).pack(side="left", padx=8)
+
+        self._on_scheme_change()   # set initial custom-frame visibility
+
+    # ── Scheme radio changed ───────────────────────────────────────────────
+    def _scheme_changed(self):
+        if self._scheme.get() != self._orig_scheme:
+            return True
+        if self._scheme.get() == "Custom" and self._custom != self._orig_custom:
+            return True
+        return False
+
+    def _on_scheme_change(self):
+        is_custom = (self._scheme.get() == "Custom")
+        if is_custom:
+            _prev_ref = self._preview_frame_ref()
+            pack_kw: dict = {"fill": "x", "padx": 16, "pady": 6}
+            if _prev_ref is not None:
+                pack_kw["before"] = _prev_ref
+            self._custom_frame.pack(**pack_kw)
+        else:
+            self._custom_frame.pack_forget()
+        self._refresh_preview()
+        # Show/hide restart warning
+        if self._scheme_changed():
+            self._restart_lbl.pack(pady=(4, 0))
+        else:
+            self._restart_lbl.pack_forget()
+
+    def _preview_frame_ref(self):
+        """Return the widget just before the preview — used for pack ordering."""
+        # Walk children to find the Preview LabelFrame
+        for w in self.winfo_children():
+            try:
+                if w.cget("text") in (t("settings_preview", "Preview"), "Preview"):
+                    return w
+            except Exception:
+                pass
+        return None
+
+    # ── Colour picker ──────────────────────────────────────────────────────
+    def _pick_colour(self, key):
+        import tkinter.colorchooser as cc
+        current = self._custom.get(key, "#ffffff")
+        result  = cc.askcolor(color=current, title=f"Pick colour — {key}",
+                              parent=self)
+        if result and result[1]:
+            hex_val = result[1]
+            self._custom[key] = hex_val
+            self._hex_vars[key].set(hex_val)
+            self._swatch_btns[key].configure(bg=hex_val)
+            self._refresh_preview()
+
+    def _on_hex_edit(self, key):
+        raw = self._hex_vars[key].get().strip()
+        if not raw.startswith("#"):
+            raw = "#" + raw
+        if len(raw) == 7:
+            try:
+                int(raw[1:], 16)   # valid hex?
+                self._custom[key] = raw
+                self._swatch_btns[key].configure(bg=raw)
+                self._refresh_preview()
+            except ValueError:
+                pass
+
+    # ── Preview strip ──────────────────────────────────────────────────────
+    def _refresh_preview(self):
+        name = self._scheme.get()
+        if name == "Custom":
+            c = SCHEMES["Dark Navy"].copy()
+            c.update(self._custom)
+        else:
+            c = SCHEMES.get(name, SCHEMES["Dark Navy"]).copy()
+
+        # Update restart label if it exists yet
+        if hasattr(self, "_restart_lbl"):
+            if self._scheme_changed():
+                self._restart_lbl.pack(pady=(4, 0))
+            else:
+                self._restart_lbl.pack_forget()
+
+        cv = self._preview_canvas
+        cv.delete("all")
+        W = cv.winfo_reqwidth() or 420
+        H = 80   # taller to fit two rows
+
+        # ── Row 1: surface colours ────────────────────────────────────────
+        surfaces = [
+            ("BG",       c["BG"],       "BG"),
+            ("PANEL",    c["PANEL"],    "Panel"),
+            ("CARD",     c["CARD"],     "Card"),
+            ("ROW_ALT",  c["ROW_ALT"],  "Row"),
+            ("ENTRY_BG", c["ENTRY_BG"], "Entry"),
+        ]
+        sw = W // len(surfaces)
+        for i, (_, col, lbl) in enumerate(surfaces):
+            x0, x1 = i * sw, (i + 1) * sw
+            cv.create_rectangle(x0, 0, x1, 36, fill=col, outline=c["BORDER"])
+            # pick a contrasting text colour for the label
+            cv.create_text(x0 + sw // 2, 18, text=lbl,
+                           fill=c["TEXT"] if i < 4 else c["TEXT"],
+                           font=("Georgia", 7))
+
+        # ── Row 2: accent + text colours ─────────────────────────────────
+        accents = [
+            (c["ACCENT"],   "Acc1"),
+            (c["ACCENT2"],  "Acc2"),
+            (c["ACCENT3"],  "Acc3"),
+            (c["GREEN"],    "Pos"),
+            (c["RED_C"],    "Del"),
+            (c["TEXT"],     "Text"),
+            (c["TEXT_DIM"], "Dim"),
+        ]
+        aw = W // len(accents)
+        for i, (col, lbl) in enumerate(accents):
+            x0, x1 = i * aw, (i + 1) * aw
+            cv.create_rectangle(x0, 42, x1, H - 2, fill=col, outline="")
+            # label in contrasting black or white
+            r, g, b = int(col[1:3], 16), int(col[3:5], 16), int(col[5:7], 16)
+            luma = 0.299 * r + 0.587 * g + 0.114 * b
+            fg = "#000000" if luma > 128 else "#ffffff"
+            cv.create_text(x0 + aw // 2, 42 + (H - 44) // 2,
+                           text=lbl, fill=fg, font=("Georgia", 7))
+
+    # ── Save ───────────────────────────────────────────────────────────────
+    def _save(self):
+        self._prefs["scheme"] = self._scheme.get()
+        if self._scheme.get() == "Custom":
+            self._prefs["custom_colours"] = dict(self._custom)
+
+        # Language — save to prefs and apply live immediately
+        selected_label = self._lang_var.get()
+        new_lang_code = None
+        for code, label, _ in _LANGS:
+            if label == selected_label:
+                new_lang_code = code
+                self._prefs["lang"] = code
+                break
+
+        _save_prefs(self._prefs)
+        scheme_did_change = self._scheme_changed()
+        self.destroy()
+
+        # Apply language switch live (no restart needed for language alone)
+        if new_lang_code and new_lang_code != _LANG:
+            self.app.switch_language(new_lang_code)
+
+        # Only prompt restart if the colour scheme changed
+        if not scheme_did_change:
+            return
+
+        # Build restart message — warn about unsaved characters if any
+        unsaved = [tab for tab in self.app._tabs if tab.state._unsaved]
+        if unsaved:
+            names = ", ".join(
+                f"'{tab.state.char_name.get() or t('unnamed', 'Unnamed')}'"
+                for tab in unsaved)
+            msg = (
+                t("settings_restart_unsaved",
+                  "Settings saved.\n\n"
+                  "{n} character(s) have unsaved changes:\n{names}\n\n"
+                  "Restart now? Unsaved changes will be lost."
+                  ).format(n=len(unsaved), names=names))
+        else:
+            msg = t("settings_restart_body",
+                    "Settings saved.\nRestart now to apply changes?")
+
+        if messagebox.askyesno(
+                t("settings_restart_title", "Restart Required"),
+                msg, parent=self.app):
+            self.app.destroy()
+            import subprocess
+            subprocess.Popen([sys.executable] + sys.argv)
+            sys.exit(0)
+
+
 class BESMApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -2635,35 +3196,53 @@ class BESMApp(tk.Tk):
 
         # New-tab button
         self._new_tab_btn = mk_btn(topbar, t("btn_new_tab", "+ New Character"), self._new_tab,
-               bg=NAV_INACT, small=True)
+               bg=NAV_INACT, fg=TEXT_DIM, small=True)
         self._new_tab_btn.pack(side="left", padx=4, pady=4)
 
         # Arsenal button
-        self._arsenal_btn = mk_btn(topbar, "⚔ The Arsenal", self._open_arsenal,
-               bg=ACCENT3, small=True)
+        self._arsenal_btn = mk_btn(topbar, t("arsenal_title", "⚔  The Arsenal"),
+               self._open_arsenal, bg=ACCENT3, small=True)
         self._arsenal_btn.pack(side="left", padx=4, pady=4)
 
-        # Language selector (right side of topbar)
-        if len(_LANGS) > 1:
-            lang_frame = tk.Frame(topbar, bg=CARD)
-            lang_frame.pack(side="right", padx=8)
-            tk.Label(lang_frame, text="🌐", bg=CARD, fg=TEXT_DIM,
-                     font=("Georgia", 10)).pack(side="left")
-            self._lang_var = tk.StringVar(value=_LANG)
-            lang_labels = [label for _, label, _, _d in _LANGS]
-            lang_combo = ttk.Combobox(lang_frame, textvariable=self._lang_var,
-                                      values=lang_labels, state="readonly",
-                                      width=10, font=("Georgia", 9))
-            # Set current display label
-            for code, label, _, _is_def in _LANGS:
-                if code == _LANG:
-                    self._lang_var.set(label)
-            lang_combo.pack(side="left", padx=4, pady=4)
-            lang_combo.bind("<<ComboboxSelected>>", self._on_lang_change)
+        # Settings button (right side of topbar)
+        self._settings_btn = mk_btn(topbar, t("btn_settings", "⚙ Settings"),
+                self._open_settings, bg=NAV_INACT, fg=TEXT_DIM, small=True)
+        self._settings_btn.pack(side="right", padx=8, pady=4)
 
-        # Tab buttons container (scrollable row)
-        self._tab_btn_frame = tk.Frame(topbar, bg=CARD)
-        self._tab_btn_frame.pack(side="left", fill="x", expand=True, padx=4)
+        # Tab buttons container — scrollable canvas row
+        scroll_frame = tk.Frame(topbar, bg=CARD)
+        scroll_frame.pack(side="left", fill="x", expand=True, padx=4)
+
+        self._tab_scroll_left = tk.Button(
+            scroll_frame, text="◀", font=("Georgia", 8), bg=CARD, fg=TEXT_DIM,
+            relief="flat", cursor="hand2", activebackground=CARD,
+            activeforeground=TEXT, padx=2, pady=4,
+            command=lambda: self._scroll_tabs(-60))
+        self._tab_scroll_left.pack(side="left")
+
+        self._tab_canvas = tk.Canvas(scroll_frame, bg=CARD, height=36,
+                                     highlightthickness=0, bd=0)
+        self._tab_canvas.pack(side="left", fill="x", expand=True)
+
+        self._tab_scroll_right = tk.Button(
+            scroll_frame, text="▶", font=("Georgia", 8), bg=CARD, fg=TEXT_DIM,
+            relief="flat", cursor="hand2", activebackground=CARD,
+            activeforeground=TEXT, padx=2, pady=4,
+            command=lambda: self._scroll_tabs(60))
+        self._tab_scroll_right.pack(side="left")
+
+        self._tab_btn_frame = tk.Frame(self._tab_canvas, bg=CARD)
+        self._tab_canvas_win = self._tab_canvas.create_window(
+            (0, 0), window=self._tab_btn_frame, anchor="nw")
+
+        def _on_frame_configure(e):
+            self._tab_canvas.configure(scrollregion=self._tab_canvas.bbox("all"))
+            self._update_scroll_arrows()
+        self._tab_btn_frame.bind("<Configure>", _on_frame_configure)
+
+        def _on_canvas_configure(e):
+            self._update_scroll_arrows()
+        self._tab_canvas.bind("<Configure>", _on_canvas_configure)
 
         # Character page area
         self._char_area = tk.Frame(self, bg=BG)
@@ -2697,6 +3276,50 @@ class BESMApp(tk.Tk):
         self._rebuild_tab_buttons()
         self._switch_to(len(self._tabs) - 1)
 
+    def _scroll_tabs(self, delta):
+        self._tab_canvas.update_idletasks()
+        content_w = self._tab_btn_frame.winfo_reqwidth()
+        if content_w <= 0:
+            return
+        x0 = int(self._tab_canvas.canvasx(0))
+        new_x = max(0, min(x0 + delta, content_w - self._tab_canvas.winfo_width()))
+        self._tab_canvas.xview_moveto(new_x / content_w)
+        self._update_scroll_arrows()
+
+    def _update_scroll_arrows(self):
+        """Show/hide scroll arrows based on whether content overflows."""
+        self._tab_canvas.update_idletasks()
+        canvas_w  = self._tab_canvas.winfo_width()
+        content_w = self._tab_btn_frame.winfo_reqwidth()
+        can_scroll = content_w > canvas_w
+        state_l = "normal" if can_scroll else "disabled"
+        state_r = "normal" if can_scroll else "disabled"
+        self._tab_scroll_left.config(state=state_l)
+        self._tab_scroll_right.config(state=state_r)
+
+    def _scroll_active_tab_into_view(self):
+        """Ensure the active tab button is visible in the canvas."""
+        self._tab_canvas.update_idletasks()
+        canvas_w  = self._tab_canvas.winfo_width()
+        content_w = self._tab_btn_frame.winfo_reqwidth()
+        if content_w <= canvas_w or not self._tabs:
+            return
+        # find x position of active tab button group
+        children = self._tab_btn_frame.winfo_children()
+        if not (0 <= self._active_idx < len(children)):
+            return
+        btn_frm = children[self._active_idx]
+        btn_x   = btn_frm.winfo_x()
+        btn_w   = btn_frm.winfo_reqwidth()
+        # current scroll offset in pixels
+        x0 = int(self._tab_canvas.canvasx(0))
+        x1 = x0 + canvas_w
+        if btn_x < x0:
+            self._tab_canvas.xview_moveto(btn_x / content_w)
+        elif btn_x + btn_w > x1:
+            self._tab_canvas.xview_moveto((btn_x + btn_w - canvas_w) / content_w)
+        self._update_scroll_arrows()
+
     def _rebuild_tab_buttons(self):
         """Rebuild the character tab bar (colours only).
         Button text is bound via textvariable so name edits update live
@@ -2725,6 +3348,9 @@ class BESMApp(tk.Tk):
                           padx=4, pady=5,
                           command=lambda i=i: self._close_tab(i)
                           ).pack(side="left")
+        self._tab_btn_frame.update_idletasks()
+        self._tab_canvas.configure(scrollregion=self._tab_canvas.bbox("all"))
+        self.after(10, self._scroll_active_tab_into_view)
 
     def _switch_to(self, idx):
         if self._active_idx == idx:
@@ -2764,12 +3390,12 @@ class BESMApp(tk.Tk):
             active_tab = self._tabs[self._active_idx]
             active_tab.undo(event)
 
-    def _on_lang_change(self, _event=None):
-        selected_label = self._lang_var.get()
-        for code, label, _, _is_def in _LANGS:
-            if label == selected_label:
-                self.switch_language(code)
-                break
+    def _open_settings(self):
+        if not hasattr(self, "_settings_win") or \
+                not self._settings_win.winfo_exists():
+            self._settings_win = SettingsWindow(self)
+        else:
+            self._settings_win.lift()
 
     def switch_language(self, lang_code):
         """Reload game data + UI strings for lang_code, then rebuild all tabs."""
@@ -2811,6 +3437,10 @@ class BESMApp(tk.Tk):
         # Refresh Arsenal window labels if it is open
         if hasattr(self, "_arsenal") and self._arsenal.winfo_exists():
             self._arsenal._refresh_title()
+        # Refresh topbar buttons that carry translated text
+        self._new_tab_btn.config(text=t("btn_new_tab", "+ New Character"))
+        self._arsenal_btn.config(text=t("arsenal_title", "⚔  The Arsenal"))
+        self._settings_btn.config(text=t("btn_settings", "⚙ Settings"))
 
 class LevelledList(tk.Frame):
     def __init__(self, parent, state, title, items_source, name_list,
@@ -2841,6 +3471,7 @@ class LevelledList(tk.Frame):
 
         add = tk.Frame(self, bg=PANEL, pady=6)
         add.pack(fill="x", pady=(0, 0))
+        add.columnconfigure(1, weight=1)
 
         self._new_name     = tk.StringVar(value=self.name_list[0][0])
         # Build display→key and key→display maps for translated combobox
@@ -2856,33 +3487,33 @@ class LevelledList(tk.Frame):
 
         # Row 0: Name combobox (shows translated names, stores English key internally)
         tk.Label(add, text=t("label_name_add","Name:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=0, column=0, padx=6)
+                 font=("Georgia", 9)).grid(row=0, column=0, padx=8, pady=(0, 2))
         _disp_values = [display_name(n) for n, _ in self.name_list]
         name_cb = ttk.Combobox(add, textvariable=self._new_name_disp,
                      values=_disp_values,
                      width=24, state="readonly", font=("Georgia", 9))
-        name_cb.grid(row=0, column=1, padx=4)
+        name_cb.grid(row=0, column=1, columnspan=5, sticky="ew", padx=4, pady=(0, 2))
 
-        # Row 1: Cost selector (shown only when multiple costs exist) + Level + Modifier
-        self._cost_lbl  = tk.Label(add, text=t("label_cost_lv","Cost/Lv:"), bg=PANEL, fg=ACCENT2,
-                                    font=("Georgia", 9))
-        self._cost_cb   = ttk.Combobox(add, textvariable=self._new_cost_var,
-                                        width=4, state="readonly",
-                                        font=("Georgia", 9))
-
+        # Row 1: Level + Modifier + Cost/Lv (conditional)
         tk.Label(add, text=t("label_level_add","Level:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=1, column=0, padx=6)
-        mk_int_spinbox(add, self._new_lv, width=4, font=("Courier", 10), from_=1, to=20
-                 ).grid(row=1, column=1, padx=4, sticky="w")
-        tk.Label(add, text=t("label_modifier_add","Modifier:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=1, column=2, padx=4)
-        mk_int_spinbox(add, self._new_mod, width=4, font=("Courier", 10), from_=-99, to=99
-                 ).grid(row=1, column=3, padx=4)
+                 font=("Georgia", 9)).grid(row=1, column=0, padx=8, sticky="w", pady=(0, 2))
+        _lv_mod_frame = tk.Frame(add, bg=PANEL)
+        _lv_mod_frame.grid(row=1, column=1, columnspan=5, sticky="w", padx=4, pady=(0, 2))
+        mk_int_spinbox(_lv_mod_frame, self._new_lv, width=4, font=("Courier", 10), from_=1, to=20
+                 ).pack(side="left")
+        tk.Label(_lv_mod_frame, text=t("label_modifier_add","Modifier:"), bg=PANEL, fg=TEXT_DIM,
+                 font=("Georgia", 9)).pack(side="left", padx=(8, 4))
+        mk_int_spinbox(_lv_mod_frame, self._new_mod, width=4, font=("Courier", 10), from_=-99, to=99
+                 ).pack(side="left")
+        self._cost_lbl = tk.Label(_lv_mod_frame, text=t("label_cost_lv","Cost/Lv:"), bg=PANEL,
+                                   fg=TEXT_DIM, font=("Georgia", 9))
+        self._cost_cb  = ttk.Combobox(_lv_mod_frame, textvariable=self._new_cost_var,
+                                       width=4, state="readonly", font=("Georgia", 9))
 
         # Row 2: Desc
         tk.Label(add, text=t("label_desc","Desc:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=2, column=0, padx=6, pady=4)
-        mk_entry(add, self._new_desc, width=36
+                 font=("Georgia", 9)).grid(row=2, column=0, padx=8, pady=4, sticky="n")
+        mk_text2(add, self._new_desc, width=36
                  ).grid(row=2, column=1, columnspan=5, sticky="ew", padx=4)
         mk_btn(add, "+ Add", self._add
                ).grid(row=3, column=0, columnspan=6, pady=6)
@@ -2904,13 +3535,13 @@ class LevelledList(tk.Frame):
             if costs is None: costs = [1]
             if not isinstance(costs, list): costs = [costs]
             if len(costs) > 1:
-                self._cost_lbl.grid(row=0, column=2, padx=4)
                 self._cost_cb.config(values=[str(c) for c in costs])
                 self._new_cost_var.set(str(costs[0]))
-                self._cost_cb.grid(row=0, column=3, padx=4)
+                self._cost_lbl.pack(side="left", padx=(8, 4))
+                self._cost_cb.pack(side="left")
             else:
-                self._cost_lbl.grid_remove()
-                self._cost_cb.grid_remove()
+                self._cost_lbl.pack_forget()
+                self._cost_cb.pack_forget()
                 self._new_cost_var.set(str(costs[0]))
 
         name_cb.bind("<<ComboboxSelected>>", _on_name_change)
@@ -2933,12 +3564,26 @@ class LevelledList(tk.Frame):
             base = int(self._new_cost_var.get()) if len(costs) > 1 else costs[0]
         else:
             base = costs
+
+        # Prompt for a custom name for Unique Attribute / Unique Defect
+        custom_name = ""
+        if name in _PROMPT_NAMES:
+            custom_name = simpledialog.askstring(
+                display_name(name),
+                t("prompt_unique_name", "Enter a name for this {name}:").format(
+                    name=display_name(name)),
+                initialvalue=display_name(name),
+                parent=self.winfo_toplevel()) or ""
+            if not custom_name:
+                return  # cancelled — don't add
+
         self.items_source.append({
-            "name":      name,
-            "base_cost": base,
-            "level":     tk.StringVar(value=self._new_lv.get()),
-            "desc":      tk.StringVar(value=self._new_desc.get()),
-            "modifier":  tk.StringVar(value=self._new_mod.get()),
+            "name":        name,
+            "custom_name": custom_name,
+            "base_cost":   base,
+            "level":       tk.StringVar(value=self._new_lv.get()),
+            "desc":        tk.StringVar(value=self._new_desc.get()),
+            "modifier":    tk.StringVar(value=self._new_mod.get()),
         })
         self._new_desc.set("")
         self._new_lv.set("1")
@@ -2964,7 +3609,7 @@ class LevelledList(tk.Frame):
     def _make_row_slot(self, idx):
         """Create a new pooled row frame with all sub-widgets.
         All configurable parts are stored in the slot dict."""
-        bg   = CARD if idx % 2 == 0 else PANEL
+        bg   = BG if idx % 2 == 0 else ROW_ALT
         row  = tk.Frame(self._inner, bg=bg, pady=3)
 
         r0   = tk.Frame(row, bg=bg); r0.pack(fill="x")
@@ -3005,8 +3650,8 @@ class LevelledList(tk.Frame):
 
         r2      = tk.Frame(row, bg=bg); r2.pack(fill="x")
         tk.Label(r2, text=t("label_desc", "Desc:"), bg=bg, fg=TEXT_DIM,
-                 font=("Georgia", 8)).pack(side="left", padx=(6, 2))
-        desc_entry = mk_entry(r2, tk.StringVar(), width=36, font=("Courier", 8))
+                 font=("Georgia", 8)).pack(side="left", padx=(6, 2), anchor="n")
+        desc_entry = mk_text2(r2, tk.StringVar(), width=36, font=("Courier", 8))
         desc_entry.pack(side="left", padx=2, fill="x", expand=True)
 
         return {
@@ -3034,7 +3679,7 @@ class LevelledList(tk.Frame):
 
         for i, item in enumerate(self.items_source):
             slot = self._row_pool[i]
-            bg   = CARD if i % 2 == 0 else PANEL
+            bg   = BG if i % 2 == 0 else ROW_ALT
 
             # ── Recolour only if stripe parity changed (e.g. after a delete) ──
             if slot["bg"] != bg:
@@ -3049,7 +3694,8 @@ class LevelledList(tk.Frame):
                         except Exception: pass
 
             # ── Rebind name / cost label ───────────────────────────────────
-            slot["name_lbl"].configure(text=display_name(item["name"]),
+            label_text = item_display_name(item)
+            slot["name_lbl"].configure(text=label_text,
                                        bg=bg, fg=TEXT)
 
             af   = "Default" if self.linear else self.state.attr_formula.get()
@@ -3065,7 +3711,7 @@ class LevelledList(tk.Frame):
             slot["mod_sb"].configure(textvariable=item["modifier"])
 
             # ── Rebind desc entry ──────────────────────────────────────────
-            slot["desc_entry"].configure(textvariable=item["desc"])
+            _rebind_text2(slot["desc_entry"], item["desc"])
 
             # ── Cost-per-level row ─────────────────────────────────────────
             costs = self._name_dict.get(item["name"], [item["base_cost"]])
@@ -3194,7 +3840,7 @@ def build_adv_def_panel(container, weap, bg, notify_cb):
                     notify_cb()
 
             tk.Checkbutton(cell, text=display_name(iname), variable=chk_var, command=_toggle,
-                           bg=bg, fg=label_fg, selectcolor=CARD,
+                           bg=bg, fg=label_fg, selectcolor=RADIO_SEL,
                            activebackground=bg, font=("Georgia", 7)).pack(side="left")
             if ilevelled:
                 sb2 = tk.Spinbox(cell, from_=1, to=max_lv, width=2,
@@ -3229,8 +3875,8 @@ class WeaponList(tk.Frame):
     state            : CharacterState    — for marking unsaved changes
     """
     def __init__(self, parent, weapons, attr_formula_cb, notify_cb,
-                 cost_unit="CP", undo_cb=None, state=None):
-        super().__init__(parent, bg=PANEL)
+                 cost_unit: str | Callable[[], str] = "CP", undo_cb=None, state=None):
+        super().__init__(parent, bg=BG)
         self.weapons         = weapons
         self._formula        = attr_formula_cb
         self._notify         = notify_cb
@@ -3252,6 +3898,7 @@ class WeaponList(tk.Frame):
     def _build_add_panel(self):
         add = tk.Frame(self, bg=PANEL, pady=6)
         add.pack(fill="x")
+        add.columnconfigure(1, weight=1)
 
         self._nw_name  = tk.StringVar(value="")
         self._nw_level = tk.StringVar(value="1")
@@ -3264,25 +3911,27 @@ class WeaponList(tk.Frame):
         tk.Label(add, text=t("label_name_add","Name:"), bg=PANEL, fg=TEXT_DIM,
                  font=("Georgia", 9)).grid(row=0, column=0, padx=6)
         mk_entry(add, self._nw_name, width=18).grid(
-            row=0, column=1, columnspan=3, sticky="ew", padx=4)
+            row=0, column=1, columnspan=5, sticky="ew", padx=4)
         tk.Label(add, text=t("label_level_add","Level:"), bg=PANEL, fg=TEXT_DIM,
                  font=("Georgia", 9)).grid(row=1, column=0, padx=6)
-        _nw_lv_sb = mk_int_spinbox(add, self._nw_level, width=4, font=("Courier", 10), from_=1, to=20)
-        _nw_lv_sb.grid(row=1, column=1, padx=4)
-        tk.Label(add, text=t("label_modifier_add","Modifier:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=1, column=2, padx=4)
-        mk_int_spinbox(add, self._nw_mod, width=4, font=("Courier", 10), from_=-99, to=99
-                 ).grid(row=1, column=3, padx=4)
-        tk.Label(add, text=t("label_gear_colon","Gear:"),     bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=1, column=4, padx=4)
-        tk.Checkbutton(add, variable=self._nw_gear, bg=PANEL,
-                       selectcolor=CARD, activebackground=PANEL,
+        _lv_mod_frame = tk.Frame(add, bg=PANEL)
+        _lv_mod_frame.grid(row=1, column=1, columnspan=5, sticky="w", padx=4)
+        _nw_lv_sb = mk_int_spinbox(_lv_mod_frame, self._nw_level, width=4, font=("Courier", 10), from_=1, to=20)
+        _nw_lv_sb.pack(side="left")
+        tk.Label(_lv_mod_frame, text=t("label_modifier_add","Modifier:"), bg=PANEL, fg=TEXT_DIM,
+                 font=("Georgia", 9)).pack(side="left", padx=(8, 4))
+        mk_int_spinbox(_lv_mod_frame, self._nw_mod, width=4, font=("Courier", 10), from_=-99, to=99
+                 ).pack(side="left")
+        tk.Label(_lv_mod_frame, text=t("label_gear_colon","Gear:"), bg=PANEL, fg=TEXT_DIM,
+                 font=("Georgia", 9)).pack(side="left", padx=(8, 4))
+        tk.Checkbutton(_lv_mod_frame, variable=self._nw_gear, bg=PANEL,
+                       selectcolor=RADIO_SEL, activebackground=PANEL,
                        command=lambda sb=_nw_lv_sb: sb.configure(
                            from_=0 if self._nw_gear.get() else 1)
-                       ).grid(row=1, column=5, padx=2)
+                       ).pack(side="left")
         tk.Label(add, text=t("label_desc","Desc:"), bg=PANEL, fg=TEXT_DIM,
-                 font=("Georgia", 9)).grid(row=2, column=0, padx=6, pady=4)
-        mk_entry(add, self._nw_desc, width=30).grid(
+                 font=("Georgia", 9)).grid(row=2, column=0, padx=6, pady=4, sticky="n")
+        mk_text2(add, self._nw_desc, width=30).grid(
             row=2, column=1, columnspan=5, sticky="ew", padx=4)
 
         # ── Adv/Def toggle (same panel as weapon rows) ────────────────────
@@ -3376,7 +4025,7 @@ class WeaponList(tk.Frame):
     # ── Weapon row pool ───────────────────────────────────────────────────
     def _make_weap_slot(self, idx):
         """Create one reusable weapon row frame with all sub-widgets."""
-        bg  = CARD if idx % 2 == 0 else PANEL
+        bg  = BG if idx % 2 == 0 else ROW_ALT
         row = tk.Frame(self._weap_inner, bg=bg, pady=4)
 
         r0 = tk.Frame(row, bg=bg); r0.pack(fill="x")
@@ -3409,13 +4058,13 @@ class WeaponList(tk.Frame):
         tk.Label(r1, text=t("label_gear_colon","Gear:"), bg=bg, fg=TEXT_DIM,
                  font=("Georgia", 8)).pack(side="left", padx=(8, 2))
         gear_chk = tk.Checkbutton(r1, variable=tk.BooleanVar(), bg=bg,
-                                   selectcolor=CARD, activebackground=bg)
+                                   selectcolor=RADIO_SEL, activebackground=bg)
         gear_chk.pack(side="left")
 
         r2 = tk.Frame(row, bg=bg); r2.pack(fill="x")
         tk.Label(r2, text=t("label_desc","Desc:"), bg=bg, fg=TEXT_DIM,
-                 font=("Georgia", 8)).pack(side="left", padx=(6, 2))
-        desc_entry = mk_entry(r2, tk.StringVar(), width=36, font=("Courier", 8))
+                 font=("Georgia", 8)).pack(side="left", padx=(6, 2), anchor="n")
+        desc_entry = mk_text2(r2, tk.StringVar(), width=36, font=("Courier", 8))
         desc_entry.pack(side="left", padx=2, fill="x", expand=True)
 
         adf = tk.Frame(row, bg=bg)
@@ -3437,7 +4086,7 @@ class WeaponList(tk.Frame):
 
     def _bind_weap_slot(self, slot, weap, i):
         """Rebind a pool slot to a (possibly different) weapon dict."""
-        bg = CARD if i % 2 == 0 else PANEL
+        bg = BG if i % 2 == 0 else ROW_ALT
 
         # Recolour only when stripe parity changed
         if slot["bg"] != bg:
@@ -3464,7 +4113,7 @@ class WeaponList(tk.Frame):
         slot["lv_sb"].configure(textvariable=weap["level"])
         slot["mod_sb"].configure(textvariable=weap["modifier"])
         slot["gear_chk"].configure(variable=weap["gear"])
-        slot["desc_entry"].configure(textvariable=weap["desc"])
+        _rebind_text2(slot["desc_entry"], weap["desc"])
 
         # Recompute cost/dmg labels
         af   = self._formula()
@@ -3575,12 +4224,14 @@ class WeaponList(tk.Frame):
             "write", lambda *_, idx=i: (self._update_row(idx),
                 self.state._on_var() if self.state and hasattr(self.state, "_on_var")
                 else self._notify()))
-        weap.get("name") and weap["name"].trace_add(
-            "write", lambda *_: (self.state._on_var()
-                if self.state and hasattr(self.state, "_on_var") else self._notify()))
-        weap.get("desc") and weap["desc"].trace_add(
-            "write", lambda *_: (self.state._on_var()
-                if self.state and hasattr(self.state, "_on_var") else self._notify()))
+        if weap.get("name"):
+            weap["name"].trace_add(
+                "write", lambda *_: (self.state._on_var()
+                    if self.state and hasattr(self.state, "_on_var") else self._notify()))
+        if weap.get("desc"):
+            weap["desc"].trace_add(
+                "write", lambda *_: (self.state._on_var()
+                    if self.state and hasattr(self.state, "_on_var") else self._notify()))
 
     # ── Rebuild (pool-based — reuses row widgets) ─────────────────────────
     def rebuild(self):
@@ -3688,7 +4339,7 @@ class Page1(tk.Frame):
         rb_row = tk.Frame(ff, bg=PANEL); rb_row.pack(fill="x", padx=8, pady=(0,6))
         for name in FORMULA_NAMES:
             tk.Radiobutton(rb_row, text=display_name(name), variable=s.stat_formula, value=name,
-                           bg=PANEL, fg=TEXT, selectcolor=CARD,
+                           bg=PANEL, fg=TEXT, selectcolor=RADIO_SEL,
                            activebackground=PANEL, font=("Georgia", 10)
                            ).pack(side="left", padx=12)
 
@@ -3701,7 +4352,7 @@ class Page1(tk.Frame):
 
         for name in ATTR_FORMULAS:
             tk.Radiobutton(af_rb_row, text=display_name(name), variable=s.attr_formula, value=name,
-                           bg=PANEL, fg=TEXT, selectcolor=CARD,
+                           bg=PANEL, fg=TEXT, selectcolor=RADIO_SEL,
                            activebackground=PANEL, font=("Georgia", 10)
                            ).pack(side="left", padx=12)
 
@@ -3814,7 +4465,8 @@ class Page1(tk.Frame):
             self._text_traces.append((var, _tid))
 
     def refresh(self):
-        fn    = STAT_FORMULAS.get(self.state.stat_formula.get(), _formula_default)
+        fn    = STAT_FORMULAS.get(self.state.stat_formula.get()) or _formula_default
+        assert fn is not None
         total = 0
         for lbl, var in [("Body", self.state.body),
                           ("Mind", self.state.mind),
@@ -3823,7 +4475,7 @@ class Page1(tk.Frame):
             if lbl in self._stat_cost_lbls:
                 self._stat_cost_lbls[lbl].config(text=str(c))
         if self._total_stat_lbl:
-            self._total_stat_lbl.config(text=str(total))
+            self._total_stat_lbl.config(text=str(total))  # type: ignore[union-attr]
         d = self.state.derived()
         for key, lbl in self._derived_lbls.items():
             lbl.config(text=str(d[key]))
@@ -3980,7 +4632,7 @@ class Page4(tk.Frame):
 
         setting = self.state.skill_setting.get()
         for i, (name, data) in enumerate(sorted(skill_dict.items(), key=lambda kv: display_name(kv[0]).casefold())):
-            bg  = CARD if i % 2 == 0 else PANEL
+            bg  = BG if i % 2 == 0 else ROW_ALT
             row = tk.Frame(inner, bg=bg); row.pack(fill="x", padx=2)
             tag = (" ⚔" if data.get("is_attack") else " 🛡") if is_combat else ""
             tk.Label(row, text=display_name(name)+tag, bg=bg, fg=TEXT,
@@ -4362,6 +5014,10 @@ class Page6Summary(tk.Frame):
         def row(label, value):
             lines.append(f"{label:<28}{value}")
 
+        def cost_row(label, info, cost_str, desc=""):
+            base = f"{label:<28}{info:<14}{cost_str}"
+            lines.append(base + (f"  {desc}" if desc else ""))
+
         name = s.char_name.get()
         lines.append("=" * W)
         lines.append(f"  {name or 'Unnamed'}")
@@ -4391,8 +5047,7 @@ class Page6Summary(tk.Frame):
                 lv   = int_or(a["level"]); mod = int_or(a["modifier"])
                 cost = attr_cost(a["base_cost"], lv, af) + mod
                 desc = a["desc"].get()
-                label = display_name(a["name"]) + (f" — {desc}" if desc else "")
-                row(label, f"{t('label_lv_col','Lv')} {lv}  ({cost} {t('label_cp','CP')})")
+                cost_row(item_display_name(a), f"{t('label_lv_col','Lv')} {lv}", f"({cost} {t('label_cp','CP')})", desc)
 
         if s.defects:
             section(t("section_defects","Defects"))
@@ -4400,8 +5055,7 @@ class Page6Summary(tk.Frame):
                 lv     = int_or(di["level"]); mod = int_or(di["modifier"])
                 refund = attr_cost(di["base_cost"], lv, "Default") + mod
                 desc   = di["desc"].get()
-                label  = display_name(di["name"]) + (f" — {desc}" if desc else "")
-                row(label, f"{t('label_lv_col','Lv')} {lv}  (-{refund} {t('label_cp','CP')})")
+                cost_row(item_display_name(di), f"{t('label_lv_col','Lv')} {lv}", f"(-{refund} {t('label_cp','CP')})", desc)
 
         if s.weapons:
             section(t("section_weapons","Weapons"))
@@ -4411,8 +5065,7 @@ class Page6Summary(tk.Frame):
                 dmg  = weapon_damage(w, lv)
                 wname = w["name"].get() or f"Weapon {i+1}"
                 desc  = w["desc"].get()
-                label = wname + (f" — {desc}" if desc else "")
-                row(label, f"{t('label_lv_col','Lv')} {lv}  {t('label_dmg_abbr','Dmg')} {dmg}  ({cost} {t('label_cp','CP')})")
+                cost_row(wname, f"{t('label_lv_col','Lv')} {lv}  {t('label_dmg_abbr','Dmg')} {dmg}", f"({cost} {t('label_cp','CP')})", desc)
 
         section(f"{t('section_skill_points','Skill Points')}  [{t('label_setting_short','Setting:')} {display_name(setting)}]")
         sp_s = s.sp_spent()
@@ -4429,8 +5082,7 @@ class Page6Summary(tk.Frame):
                     c    = SKILLS[name_].get(setting, 0)
                     mod  = int_or(s.skill_mods[name_])
                     desc = s.skill_descs[name_].get()
-                    label = display_name(name_) + (f" — {desc}" if desc else "")
-                    row(label, f"{t('label_lv_col','Lv')} {lv}  ({lv*c + mod} {t('label_sp_display','SP:').rstrip(':')})")
+                    cost_row(display_name(name_), f"{t('label_lv_col','Lv')} {lv}", f"({lv*c + mod} {t('label_sp_display','SP:').rstrip(':')})", desc)
 
         active_c = [(n, v.get()) for n, v in s.combat_levels.items() if v.get() > 0]
         if active_c:
@@ -4439,8 +5091,7 @@ class Page6Summary(tk.Frame):
                 c    = COMBAT_SKILLS[name_].get(setting, 0)
                 mod  = int_or(s.combat_mods[name_])
                 desc = s.combat_descs[name_].get()
-                label = display_name(name_) + (f" — {desc}" if desc else "")
-                row(label, f"{t('label_lv_col','Lv')} {lv}  ({lv*c + mod} {t('label_sp_display','SP:').rstrip(':')})")
+                cost_row(display_name(name_), f"{t('label_lv_col','Lv')} {lv}", f"({lv*c + mod} {t('label_sp_display','SP:').rstrip(':')})", desc)
 
         if s.mechas:
             for mecha in s.mechas:
@@ -4452,24 +5103,27 @@ class Page6Summary(tk.Frame):
                 for a in mecha.attributes:
                     lv   = int_or(a["level"]); mod = int_or(a["modifier"])
                     cost = attr_cost(a["base_cost"], lv, af) + mod
-                    row(display_name(a["name"]), f"{t('label_lv_col','Lv')} {lv}  ({cost} {t('label_mp','MP')})")
+                    desc = a["desc"].get()
+                    cost_row(item_display_name(a), f"{t('label_lv_col','Lv')} {lv}", f"({cost} {t('label_mp','MP')})", desc)
                 for i, w in enumerate(mecha.weapons):
                     lv   = int_or(w["level"]); mod = int_or(w["modifier"])
                     cost = weapon_cost(w, lv, mod, af)
                     dmg  = weapon_damage(w, lv)
                     wname = w["name"].get() or f"Weapon {i+1}"
-                    row(wname, f"{t('label_lv_col','Lv')} {lv}  {t('label_dmg_abbr','Dmg')} {dmg}  ({cost} {t('label_mp','MP')})")
+                    desc  = w["desc"].get()
+                    cost_row(wname, f"{t('label_lv_col','Lv')} {lv}  {t('label_dmg_abbr','Dmg')} {dmg}", f"({cost} {t('label_mp','MP')})", desc)
                 for di in mecha.defects:
                     lv     = int_or(di["level"]); mod = int_or(di["modifier"])
                     refund = attr_cost(di["base_cost"], lv, "Default") + mod
-                    row(display_name(di["name"]), f"{t('label_lv_col','Lv')} {lv}  (-{refund} {t('label_mp','MP')})")
+                    desc   = di["desc"].get()
+                    cost_row(item_display_name(di), f"{t('label_lv_col','Lv')} {lv}", f"(-{refund} {t('label_mp','MP')})", desc)
 
         lines.append("")
         lines.append("=" * W)
         return "\n".join(lines)
 
     def refresh(self):
-        for w in self._inner.winfo_children():
+        for w in self._inner.winfo_children():  # type: ignore[union-attr]
             w.destroy()
         s       = self.state
         d       = s.derived()
@@ -4492,7 +5146,7 @@ class Page6Summary(tk.Frame):
             tk.Label(f, text=str(value), bg=PANEL, fg=fg,
                      font=("Courier", 10)).pack(side="left")
 
-        def cp_row(label, info, cost_cp, fg=ACCENT2):
+        def cp_row(label, info, cost_cp, fg=ACCENT2, desc=""):
             f = tk.Frame(self._inner, bg=PANEL); f.pack(fill="x", padx=20, pady=1)
             tk.Label(f, text=label, bg=PANEL, fg=TEXT_DIM,
                      font=("Georgia", 9), width=28, anchor="w"
@@ -4500,7 +5154,10 @@ class Page6Summary(tk.Frame):
             tk.Label(f, text=str(info), bg=PANEL, fg=TEXT,
                      font=("Courier", 9), width=12).pack(side="left")
             tk.Label(f, text=f"{cost_cp} {t('label_cp','CP')}", bg=PANEL, fg=fg,
-                     font=("Courier", 9)).pack(side="left", padx=6)
+                     font=("Courier", 9), width=10, anchor="w").pack(side="left", padx=6)
+            if desc:
+                tk.Label(f, text=desc, bg=PANEL, fg=TEXT_DIM,
+                         font=("Georgia", 9), anchor="w", justify="left").pack(side="left", padx=(0, 6))
 
         name = s.char_name.get()
         if name:
@@ -4532,7 +5189,7 @@ class Page6Summary(tk.Frame):
                 lv   = int_or(a["level"]); mod = int_or(a["modifier"])
                 cost = attr_cost(a["base_cost"], lv, af) + mod
                 desc = a["desc"].get()
-                cp_row(display_name(a["name"]) + (f"  — {desc}" if desc else ""), f"Lv {lv}", cost)
+                cp_row(item_display_name(a), f"Lv {lv}", cost, desc=desc)
 
         if s.defects:
             section(t("section_defects","Defects"))
@@ -4541,38 +5198,39 @@ class Page6Summary(tk.Frame):
                 lv     = int_or(di["level"]); mod = int_or(di["modifier"])
                 refund = attr_cost(di["base_cost"], lv, "Default") + mod
                 desc   = di["desc"].get()
-                cp_row(display_name(di["name"]) + (f"  — {desc}" if desc else ""),
-                       f"Lv {lv}", f"-{refund}", fg=ACCENT3)
+                cp_row(item_display_name(di), f"Lv {lv}", f"-{refund}", fg=ACCENT3, desc=desc)
 
         if s.weapons:
             section(t("section_weapons","Weapons"))
             af = s.attr_formula.get()
+            def _fmt_entries(lst):
+                parts = []
+                for e in lst:
+                    n  = e[0] if isinstance(e, (list, tuple)) else e
+                    lv = e[1] if isinstance(e, (list, tuple)) and len(e) > 1 else 1
+                    dn = display_name(n)
+                    parts.append(dn if lv == 1 else f"{dn} ×{lv}")
+                return ", ".join(parts) or "—"
             for i, w in enumerate(s.weapons):
                 lv   = int_or(w["level"]); mod = int_or(w["modifier"])
                 cost = weapon_cost(w, lv, mod, af)
                 dmg  = weapon_damage(w, lv)
                 desc = w["desc"].get()
                 wname = w["name"].get() or f"Weapon {i+1}"
-                label = wname + (f"  — {desc}" if desc else "")
-                def _fmt_entries(lst):
-                    parts = []
-                    for e in lst:
-                        n  = e[0] if isinstance(e, (list, tuple)) else e
-                        lv = e[1] if isinstance(e, (list, tuple)) and len(e) > 1 else 1
-                        dn = display_name(n)
-                        parts.append(dn if lv == 1 else f"{dn} ×{lv}")
-                    return ", ".join(parts) or "—"
-                adv   = _fmt_entries(w["advantages"])
-                defs  = _fmt_entries(w["defects"])
                 f2 = tk.Frame(self._inner, bg=PANEL)
                 f2.pack(fill="x", padx=20, pady=1)
-                tk.Label(f2, text=label, bg=PANEL, fg=TEXT_DIM,
+                tk.Label(f2, text=wname, bg=PANEL, fg=TEXT_DIM,
                          font=("Georgia", 9), width=28, anchor="w"
                          ).pack(side="left", padx=6)
                 tk.Label(f2, text=f"Lv {lv}  Dmg {dmg}", bg=PANEL, fg=TEXT,
                          font=("Courier", 9)).pack(side="left", padx=4)
                 tk.Label(f2, text=f"{cost} {t('label_cp','CP')}", bg=PANEL, fg=ACCENT2,
-                         font=("Courier", 9)).pack(side="left", padx=6)
+                         font=("Courier", 9), width=10, anchor="w").pack(side="left", padx=6)
+                if desc:
+                    tk.Label(f2, text=desc, bg=PANEL, fg=TEXT_DIM,
+                             font=("Georgia", 9), anchor="w", justify="left").pack(side="left", padx=(0, 6))
+                adv  = _fmt_entries(w["advantages"])
+                defs = _fmt_entries(w["defects"])
                 sub = tk.Frame(self._inner, bg=PANEL); sub.pack(fill="x", padx=40)
                 tk.Label(sub, text=f"{t('label_adv_short','Adv:')} {adv}", bg=PANEL, fg=GREEN,
                          font=("Georgia", 8), anchor="w").pack(side="left", padx=6)
@@ -4596,13 +5254,16 @@ class Page6Summary(tk.Frame):
                 mod  = int_or(s.skill_mods[name])
                 desc = s.skill_descs[name].get()
                 f = tk.Frame(self._inner, bg=PANEL); f.pack(fill="x", padx=20, pady=1)
-                tk.Label(f, text=display_name(name)+(f" — {desc}" if desc else ""),
+                tk.Label(f, text=display_name(name),
                          bg=PANEL, fg=TEXT_DIM, font=("Georgia", 9),
                          width=30, anchor="w").pack(side="left", padx=6)
                 tk.Label(f, text=f"{t('label_lv_col','Lv')} {lv}", bg=PANEL, fg=TEXT,
                          font=("Courier", 9), width=6).pack(side="left")
-                tk.Label(f, text=f"{lv*c + mod} {t('label_sp_display','SP:').rstrip(':')} ", bg=PANEL, fg=ACCENT2,
-                         font=("Courier", 9)).pack(side="left", padx=6)
+                tk.Label(f, text=f"{lv*c + mod} {t('label_sp_display','SP:').rstrip(':')}", bg=PANEL, fg=ACCENT2,
+                         font=("Courier", 9), width=10, anchor="w").pack(side="left", padx=6)
+                if desc:
+                    tk.Label(f, text=desc, bg=PANEL, fg=TEXT_DIM,
+                             font=("Georgia", 9), anchor="w", justify="left").pack(side="left", padx=(0, 6))
 
         active_c = [(n, v.get()) for n, v in s.combat_levels.items() if v.get()>0]
         if active_c:
@@ -4617,13 +5278,16 @@ class Page6Summary(tk.Frame):
                 btag   = "ACV"   if is_atk else "DCV"
                 display = f"{t('label_lv_col','Lv')} {lv}  ({lv+bv} {t('label_with','with')} {btag})"
                 f = tk.Frame(self._inner, bg=PANEL); f.pack(fill="x", padx=20, pady=1)
-                tk.Label(f, text=display_name(name)+(f" — {desc}" if desc else ""),
+                tk.Label(f, text=display_name(name),
                          bg=PANEL, fg=TEXT_DIM, font=("Georgia", 9),
                          width=30, anchor="w").pack(side="left", padx=6)
                 tk.Label(f, text=display, bg=PANEL, fg=TEXT,
                          font=("Courier", 9), width=24).pack(side="left")
-                tk.Label(f, text=f"{lv*c + mod} {t('label_sp_display','SP:').rstrip(':')} ", bg=PANEL, fg=ACCENT2,
-                         font=("Courier", 9)).pack(side="left", padx=6)
+                tk.Label(f, text=f"{lv*c + mod} {t('label_sp_display','SP:').rstrip(':')}", bg=PANEL, fg=ACCENT2,
+                         font=("Courier", 9), width=10, anchor="w").pack(side="left", padx=6)
+                if desc:
+                    tk.Label(f, text=desc, bg=PANEL, fg=TEXT_DIM,
+                             font=("Georgia", 9), anchor="w", justify="left").pack(side="left", padx=(0, 6))
 
         # ── Mecha ─────────────────────────────────────────────────────────
         if s.mechas:
@@ -4643,7 +5307,7 @@ class Page6Summary(tk.Frame):
                 row("MP total", mp_t)
                 row("MP spent", mp_s)
 
-                def mp_row(label, info, cost_mp, fg=ACCENT2):
+                def mp_row(label, info, cost_mp, fg=ACCENT2, desc=""):
                     f = tk.Frame(self._inner, bg=PANEL); f.pack(fill="x", padx=20, pady=1)
                     tk.Label(f, text=label, bg=PANEL, fg=TEXT_DIM,
                              font=("Georgia", 9), width=28, anchor="w"
@@ -4651,7 +5315,10 @@ class Page6Summary(tk.Frame):
                     tk.Label(f, text=str(info), bg=PANEL, fg=TEXT,
                              font=("Courier", 9), width=12).pack(side="left")
                     tk.Label(f, text=f"{cost_mp} {t('label_mp','MP')}", bg=PANEL, fg=fg,
-                             font=("Courier", 9)).pack(side="left", padx=6)
+                             font=("Courier", 9), width=10, anchor="w").pack(side="left", padx=6)
+                    if desc:
+                        tk.Label(f, text=desc, bg=PANEL, fg=TEXT_DIM,
+                                 font=("Georgia", 9), anchor="w", justify="left").pack(side="left", padx=(0, 6))
 
                 if mecha.attributes:
                     tk.Label(self._inner, text=t("section_attributes","Attributes"), bg=BG, fg=ACCENT2,
@@ -4661,7 +5328,7 @@ class Page6Summary(tk.Frame):
                         lv   = int_or(a["level"]); mod = int_or(a["modifier"])
                         cost = attr_cost(a["base_cost"], lv, af) + mod
                         desc = a["desc"].get()
-                        mp_row(display_name(a["name"]) + (f"  — {desc}" if desc else ""), f"Lv {lv}", cost)
+                        mp_row(item_display_name(a), f"Lv {lv}", cost, desc=desc)
 
                 if mecha.defects:
                     tk.Label(self._inner, text=t("section_defects","Defects"), bg=BG, fg=ACCENT3,
@@ -4671,8 +5338,7 @@ class Page6Summary(tk.Frame):
                         lv     = int_or(di["level"]); mod = int_or(di["modifier"])
                         refund = attr_cost(di["base_cost"], lv, "Default") + mod
                         desc   = di["desc"].get()
-                        mp_row(display_name(di["name"]) + (f"  — {desc}" if desc else ""),
-                               f"Lv {lv}", f"-{refund}", fg=ACCENT3)
+                        mp_row(item_display_name(di), f"Lv {lv}", f"-{refund}", fg=ACCENT3, desc=desc)
 
                 if mecha.weapons:
                     tk.Label(self._inner, text=t("section_weapons","Weapons"), bg=BG, fg=ACCENT,
@@ -4684,7 +5350,17 @@ class Page6Summary(tk.Frame):
                         dmg  = weapon_damage(w, lv)
                         desc = w["desc"].get()
                         wname = w["name"].get() or f"Weapon {wi+1}"
-                        label = wname + (f"  — {desc}" if desc else "")
+                        fw = tk.Frame(self._inner, bg=PANEL); fw.pack(fill="x", padx=20, pady=1)
+                        tk.Label(fw, text=wname, bg=PANEL, fg=TEXT_DIM,
+                                 font=("Georgia", 9), width=28, anchor="w"
+                                 ).pack(side="left", padx=6)
+                        tk.Label(fw, text=f"Lv {lv}  Dmg {dmg}", bg=PANEL, fg=TEXT,
+                                 font=("Courier", 9)).pack(side="left", padx=4)
+                        tk.Label(fw, text=f"{cost} {t('label_mp','MP')}", bg=PANEL, fg=ACCENT2,
+                                 font=("Courier", 9), width=10, anchor="w").pack(side="left", padx=6)
+                        if desc:
+                            tk.Label(fw, text=desc, bg=PANEL, fg=TEXT_DIM,
+                                     font=("Georgia", 9), anchor="w", justify="left").pack(side="left", padx=(0, 6))
                         def _fmt(lst):
                             parts = []
                             for e in lst:
@@ -4693,14 +5369,6 @@ class Page6Summary(tk.Frame):
                                 dn = display_name(n)
                                 parts.append(dn if lv2==1 else f"{dn} ×{lv2}")
                             return ", ".join(parts) or "—"
-                        fw = tk.Frame(self._inner, bg=PANEL); fw.pack(fill="x", padx=20, pady=1)
-                        tk.Label(fw, text=label, bg=PANEL, fg=TEXT_DIM,
-                                 font=("Georgia", 9), width=28, anchor="w"
-                                 ).pack(side="left", padx=6)
-                        tk.Label(fw, text=f"Lv {lv}  Dmg {dmg}", bg=PANEL, fg=TEXT,
-                                 font=("Courier", 9)).pack(side="left", padx=4)
-                        tk.Label(fw, text=f"{cost} {t('label_mp','MP')}", bg=PANEL, fg=ACCENT2,
-                                 font=("Courier", 9)).pack(side="left", padx=6)
                         sub = tk.Frame(self._inner, bg=PANEL); sub.pack(fill="x", padx=40)
                         tk.Label(sub, text=f"{t('label_adv_short','Adv:')} {_fmt(w['advantages'])}", bg=PANEL, fg=GREEN,
                                  font=("Georgia", 8), anchor="w").pack(side="left", padx=6)

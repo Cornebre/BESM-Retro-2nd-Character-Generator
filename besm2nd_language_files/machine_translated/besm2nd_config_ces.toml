@@ -1,260 +1,260 @@
 # =============================================================================
-# BESM 2nd Edition — Game Data Configuration (ENGLISH)
-# Edit this file to customise the ruleset. The app reads it at startup.
+# BESM 2. vydání — Konfigurace herních dat (ČEŠTINA) (MT)
+# Upravte tento soubor pro přizpůsobení systému pravidel.
 #
-# TRANSLATION RULES:
-#   - "key"  = internal identifier used in save files. NEVER change these.
-#              For English, key == name (no translation needed).
-#   - "name" = display string shown in the UI for this language.
-#   - If a "name" field is absent, the program falls back to "key".
+# PRAVIDLA PŘEKLADU:
+#   - "key"  = interní identifikátor používaný v souborech s uloženými hrami. Nikdy je neměňte.
+#              V angličtině platí: key == name (překlad není nutný).
+#   - "name" = zobrazovaný text rozhraní.
+#   - Pokud pole "name" chybí, program použije místo něj pole "key".
 # =============================================================================
 
 [lang]
-code    = "eng"
-label   = "English"
-default = true        # Set to true on exactly one TOML to use it as the startup language.
+code    = "ces"
+label   = "Čeština (MT)"
 
 # ── UI strings ────────────────────────────────────────────────────────────────
 [ui]
 # Toolbar buttons
-btn_save        = "💾 Save"
-btn_load        = "📂 Load"
+btn_save        = "💾 Uložit"
+btn_load        = "📂 Načíst"
 btn_pdf         = "📄 PDF"
-btn_save_mecha  = "🛡 Save Mecha"
-btn_load_mecha  = "🛠 Load Mecha"
-btn_new_tab     = "+ New Character"
+btn_save_mecha  = "🛡 Uložit Mecha"
+btn_load_mecha  = "🛠 Načíst Mecha"
+btn_new_tab     = "+ Nová Postava"
+btn_settings    = "⚙ Nastavení"
 btn_close_tab   = "✕"
 
 # Arsenal window
-arsenal_title              = "⚔  The Arsenal"
-arsenal_btn_save           = "💾 Save Arsenal"
-arsenal_btn_load           = "📂 Load Arsenal"
-arsenal_btn_add            = "+ Add to Arsenal"
-arsenal_btn_copy           = "➤ Copy"
-arsenal_new_weapon         = "New Weapon"
-arsenal_section_title      = "Arsenal"
-arsenal_copy_hint          = "— click  ➤  to copy to the active character"
-arsenal_empty              = "No weapons yet."
-arsenal_weapon_default_name = "Weapon"
-arsenal_save_title         = "Save Arsenal"
-arsenal_load_title         = "Load Arsenal"
-arsenal_invalid_file       = "Invalid arsenal file."
-arsenal_delete_title       = "Delete Weapon"
-arsenal_delete_body        = "Remove \"{name}\" from the Arsenal?"
-arsenal_no_char_title      = "No Character"
-arsenal_no_char_body       = "No character tab is open.\nOpen or create a character first."
-arsenal_status_added       = "Added \"{name}\"."
-arsenal_status_removed     = "Removed \"{name}\"."
-arsenal_status_copied      = "\"{name}\" copied to {char}."
-arsenal_status_saved       = "Saved {n} weapon(s)."
-arsenal_status_loaded      = "Loaded {n} weapon(s)."
+arsenal_title              = "⚔  Arzenál"
+arsenal_btn_save           = "💾 Uložit Arzenál"
+arsenal_btn_load           = "📂 Načíst Arzenál"
+arsenal_btn_add            = "+ Přidat do Arzenálu"
+arsenal_btn_copy           = "➤ Kopírovat"
+arsenal_new_weapon         = "Nová Zbraň"
+arsenal_section_title      = "Arzenál"
+arsenal_copy_hint          = "— klikněte ➤ pro zkopírování k aktivní postavě"
+arsenal_empty              = "Zatím žádné zbraně."
+arsenal_weapon_default_name = "Zbraň"
+arsenal_save_title         = "Uložit Arzenál"
+arsenal_load_title         = "Načíst Arzenál"
+arsenal_invalid_file       = "Neplatný soubor arzenálu."
+arsenal_delete_title       = "Smazat Zbraň"
+arsenal_delete_body        = "Odstranit \"{name}\" z Arzenálu?"
+arsenal_no_char_title      = "Žádná Postava"
+arsenal_no_char_body       = "Žádná karta postavy není otevřena.\nNejprve otevřete nebo vytvořte postavu."
+arsenal_status_added       = "\"{name}\" přidána."
+arsenal_status_removed     = "\"{name}\" odstraněna."
+arsenal_status_copied      = "\"{name}\" zkopírována k {char}."
+arsenal_status_saved       = "Uloženo {n} zbraní."
+arsenal_status_loaded      = "Načteno {n} zbraní."
 
 # Page navigation tabs
-page_core       = "① Core"
-page_attrs      = "② Attr & Weapons"
-page_defects    = "③ Defects"
-page_skills     = "④ Skills"
+page_core       = "① Základ"
+page_attrs      = "② Attr. a Zbraně"
+page_defects    = "③ Vady"
+page_skills     = "④ Dovednosti"
 page_mecha      = "⑤ Mecha"
-page_summary    = "⑥ Summary"
+page_summary    = "⑥ Přehled"
 
 # Core page labels
-label_name          = "Character Name"
-label_cp_total      = "CP Total"
-label_cp_spent      = "CP Spent"
-label_cp_remaining  = "CP Remaining"
-label_stat_formula  = "Stat Formula"
-label_attr_formula  = "Attr Formula"
-label_body          = "Body"
-label_mind          = "Mind"
-label_soul          = "Soul"
-label_hp            = "HP"
-label_ep            = "EP"
-label_acv           = "ACV"
-label_dcv           = "DCV"
-label_sv            = "Shock Value"
-label_details       = "Character Details"
-label_equipment     = "Equipment Notes"
+label_name          = "Jméno Postavy"
+label_cp_total      = "BP Celkem"
+label_cp_spent      = "BP Utraceno"
+label_cp_remaining  = "BP Zbývá"
+label_stat_formula  = "Vzorec Vlastností"
+label_attr_formula  = "Vzorec Attr."
+label_body          = "Tělo"
+label_mind          = "Mysl"
+label_soul          = "Duše"
+label_hp            = "ŽB"
+label_ep            = "EB"
+label_acv           = "HBH"
+label_dcv           = "OBH"
+label_sv            = "Hodnota Šoku"
+label_details       = "Detaily Postavy"
+label_equipment     = "Poznámky k Vybavení"
 
 # Attributes & Weapons page
-label_attributes    = "Attributes"
-label_weapons       = "Weapons"
-btn_add_attr        = "+ Add Attribute"
-btn_add_weapon      = "+ Add Weapon"
-label_level         = "Lv"
-label_cost          = "Cost"
-label_description   = "Description"
-label_gear          = "Gear"
-label_advantages    = "Advantages"
-label_weapon_defects = "Defects"
-label_damage        = "Dmg"
+label_attributes    = "Atributy"
+label_weapons       = "Zbraně"
+btn_add_attr        = "+ Přidat Atribut"
+btn_add_weapon      = "+ Přidat Zbraň"
+label_level         = "Úr"
+label_cost          = "Cena"
+label_description   = "Popis"
+label_gear          = "Vybavení"
+label_advantages    = "Výhody"
+label_weapon_defects = "Nevýhody"
+label_damage        = "Poškození"
 
 # Defects page
-label_defects       = "Defects"
-btn_add_defect      = "+ Add Defect"
+label_defects       = "Vady"
+btn_add_defect      = "+ Přidat Vadu"
 
 # Skills page
-label_skills        = "Skills"
-label_combat_skills = "Combat Skills"
-label_sp_total      = "SP Total"
-label_sp_spent      = "SP Spent"
-label_sp_remaining  = "SP Remaining"
-label_setting       = "Option"
+label_skills        = "Dovednosti"
+label_combat_skills = "Bojové Dovednosti"
+label_sp_total      = "DB Celkem"
+label_sp_spent      = "DB Utraceno"
+label_sp_remaining  = "DB Zbývá"
+label_setting       = "Možnost"
 
 # Mecha page
 label_mecha         = "Mecha"
-label_mp_total      = "MP Total"
-label_mp_spent      = "MP Spent"
-btn_add_mecha       = "+ Add Mecha"
+label_mp_total      = "MB Celkem"
+label_mp_spent      = "MB Utraceno"
+btn_add_mecha       = "+ Přidat Mecha"
 
 # Summary page
-label_summary       = "Summary"
-label_sp_bonus      = "SP bonus"
-label_base_sp       = "Base SP"
-label_total_sp      = "Total SP available"
+label_summary       = "Přehled"
+label_sp_bonus      = "Bonus DB"
+label_base_sp       = "Základní DB"
+label_total_sp      = "Celkem dostupné DB"
 
 # Status bar
 status_ok           = "OK"
-status_over         = "OVER"
-status_cp           = "CP"
+status_over         = "PŘEKROČENO"
+status_cp           = "BP"
 
 # Dialogs
-dialog_save_title    = "Save Character"
-dialog_load_title    = "Load Character"
-dialog_pdf_title     = "Export Character Sheet"
-dialog_mecha_save    = "Save Mecha"
-dialog_mecha_load    = "Load Mecha"
-msg_exported         = "Exported"
-msg_sheet_saved      = "Sheet saved:"
-msg_saved            = "Saved"
-msg_loaded           = "Loaded"
-msg_mecha_saved      = "Mecha saved:"
-msg_mecha_imported   = "Mecha imported:"
-msg_error            = "Error"
-msg_export_failed    = "Export failed"
-msg_template_missing = "Template missing"
-msg_unsaved_changes  = "Unsaved changes"
-msg_close_confirm    = "Close this character without saving?"
-msg_new_character    = "New Character"
+dialog_save_title    = "Uložit Postavu"
+dialog_load_title    = "Načíst Postavu"
+dialog_pdf_title     = "Exportovat List Postavy"
+dialog_mecha_save    = "Uložit Mecha"
+dialog_mecha_load    = "Načíst Mecha"
+msg_exported         = "Exportováno"
+msg_sheet_saved      = "List uložen:"
+msg_saved            = "Uloženo"
+msg_loaded           = "Načteno"
+msg_mecha_saved      = "Mecha uložena:"
+msg_mecha_imported   = "Mecha importována:"
+msg_error            = "Chyba"
+msg_export_failed    = "Export se nezdařil"
+msg_template_missing = "Šablona chybí"
+msg_unsaved_changes  = "Neuložené změny"
+msg_close_confirm    = "Zavřít tuto postavu bez uložení?"
+msg_new_character    = "Nová Postava"
 
 # Mecha-only separator label (shown in attribute dropdown)
-separator_mecha_only = "── Mecha Only ──"
+separator_mecha_only = "── Pouze Mecha ──"
 
 # ── Additional widget labels ─────────────────────────────────────────────────
-label_name_colon             = "Character Name:"
-label_cp_section             = "Character Points"
-label_cp_total_colon         = "CP total:"
-label_stats                  = "Stats"
-label_stat_col               = "Stat"
-label_value_col              = "Value"
-label_cp_cost_col            = "CP Cost"
-label_total_colon            = "Total:"
-label_derived_mods           = "Derived Value Modifiers"
-label_hp_mod                 = "Health Modifier"
-label_ep_mod                 = "Energy Points Modifier"
-label_acv_mod                = "ACV Modifier"
-label_dcv_mod                = "DCV Modifier"
-label_sv_mod                 = "Shock Value Modifier"
-label_derived                = "Derived Values"
-label_name_add               = "Name:"
-label_cost_lv                = "Cost/Lv:"
-label_level_add              = "Level:"
-label_modifier_add           = "Modifier:"
-label_desc                   = "Desc:"
-label_added                  = "Added"
-label_lv_short               = "Lv:"
-label_mod_short              = "Mod:"
-label_gear_colon             = "Gear:"
-label_advantages_colon       = "Advantages:"
-label_weapon_defects_colon   = "Defects:"
-label_added_weapons          = "Added Weapons"
-label_dmg_short              = "Dmg:"
-label_base_sp_colon          = "Base SP:"
-label_skill_col              = "Skill"
-label_lv_col                 = "Lv"
-label_sp_lv_col              = "SP/Lv"
-label_mod_col                = "Mod"
-label_total_col              = "Total"
-label_mecha_name             = "Mecha Name:"
-label_mp_total_colon         = "   MP total:"
-label_mecha_details          = "Mecha Details:"
+label_name_colon             = "Jméno Postavy:"
+label_cp_section             = "Body Postavy"
+label_cp_total_colon         = "BP celkem:"
+label_stats                  = "Vlastnosti"
+label_stat_col               = "Vlast."
+label_value_col              = "Hodnota"
+label_cp_cost_col            = "Cena BP"
+label_total_colon            = "Celkem:"
+label_derived_mods           = "Modifikátory Odvozených Hodnot"
+label_hp_mod                 = "Modifikátor ŽB"
+label_ep_mod                 = "Modifikátor EB"
+label_acv_mod                = "Modifikátor HBH"
+label_dcv_mod                = "Modifikátor OBH"
+label_sv_mod                 = "Modifikátor Hodnoty Šoku"
+label_derived                = "Odvozené Hodnoty"
+label_name_add               = "Jméno:"
+label_cost_lv                = "Cena/Úr:"
+label_level_add              = "Úroveň:"
+label_modifier_add           = "Modifikátor:"
+label_desc                   = "Popis.:"
+label_added                  = "Přidáno"
+label_lv_short               = "Úr.:"
+label_mod_short              = "Mod.:"
+label_gear_colon             = "Vyb.:"
+label_advantages_colon       = "Výhody:"
+label_weapon_defects_colon   = "Nevýhody:"
+label_added_weapons          = "Přidané Zbraně"
+label_dmg_short              = "Pošk.:"
+label_base_sp_colon          = "Základní DB:"
+label_skill_col              = "Dovednost"
+label_lv_col                 = "Úr"
+label_sp_lv_col              = "DB/Úr"
+label_mod_col                = "Mod."
+label_total_col              = "Celkem"
+label_mecha_name             = "Název Mecha:"
+label_mp_total_colon         = "   MB celkem:"
+label_mecha_details          = "Detaily Mecha:"
 label_mecha_section          = "⚙  Mecha"
 
 # ── Dynamic labels ──────────────────────────────────────────────────────────
-label_cp                     = "CP"
-label_cp_refund              = "CP refund"
-label_mp                     = "MP"
-label_mp_used                = "MP used:"
-label_hp_display             = "HP:"
-label_sp_display             = "SP:"
-label_adv_def                = "Adv/Def"
-label_mp_refund              = "MP refund"
+label_cp                     = "BP"
+label_cp_refund              = "Vrácení BP"
+label_mp                     = "MB"
+label_mp_used                = "MB použito:"
+label_hp_display             = "ŽB:"
+label_sp_display             = "DB:"
+label_adv_def                = "Výh./Vady"
+label_mp_refund              = "Vrácení MB"
 
 # ── Summary / status labels ─────────────────────────────────────────────────
-label_cp_status              = "CP:"
-section_core_values          = "Core Values"
-section_char_points          = "Character Points"
-section_attributes           = "Attributes"
-section_defects              = "Defects"
-section_weapons              = "Weapons"
-section_skill_points         = "Skill Points"
-section_skills               = "Skills"
-section_combat_skills        = "Combat Skills"
-label_stat_formula_row       = "Stat Formula"
-label_health_points          = "Health Points"
-label_energy_points          = "Energy Points"
-label_acv_long               = "Attack Combat Value"
-label_dcv_long               = "Defence Combat Value"
-label_shock_value            = "Shock Value"
-label_cp_total_row           = "CP total"
-label_setting_short          = "Setting:"
-label_mp_total_row           = "MP total"
-label_adv_short              = "Adv:"
-label_def_short              = "Def:"
-label_char_summary           = "Character Summary"
-btn_copy                     = "📋 Copy"
-msg_copied_title             = "Copied"
-msg_copied_body              = "Summary copied to clipboard."
-label_dmg_abbr               = "Dmg"
-label_with                   = "with"
+label_cp_status              = "BP:"
+section_core_values          = "Základní Hodnoty"
+section_char_points          = "Body Postavy"
+section_attributes           = "Atributy"
+section_defects              = "Vady"
+section_weapons              = "Zbraně"
+section_skill_points         = "Body Dovedností"
+section_skills               = "Dovednosti"
+section_combat_skills        = "Bojové Dovednosti"
+label_stat_formula_row       = "Vzorec Vlastností"
+label_health_points          = "Životní Body"
+label_energy_points          = "Energetické Body"
+label_acv_long               = "Hodnota Bojového Útoku"
+label_dcv_long               = "Hodnota Bojové Obrany"
+label_shock_value            = "Hodnota Šoku"
+label_cp_total_row           = "BP celkem"
+label_setting_short          = "Prostředí:"
+label_mp_total_row           = "MB celkem"
+label_adv_short              = "Výh.:"
+label_def_short              = "Vady.:"
+label_char_summary           = "Přehled Postavy"
+btn_copy                     = "📋 Kopírovat"
+msg_copied_title             = "Zkopírováno"
+msg_copied_body              = "Přehled zkopírován do schránky."
+label_dmg_abbr               = "Poškození"
+label_with                   = "s"
 label_mecha_prefix           = "Mecha:"
 
 # ── PDF export labels ────────────────────────────────────────────────────────
-pdf_char_name                = "Character Name"
-pdf_char_points              = "Character Points"
-pdf_skill_points             = "Skill Points"
-pdf_page                     = "Page"
+pdf_char_name                = "Jméno Postavy"
+pdf_char_points              = "Body Postavy"
+pdf_skill_points             = "Body Dovedností"
+pdf_page                     = "Strana"
 pdf_of                       = "/"
-pdf_char_details             = "Character Details"
-pdf_body                     = "BODY"
-pdf_mind                     = "MIND"
-pdf_soul                     = "SOUL"
-pdf_hp                       = "Health"
-pdf_ep                       = "Energy"
-pdf_sv                       = "Shock"
-pdf_acv                      = "ACV"
-pdf_dcv                      = "DCV"
-pdf_col_name                 = "Name"
-pdf_col_cp                   = "CP"
-pdf_col_mp                   = "MP"
-pdf_col_refund               = "Refund"
-pdf_col_notes                = "Notes"
-pdf_col_gm                   = "Gear"
-pdf_col_desc                 = "Desc"
-pdf_adv                      = "Adv:"
-pdf_def                      = "Def:"
-pdf_sp                       = "SP"
-pdf_attributes               = "Attributes"
-pdf_defects                  = "Defects"
-pdf_weapons                  = "Weapons"
-pdf_skills                   = "Skills"
-pdf_equip_notes              = "Equipment & Adventuring Notes"
-pdf_attrs_cont               = "Attributes (continued)"
-pdf_defs_cont                = "Defects (continued)"
-pdf_mecha_attrs              = "Mecha Attributes"
-pdf_mecha_defects            = "Mecha Defects"
-pdf_mecha_weapons            = "Mecha Weapons"
-pdf_mp                       = "MP:"
-pdf_hp_bar                   = "HP:"
+pdf_char_details             = "Detaily Postavy"
+pdf_body                     = "TĚLO"
+pdf_mind                     = "MYSL"
+pdf_soul                     = "DUŠE"
+pdf_hp                       = "ŽB"
+pdf_ep                       = "EB"
+pdf_sv                       = "Šok"
+pdf_acv                      = "HBH"
+pdf_dcv                      = "OBH"
+pdf_col_name                 = "Název"
+pdf_col_cp                   = "BP"
+pdf_col_mp                   = "MB"
+pdf_col_refund               = "Vrácení"
+pdf_col_notes                = "Poznámky"
+pdf_col_gm                   = "Vyb."
+pdf_col_desc                 = "Popis"
+pdf_adv                      = "Výh.:"
+pdf_def                      = "Vady.:"
+pdf_sp                       = "DB"
+pdf_attributes               = "Atributy"
+pdf_defects                  = "Vady"
+pdf_weapons                  = "Zbraně"
+pdf_skills                   = "Dovednosti"
+pdf_equip_notes              = "Vybavení a Poznámky k Dobrodružství"
+pdf_attrs_cont               = "Atributy (pokračování)"
+pdf_defs_cont                = "Vady (pokračování)"
+pdf_mecha_attrs              = "Atributy Mecha"
+pdf_mecha_defects            = "Vady Mecha"
+pdf_mecha_weapons            = "Zbraně Mecha"
+pdf_mp                       = "MB:"
+pdf_hp_bar                   = "ŽB:"
 
 # Stat cost formulas. Each entry needs a display "name" and a Python
 # "expression" in terms of v (the stat value). The app compiles these at
@@ -263,19 +263,19 @@ pdf_hp_bar                   = "HP:"
 
 [[stat_formulas.entries]]
 key   = "Default"
-name  = "Default"
+name  = "Výchozí"
 # Linear: each point costs 1 CP regardless of level.
 expression = "v"
 
 [[stat_formulas.entries]]
 key   = "Free, then Three"
-name  = "Free, then Three"
+name  = "Zdarma, pak Tři"
 # First 4 points are free; each point above 4 costs 3 CP.
 expression = "0 if v <= 4 else (v - 4) * 3"
 
 [[stat_formulas.entries]]
 key   = "Bracket"
-name  = "Bracket"
+name  = "Stupňovitý"
 # v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
 expression = """
 if v <= 4: return v
@@ -290,13 +290,13 @@ return 4 + 8 + (v - 8) * 4
 
 [[attr_formulas.entries]]
 key   = "Default"
-name  = "Default"
+name  = "Výchozí"
 # Linear: total cost = base_cost × level.
 expression = "base_cost * level"
 
 [[attr_formulas.entries]]
 key   = "Triangular"
-name  = "Triangular"
+name  = "Trojúhelníkový"
 # Triangular: each successive level costs base_cost more than the previous.
 # lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
 expression = "base_cost * level * (level + 1) // 2"
@@ -306,32 +306,32 @@ expression = "base_cost * level * (level + 1) // 2"
 
 [[attributes]]
 key   = 'Animal Friendship'
-name  = 'Animal Friendship'
+name  = 'Přátelství se Zvířaty'
 costs = [1]
 
 [[attributes]]
 key   = 'Appearance'
-name  = 'Appearance'
+name  = 'Vzhled'
 costs = [1]
 
 [[attributes]]
 key   = 'Art of Distraction'
-name  = 'Art of Distraction'
+name  = 'Umění Rozptýlení'
 costs = [1]
 
 [[attributes]]
 key   = 'Astral Projection'
-name  = 'Astral Projection'
+name  = 'Astrální Projekce'
 costs = [1]
 
 [[attributes]]
 key   = 'Aura of Command'
-name  = 'Aura of Command'
+name  = 'Aura Velení'
 costs = [1]
 
 [[attributes]]
 key   = 'Combat Mastery'
-name  = 'Combat Mastery'
+name  = 'Bojové Mistrovství'
 costs = [2]
 
 #[[attributes]]
@@ -346,147 +346,147 @@ costs = [2]
 
 [[attributes]]
 key   = 'Contamination'
-name  = 'Contamination'
+name  = 'Kontaminace'
 costs = [1, 2]
 
 [[attributes]]
 key   = 'Damn Healthy!'
-name  = 'Damn Healthy!'
+name  = 'Sakramentsky Zdravý!'
 costs = [1]
 
 [[attributes]]
 key   = 'Dimensional Portal'
-name  = 'Dimensional Portal'
+name  = 'Dimenzionální Portál'
 costs = [2, 3, 4]
 
 [[attributes]]
 key   = 'Divine Relationship'
-name  = 'Divine Relationship'
+name  = 'Božský Vztah'
 costs = [1]
 
 [[attributes]]
 key   = 'Dynamic Sorcery'
-name  = 'Dynamic Sorcery'
+name  = 'Dynamická Magie'
 costs = [1, 2, 4]
 
 [[attributes]]
 key   = 'Elasticity'
-name  = 'Elasticity'
+name  = 'Elasticita'
 costs = [1]
 
 [[attributes]]
 key   = 'Electronic Counter-Measures'
-name  = 'Electronic Counter-Measures'
+name  = 'Elektronická Protiopatření'
 costs = [1]
 
 [[attributes]]
 key   = 'Energy Bonus'
-name  = 'Energy Bonus'
+name  = 'Energetický Bonus'
 costs = [1]
 
 [[attributes]]
 key   = 'Environmental Control'
-name  = 'Environmental Control'
+name  = 'Kontrola Prostředí'
 costs = [1, 2]
 
 [[attributes]]
 key   = 'Exorcism'
-name  = 'Exorcism'
+name  = 'Exorcismus'
 costs = [1]
 
 [[attributes]]
 key   = 'Extra Arms'
-name  = 'Extra Arms'
+name  = 'Extra Paže'
 costs = [1]
 
 [[attributes]]
 key   = 'Extra Attacks'
-name  = 'Extra Attacks'
+name  = 'Extra Útoky'
 costs = [4]
 
 [[attributes]]
 key   = 'Features or Accessories'
-name  = 'Features or Accessories'
+name  = 'Rysy nebo Příslušenství'
 costs = [1]
 
 [[attributes]]
 key   = 'Flight'
-name  = 'Flight'
+name  = 'Let'
 costs = [3, 4]
 
 [[attributes]]
 key   = 'Flunkies'
-name  = 'Flunkies'
+name  = 'Pohůnci'
 costs = [1]
 
 [[attributes]]
 key   = 'Focussed Damage'
-name  = 'Focussed Damage'
+name  = 'Soustředěné Poškození'
 costs = [1]
 
 [[attributes]]
 key   = 'Force Field'
-name  = 'Force Field'
+name  = 'Silové Pole'
 costs = [2, 3, 4]
 
 [[attributes]]
 key   = 'Ground Speed'
-name  = 'Ground Speed'
+name  = 'Pozemní Rychlost'
 costs = [2]
 
 [[attributes]]
 key   = 'Gun Bunny'
-name  = 'Gun Bunny'
+name  = 'Odborník na Zbraně'
 costs = [1]
 
 [[attributes]]
 key   = 'Healing'
-name  = 'Healing'
+name  = 'Léčení'
 costs = [4]
 
 [[attributes]]
 key   = 'Heavy Armour'
-name  = 'Heavy Armour'
+name  = 'Těžká Zbroj'
 costs = [4]
 
 [[attributes]]
 key   = 'Heightened Awareness'
-name  = 'Heightened Awareness'
+name  = 'Zvýšená Ostražitost'
 costs = [1]
 
 [[attributes]]
 key   = 'Heightened Senses'
-name  = 'Heightened Senses'
+name  = 'Zostřené Smysly'
 costs = [1]
 
 [[attributes]]
 key   = 'Highly Skilled'
-name  = 'Highly Skilled'
+name  = 'Vysoce Zdatný'
 costs = [1]
 
 [[attributes]]
 key   = 'Illusion'
-name  = 'Illusion'
+name  = 'Iluze'
 costs = [2, 3, 4, 5, 6]
 
 [[attributes]]
 key   = 'Insubstantial'
-name  = 'Insubstantial'
+name  = 'Nehmotný'
 costs = [4]
 
 [[attributes]]
 key   = 'Invisibility'
-name  = 'Invisibility'
+name  = 'Neviditelnost'
 costs = [3, 5, 7]
 
 [[attributes]]
 key   = 'Item of Power'
-name  = 'Item of Power'
+name  = 'Předmět Moci'
 costs = [2]
 
 [[attributes]]
 key   = 'Jumping'
-name  = 'Jumping'
+name  = 'Skok'
 costs = [1]
 
 [[attributes]]
@@ -496,117 +496,117 @@ costs = [1]
 
 [[attributes]]
 key   = 'Life Support'
-name  = 'Life Support'
+name  = 'Životní Podpora'
 costs = [1]
 
 [[attributes]]
 key   = 'Light Armour'
-name  = 'Light Armour'
+name  = 'Lehká Zbroj'
 costs = [1]
 
 [[attributes]]
 key   = 'Magic'
-name  = 'Magic'
+name  = 'Magie'
 costs = [4]
 
 [[attributes]]
 key   = 'Massive Damage'
-name  = 'Massive Damage'
+name  = 'Masivní Poškození'
 costs = [2]
 
 [[attributes]]
 key   = 'Mechanical Genius'
-name  = 'Mechanical Genius'
+name  = 'Mechanický Génius'
 costs = [2]
 
 [[attributes]]
 key   = 'Meld'
-name  = 'Meld'
+name  = 'Splývání'
 costs = [2, 4, 8]
 
 [[attributes]]
 key   = 'Metamorphosis'
-name  = 'Metamorphosis'
+name  = 'Metamorfóza'
 costs = [5]
 
 [[attributes]]
 key   = 'Mimic'
-name  = 'Mimic'
+name  = 'Imitace'
 costs = [3]
 
 [[attributes]]
 key   = 'Mind Control'
-name  = 'Mind Control'
+name  = 'Ovládání Mysli'
 costs = [1, 2, 3, 4]
 
 [[attributes]]
 key   = 'Mind Shield'
-name  = 'Mind Shield'
+name  = 'Mentální Štít'
 costs = [1]
 
 [[attributes]]
 key   = 'Natural Weapons'
-name  = 'Natural Weapons'
+name  = 'Přírodní Zbraně'
 costs = [1]
 
 [[attributes]]
 key   = 'Nullify'
-name  = 'Nullify'
+name  = 'Zrušení'
 costs = [3]
 
 [[attributes]]
 key   = 'Organisational Ties'
-name  = 'Organisational Ties'
+name  = 'Organizační Vazby'
 costs = [1, 2, 3]
 
 [[attributes]]
 key   = 'Own a Big Mecha'
-name  = 'Own a Big Mecha'
+name  = 'Vlastní Velkou Mecha'
 costs = [4]
 
 [[attributes]]
 key   = 'Personal Gear'
-name  = 'Personal Gear'
+name  = 'Osobní Vybavení'
 costs = [1]
 
 [[attributes]]
 key   = 'Place of Power'
-name  = 'Place of Power'
+name  = 'Místo Síly'
 costs = [1]
 
 [[attributes]]
 key   = 'Precognition'
-name  = 'Precognition'
+name  = 'Předvídání'
 costs = [1, 2]
 
 [[attributes]]
 key   = 'Regeneration'
-name  = 'Regeneration'
+name  = 'Regenerace'
 costs = [4]
 
 [[attributes]]
 key   = 'Reincarnation'
-name  = 'Reincarnation'
+name  = 'Reinkarnace'
 costs = [3]
 
 [[attributes]]
 key   = 'Sensors'
-name  = 'Sensors'
+name  = 'Senzory'
 costs = [1]
 
 [[attributes]]
 key   = 'Servant'
-name  = 'Servant'
+name  = 'Sluha'
 costs = [1, 2]
 
 [[attributes]]
 key   = 'Shape Change'
-name  = 'Shape Change'
+name  = 'Změna Tvaru'
 costs = [2, 3]
 
 [[attributes]]
 key   = 'Shield'
-name  = 'Shield'
+name  = 'Štít'
 costs = [1]
 
 #[[attributes]]
@@ -616,67 +616,67 @@ costs = [1]
 
 [[attributes]]
 key   = 'Sixth Sense'
-name  = 'Sixth Sense'
+name  = 'Šestý Smysl'
 costs = [1]
 
 [[attributes]]
 key   = 'Size Change'
-name  = 'Size Change'
+name  = 'Změna Velikosti'
 costs = [1, 2]
 
 [[attributes]]
 key   = 'Space Flight'
-name  = 'Space Flight'
+name  = 'Vesmírný Let'
 costs = [2]
 
 [[attributes]]
 key   = 'Special Defence'
-name  = 'Special Defence'
+name  = 'Speciální Obrana'
 costs = [1]
 
 [[attributes]]
 key   = 'Special Movement'
-name  = 'Special Movement'
+name  = 'Speciální Pohyb'
 costs = [1]
 
 [[attributes]]
 key   = 'Speed'
-name  = 'Speed'
+name  = 'Rychlost'
 costs = [1]
 
 [[attributes]]
 key   = 'Spirit Ward'
-name  = 'Spirit Ward'
+name  = 'Duchovní Ochrana'
 costs = [1]
 
 [[attributes]]
 key   = 'Star Flight'
-name  = 'Star Flight'
+name  = 'Hvězdný Let'
 costs = [2]
 
 [[attributes]]
 key   = 'Stealth'
-name  = 'Stealth'
+name  = 'Nenápadnost'
 costs = [1]
 
 [[attributes]]
 key   = 'Super Strength'
-name  = 'Super Strength'
+name  = 'Supersíla'
 costs = [2, 3]
 
 [[attributes]]
 key   = 'Swarm'
-name  = 'Swarm'
+name  = 'Roj'
 costs = [2]
 
 [[attributes]]
 key   = 'Telekinesis'
-name  = 'Telekinesis'
+name  = 'Telekineze'
 costs = [1, 2]
 
 [[attributes]]
 key   = 'Telepathy'
-name  = 'Telepathy'
+name  = 'Telepatie'
 costs = [1, 2, 3]
 
 [[attributes]]
@@ -686,32 +686,32 @@ costs = [5, 10]
 
 [[attributes]]
 key   = 'Transfer'
-name  = 'Transfer'
+name  = 'Přenos'
 costs = [3]
 
 [[attributes]]
 key   = 'Transmutation'
-name  = 'Transmutation'
+name  = 'Transmutace'
 costs = [1, 2, 3, 4]
 
 [[attributes]]
 key   = 'Tunnelling'
-name  = 'Tunnelling'
+name  = 'Hloubení Tunelů'
 costs = [2]
 
 [[attributes]]
 key   = 'Unique Attribute'
-name  = 'Unique Attribute'
-costs = [1, 2, 3, 4]
+name  = 'Unikátní Atribut'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 [[attributes]]
 key   = 'Water Speed'
-name  = 'Water Speed'
+name  = 'Vodní Rychlost'
 costs = [2, 3]
 
 [[attributes]]
 key   = 'Wealth'
-name  = 'Wealth'
+name  = 'Bohatství'
 costs = [3]
 
 # Which derived stat each attribute modifies (beyond its CP cost).
@@ -732,87 +732,87 @@ costs = [3]
 
 [[defects]]
 key   = 'Ageism'
-name  = 'Ageism'
+name  = 'Věková Diskriminace'
 costs = [1]
 
 [[defects]]
 key   = 'Attack Restriction'
-name  = 'Attack Restriction'
+name  = 'Omezení Útoku'
 costs = [1]
 
 [[defects]]
 key   = 'Awkward'
-name  = 'Awkward'
+name  = 'Nemotorný'
 costs = [1]
 
 [[defects]]
 key   = 'Awkward Size'
-name  = 'Awkward Size'
+name  = 'Nešikovná Velikost'
 costs = [1]
 
 [[defects]]
 key   = 'Bane'
-name  = 'Bane'
+name  = 'Kletba'
 costs = [1]
 
 [[defects]]
 key   = 'Blind Fury'
-name  = 'Blind Fury'
+name  = 'Slepý Vztek'
 costs = [1]
 
 [[defects]]
 key   = 'Cannot Talk'
-name  = 'Cannot Talk'
+name  = 'Nemůže Mluvit'
 costs = [1]
 
 [[defects]]
 key   = 'Conditional Ownership'
-name  = 'Conditional Ownership'
+name  = 'Podmíněné Vlastnictví'
 costs = [1]
 
 [[defects]]
 key   = 'Cursed'
-name  = 'Cursed'
+name  = 'Prokletý'
 costs = [1]
 
 [[defects]]
 key   = 'Diminutive'
-name  = 'Diminutive'
+name  = 'Drobný'
 costs = [3]
 
 [[defects]]
 key   = 'Easily Distracted'
-name  = 'Easily Distracted'
+name  = 'Snadno Rozptýlitelný'
 costs = [1]
 
 [[defects]]
 key   = 'Girl/Guy Magnet'
-name  = 'Girl/Guy Magnet'
+name  = 'Romantický Magnet'
 costs = [1]
 
 [[defects]]
 key   = 'Hangar Queen'
-name  = 'Hangar Queen'
+name  = 'Královna Hangáru'
 costs = [1]
 
 [[defects]]
 key   = 'Inept Combat'
-name  = 'Inept Combat'
+name  = 'Neschopný Bojovník'
 costs = [2]
 
 [[defects]]
 key   = 'Involuntary Physical Change'
-name  = 'Involuntary Physical Change'
+name  = 'Nedobrovolná Fyzická Změna'
 costs = [1]
 
 [[defects]]
 key   = 'Magical Restrictions'
-name  = 'Magical Restrictions'
+name  = 'Magická Omezení'
 costs = [1]
 
 [[defects]]
 key   = 'Marked'
-name  = 'Marked'
+name  = 'Označený'
 costs = [1]
 
 [[defects]]
@@ -822,122 +822,122 @@ costs = [1]
 
 [[defects]]
 key   = 'Not So Fast'
-name  = 'Not So Fast'
+name  = 'Tak Rychlý Ne'
 costs = [1]
 
 [[defects]]
 key   = 'Not So Strong'
-name  = 'Not So Strong'
+name  = 'Tak Silný Ne'
 costs = [1]
 
 [[defects]]
 key   = 'Not So Tough'
-name  = 'Not So Tough'
+name  = 'Tak Tvrdý Ne'
 costs = [1]
 
 [[defects]]
 key   = 'One Arm/No Arms'
-name  = 'One Arm/No Arms'
+name  = 'Jedna Paže / Žádné Paže'
 costs = [1]
 
 [[defects]]
 key   = 'One-Way Transformation'
-name  = 'One-Way Transformation'
+name  = 'Jednosměrná Přeměna'
 costs = [1]
 
 [[defects]]
 key   = 'Owned by a Megacorp'
-name  = 'Owned by a Megacorp'
+name  = 'Vlastnictví Megakorporace'
 costs = [1]
 
 [[defects]]
 key   = 'Phobia'
-name  = 'Phobia'
+name  = 'Fobie'
 costs = [1]
 
 [[defects]]
 key   = 'Physically Unappealing'
-name  = 'Physically Unappealing'
+name  = 'Fyzicky Neatraktivní'
 costs = [1]
 
 [[defects]]
 key   = 'Recurring Nightmares'
-name  = 'Recurring Nightmares'
+name  = 'Opakující se Noční Můry'
 costs = [1]
 
 [[defects]]
 key   = 'Red Tape'
-name  = 'Red Tape'
+name  = 'Byrokracie'
 costs = [1]
 
 [[defects]]
 key   = 'Restricted Ground Movement'
-name  = 'Restricted Ground Movement'
+name  = 'Omezený Pozemní Pohyb'
 costs = [1]
 
 [[defects]]
 key   = 'Restricted Path'
-name  = 'Restricted Path'
+name  = 'Omezená Cesta'
 costs = [1]
 
 [[defects]]
 key   = 'Rudimentary Manipulation'
-name  = 'Rudimentary Manipulation'
+name  = 'Rudimentární Manipulace'
 costs = [1]
 
 [[defects]]
 key   = 'Sensory Impairment'
-name  = 'Sensory Impairment'
+name  = 'Smyslové Poškození'
 costs = [1]
 
 [[defects]]
 key   = 'Significant Other (S.O.)'
-name  = 'Significant Other (S.O.)'
+name  = 'Životní Partner (ŽP)'
 costs = [1]
 
 [[defects]]
 key   = 'Skeleton in the Closet'
-name  = 'Skeleton in the Closet'
+name  = 'Kostra ve Skříni'
 costs = [1]
 
 [[defects]]
 key   = 'Social Fault'
-name  = 'Social Fault'
+name  = 'Společenská Vada'
 costs = [1]
 
 [[defects]]
 key   = 'Special Requirement'
-name  = 'Special Requirement'
+name  = 'Zvláštní Požadavek'
 costs = [1]
 
 [[defects]]
 key   = 'Unique Defect'
-name  = 'Unique Defect'
+name  = 'Unikátní Vada'
 costs = [1]
 
 [[defects]]
 key   = 'Unskilled'
-name  = 'Unskilled'
+name  = 'Nevycvičený'
 costs = [1]
 
 [[defects]]
 key   = 'Volatile'
-name  = 'Volatile'
+name  = 'Nestabilní'
 costs = [1]
 
 [[defects]]
 key   = 'Vulnerability'
-name  = 'Vulnerability'
+name  = 'Zranitelnost'
 costs = [1]
 
 [[defects]]
 key   = 'Wanted'
-name  = 'Wanted'
+name  = 'Hledaný'
 costs = [1]
 
 [[defects]]
 key   = 'Weak Point'
-name  = 'Weak Point'
+name  = 'Slabé Místo'
 costs = [1]
 
 [defect_modifies]
@@ -953,19 +953,19 @@ costs = [1]
 
 [[weapon_advantages]]
 key   = 'Accurate'
-name     = 'Accurate'
+name     = 'Přesný'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
 key   = 'Affects Incorporeal'
-name     = 'Affects Incorporeal'
+name     = 'Postihuje Nehmotné'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Area Effect'
-name     = 'Area Effect'
+name     = 'Plošný Účinek'
 weight   = 1
 levelled = true
 
@@ -977,235 +977,235 @@ levelled = false
 
 [[weapon_advantages]]
 key   = 'Autofire'
-name     = 'Autofire'
+name     = 'Automatická Palba'
 weight   = 3
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Burning'
-name     = 'Burning'
+name     = 'Hořící'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Concealable'
-name     = 'Concealable'
+name     = 'Ukryvatelný'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Contagious (Mild)'
-name     = 'Contagious (Mild)'
+name     = 'Nakažlivý (Mírný)'
 weight   = 3
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Contagious (High)'
-name     = 'Contagious (High)'
+name     = 'Nakažlivý (Silný)'
 weight   = 6
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Demoralise'
-name     = 'Demoralise'
+name     = 'Demoralizující'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Drain Body'
-name     = 'Drain Body'
+name     = 'Vysává Tělo'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Drain Energy'
-name     = 'Drain Energy'
+name     = 'Vysává Energii'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Drain Mind'
-name     = 'Drain Mind'
+name     = 'Vysává Mysl'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Drain Soul'
-name     = 'Drain Soul'
+name     = 'Vysává Duši'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Flare'
-name     = 'Flare'
+name     = 'Světelnice'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Flexible'
-name     = 'Flexible'
+name     = 'Flexibilní'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Homing'
-name     = 'Homing'
+name     = 'Naváděný'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Homing (Rare)'
-name     = 'Homing (Rare)'
+name     = 'Naváděný (Vzácný)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Incapacitating'
-name     = 'Incapacitating'
+name     = 'Zneschopňující'
 weight   = 3
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Incurable'
-name     = 'Incurable'
+name     = 'Nevyléčitelný'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Indirect'
-name     = 'Indirect'
+name     = 'Nepřímý'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Irritant'
-name     = 'Irritant'
+name     = 'Dráždivý'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Lethargy'
-name     = 'Lethargy'
+name     = 'Letargie'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Linked (Attack)'
-name     = 'Linked (Attack)'
+name     = 'Propojený (Útok)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Linked (Attribute)'
-name     = 'Linked (Attribute)'
+name     = 'Propojený (Atribut)'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Long Range'
-name     = 'Long Range'
+name     = 'Dlouhý Dosah'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
 key   = 'Muscle-Powered'
-name     = 'Muscle-Powered'
+name     = 'Na Svalový Pohon'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'No Regeneration'
-name     = 'No Regeneration'
+name     = 'Bez Regenerace'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Penetrating (Armour)'
-name     = 'Penetrating (Armour)'
+name     = 'Průbojný (Zbroj)'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Penetrating (Full Armour)'
-name     = 'Penetrating (Full Armour)'
+name     = 'Průbojný (Plná Zbroj)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Penetrating (Force Field)'
-name     = 'Penetrating (Force Field)'
+name     = 'Průbojný (Silové Pole)'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Penetrating (Full FF)'
-name     = 'Penetrating (Full FF)'
+name     = 'Průbojný (Plné SP)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Quake'
-name     = 'Quake'
+name     = 'Zemětřesení'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Selective'
-name     = 'Selective'
+name     = 'Selektivní'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Soul Attack'
-name     = 'Soul Attack'
+name     = 'Útok na Duši'
 weight   = 5
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Soul Attack (ND)'
-name     = 'Soul Attack (ND)'
+name     = 'Útok na Duši (bez poškození)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Spreading'
-name     = 'Spreading'
+name     = 'Šířící se'
 weight   = 1
 levelled = true
 
 [[weapon_advantages]]
 key   = 'Stun'
-name     = 'Stun'
+name     = 'Omračující'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Tangle'
-name     = 'Tangle'
+name     = 'Zamotávající'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Trap'
-name     = 'Trap'
+name     = 'Past'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Vampiric'
-name     = 'Vampiric'
+name     = 'Vampirický'
 weight   = 1
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Vampiric (Overcharge)'
-name     = 'Vampiric (Overcharge)'
+name     = 'Vampirický (Přetížení)'
 weight   = 2
 levelled = false
 
 [[weapon_advantages]]
 key   = 'Devastating'
-name     = 'Devastating'
+name     = 'Ničivý'
 # Special: does NOT reduce damage via the normal abi/dis weight mechanism.
 # Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
 # weight = 0 keeps it invisible to the normal weight calculation.
@@ -1216,205 +1216,205 @@ levelled = true
 
 [[weapon_defects]]
 key   = 'Backblast'
-name     = 'Backblast'
+name     = 'Zpětný Výbuch'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Backblast (AoE)'
-name     = 'Backblast (AoE)'
+name     = 'Zpětný Výbuch (Oblast)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'Drop Shields'
-name     = 'Drop Shields'
+name     = 'Shodí Štíty'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Exposed (Mecha-Only)'
-name     = 'Exposed (Mecha-Only)'
+name     = 'Odkrytý (Pouze Mecha)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Extra Energy'
-name     = 'Extra Energy'
+name     = 'Extra Energie'
 weight   = 1
 levelled = true
 
 [[weapon_defects]]
 key   = 'Fixed (Mecha-Only)'
-name     = 'Fixed (Mecha-Only)'
+name     = 'Pevný (Pouze Mecha)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Inaccurate'
-name     = 'Inaccurate'
+name     = 'Nepřesný'
 weight   = 1
 levelled = true
 
 [[weapon_defects]]
 key   = 'Internal'
-name     = 'Internal'
+name     = 'Interní'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Limited Shots (6 shots)'
-name     = 'Limited Shots (6 shots)'
+name     = 'Omezené Výstřely (6 výstřelů)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Limited Shots (3 shots)'
-name     = 'Limited Shots (3 shots)'
+name     = 'Omezené Výstřely (3 výstřely)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'Limited Shots (Single)'
-name     = 'Limited Shots (Single)'
+name     = 'Omezené Výstřely (Jeden)'
 weight   = 3
 levelled = false
 
 [[weapon_defects]]
 key   = 'Low Penetration'
-name     = 'Low Penetration'
+name     = 'Nízká Průbojnost'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Melee'
-name     = 'Melee'
+name     = 'Boj zblízka'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'No Damage'
-name     = 'No Damage'
+name     = 'Bez Poškození'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Only in (Environment)'
-name     = 'Only in (Environment)'
+name     = 'Pouze v (Prostředí)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Only in (Rare Environment)'
-name     = 'Only in (Rare Environment)'
+name     = 'Pouze v (Vzácném Prostředí)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'Self-Destruct'
-name     = 'Self-Destruct'
+name     = 'Sebezničení'
 weight   = 4
 levelled = false
 
 [[weapon_defects]]
 key   = 'Short Range'
-name     = 'Short Range'
+name     = 'Krátký Dosah'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Slow (1 turn)'
-name     = 'Slow (1 turn)'
+name     = 'Pomalý (1 kolo)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Slow (1 minute)'
-name     = 'Slow (1 minute)'
+name     = 'Pomalý (1 minuta)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'Slow (Hours)'
-name     = 'Slow (Hours)'
+name     = 'Pomalý (Hodiny)'
 weight   = 3
 levelled = false
 
 [[weapon_defects]]
 key   = 'Slow (Days)'
-name     = 'Slow (Days)'
+name     = 'Pomalý (Dny)'
 weight   = 4
 levelled = false
 
 [[weapon_defects]]
 key   = 'Slow (Months)'
-name     = 'Slow (Months)'
+name     = 'Pomalý (Měsíce)'
 weight   = 5
 levelled = false
 
 [[weapon_defects]]
 key   = 'Static'
-name     = 'Static'
+name     = 'Statický'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Stoppable (EoT)'
-name     = 'Stoppable (EoT)'
+name     = 'Zastavitelný (KK)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Stoppable (5 turns)'
-name     = 'Stoppable (5 turns)'
+name     = 'Zastavitelný (5 kol)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'Stoppable (1 minute)'
-name     = 'Stoppable (1 minute)'
+name     = 'Zastavitelný (1 minuta)'
 weight   = 3
 levelled = false
 
 [[weapon_defects]]
 key   = 'Stoppable (Hours)'
-name     = 'Stoppable (Hours)'
+name     = 'Zastavitelný (Hodiny)'
 weight   = 4
 levelled = false
 
 [[weapon_defects]]
 key   = 'Toxic'
-name     = 'Toxic'
+name     = 'Toxický'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Two Hands'
-name     = 'Two Hands'
+name     = 'Dvouruční'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Unreliable'
-name     = 'Unreliable'
+name     = 'Nespolehlivý'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Uses Energy (5)'
-name     = 'Uses Energy (5)'
+name     = 'Spotřebuje Energii (5)'
 weight   = 1
 levelled = false
 
 [[weapon_defects]]
 key   = 'Uses Energy (5xLvl)'
-name     = 'Uses Energy (5xLvl)'
+name     = 'Spotřebuje Energii (5×Úr)'
 weight   = 2
 levelled = false
 
 [[weapon_defects]]
 key   = 'Ineffective'
-name     = 'Ineffective'
+name     = 'Neúčinný'
 # Special: does NOT increase damage via the normal abi/dis weight mechanism.
 # Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
 # weight = 0 keeps it invisible to the normal weight calculation.
@@ -1425,119 +1425,119 @@ levelled = true
 
 [[mecha_attributes]]
 key   = 'Artificial Intelligence (A.I.)'
-name  = 'Artificial Intelligence (A.I.)'
+name  = 'Umělá Inteligence (UI)'
 costs = [2]
 
 [[mecha_attributes]]
 key   = 'Extra Capacity'
-name  = 'Extra Capacity'
+name  = 'Extra Kapacita'
 costs = [1]
 
 [[mecha_attributes]]
 key   = 'Extra Endurance'
-name  = 'Extra Endurance'
+name  = 'Extra Výdrž'
 costs = [1]
 
 [[mecha_attributes]]
 key   = 'Manoeuvre Bonus'
-name  = 'Manoeuvre Bonus'
+name  = 'Bonus Manévru'
 costs = [1]
 
 [[mecha_attributes]]
 key   = 'Mecha Regeneration'
-name  = 'Mecha Regeneration'
+name  = 'Regenerace Mecha'
 costs = [4]
 
 [[mecha_attributes]]
 key   = 'Mechanical Transformation'
-name  = 'Mechanical Transformation'
+name  = 'Mechanická Transformace'
 costs = [2, 4]
 
 [[mecha_attributes]]
 key   = 'Merging'
-name  = 'Merging'
+name  = 'Splývání'
 costs = [2]
 
 [[mecha_attributes]]
 key   = 'Multiple Mecha Attacks'
-name  = 'Multiple Mecha Attacks'
+name  = 'Vícenásobné Útoky Mecha'
 costs = [10]
 
 [[mecha_attributes]]
 key   = 'Special Equipment'
-name  = 'Special Equipment'
+name  = 'Speciální Vybavení'
 costs = [2]
 
 [[mecha_attributes]]
 key   = 'Subordinate Mecha'
-name  = 'Subordinate Mecha'
+name  = 'Podřízená Mecha'
 costs = [1]
 
 [[mecha_attributes]]
 key   = 'Summonable'
-name  = 'Summonable'
+name  = 'Vyvolatelná'
 costs = [4]
 
 [[mecha_attributes]]
 key   = 'Super Transformation'
-name  = 'Super Transformation'
+name  = 'Supertransformace'
 costs = [3, 5]
 
 [[mecha_attributes]]
 key   = 'Toughness'
-name  = 'Toughness'
+name  = 'Odolnost'
 costs = [4]
 
 # Mecha-specific defects.
 
 [[mecha_defects]]
 key   = 'Crew Requirement'
-name  = 'Crew Requirement'
+name  = 'Požadavek Posádky'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Exposed Occupants'
-name  = 'Exposed Occupants'
+name  = 'Ohrožení Cestující'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Limited Endurance'
-name  = 'Limited Endurance'
+name  = 'Omezená Výdrž'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Mutual Damage'
-name  = 'Mutual Damage'
+name  = 'Vzájemné Poškození'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Noisy'
-name  = 'Noisy'
+name  = 'Hlučný'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Poor Manoeuvrability'
-name  = 'Poor Manoeuvrability'
+name  = 'Slabá Ovladatelnost'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Reduced Capacity'
-name  = 'Reduced Capacity'
+name  = 'Snížená Kapacita'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Start-Up Time'
-name  = 'Start-Up Time'
+name  = 'Čas Spuštění'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Summoning Object'
-name  = 'Summoning Object'
+name  = 'Vyvolávací Předmět'
 costs = [1]
 
 [[mecha_defects]]
 key   = 'Wind Powered'
-name  = 'Wind Powered'
+name  = 'Poháněný Větrem'
 costs = [1]
 
 # Attributes from the main list that are NOT available in the mecha editor.
@@ -1570,7 +1570,7 @@ settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occ
 
 [skills.Acrobatics]
 key   = 'Acrobatics'
-name = 'Acrobatics'
+name = 'Akrobacie'
 "Action Adventure" = 5
 "Cyberpunk" = 4
 "High Fantasy" = 3
@@ -1582,7 +1582,7 @@ name = 'Acrobatics'
 
 [skills.Animal_Training]
 key   = 'Animal Training'
-name = 'Animal Training'
+name = 'Výcvik Zvířat'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 2
@@ -1594,7 +1594,7 @@ name = 'Animal Training'
 
 [skills.Architecture]
 key   = 'Architecture'
-name = 'Architecture'
+name = 'Architektura'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1606,7 +1606,7 @@ name = 'Architecture'
 
 [skills.Artisan]
 key   = 'Artisan'
-name = 'Artisan'
+name = 'Řemeslo'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1618,7 +1618,7 @@ name = 'Artisan'
 
 [skills.Biological_Sciences]
 key   = 'Biological Sciences'
-name = 'Biological Sciences'
+name = 'Biologické Vědy'
 "Action Adventure" = 2
 "Cyberpunk" = 4
 "High Fantasy" = 1
@@ -1630,7 +1630,7 @@ name = 'Biological Sciences'
 
 [skills.Boating]
 key   = 'Boating'
-name = 'Boating'
+name = 'Plavba'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1642,7 +1642,7 @@ name = 'Boating'
 
 [skills.Burglary]
 key   = 'Burglary'
-name = 'Burglary'
+name = 'Vloupání'
 "Action Adventure" = 2
 "Cyberpunk" = 3
 "High Fantasy" = 4
@@ -1654,7 +1654,7 @@ name = 'Burglary'
 
 [skills.Business_Management]
 key   = 'Business Management'
-name = 'Business Management'
+name = 'Obchodní Management'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1666,7 +1666,7 @@ name = 'Business Management'
 
 [skills.Civilisation]
 key   = 'Civilisation'
-name = 'Civilisation'
+name = 'Civilizace'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 3
@@ -1678,7 +1678,7 @@ name = 'Civilisation'
 
 [skills.Climbing]
 key   = 'Climbing'
-name = 'Climbing'
+name = 'Šplhání'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1690,7 +1690,7 @@ name = 'Climbing'
 
 [skills.Computers]
 key   = 'Computers'
-name = 'Computers'
+name = 'Počítače'
 "Action Adventure" = 4
 "Cyberpunk" = 5
 "High Fantasy" = 0
@@ -1702,7 +1702,7 @@ name = 'Computers'
 
 [skills.Controlled_Breathing]
 key   = 'Controlled Breathing'
-name = 'Controlled Breathing'
+name = 'Kontrolované Dýchání'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -1714,7 +1714,7 @@ name = 'Controlled Breathing'
 
 [skills.Cooking]
 key   = 'Cooking'
-name = 'Cooking'
+name = 'Vaření'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -1726,7 +1726,7 @@ name = 'Cooking'
 
 [skills.Cultural_Arts]
 key   = 'Cultural Arts'
-name = 'Cultural Arts'
+name = 'Kulturní Umění'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1738,7 +1738,7 @@ name = 'Cultural Arts'
 
 [skills.Demolitions]
 key   = 'Demolitions'
-name = 'Demolitions'
+name = 'Demolice'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -1750,7 +1750,7 @@ name = 'Demolitions'
 
 [skills.Disguise]
 key   = 'Disguise'
-name = 'Disguise'
+name = 'Přestrojení'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -1762,7 +1762,7 @@ name = 'Disguise'
 
 [skills.Domestic_Arts]
 key   = 'Domestic Arts'
-name = 'Domestic Arts'
+name = 'Domácí Práce'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -1774,7 +1774,7 @@ name = 'Domestic Arts'
 
 [skills.Driving]
 key   = 'Driving'
-name = 'Driving'
+name = 'Řízení'
 "Action Adventure" = 5
 "Cyberpunk" = 3
 "High Fantasy" = 0
@@ -1786,7 +1786,7 @@ name = 'Driving'
 
 [skills.Electronics]
 key   = 'Electronics'
-name = 'Electronics'
+name = 'Elektronika'
 "Action Adventure" = 3
 "Cyberpunk" = 4
 "High Fantasy" = 0
@@ -1798,7 +1798,7 @@ name = 'Electronics'
 
 [skills.Empathy]
 key   = 'Empathy'
-name = 'Empathy'
+name = 'Empatie'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1810,7 +1810,7 @@ name = 'Empathy'
 
 [skills.Engineering]
 key   = 'Engineering'
-name = 'Engineering'
+name = 'Inženýrství'
 "Action Adventure" = 2
 "Cyberpunk" = 3
 "High Fantasy" = 2
@@ -1822,7 +1822,7 @@ name = 'Engineering'
 
 [skills.Environmental_Sciences]
 key   = 'Environmental Sciences'
-name = 'Environmental Sciences'
+name = 'Ekologické Vědy'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1834,7 +1834,7 @@ name = 'Environmental Sciences'
 
 [skills.Etiquette]
 key   = 'Etiquette'
-name = 'Etiquette'
+name = 'Etiketa'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 2
@@ -1846,7 +1846,7 @@ name = 'Etiquette'
 
 [skills.Forgery]
 key   = 'Forgery'
-name = 'Forgery'
+name = 'Padělání'
 "Action Adventure" = 2
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -1858,7 +1858,7 @@ name = 'Forgery'
 
 [skills.Gaming]
 key   = 'Gaming'
-name = 'Gaming'
+name = 'Hry'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1870,7 +1870,7 @@ name = 'Gaming'
 
 [skills.Interrogation]
 key   = 'Interrogation'
-name = 'Interrogation'
+name = 'Výslech'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -1882,7 +1882,7 @@ name = 'Interrogation'
 
 [skills.Intimidation]
 key   = 'Intimidation'
-name = 'Intimidation'
+name = 'Zastrašování'
 "Action Adventure" = 4
 "Cyberpunk" = 4
 "High Fantasy" = 4
@@ -1894,7 +1894,7 @@ name = 'Intimidation'
 
 [skills.Law]
 key   = 'Law'
-name = 'Law'
+name = 'Právo'
 "Action Adventure" = 1
 "Cyberpunk" = 3
 "High Fantasy" = 2
@@ -1906,7 +1906,7 @@ name = 'Law'
 
 [skills.Linguistics]
 key   = 'Linguistics'
-name = 'Linguistics'
+name = 'Lingvistika'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 3
@@ -1918,7 +1918,7 @@ name = 'Linguistics'
 
 [skills.Leadership]
 key   = 'Leadership'
-name = 'Leadership'
+name = 'Vedení'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -1930,7 +1930,7 @@ name = 'Leadership'
 
 [skills.Listening]
 key   = 'Listening'
-name = 'Listening'
+name = 'Naslouchání'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1942,7 +1942,7 @@ name = 'Listening'
 
 [skills.Mechanics]
 key   = 'Mechanics'
-name = 'Mechanics'
+name = 'Mechanika'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -1954,7 +1954,7 @@ name = 'Mechanics'
 
 [skills.Medical]
 key   = 'Medical'
-name = 'Medical'
+name = 'Medicína'
 "Action Adventure" = 4
 "Cyberpunk" = 4
 "High Fantasy" = 4
@@ -1966,7 +1966,7 @@ name = 'Medical'
 
 [skills.Military_Sciences]
 key   = 'Military Sciences'
-name = 'Military Sciences'
+name = 'Vojenské Vědy'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -1978,7 +1978,7 @@ name = 'Military Sciences'
 
 [skills.Naturopathy]
 key   = 'Naturopathy'
-name = 'Naturopathy'
+name = 'Naturopatie'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -1990,7 +1990,7 @@ name = 'Naturopathy'
 
 [skills.Navigation]
 key   = 'Navigation'
-name = 'Navigation'
+name = 'Navigace'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -2002,7 +2002,7 @@ name = 'Navigation'
 
 [skills.Occult]
 key   = 'Occult'
-name = 'Occult'
+name = 'Okultismus'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 3
@@ -2014,7 +2014,7 @@ name = 'Occult'
 
 [skills.Occupation]
 key   = 'Occupation'
-name = 'Occupation'
+name = 'Povolání'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2026,7 +2026,7 @@ name = 'Occupation'
 
 [skills.Performing_Arts]
 key   = 'Performing Arts'
-name = 'Performing Arts'
+name = 'Scénické Umění'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2038,7 +2038,7 @@ name = 'Performing Arts'
 
 [skills.Persuasion]
 key   = 'Persuasion'
-name = 'Persuasion'
+name = 'Přesvědčování'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 2
@@ -2050,7 +2050,7 @@ name = 'Persuasion'
 
 [skills.Physical_Sciences]
 key   = 'Physical Sciences'
-name = 'Physical Sciences'
+name = 'Fyzikální Vědy'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2062,7 +2062,7 @@ name = 'Physical Sciences'
 
 [skills.Piloting]
 key   = 'Piloting'
-name = 'Piloting'
+name = 'Pilotáž'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 0
@@ -2074,7 +2074,7 @@ name = 'Piloting'
 
 [skills.Poisons]
 key   = 'Poisons'
-name = 'Poisons'
+name = 'Jedy'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 3
@@ -2086,7 +2086,7 @@ name = 'Poisons'
 
 [skills.Police_Sciences]
 key   = 'Police Sciences'
-name = 'Police Sciences'
+name = 'Policejní Vědy'
 "Action Adventure" = 4
 "Cyberpunk" = 3
 "High Fantasy" = 1
@@ -2098,7 +2098,7 @@ name = 'Police Sciences'
 
 [skills.Powerlifting]
 key   = 'Powerlifting'
-name = 'Powerlifting'
+name = 'Vzpírání'
 "Action Adventure" = 3
 "Cyberpunk" = 2
 "High Fantasy" = 2
@@ -2110,7 +2110,7 @@ name = 'Powerlifting'
 
 [skills.Religion]
 key   = 'Religion'
-name = 'Religion'
+name = 'Náboženství'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 2
@@ -2122,7 +2122,7 @@ name = 'Religion'
 
 [skills.Riding]
 key   = 'Riding'
-name = 'Riding'
+name = 'Jezdectví'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 3
@@ -2134,7 +2134,7 @@ name = 'Riding'
 
 [skills.Search]
 key   = 'Search'
-name = 'Search'
+name = 'Hledání'
 "Action Adventure" = 2
 "Cyberpunk" = 4
 "High Fantasy" = 2
@@ -2146,7 +2146,7 @@ name = 'Search'
 
 [skills.Seduction]
 key   = 'Seduction'
-name = 'Seduction'
+name = 'Svádění'
 "Action Adventure" = 3
 "Cyberpunk" = 3
 "High Fantasy" = 3
@@ -2158,7 +2158,7 @@ name = 'Seduction'
 
 [skills.Sleight_of_Hand]
 key   = 'Sleight of Hand'
-name = 'Sleight of Hand'
+name = 'Obratnost Rukou'
 "Action Adventure" = 2
 "Cyberpunk" = 2
 "High Fantasy" = 4
@@ -2170,7 +2170,7 @@ name = 'Sleight of Hand'
 
 [skills.Sneak]
 key   = 'Sneak'
-name = 'Sneak'
+name = 'Plížení'
 "Action Adventure" = 4
 "Cyberpunk" = 4
 "High Fantasy" = 4
@@ -2182,7 +2182,7 @@ name = 'Sneak'
 
 [skills.Social_Sciences]
 key   = 'Social Sciences'
-name = 'Social Sciences'
+name = 'Sociální Vědy'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2194,7 +2194,7 @@ name = 'Social Sciences'
 
 [skills.Sports]
 key   = 'Sports'
-name = 'Sports'
+name = 'Sport'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -2206,7 +2206,7 @@ name = 'Sports'
 
 [skills.Street_Sense]
 key   = 'Street Sense'
-name = 'Street Sense'
+name = 'Pouliční Instinkt'
 "Action Adventure" = 4
 "Cyberpunk" = 5
 "High Fantasy" = 1
@@ -2218,7 +2218,7 @@ name = 'Street Sense'
 
 [skills.Swimming]
 key   = 'Swimming'
-name = 'Swimming'
+name = 'Plavání'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -2230,7 +2230,7 @@ name = 'Swimming'
 
 [skills.Urban_Tracking]
 key   = 'Urban Tracking'
-name = 'Urban Tracking'
+name = 'Městské Sledování'
 "Action Adventure" = 3
 "Cyberpunk" = 4
 "High Fantasy" = 3
@@ -2242,7 +2242,7 @@ name = 'Urban Tracking'
 
 [skills.Visual_Arts]
 key   = 'Visual Arts'
-name = 'Visual Arts'
+name = 'Vizuální Umění'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 1
@@ -2254,7 +2254,7 @@ name = 'Visual Arts'
 
 [skills.Wilderness_Survival]
 key   = 'Wilderness Survival'
-name = 'Wilderness Survival'
+name = 'Přežití v Divočině'
 "Action Adventure" = 2
 "Cyberpunk" = 1
 "High Fantasy" = 4
@@ -2266,7 +2266,7 @@ name = 'Wilderness Survival'
 
 [skills.Wilderness_Tracking]
 key   = 'Wilderness Tracking'
-name = 'Wilderness Tracking'
+name = 'Sledování v Divočině'
 "Action Adventure" = 1
 "Cyberpunk" = 1
 "High Fantasy" = 3
@@ -2278,7 +2278,7 @@ name = 'Wilderness Tracking'
 
 [skills.Writing]
 key   = 'Writing'
-name = 'Writing'
+name = 'Psaní'
 "Action Adventure" = 1
 "Cyberpunk" = 2
 "High Fantasy" = 1
@@ -2292,7 +2292,7 @@ name = 'Writing'
 
 [combat_skills.Archery]
 key   = 'Archery'
-name      = 'Archery'
+name      = 'Lukostřelba'
 is_attack = true
 "Action Adventure" = 4
 "Cyberpunk" = 4
@@ -2305,7 +2305,7 @@ is_attack = true
 
 [combat_skills.Gun_Combat]
 key   = 'Gun Combat'
-name      = 'Gun Combat'
+name      = 'Boj se Střelnými Zbraněmi'
 is_attack = true
 "Action Adventure" = 6
 "Cyberpunk" = 5
@@ -2318,7 +2318,7 @@ is_attack = true
 
 [combat_skills.Heavy_Weapons]
 key   = 'Heavy Weapons'
-name      = 'Heavy Weapons'
+name      = 'Těžké Zbraně'
 is_attack = true
 "Action Adventure" = 5
 "Cyberpunk" = 5
@@ -2331,7 +2331,7 @@ is_attack = true
 
 [combat_skills.Melee_Attack]
 key   = 'Melee Attack'
-name      = 'Melee Attack'
+name      = 'Útok zblízka'
 is_attack = true
 "Action Adventure" = 5
 "Cyberpunk" = 4
@@ -2344,7 +2344,7 @@ is_attack = true
 
 [combat_skills.Melee_Defence]
 key   = 'Melee Defence'
-name      = 'Melee Defence'
+name      = 'Obrana zblízka'
 is_attack = false
 "Action Adventure" = 5
 "Cyberpunk" = 4
@@ -2357,7 +2357,7 @@ is_attack = false
 
 [combat_skills.Ranged_Defence]
 key   = 'Ranged Defence'
-name      = 'Ranged Defence'
+name      = 'Obrana na Dálku'
 is_attack = false
 "Action Adventure" = 6
 "Cyberpunk" = 5
@@ -2370,7 +2370,7 @@ is_attack = false
 
 [combat_skills.Thrown_Weapons]
 key   = 'Thrown Weapons'
-name      = 'Thrown Weapons'
+name      = 'Vrhací Zbraně'
 is_attack = true
 "Action Adventure" = 4
 "Cyberpunk" = 4
@@ -2383,7 +2383,7 @@ is_attack = true
 
 [combat_skills.Unarmed_Attack]
 key   = 'Unarmed Attack'
-name      = 'Unarmed Attack'
+name      = 'Boj Beze Zbraně'
 is_attack = true
 "Action Adventure" = 4
 "Cyberpunk" = 4
@@ -2396,7 +2396,7 @@ is_attack = true
 
 [combat_skills.Unarmed_Defence]
 key   = 'Unarmed Defence'
-name      = 'Unarmed Defence'
+name      = 'Obrana Beze Zbraně'
 is_attack = false
 "Action Adventure" = 4
 "Cyberpunk" = 4

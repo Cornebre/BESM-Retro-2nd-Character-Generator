@@ -1,0 +1,2409 @@
+# =============================================================================
+# BESM 2:a upplagan — Spelkonfiguration (SVENSKA) (MT)
+# Redigera den här filen för att anpassa regelverket. Appen läser den vid start.
+#
+# ÖVERSÄTTNINGSREGLER:
+#   - "key"  = intern identifierare som används i sparade filer. Ändra ALDRIG dessa.
+#              För engelska gäller att key == namn (ingen översättning behövs).
+#   - "name" = sträng som visas i användargränssnittet för detta språk.
+#   - Om fältet "name" saknas faller programmet tillbaka till "key".
+# 
+# =============================================================================
+
+[lang]
+code    = "swe"
+label   = "Svenska (MT)"
+
+# ── UI strings ────────────────────────────────────────────────────────────────
+[ui]
+# Toolbar buttons
+btn_save        = "💾 Spara"
+btn_load        = "📂 Ladda"
+btn_pdf         = "📄 PDF"
+btn_save_mecha  = "🛡 Spara Mecha"
+btn_load_mecha  = "🛠 Ladda Mecha"
+btn_new_tab     = "+ Ny Karaktär"
+btn_settings    = "⚙ Inställningar"
+btn_close_tab   = "✕"
+
+# Arsenal window
+arsenal_title              = "⚔  Arsenalen"
+arsenal_btn_save           = "💾 Spara Arsenalen"
+arsenal_btn_load           = "📂 Ladda Arsenalen"
+arsenal_btn_add            = "+ Lägg till i Arsenalen"
+arsenal_btn_copy           = "➤ Kopiera"
+arsenal_new_weapon         = "Nytt Vapen"
+arsenal_section_title      = "Arsenalen"
+arsenal_copy_hint          = "— klicka på ➤ för att kopiera till aktiv karaktär"
+arsenal_empty              = "Inga vapen ännu."
+arsenal_weapon_default_name = "Vapen"
+arsenal_save_title         = "Spara Arsenalen"
+arsenal_load_title         = "Ladda Arsenalen"
+arsenal_invalid_file       = "Ogiltig arsenalsfil."
+arsenal_delete_title       = "Ta bort Vapen"
+arsenal_delete_body        = "Ta bort \"{name}\" från Arsenalen?"
+arsenal_no_char_title      = "Ingen Karaktär"
+arsenal_no_char_body       = "Ingen karaktärsflik öppen.\nÖppna eller skapa en karaktär först."
+arsenal_status_added       = "\"{name}\" tillagd."
+arsenal_status_removed     = "\"{name}\" borttagen."
+arsenal_status_copied      = "\"{name}\" kopierad till {char}."
+arsenal_status_saved       = "{n} vapen sparade."
+arsenal_status_loaded      = "{n} vapen laddade."
+
+# Page navigation tabs
+page_core       = "① Grund"
+page_attrs      = "② Attr. & Vapen"
+page_defects    = "③ Defekter"
+page_skills     = "④ Färdigheter"
+page_mecha      = "⑤ Mecha"
+page_summary    = "⑥ Sammanfattning"
+
+# Core page labels
+label_name          = "Karaktärens Namn"
+label_cp_total      = "KP Totalt"
+label_cp_spent      = "KP Spenderade"
+label_cp_remaining  = "KP Kvar"
+label_stat_formula  = "Stat-formel"
+label_attr_formula  = "Attr.-formel"
+label_body          = "Kropp"
+label_mind          = "Sinne"
+label_soul          = "Själ"
+label_hp            = "HP"
+label_ep            = "EP"
+label_acv           = "AKV"
+label_dcv           = "FKV"
+label_sv            = "Chockvärde"
+label_details       = "Karaktärsdetaljer"
+label_equipment     = "Utrustningsanteckningar"
+
+# Attributes & Weapons page
+label_attributes    = "Attribut"
+label_weapons       = "Vapen"
+btn_add_attr        = "+ Lägg till Attribut"
+btn_add_weapon      = "+ Lägg till Vapen"
+label_level         = "Niv"
+label_cost          = "Kostnad"
+label_description   = "Beskrivning"
+label_gear          = "Utrustning"
+label_advantages    = "Fördelar"
+label_weapon_defects = "Defekter"
+label_damage        = "Skada"
+
+# Defects page
+label_defects       = "Defekter"
+btn_add_defect      = "+ Lägg till Defekt"
+
+# Skills page
+label_skills        = "Färdigheter"
+label_combat_skills = "Stridsförmågor"
+label_sp_total      = "FP Totalt"
+label_sp_spent      = "FP Spenderade"
+label_sp_remaining  = "FP Kvar"
+label_setting       = "Alternativ"
+
+# Mecha page
+label_mecha         = "Mecha"
+label_mp_total      = "MP Totalt"
+label_mp_spent      = "MP Spenderade"
+btn_add_mecha       = "+ Lägg till Mecha"
+
+# Summary page
+label_summary       = "Sammanfattning"
+label_sp_bonus      = "FP bonus"
+label_base_sp       = "Bas FP"
+label_total_sp      = "Totalt tillgängliga FP"
+
+# Status bar
+status_ok           = "OK"
+status_over         = "ÖVERSKRIDET"
+status_cp           = "KP"
+
+# Dialogs
+dialog_save_title    = "Spara Karaktär"
+dialog_load_title    = "Ladda Karaktär"
+dialog_pdf_title     = "Exportera Karaktärsblad"
+dialog_mecha_save    = "Spara Mecha"
+dialog_mecha_load    = "Ladda Mecha"
+msg_exported         = "Exporterad"
+msg_sheet_saved      = "Blad sparat:"
+msg_saved            = "Sparat"
+msg_loaded           = "Laddat"
+msg_mecha_saved      = "Mecha sparad:"
+msg_mecha_imported   = "Mecha importerad:"
+msg_error            = "Fel"
+msg_export_failed    = "Export misslyckades"
+msg_template_missing = "Mall saknas"
+msg_unsaved_changes  = "Osparade ändringar"
+msg_close_confirm    = "Stänga denna karaktär utan att spara?"
+msg_new_character    = "Ny Karaktär"
+
+# Mecha-only separator label (shown in attribute dropdown)
+separator_mecha_only = "── Endast Mecha ──"
+
+# ── Additional widget labels ─────────────────────────────────────────────────
+label_name_colon             = "Karaktärens Namn:"
+label_cp_section             = "Karaktärspoäng"
+label_cp_total_colon         = "KP totalt:"
+label_stats                  = "Stats"
+label_stat_col               = "Stat"
+label_value_col              = "Värde"
+label_cp_cost_col            = "KP-kostnad"
+label_total_colon            = "Totalt:"
+label_derived_mods           = "Modifierare för Härledda Värden"
+label_hp_mod                 = "HP-modifierare"
+label_ep_mod                 = "EP-modifierare"
+label_acv_mod                = "AKV-modifierare"
+label_dcv_mod                = "FKV-modifierare"
+label_sv_mod                 = "Chockvärde-modifierare"
+label_derived                = "Härledda Värden"
+label_name_add               = "Namn:"
+label_cost_lv                = "Kost./Niv:"
+label_level_add              = "Nivå:"
+label_modifier_add           = "Modifierare:"
+label_desc                   = "Besk.:"
+label_added                  = "Tillagd"
+label_lv_short               = "Niv.:"
+label_mod_short              = "Mod.:"
+label_gear_colon             = "Utrust.:"
+label_advantages_colon       = "Fördelar:"
+label_weapon_defects_colon   = "Defekter:"
+label_added_weapons          = "Tillagda Vapen"
+label_dmg_short              = "Skada:"
+label_base_sp_colon          = "Bas FP:"
+label_skill_col              = "Färdighet"
+label_lv_col                 = "Niv"
+label_sp_lv_col              = "FP/Niv"
+label_mod_col                = "Mod."
+label_total_col              = "Totalt"
+label_mecha_name             = "Mecha-namn:"
+label_mp_total_colon         = "   MP totalt:"
+label_mecha_details          = "Mecha-detaljer:"
+label_mecha_section          = "⚙  Mecha"
+
+# ── Dynamic labels ──────────────────────────────────────────────────────────
+label_cp                     = "KP"
+label_cp_refund              = "KP-återbetalning"
+label_mp                     = "MP"
+label_mp_used                = "MP använda:"
+label_hp_display             = "HP:"
+label_sp_display             = "FP:"
+label_adv_def                = "Fördel/Def."
+label_mp_refund              = "MP-återbetalning"
+
+# ── Summary / status labels ─────────────────────────────────────────────────
+label_cp_status              = "KP:"
+section_core_values          = "Grundvärden"
+section_char_points          = "Karaktärspoäng"
+section_attributes           = "Attribut"
+section_defects              = "Defekter"
+section_weapons              = "Vapen"
+section_skill_points         = "Färdighetspoäng"
+section_skills               = "Färdigheter"
+section_combat_skills        = "Stridsförmågor"
+label_stat_formula_row       = "Stat-formel"
+label_health_points          = "Hälsopoäng"
+label_energy_points          = "Energipoäng"
+label_acv_long               = "Attackstridsvärde"
+label_dcv_long               = "Försvarsstridsvärde"
+label_shock_value            = "Chockvärde"
+label_cp_total_row           = "KP totalt"
+label_setting_short          = "Setting:"
+label_mp_total_row           = "MP totalt"
+label_adv_short              = "Förd.:"
+label_def_short              = "Def.:"
+label_char_summary           = "Karaktärssammanfattning"
+btn_copy                     = "📋 Kopiera"
+msg_copied_title             = "Kopierat"
+msg_copied_body              = "Sammanfattning kopierad till urklipp."
+label_dmg_abbr               = "Skada"
+label_with                   = "med"
+label_mecha_prefix           = "Mecha:"
+
+# ── PDF export labels ────────────────────────────────────────────────────────
+pdf_char_name                = "Karaktärens Namn"
+pdf_char_points              = "Karaktärspoäng"
+pdf_skill_points             = "Färdighetspoäng"
+pdf_page                     = "Sida"
+pdf_of                       = "/"
+pdf_char_details             = "Karaktärsdetaljer"
+pdf_body                     = "KROPP"
+pdf_mind                     = "SINNE"
+pdf_soul                     = "SJÄL"
+pdf_hp                       = "HP"
+pdf_ep                       = "EP"
+pdf_sv                       = "Chock"
+pdf_acv                      = "AKV"
+pdf_dcv                      = "FKV"
+pdf_col_name                 = "Namn"
+pdf_col_cp                   = "KP"
+pdf_col_mp                   = "MP"
+pdf_col_refund               = "Återbet."
+pdf_col_notes                = "Anteckningar"
+pdf_col_gm                   = "Utrust."
+pdf_col_desc                 = "Besk."
+pdf_adv                      = "Förd.:"
+pdf_def                      = "Def.:"
+pdf_sp                       = "FP"
+pdf_attributes               = "Attribut"
+pdf_defects                  = "Defekter"
+pdf_weapons                  = "Vapen"
+pdf_skills                   = "Färdigheter"
+pdf_equip_notes              = "Utrustning & Äventyrsanteckningar"
+pdf_attrs_cont               = "Attribut (fortsättning)"
+pdf_defs_cont                = "Defekter (fortsättning)"
+pdf_mecha_attrs              = "Mecha-attribut"
+pdf_mecha_defects            = "Mecha-defekter"
+pdf_mecha_weapons            = "Mecha-vapen"
+pdf_mp                       = "MP:"
+pdf_hp_bar                   = "HP:"
+
+# Stat cost formulas. Each entry needs a display "name" and a Python
+# "expression" in terms of v (the stat value). The app compiles these at
+# startup and auto-builds the formula selector from the list order.
+[stat_formulas]
+
+[[stat_formulas.entries]]
+key   = "Default"
+name  = "Standard"
+# Linear: each point costs 1 CP regardless of level.
+expression = "v"
+
+[[stat_formulas.entries]]
+key   = "Free, then Three"
+name  = "Gratis, sedan Tre"
+# First 4 points are free; each point above 4 costs 3 CP.
+expression = "0 if v <= 4 else (v - 4) * 3"
+
+[[stat_formulas.entries]]
+key   = "Bracket"
+name  = "Stegvis"
+# v 1-4: 1 CP each; v 5-8: 2 CP each; v 9+: 4 CP each (cumulative).
+expression = """
+if v <= 4: return v
+if v <= 8: return 4 + (v - 4) * 2
+return 4 + 8 + (v - 8) * 4
+"""
+
+# Attribute/weapon cost formulas. Each entry needs a display "name" and a
+# Python "expression" in terms of base_cost and level. The app compiles these
+# at startup.
+[attr_formulas]
+
+[[attr_formulas.entries]]
+key   = "Default"
+name  = "Standard"
+# Linear: total cost = base_cost × level.
+expression = "base_cost * level"
+
+[[attr_formulas.entries]]
+key   = "Triangular"
+name  = "Triangulär"
+# Triangular: each successive level costs base_cost more than the previous.
+# lv1 = base, lv2 = 3×base, lv3 = 6×base, lv4 = 10×base …
+expression = "base_cost * level * (level + 1) // 2"
+
+# Character attributes.
+# costs = list of selectable CP/level values. Single entry = fixed cost.
+
+[[attributes]]
+key   = 'Animal Friendship'
+name  = 'Djurvänskap'
+costs = [1]
+
+[[attributes]]
+key   = 'Appearance'
+name  = 'Utseende'
+costs = [1]
+
+[[attributes]]
+key   = 'Art of Distraction'
+name  = 'Avledningskonst'
+costs = [1]
+
+[[attributes]]
+key   = 'Astral Projection'
+name  = 'Astralprojektion'
+costs = [1]
+
+[[attributes]]
+key   = 'Aura of Command'
+name  = 'Befehlsaura'
+costs = [1]
+
+[[attributes]]
+key   = 'Combat Mastery'
+name  = 'Stridsbehärskning'
+costs = [2]
+
+#[[attributes]]
+#key   = 'Attack Combat Mastery'
+#name  = 'Attack Combat Mastery'
+#costs = [1]
+
+#[[attributes]]
+#key   = 'Defence Combat Mastery'
+#name  = 'Defence Combat Mastery'
+#costs = [1]
+
+[[attributes]]
+key   = 'Contamination'
+name  = 'Kontaminering'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Damn Healthy!'
+name  = 'Förbannat Frisk!'
+costs = [1]
+
+[[attributes]]
+key   = 'Dimensional Portal'
+name  = 'Dimensionsportal'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Divine Relationship'
+name  = 'Gudomlig Relation'
+costs = [1]
+
+[[attributes]]
+key   = 'Dynamic Sorcery'
+name  = 'Dynamisk Trolldom'
+costs = [1, 2, 4]
+
+[[attributes]]
+key   = 'Elasticity'
+name  = 'Elasticitet'
+costs = [1]
+
+[[attributes]]
+key   = 'Electronic Counter-Measures'
+name  = 'Elektroniska Motåtgärder'
+costs = [1]
+
+[[attributes]]
+key   = 'Energy Bonus'
+name  = 'Energibonus'
+costs = [1]
+
+[[attributes]]
+key   = 'Environmental Control'
+name  = 'Miljökontroll'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Exorcism'
+name  = 'Exorcism'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Arms'
+name  = 'Extra Armar'
+costs = [1]
+
+[[attributes]]
+key   = 'Extra Attacks'
+name  = 'Extra Attacker'
+costs = [4]
+
+[[attributes]]
+key   = 'Features or Accessories'
+name  = 'Egenskaper eller Tillbehör'
+costs = [1]
+
+[[attributes]]
+key   = 'Flight'
+name  = 'Flygning'
+costs = [3, 4]
+
+[[attributes]]
+key   = 'Flunkies'
+name  = 'Hantlangare'
+costs = [1]
+
+[[attributes]]
+key   = 'Focussed Damage'
+name  = 'Fokuserad Skada'
+costs = [1]
+
+[[attributes]]
+key   = 'Force Field'
+name  = 'Kraftfält'
+costs = [2, 3, 4]
+
+[[attributes]]
+key   = 'Ground Speed'
+name  = 'Markhastighet'
+costs = [2]
+
+[[attributes]]
+key   = 'Gun Bunny'
+name  = 'Vapenexpert'
+costs = [1]
+
+[[attributes]]
+key   = 'Healing'
+name  = 'Helande'
+costs = [4]
+
+[[attributes]]
+key   = 'Heavy Armour'
+name  = 'Tungt Pansar'
+costs = [4]
+
+[[attributes]]
+key   = 'Heightened Awareness'
+name  = 'Förhöjd Medvetenhet'
+costs = [1]
+
+[[attributes]]
+key   = 'Heightened Senses'
+name  = 'Förhöjda Sinnen'
+costs = [1]
+
+[[attributes]]
+key   = 'Highly Skilled'
+name  = 'Högt Skicklig'
+costs = [1]
+
+[[attributes]]
+key   = 'Illusion'
+name  = 'Illusion'
+costs = [2, 3, 4, 5, 6]
+
+[[attributes]]
+key   = 'Insubstantial'
+name  = 'Okroppslig'
+costs = [4]
+
+[[attributes]]
+key   = 'Invisibility'
+name  = 'Osynlighet'
+costs = [3, 5, 7]
+
+[[attributes]]
+key   = 'Item of Power'
+name  = 'Kraftföremål'
+costs = [2]
+
+[[attributes]]
+key   = 'Jumping'
+name  = 'Hoppa'
+costs = [1]
+
+[[attributes]]
+key   = 'Kensei'
+name  = 'Kensei'
+costs = [1]
+
+[[attributes]]
+key   = 'Life Support'
+name  = 'Livsuppehåll'
+costs = [1]
+
+[[attributes]]
+key   = 'Light Armour'
+name  = 'Lätt Pansar'
+costs = [1]
+
+[[attributes]]
+key   = 'Magic'
+name  = 'Magi'
+costs = [4]
+
+[[attributes]]
+key   = 'Massive Damage'
+name  = 'Massiv Skada'
+costs = [2]
+
+[[attributes]]
+key   = 'Mechanical Genius'
+name  = 'Mekaniskt Geni'
+costs = [2]
+
+[[attributes]]
+key   = 'Meld'
+name  = 'Sammansmältning'
+costs = [2, 4, 8]
+
+[[attributes]]
+key   = 'Metamorphosis'
+name  = 'Metamorfos'
+costs = [5]
+
+[[attributes]]
+key   = 'Mimic'
+name  = 'Härmning'
+costs = [3]
+
+[[attributes]]
+key   = 'Mind Control'
+name  = 'Tankekontroll'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Mind Shield'
+name  = 'Tankesköld'
+costs = [1]
+
+[[attributes]]
+key   = 'Natural Weapons'
+name  = 'Naturliga Vapen'
+costs = [1]
+
+[[attributes]]
+key   = 'Nullify'
+name  = 'Upphäva'
+costs = [3]
+
+[[attributes]]
+key   = 'Organisational Ties'
+name  = 'Organisationsband'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Own a Big Mecha'
+name  = 'Äger en Stor Mecha'
+costs = [4]
+
+[[attributes]]
+key   = 'Personal Gear'
+name  = 'Personlig Utrustning'
+costs = [1]
+
+[[attributes]]
+key   = 'Place of Power'
+name  = 'Kraftplats'
+costs = [1]
+
+[[attributes]]
+key   = 'Precognition'
+name  = 'Förkännedom'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Regeneration'
+name  = 'Regenerering'
+costs = [4]
+
+[[attributes]]
+key   = 'Reincarnation'
+name  = 'Reinkarnation'
+costs = [3]
+
+[[attributes]]
+key   = 'Sensors'
+name  = 'Sensorer'
+costs = [1]
+
+[[attributes]]
+key   = 'Servant'
+name  = 'Tjänare'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Shape Change'
+name  = 'Gestaltbyte'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Shield'
+name  = 'Sköld'
+costs = [1]
+
+#[[attributes]]
+#key   = 'Shock resistant'
+#name  = 'Shock resistant'
+#costs = [1]
+
+[[attributes]]
+key   = 'Sixth Sense'
+name  = 'Sjätte Sinne'
+costs = [1]
+
+[[attributes]]
+key   = 'Size Change'
+name  = 'Storleksbyte'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Space Flight'
+name  = 'Rymdflykt'
+costs = [2]
+
+[[attributes]]
+key   = 'Special Defence'
+name  = 'Specialförsvar'
+costs = [1]
+
+[[attributes]]
+key   = 'Special Movement'
+name  = 'Specialrörelse'
+costs = [1]
+
+[[attributes]]
+key   = 'Speed'
+name  = 'Hastighet'
+costs = [1]
+
+[[attributes]]
+key   = 'Spirit Ward'
+name  = 'Andevakt'
+costs = [1]
+
+[[attributes]]
+key   = 'Star Flight'
+name  = 'Stjärnflykt'
+costs = [2]
+
+[[attributes]]
+key   = 'Stealth'
+name  = 'Smyga'
+costs = [1]
+
+[[attributes]]
+key   = 'Super Strength'
+name  = 'Superstyrka'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Swarm'
+name  = 'Svärm'
+costs = [2]
+
+[[attributes]]
+key   = 'Telekinesis'
+name  = 'Telekines'
+costs = [1, 2]
+
+[[attributes]]
+key   = 'Telepathy'
+name  = 'Telepati'
+costs = [1, 2, 3]
+
+[[attributes]]
+key   = 'Teleport'
+name  = 'Teleport'
+costs = [5, 10]
+
+[[attributes]]
+key   = 'Transfer'
+name  = 'Överföring'
+costs = [3]
+
+[[attributes]]
+key   = 'Transmutation'
+name  = 'Transmutation'
+costs = [1, 2, 3, 4]
+
+[[attributes]]
+key   = 'Tunnelling'
+name  = 'Tunnelgrävning'
+costs = [2]
+
+[[attributes]]
+key   = 'Unique Attribute'
+name  = 'Unikt Attribut'
+costs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+[[attributes]]
+key   = 'Water Speed'
+name  = 'Vattenhastighet'
+costs = [2, 3]
+
+[[attributes]]
+key   = 'Wealth'
+name  = 'Rikedom'
+costs = [3]
+
+# Which derived stat each attribute modifies (beyond its CP cost).
+# stat      = which derived value is affected (CV (Increase both ACV and DCV), ACV, DCV, HP, EP, SP, SV (Shock Value))
+# per_level = how much it changes per attribute level
+[attr_modifies]
+'Combat Mastery' = { stat = 'CV',  per_level = 1  }
+'Damn Healthy!'  = { stat = 'HP',  per_level = 10 }
+'Energy Bonus'   = { stat = 'EP',  per_level = 10 }
+'Highly Skilled' = { stat = 'SP',  per_level = 10 }
+'Toughness'      = { stat = 'HP',  per_level = 20 }
+#'Attack Combat Mastery'  = { stat = 'ACV', per_level = 1 }
+#'Defense Combat Mastery' = { stat = 'DCV', per_level = 1 }
+#'Shock resistant'        = { stat = 'SV',  per_level = 2 }
+
+# Character defects.
+# costs = list of selectable CP/level refund values.
+
+[[defects]]
+key   = 'Ageism'
+name  = 'Åldersdiskriminering'
+costs = [1]
+
+[[defects]]
+key   = 'Attack Restriction'
+name  = 'Attackbegränsning'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward'
+name  = 'Klumpig'
+costs = [1]
+
+[[defects]]
+key   = 'Awkward Size'
+name  = 'Besvärlig Storlek'
+costs = [1]
+
+[[defects]]
+key   = 'Bane'
+name  = 'Förbannelse'
+costs = [1]
+
+[[defects]]
+key   = 'Blind Fury'
+name  = 'Blind Raseri'
+costs = [1]
+
+[[defects]]
+key   = 'Cannot Talk'
+name  = 'Kan Inte Tala'
+costs = [1]
+
+[[defects]]
+key   = 'Conditional Ownership'
+name  = 'Villkorligt Ägande'
+costs = [1]
+
+[[defects]]
+key   = 'Cursed'
+name  = 'Förbannad'
+costs = [1]
+
+[[defects]]
+key   = 'Diminutive'
+name  = 'Pytteliten'
+costs = [3]
+
+[[defects]]
+key   = 'Easily Distracted'
+name  = 'Lätt Distraherad'
+costs = [1]
+
+[[defects]]
+key   = 'Girl/Guy Magnet'
+name  = 'Romantisk Magnet'
+costs = [1]
+
+[[defects]]
+key   = 'Hangar Queen'
+name  = 'Hangardrottning'
+costs = [1]
+
+[[defects]]
+key   = 'Inept Combat'
+name  = 'Klumpig Stridsman'
+costs = [2]
+
+[[defects]]
+key   = 'Involuntary Physical Change'
+name  = 'Ofrivillig Fysisk Förändring'
+costs = [1]
+
+[[defects]]
+key   = 'Magical Restrictions'
+name  = 'Magiska Begränsningar'
+costs = [1]
+
+[[defects]]
+key   = 'Marked'
+name  = 'Märkt'
+costs = [1]
+
+[[defects]]
+key   = 'Nemesis'
+name  = 'Nemesis'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Fast'
+name  = 'Inte Så Snabb'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Strong'
+name  = 'Inte Så Stark'
+costs = [1]
+
+[[defects]]
+key   = 'Not So Tough'
+name  = 'Inte Så Tålig'
+costs = [1]
+
+[[defects]]
+key   = 'One Arm/No Arms'
+name  = 'En Arm / Inga Armar'
+costs = [1]
+
+[[defects]]
+key   = 'One-Way Transformation'
+name  = 'Envägsförvandling'
+costs = [1]
+
+[[defects]]
+key   = 'Owned by a Megacorp'
+name  = 'Ägs av ett Megaföretag'
+costs = [1]
+
+[[defects]]
+key   = 'Phobia'
+name  = 'Fobi'
+costs = [1]
+
+[[defects]]
+key   = 'Physically Unappealing'
+name  = 'Fysiskt Oattraktiv'
+costs = [1]
+
+[[defects]]
+key   = 'Recurring Nightmares'
+name  = 'Återkommande Mardrömmar'
+costs = [1]
+
+[[defects]]
+key   = 'Red Tape'
+name  = 'Byråkrati'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Ground Movement'
+name  = 'Begränsad Markrörelse'
+costs = [1]
+
+[[defects]]
+key   = 'Restricted Path'
+name  = 'Begränsad Väg'
+costs = [1]
+
+[[defects]]
+key   = 'Rudimentary Manipulation'
+name  = 'Rudimentär Manipulation'
+costs = [1]
+
+[[defects]]
+key   = 'Sensory Impairment'
+name  = 'Sensorisk Nedsättning'
+costs = [1]
+
+[[defects]]
+key   = 'Significant Other (S.O.)'
+name  = 'Livskamrat (LK)'
+costs = [1]
+
+[[defects]]
+key   = 'Skeleton in the Closet'
+name  = 'Lik i Garderoben'
+costs = [1]
+
+[[defects]]
+key   = 'Social Fault'
+name  = 'Socialt Fel'
+costs = [1]
+
+[[defects]]
+key   = 'Special Requirement'
+name  = 'Speciellt Krav'
+costs = [1]
+
+[[defects]]
+key   = 'Unique Defect'
+name  = 'Unik Defekt'
+costs = [1]
+
+[[defects]]
+key   = 'Unskilled'
+name  = 'Otränad'
+costs = [1]
+
+[[defects]]
+key   = 'Volatile'
+name  = 'Instabil'
+costs = [1]
+
+[[defects]]
+key   = 'Vulnerability'
+name  = 'Sårbarhet'
+costs = [1]
+
+[[defects]]
+key   = 'Wanted'
+name  = 'Efterlyst'
+costs = [1]
+
+[[defects]]
+key   = 'Weak Point'
+name  = 'Svag Punkt'
+costs = [1]
+
+[defect_modifies]
+# stat      = which derived value is penalised (same options as attr_modifies)
+# per_level = how much it changes per defect level (applied as a penalty)
+'Inept Combat' = { stat = 'ACV', per_level = 1  }
+'Not So Tough' = { stat = 'HP',  per_level = 10 }
+'Unskilled'    = { stat = 'SP',  per_level = 10 }
+
+# Weapon advantages (Yes, I know, it should be "abilities").
+# weight   = slots consumed per selection.
+# levelled = true → numeric level (1+); false → simple on/off.
+
+[[weapon_advantages]]
+key   = 'Accurate'
+name     = 'Träffsäker'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Affects Incorporeal'
+name     = 'Drabbar Okroppsliga'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Area Effect'
+name     = 'Områdeseffekt'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Aura'
+name     = 'Aura'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Autofire'
+name     = 'Automateld'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Burning'
+name     = 'Brännande'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Concealable'
+name     = 'Döljas'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (Mild)'
+name     = 'Smittsam (Mild)'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Contagious (High)'
+name     = 'Smittsam (Hög)'
+weight   = 6
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Demoralise'
+name     = 'Demoraliserar'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Body'
+name     = 'Dränerar Kropp'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Energy'
+name     = 'Dränerar Energi'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Mind'
+name     = 'Dränerar Sinne'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Drain Soul'
+name     = 'Dränerar Själ'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flare'
+name     = 'Signalljus'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Flexible'
+name     = 'Flexibel'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing'
+name     = 'Målsökande'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Homing (Rare)'
+name     = 'Målsökande (Sällsynt)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incapacitating'
+name     = 'Handlingsförlammande'
+weight   = 3
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Incurable'
+name     = 'Obotlig'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Indirect'
+name     = 'Indirekt'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Irritant'
+name     = 'Irriterande'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Lethargy'
+name     = 'Letargi'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attack)'
+name     = 'Länkad (Attack)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Linked (Attribute)'
+name     = 'Länkad (Attribut)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Long Range'
+name     = 'Lång Räckvidd'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Muscle-Powered'
+name     = 'Muskeldriven'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'No Regeneration'
+name     = 'Ingen Regenerering'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Armour)'
+name     = 'Penetrerande (Pansar)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full Armour)'
+name     = 'Penetrerande (Fullt Pansar)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Force Field)'
+name     = 'Penetrerande (Kraftfält)'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Penetrating (Full FF)'
+name     = 'Penetrerande (Fullt KF)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Quake'
+name     = 'Jordskalv'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Selective'
+name     = 'Selektiv'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack'
+name     = 'Själattack'
+weight   = 5
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Soul Attack (ND)'
+name     = 'Själattack (ingen skada)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Spreading'
+name     = 'Spridning'
+weight   = 1
+levelled = true
+
+[[weapon_advantages]]
+key   = 'Stun'
+name     = 'Bedövning'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Tangle'
+name     = 'Snärjning'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Trap'
+name     = 'Fälla'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric'
+name     = 'Vampyrisk'
+weight   = 1
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Vampiric (Overcharge)'
+name     = 'Vampyrisk (Överladdad)'
+weight   = 2
+levelled = false
+
+[[weapon_advantages]]
+key   = 'Devastating'
+name     = 'Förödande'
+# Special: does NOT reduce damage via the normal abi/dis weight mechanism.
+# Instead, each level adds +4 flat damage and +1 to the final weapon cost (Only add +1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Weapon defects (Yes, I know, it should be "disabilities").
+
+[[weapon_defects]]
+key   = 'Backblast'
+name     = 'Bakåtexplosion'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Backblast (AoE)'
+name     = 'Bakåtexplosion (Område)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Drop Shields'
+name     = 'Sänker Sköldar'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Exposed (Mecha-Only)'
+name     = 'Exponerad (Endast Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Extra Energy'
+name     = 'Extra Energi'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Fixed (Mecha-Only)'
+name     = 'Fast (Endast Mecha)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Inaccurate'
+name     = 'Onoggrann'
+weight   = 1
+levelled = true
+
+[[weapon_defects]]
+key   = 'Internal'
+name     = 'Intern'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (6 shots)'
+name     = 'Begränsade Skott (6 skott)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (3 shots)'
+name     = 'Begränsade Skott (3 skott)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Limited Shots (Single)'
+name     = 'Begränsade Skott (Enskilt)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Low Penetration'
+name     = 'Låg Penetration'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Melee'
+name     = 'Närstrid'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'No Damage'
+name     = 'Ingen Skada'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Environment)'
+name     = 'Endast i (Miljö)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Only in (Rare Environment)'
+name     = 'Endast i (Sällsynt Miljö)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Self-Destruct'
+name     = 'Självdestruktion'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Short Range'
+name     = 'Kort Räckvidd'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 turn)'
+name     = 'Långsam (1 runda)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (1 minute)'
+name     = 'Långsam (1 minut)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Hours)'
+name     = 'Långsam (Timmar)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Days)'
+name     = 'Långsam (Dagar)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Slow (Months)'
+name     = 'Långsam (Månader)'
+weight   = 5
+levelled = false
+
+[[weapon_defects]]
+key   = 'Static'
+name     = 'Statisk'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (EoT)'
+name     = 'Stoppbar (RoR)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (5 turns)'
+name     = 'Stoppbar (5 rundor)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (1 minute)'
+name     = 'Stoppbar (1 minut)'
+weight   = 3
+levelled = false
+
+[[weapon_defects]]
+key   = 'Stoppable (Hours)'
+name     = 'Stoppbar (Timmar)'
+weight   = 4
+levelled = false
+
+[[weapon_defects]]
+key   = 'Toxic'
+name     = 'Giftig'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Two Hands'
+name     = 'Två Händer'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Unreliable'
+name     = 'Opålitlig'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5)'
+name     = 'Använder Energi (5)'
+weight   = 1
+levelled = false
+
+[[weapon_defects]]
+key   = 'Uses Energy (5xLvl)'
+name     = 'Använder Energi (5×Niv)'
+weight   = 2
+levelled = false
+
+[[weapon_defects]]
+key   = 'Ineffective'
+name     = 'Ineffektiv'
+# Special: does NOT increase damage via the normal abi/dis weight mechanism.
+# Instead, each level remove -4 flat damage and -1 to the final weapon cost (Only add -1 to gear damage).
+# weight = 0 keeps it invisible to the normal weight calculation.
+weight   = 0
+levelled = true
+
+# Mecha-specific attributes (shown after normal attributes in the mecha editor).
+
+[[mecha_attributes]]
+key   = 'Artificial Intelligence (A.I.)'
+name  = 'Artificiell Intelligens (AI)'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Extra Capacity'
+name  = 'Extra Kapacitet'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Extra Endurance'
+name  = 'Extra Uthållighet'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Manoeuvre Bonus'
+name  = 'Manöverbonus'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Mecha Regeneration'
+name  = 'Mecha-regenerering'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Mechanical Transformation'
+name  = 'Mekanisk Transformation'
+costs = [2, 4]
+
+[[mecha_attributes]]
+key   = 'Merging'
+name  = 'Sammansmältning'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Multiple Mecha Attacks'
+name  = 'Multipla Mecha-attacker'
+costs = [10]
+
+[[mecha_attributes]]
+key   = 'Special Equipment'
+name  = 'Specialutrustning'
+costs = [2]
+
+[[mecha_attributes]]
+key   = 'Subordinate Mecha'
+name  = 'Underordnad Mecha'
+costs = [1]
+
+[[mecha_attributes]]
+key   = 'Summonable'
+name  = 'Kallbar'
+costs = [4]
+
+[[mecha_attributes]]
+key   = 'Super Transformation'
+name  = 'Supertransformation'
+costs = [3, 5]
+
+[[mecha_attributes]]
+key   = 'Toughness'
+name  = 'Seghet'
+costs = [4]
+
+# Mecha-specific defects.
+
+[[mecha_defects]]
+key   = 'Crew Requirement'
+name  = 'Besättningskrav'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Exposed Occupants'
+name  = 'Exponerade Passagerare'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Limited Endurance'
+name  = 'Begränsad Uthållighet'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Mutual Damage'
+name  = 'Ömsesidig Skada'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Noisy'
+name  = 'Bullrig'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Poor Manoeuvrability'
+name  = 'Dålig Manöverförmåga'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Reduced Capacity'
+name  = 'Minskad Kapacitet'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Start-Up Time'
+name  = 'Uppstartstid'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Summoning Object'
+name  = 'Kallningsföremål'
+costs = [1]
+
+[[mecha_defects]]
+key   = 'Wind Powered'
+name  = 'Vinddrivet'
+costs = [1]
+
+# Attributes from the main list that are NOT available in the mecha editor.
+[mecha]
+banned_attributes = [
+    'Dynamic Sorcery',
+    'Magic',
+    'Own a Big Mecha',
+    'Servant',
+]
+
+# Campaign settings that determine skill point costs.
+[skills_config]
+settings = ['Action Adventure', 'Cyberpunk', 'High Fantasy', 'Mecha Drama', 'Occult Horror', 'Romantic Comedy', 'Space Opera', 'Urban Fantasy']
+
+# Display names for campaign settings (key = internal name used in save files).
+[settings_names]
+'Action Adventure' = 'Action Adventure'
+'Cyberpunk'        = 'Cyberpunk'
+'High Fantasy'     = 'High Fantasy'
+'Mecha Drama'      = 'Mecha Drama'
+'Occult Horror'    = 'Occult Horror'
+'Romantic Comedy'  = 'Romantic Comedy'
+'Space Opera'      = 'Space Opera'
+'Urban Fantasy'    = 'Urban Fantasy'
+
+
+# Skills: SP cost per campaign setting.
+# A cost of 0 means the skill is unavailable in that setting.
+
+[skills.Acrobatics]
+key   = 'Acrobatics'
+name = 'Akrobatik'
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Animal_Training]
+key   = 'Animal Training'
+name = 'Djurträning'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Architecture]
+key   = 'Architecture'
+name = 'Arkitektur'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Artisan]
+key   = 'Artisan'
+name = 'Hantverk'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Biological_Sciences]
+key   = 'Biological Sciences'
+name = 'Biologiska Vetenskaper'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Boating]
+key   = 'Boating'
+name = 'Båtförande'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Burglary]
+key   = 'Burglary'
+name = 'Inbrott'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Business_Management]
+key   = 'Business Management'
+name = 'Företagsledning'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Civilisation]
+key   = 'Civilisation'
+name = 'Civilisation'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Climbing]
+key   = 'Climbing'
+name = 'Klättring'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Computers]
+key   = 'Computers'
+name = 'Datorer'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[skills.Controlled_Breathing]
+key   = 'Controlled Breathing'
+name = 'Kontrollerad Andning'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cooking]
+key   = 'Cooking'
+name = 'Matlagning'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Cultural_Arts]
+key   = 'Cultural Arts'
+name = 'Kulturella Konster'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 4
+
+[skills.Demolitions]
+key   = 'Demolitions'
+name = 'Sprängning'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 4
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Disguise]
+key   = 'Disguise'
+name = 'Förklädnad'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[skills.Domestic_Arts]
+key   = 'Domestic Arts'
+name = 'Hushållskonst'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Driving]
+key   = 'Driving'
+name = 'Körning'
+"Action Adventure" = 5
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Electronics]
+key   = 'Electronics'
+name = 'Elektronik'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 0
+"Mecha Drama" = 4
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Empathy]
+key   = 'Empathy'
+name = 'Empati'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Engineering]
+key   = 'Engineering'
+name = 'Ingenjörsvetenskap'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Environmental_Sciences]
+key   = 'Environmental Sciences'
+name = 'Miljövetenskaper'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Etiquette]
+key   = 'Etiquette'
+name = 'Etikett'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Forgery]
+key   = 'Forgery'
+name = 'Förfalskning'
+"Action Adventure" = 2
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Gaming]
+key   = 'Gaming'
+name = 'Spel'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Interrogation]
+key   = 'Interrogation'
+name = 'Förhör'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Intimidation]
+key   = 'Intimidation'
+name = 'Skrämsel'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Law]
+key   = 'Law'
+name = 'Lag'
+"Action Adventure" = 1
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Linguistics]
+key   = 'Linguistics'
+name = 'Lingvistik'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Leadership]
+key   = 'Leadership'
+name = 'Ledarskap'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Listening]
+key   = 'Listening'
+name = 'Lyssnande'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Mechanics]
+key   = 'Mechanics'
+name = 'Mekanik'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 5
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 2
+
+[skills.Medical]
+key   = 'Medical'
+name = 'Medicin'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Military_Sciences]
+key   = 'Military Sciences'
+name = 'Militärvetenskap'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 5
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Naturopathy]
+key   = 'Naturopathy'
+name = 'Naturmedicin'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 3
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Navigation]
+key   = 'Navigation'
+name = 'Navigation'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 3
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 4
+"Urban Fantasy" = 1
+
+[skills.Occult]
+key   = 'Occult'
+name = 'Ockultism'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 6
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 5
+
+[skills.Occupation]
+key   = 'Occupation'
+name = 'Yrke'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Performing_Arts]
+key   = 'Performing Arts'
+name = 'Scenkonst'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 4
+"Space Opera" = 1
+"Urban Fantasy" = 3
+
+[skills.Persuasion]
+key   = 'Persuasion'
+name = 'Övertalning'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Physical_Sciences]
+key   = 'Physical Sciences'
+name = 'Fysiska Vetenskaper'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 1
+
+[skills.Piloting]
+key   = 'Piloting'
+name = 'Pilotföring'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 5
+"Urban Fantasy" = 1
+
+[skills.Poisons]
+key   = 'Poisons'
+name = 'Gifter'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Police_Sciences]
+key   = 'Police Sciences'
+name = 'Polisvetenskap'
+"Action Adventure" = 4
+"Cyberpunk" = 3
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 3
+"Urban Fantasy" = 2
+
+[skills.Powerlifting]
+key   = 'Powerlifting'
+name = 'Tyngdlyftning'
+"Action Adventure" = 3
+"Cyberpunk" = 2
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Religion]
+key   = 'Religion'
+name = 'Religion'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 2
+"Mecha Drama" = 1
+"Occult Horror" = 4
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 2
+
+[skills.Riding]
+key   = 'Riding'
+name = 'Ridning'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Search]
+key   = 'Search'
+name = 'Sökning'
+"Action Adventure" = 2
+"Cyberpunk" = 4
+"High Fantasy" = 2
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Seduction]
+key   = 'Seduction'
+name = 'Förförelse'
+"Action Adventure" = 3
+"Cyberpunk" = 3
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 4
+"Space Opera" = 2
+"Urban Fantasy" = 3
+
+[skills.Sleight_of_Hand]
+key   = 'Sleight of Hand'
+name = 'Händernas Snabbhet'
+"Action Adventure" = 2
+"Cyberpunk" = 2
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Sneak]
+key   = 'Sneak'
+name = 'Smyga'
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 4
+"Urban Fantasy" = 3
+
+[skills.Social_Sciences]
+key   = 'Social Sciences'
+name = 'Samhällsvetenskap'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Sports]
+key   = 'Sports'
+name = 'Sport'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 5
+"Space Opera" = 2
+"Urban Fantasy" = 1
+
+[skills.Street_Sense]
+key   = 'Street Sense'
+name = 'Gatuinstinkt'
+"Action Adventure" = 4
+"Cyberpunk" = 5
+"High Fantasy" = 1
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 2
+"Space Opera" = 2
+"Urban Fantasy" = 4
+
+[skills.Swimming]
+key   = 'Swimming'
+name = 'Simning'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Urban_Tracking]
+key   = 'Urban Tracking'
+name = 'Stadsuppspårning'
+"Action Adventure" = 3
+"Cyberpunk" = 4
+"High Fantasy" = 3
+"Mecha Drama" = 3
+"Occult Horror" = 3
+"Romantic Comedy" = 3
+"Space Opera" = 3
+"Urban Fantasy" = 4
+
+[skills.Visual_Arts]
+key   = 'Visual Arts'
+name = 'Bildkonst'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 1
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+[skills.Wilderness_Survival]
+key   = 'Wilderness Survival'
+name = 'Vildmarksöverlevnad'
+"Action Adventure" = 2
+"Cyberpunk" = 1
+"High Fantasy" = 4
+"Mecha Drama" = 2
+"Occult Horror" = 2
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Wilderness_Tracking]
+key   = 'Wilderness Tracking'
+name = 'Vildmarksuppspårning'
+"Action Adventure" = 1
+"Cyberpunk" = 1
+"High Fantasy" = 3
+"Mecha Drama" = 2
+"Occult Horror" = 1
+"Romantic Comedy" = 1
+"Space Opera" = 1
+"Urban Fantasy" = 1
+
+[skills.Writing]
+key   = 'Writing'
+name = 'Skrivande'
+"Action Adventure" = 1
+"Cyberpunk" = 2
+"High Fantasy" = 1
+"Mecha Drama" = 1
+"Occult Horror" = 2
+"Romantic Comedy" = 3
+"Space Opera" = 1
+"Urban Fantasy" = 2
+
+# Combat skills. is_attack = true for offensive skills, false for defensive.
+
+[combat_skills.Archery]
+key   = 'Archery'
+name      = 'Bågskytte'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 3
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 3
+"Urban Fantasy" = 3
+
+[combat_skills.Gun_Combat]
+key   = 'Gun Combat'
+name      = 'Skjutvapenstrid'
+is_attack = true
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 5
+"Occult Horror" = 4
+"Romantic Comedy" = 3
+"Space Opera" = 5
+"Urban Fantasy" = 5
+
+[combat_skills.Heavy_Weapons]
+key   = 'Heavy Weapons'
+name      = 'Tunga Vapen'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 5
+"High Fantasy" = 0
+"Mecha Drama" = 6
+"Occult Horror" = 4
+"Romantic Comedy" = 2
+"Space Opera" = 5
+"Urban Fantasy" = 3
+
+[combat_skills.Melee_Attack]
+key   = 'Melee Attack'
+name      = 'Närstridattack'
+is_attack = true
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Melee_Defence]
+key   = 'Melee Defence'
+name      = 'Närstridförsvar'
+is_attack = false
+"Action Adventure" = 5
+"Cyberpunk" = 4
+"High Fantasy" = 5
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Ranged_Defence]
+key   = 'Ranged Defence'
+name      = 'Distansförsvar'
+is_attack = false
+"Action Adventure" = 6
+"Cyberpunk" = 5
+"High Fantasy" = 4
+"Mecha Drama" = 5
+"Occult Horror" = 5
+"Romantic Comedy" = 4
+"Space Opera" = 5
+"Urban Fantasy" = 4
+
+[combat_skills.Thrown_Weapons]
+key   = 'Thrown Weapons'
+name      = 'Kastvapen'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 4
+"Romantic Comedy" = 4
+"Space Opera" = 4
+"Urban Fantasy" = 5
+
+[combat_skills.Unarmed_Attack]
+key   = 'Unarmed Attack'
+name      = 'Obeväpnad Attack'
+is_attack = true
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
+
+[combat_skills.Unarmed_Defence]
+key   = 'Unarmed Defence'
+name      = 'Obeväpnat Försvar'
+is_attack = false
+"Action Adventure" = 4
+"Cyberpunk" = 4
+"High Fantasy" = 4
+"Mecha Drama" = 4
+"Occult Horror" = 5
+"Romantic Comedy" = 5
+"Space Opera" = 4
+"Urban Fantasy" = 4
