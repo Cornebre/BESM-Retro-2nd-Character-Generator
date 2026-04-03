@@ -1,21 +1,16 @@
 name: Build & Release
-
 on:
   release:
     types: [published]
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   build:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
-
     runs-on: ${{ matrix.os }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,25 +25,31 @@ jobs:
 
       - name: Build executable (Windows)
         if: runner.os == 'Windows'
+        shell: pwsh
         run: |
-          pyinstaller --onefile --noconsole `
-            --add-data "besm2nd_config_eng.toml;." `
-            --add-data "besm2nd_config_fra.toml;." `
-            --add-data "BESM2nd_Native_Arsenal.json;." `
-            --add-data "BESM2_Retro_logo_dtrpg_250px.png;." `
-            --name "BESM2nd_CharGen" `
-            BESM2nd_CharGen.py
+          $addData = @()
+          Get-ChildItem -Path "besm2nd_language_files" -Filter "besm2nd_config_*.toml" |
+            ForEach-Object { $addData += "--add-data `"$($_.FullName);language_files`"" }
+          Get-ChildItem -Path "besm2nd_language_files/machine_translated" -Filter "besm2nd_config_*.toml" |
+            ForEach-Object { $addData += "--add-data `"$($_.FullName);language_files/machine_translated`"" }
+          $addData += "--add-data `"BESM2nd_Native_Arsenal.json;.`""
+          $addData += "--add-data `"BESM2_Retro_logo_dtrpg_250px.png;.`""
+          $cmd = "pyinstaller --onefile --noconsole " + ($addData -join " ") + " --name BESM2nd_CharGen BESM2nd_CharGen.py"
+          Invoke-Expression $cmd
 
       - name: Build executable (Linux)
         if: runner.os == 'Linux'
         run: |
-          pyinstaller --onefile \
-            --add-data "besm2nd_config_eng.toml:." \
-            --add-data "besm2nd_config_fra.toml:." \
-            --add-data "BESM2nd_Native_Arsenal.json:." \
-            --add-data "BESM2_Retro_logo_dtrpg_250px.png:." \
-            --name "BESM2nd_CharGen" \
-            BESM2nd_CharGen.py
+          ADD_DATA=""
+          for f in besm2nd_language_files/besm2nd_config_*.toml; do
+            ADD_DATA="$ADD_DATA --add-data \"$f:language_files\""
+          done
+          for f in besm2nd_language_files/machine_translated/besm2nd_config_*.toml; do
+            ADD_DATA="$ADD_DATA --add-data \"$f:language_files/machine_translated\""
+          done
+          ADD_DATA="$ADD_DATA --add-data \"BESM2nd_Native_Arsenal.json:.\""
+          ADD_DATA="$ADD_DATA --add-data \"BESM2_Retro_logo_dtrpg_250px.png:.\""
+          eval pyinstaller --onefile $ADD_DATA --name BESM2nd_CharGen BESM2nd_CharGen.py
 
       - name: Upload to Release (Windows)
         if: runner.os == 'Windows' && github.event_name == 'release'
